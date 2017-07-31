@@ -49,6 +49,14 @@ such that $H^1(X, \mathcal{I} \otimes \mathcal{L}^{\otimes n}) = 0$.
 \end{enumerate}
 \end{lemma}
 
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0B5V}{Tag 0B5V}]{stacks-project}}]
+\label{lemma-surjective-finite-morphism-ample}
+Let $R$ be a Noetherian ring. Let $f : Y \to X$ be a morphism of
+schemes proper over $R$. Let $\mathcal{L}$ be an
+invertible $\mathcal{O}_X$-module. Assume $f$ is finite and surjective.
+Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
+\end{lemma}
+
 \begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/09MS}{Tag 09MS}]{stacks-project}}]
 \label{lemma-ample-on-reduction}
 Let $i : Z \to X$ be a closed immersion of Noetherian schemes
@@ -88,7 +96,8 @@ Assume (1) holds.
 Then (2) follows from Lemma~\ref{lemma-ample-positive}.
 
 Assume (2) holds.
-Reduce to the integral case.\todo{Figure out how to package this reduction.}
+Using Lemma~\ref{lemma-surjective-finite-morphism-ample} and
+Lemma~\ref{lemma-ample-on-reduction}, reduce to the case $X$ is integral.
 We proceed by induction on $\mathrm{dim}(X)$.
 When $\mathrm{dim}(X) = 1$, (2) says that $\deg(\mathcal{L}) > 0$ and hence
 by ...\todo{Find reference} $L$ is ample.
