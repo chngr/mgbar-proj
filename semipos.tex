@@ -2,21 +2,24 @@
 
 
 \newcommand{\todo}[1]{\footnote{\textbf{TODO.} #1}}
+
 \begin{document}
 \title{Semipositivity}
 \maketitle
-
 
 \section{Introduction}
 This section develops the basic properties of semipositivity.
 
 
 \begin{definition}
-Let $G$...
+Let $G=\prod_i GL(E_i)$ be a product of general linear groups. A representation $\rho:G\rightarrow GL(F)$ is called semipositive (or polynomial) if it extends to a morphism $\overline{\rho}:\prod_i End(E_i)\rightarrow End(F)$.
 \end{definition}
 
 \begin{lemma}
-properties of semipositivity (maybe multiple lemmas)
+The following representations are semipositive:
+\item[(i)] Symmetric products;
+\item[(ii)] Let $V_1, \dots, V_n$ be vector bundles with typical fibers $E_i$ and let $\rho$ be any representation of $G$. One can define a vector bundle $\rho(V_1,\dots,V_n)$ as follows: TO DO.
+\item[(iii)] Assume in example (ii) that every $V_i$ is a direct sum of line bundles $\sum_j L_{ij}$. Then the structure group of  $V_i$ can be reduced to a torus. Thus the structure group of $\rho(V_1,\dots, V_n)$ is also a torus and is a direct sum of line bundles of the form $\otimes L_{ij}^{a_{ij}}$. Since $\rho$ is semipositive, each of the $a_{ij}$ is nonnegative.
 \end{lemma}
 
 
@@ -26,19 +29,23 @@ properties of semipositivity (maybe multiple lemmas)
 
 
 \begin{definition}
-A locally free sheaf $V$ on a scheme $X$ is semipositive if for every map from a proper curve $f:C\to X$ every quotient line bundle of $f^*V$ has nonnegative degree.
+A locally free sheaf $V$ on a scheme $X$ is semipositive if for every map from a proper smooth curve $f:C\to X$ every quotient line bundle of $f^*V$ has nonnegative degree.
 \end{definition}
 
-\begin{lemma}
-A locally free sheaf $V$ on a scheme $X$ is semipositive if and only if $O_{Proj V}(1)$ is nef on $Proj_XV$.
+\begin{lemma}\label{semipos=nef}
+A locally free sheaf $V$ on a scheme $X$ is semipositive if and only if $\mathcal{O}_{Proj V}(1)$ is nef on $Proj_XV$.
 \end{lemma}
 \begin{proof}
-
+Let $\pi: Proj_X V\to V$ be the projection map. By definitions, semipositivity of $V$ implies nef-ness of $\mathcal{O}_{Proj V}(1)$. For the other direction, consider $C\subset \mathbb{P}_XV$ a curve. Then $\mathcal{O}_{\mathbb{P}V}(1)|_C$ is a quotient of $\pi^*V|_C$. 
 \end{proof}
 
 \begin{lemma}
-3.4 Semipositivity is an open condition in flat families.
+Semipositivity is an open condition in flat families.
 \end{lemma}
+
+\begin{proof}
+It follows from Lemma \ref{semipos=nef} and nef-ness is an open condition.
+\end{proof}
 
 \begin{lemma}\label{global_generation_of_specific_twist_on_curve}
 Let $C$ be a smooth curve of genus $g$ over a field and let $\mathcal{E}$ be a vector bundle on $C$. Let $\mathcal{L}$ be a line bundle on $C$ of degree at least $2g$. Then $\mathcal{E}\otimes\mathcal{L}$ is globally generated.
@@ -102,9 +109,6 @@ Let $X$ be a scheme and $V$ a semipositive vector bundle on $X$.
 Then, $Sym^dV$ is a semipositive vector bundle.
 \end{lemma}
 
-\begin{proof}
-Immediate from and Lemma \todo{sym is semipos} and Lemma \ref{apply_rho_still_semipos}.
-\end{proof}
 
 \begin{lemma}
 Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$. 
