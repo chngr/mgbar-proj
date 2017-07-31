@@ -2,6 +2,7 @@
 
 
 \newcommand{\todo}[1]{\footnote{\textbf{TODO.} #1}}
+
 \begin{document}
 \title{Semipositivity}
 \maketitle
@@ -12,11 +13,14 @@ This section develops the basic properties of semipositivity.
 
 
 \begin{definition}
-Let $G$...
+Let $G=\prod_i GL(E_i)$ be a product of general linear groups. A representation $\rho:G\rightarrow GL(F)$ is called semipositive (or polynomial) if it extends to a morphism $\overline{\rho}:\prod_i End(E_i)\rightarrow End(F)$.
 \end{definition}
 
 \begin{lemma}
-properties of semipositivity (maybe multiple lemmas)
+The following representations are semipositive:
+\item[(i)] Symmetric products;
+\item[(ii)] Let $V_1, \dots, V_n$ be vector bundles with typical fibers $E_i$ and let $\rho$ be any representation of $G$. One can define a vector bundle $\rho(V_1,\dots,V_n)$ as follows: TO DO.
+\item[(iii)] Assume in example (ii) that every $V_i$ is a direct sum of line bundles $\sum_j L_{ij}$. Then the structure group of  $V_i$ can be reduced to a torus. Thus the structure group of $\rho(V_1,\dots, V_n)$ is also a torus and is a direct sum of line bundles of the form $\otimes L_{ij}^{a_{ij}}$. Since $\rho$ is semipositive, each of the $a_{ij}$ is nonnegative.
 \end{lemma}
 
 
