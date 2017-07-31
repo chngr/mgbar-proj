@@ -1,0 +1,90 @@
+\input{preamble}
+
+
+\newcommand{\todo}[1]{\footnote{\textbf{TODO.} #1}}
+\begin{document}
+\title{Ampleness Criteria for algebraic spaces}
+\maketitle
+
+\section{Ampleness for spaces}
+\begin{definition}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D31}{Tag 0D31}]{stacks-project}}]
+Let $S$ be a scheme.
+Let $f : X \to Y$ be a morphism of algebraic spaces over $S$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+We say $\mathcal{L}$ is {\it relatively ample}, or {\it $f$-relatively ample},
+or {\it ample on $X/Y$}, or {\it $f$-ample} if $f : X \to Y$
+is representable and for every morphism $Z \to Y$
+where $Z$ is a scheme, the pullback $\mathcal{L}_T$ of $\mathcal{L}$
+to $X_Z = Z \times_Y X$ is ample on $X_Z/Z$.
+\end{definition}
+
+\begin{definition}[{\cite[II, Def.\ 7.9]{Kn}}]\label{definition-knutson-ample}
+  Let $f : X \to Y$ be a map of algebraic spaces. Let $\mathcal{L}$ be an
+  invertible sheaf on $X$. We say $\mathcal{L}$ is {\it $f$-ample} if there
+  exists a factorization
+  $$
+  \xymatrix{
+    X \ar@{^{(}->}[r]^i\ar[dr]_f & \mathbf{P}^n_Y \ar[d]\\
+    & Y
+  }
+  $$
+  where $i$ is an immersion, such that for some integer $k$, we have
+  $\mathcal{L}^{\otimes k} \simeq i^*\mathcal{O}(1)$, where $\mathcal{O}(1)$ is
+  the canonical sheaf on $\mathbf{P}^n_k$.\todo{Is this equivalent to Definition
+  \ref{definition-relatively-ample}?}
+\end{definition}
+
+\begin{lemma}[Serre vanishing for algebraic spaces, {\cite[\href{http://stacks.math.columbia.edu/tag/0D38}{Tag 0D38}]{stacks-project}}]
+Let $R$ be a Noetherian ring. Let $X$ be an algebraic space over $R$
+such that the structure morphism $f : X \to \Spec(R)$ is proper.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+The following are equivalent
+\begin{enumerate}
+\item $\mathcal{L}$ is ample on $X/R$
+(Definition \ref{definition-relatively-ample}),
+\item for every coherent $\mathcal{O}_X$-module $\mathcal{F}$
+there exists an $n_0 \geq 0$ such that
+$H^p(X, \mathcal{F} \otimes \mathcal{L}^{\otimes n}) = 0$
+for all $n \geq n_0$ and $p > 0$.
+\end{enumerate}
+\end{lemma}
+
+\section{Numerical intersection theory for spaces}
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0DN4}{Tag 0DN4}]{stacks-project}}]\label{tag:0DN4}
+Let $k$ be a field. Let $X$ be a proper algebraic space over $k$.
+Let $\mathcal{F}$ be a coherent $\mathcal{O}_X$-module. Let
+$\mathcal{L}_1, \ldots, \mathcal{L}_r$ be invertible $\mathcal{O}_X$-modules.
+The map
+$$
+(n_1, \ldots, n_r) \longmapsto
+\chi(X, \mathcal{F} \otimes
+\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+\mathcal{L}_r^{\otimes n_r})
+$$
+is a numerical polynomial in $n_1, \ldots, n_r$ of total degree at
+most the dimension of the scheme theoretic support of $\mathcal{F}$.
+\end{lemma}
+We can then define:
+\begin{definition}[{cf.\ \cite[\href{http://stacks.math.columbia.edu/tag/0BEP}{Tag 0BEP}]{stacks-project}}]\label{tag:0BEP}
+Let $k$ be a field. Let $X$ be a proper algebraic space over $k$. Let
+$i : Z \to X$ be a closed subscheme of dimension $d$. Let
+$\mathcal{L}_1, \ldots, \mathcal{L}_d$ be invertible
+$\mathcal{O}_X$-modules. We define the {\it intersection number}
+$(\mathcal{L}_1 \cdots \mathcal{L}_d \cdot Z)$
+as the coefficient of $n_1 \ldots n_d$ in the numerical polynomial
+$$
+\chi(X, i_*\mathcal{O}_Z \otimes \mathcal{L}_1^{\otimes n_1} \otimes
+\ldots \otimes \mathcal{L}_d^{\otimes n_d}) =
+\chi(Z, \mathcal{L}_1^{\otimes n_1} \otimes
+\ldots \otimes \mathcal{L}_d^{\otimes n_d}|_Z)
+$$
+In the special
+case that $\mathcal{L}_1 = \ldots = \mathcal{L}_d = \mathcal{L}$
+we write $(\mathcal{L}^d \cdot Z)$.
+\end{definition}
+
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
