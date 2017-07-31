@@ -6,8 +6,35 @@
 \title{Ampleness Critera}
 \maketitle
 
+\section{Ampleness}
+\begin{definition}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D31}{Tag 0D31}]{stacks-project}}]\label{definition-relatively-ample}
+Let $S$ be a scheme.
+Let $f : X \to Y$ be a morphism of algebraic spaces over $S$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+We say $\mathcal{L}$ is {\it relatively ample}, or {\it $f$-relatively ample},
+or {\it ample on $X/Y$}, or {\it $f$-ample} if $f : X \to Y$
+is representable and for every morphism $Z \to Y$
+where $Z$ is a scheme, the pullback $\mathcal{L}_T$ of $\mathcal{L}$
+to $X_Z = Z \times_Y X$ is ample on $X_Z/Z$.
+\end{definition}
+
+\begin{lemma}[Serre vanishing for algebraic spaces, {\cite[\href{http://stacks.math.columbia.edu/tag/0D38}{Tag 0D38}]{stacks-project}}]\label{lemma-vanshing-gives-ample}
+Let $R$ be a Noetherian ring. Let $X$ be an algebraic space over $R$
+such that the structure morphism $f : X \to \Spec(R)$ is proper.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+The following are equivalent
+\begin{enumerate}
+\item $\mathcal{L}$ is ample on $X/R$
+(Definition \ref{definition-relatively-ample}),
+\item for every coherent $\mathcal{O}_X$-module $\mathcal{F}$
+there exists an $n_0 \geq 0$ such that
+$H^p(X, \mathcal{F} \otimes \mathcal{L}^{\otimes n}) = 0$
+for all $n \geq n_0$ and $p > 0$.
+\end{enumerate}
+\end{lemma}
+
 \section{Intersection theory}
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0DN4}{Tag 0DN4}]{stacks-project}}]\label{tag:0DN4}
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0DN4}{Tag 0DN4}]{stacks-project}}]\label{lemma-numerical-polynomial-from-euler}
 Let $k$ be a field. Let $X$ be a proper algebraic space over $k$.
 Let $\mathcal{F}$ be a coherent $\mathcal{O}_X$-module. Let
 $\mathcal{L}_1, \ldots, \mathcal{L}_r$ be invertible $\mathcal{O}_X$-modules.
@@ -22,7 +49,7 @@ is a numerical polynomial in $n_1, \ldots, n_r$ of total degree at
 most the dimension of the scheme theoretic support of $\mathcal{F}$.
 \end{lemma}
 We can then define:
-\begin{definition}[{cf.\ \cite[\href{http://stacks.math.columbia.edu/tag/0BEP}{Tag 0BEP}]{stacks-project}}]\label{tag:0BEP}
+\begin{definition}[{cf.\ \cite[\href{http://stacks.math.columbia.edu/tag/0BEP}{Tag 0BEP}]{stacks-project}}]
 Let $k$ be a field. Let $X$ be a proper algebraic space over $k$. Let
 $i : Z \to X$ be a closed subscheme of dimension $d$. Let
 $\mathcal{L}_1, \ldots, \mathcal{L}_d$ be invertible
@@ -57,9 +84,9 @@ Then the following are equivalent:
 \end{theorem}
 
 \begin{proof}
-Assume $\mathcal{L}$ is ample.
-Then there is some $n > 0$ such that $\mathcal{L}^\otimes{n}$ is very ample.
-Replacing $\mathcal{L}$ by $\mathcal{L}^\otimes{n}$, we may assume
+Assume (1) holds.
+Then there is some $n > 0$ such that $\mathcal{L}^{\otimes n}$ is very ample.
+Replacing $\mathcal{L}$ by $\mathcal{L}^{\otimes n}$, we may assume
 $\mathcal{L}$ is very ample.
 Let $f : X \hookrightarrow \mathbf{P}^n$ be a closed immersion such that
 $f^*\mathcal{O}_{\mathbf{P}^n}(1) = \mathcal{L}$.
@@ -135,11 +162,11 @@ so that $\mathcal{L} = \mathcal{O}_X(D)$ for some effective Cartier divisor
 $D$.
 
 The short exact sequence\todo{Put pushforward along inclusion \(i \colon D
-    \hookrightarrow X\)?}
+    \hookrightarrow X\)? OK}
 $$
   0 \to \mathcal{O}_X((m-1)D) \to \mathcal{O}_X(mD) \to \mathcal{O}_D(mD) \to 0
 $$
-together with Serre vanishing\todo{Reference.} applied to $\mathcal{O}_D(mD)$,
+together with Serre vanishing (Lemma \ref{lemma-vanshing-gives-ample}) applied to $\mathcal{O}_D(mD)$,
 we have a surjection
 $$
 \rho_m \colon H^1(X,\mathcal{O}_X((m -1)D)) \to H^1(X,\mathcal{O}_X(mD))
