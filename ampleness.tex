@@ -18,6 +18,22 @@ where $Z$ is a scheme, the pullback $\mathcal{L}_T$ of $\mathcal{L}$
 to $X_Z = Z \times_Y X$ is ample on $X_Z/Z$.
 \end{definition}
 
+\begin{definition}[{\cite[II, Def.\ 7.9]{Kn}}]\label{definition-knutson-ample}
+  Let $f : X \to Y$ be a map of algebraic spaces. Let $\mathcal{L}$ be an
+  invertible sheaf on $X$. We say $\mathcal{L}$ is {\it $f$-ample} if there
+  exists a factorization
+  $$
+  \xymatrix{
+    X \ar@{^{(}->}[r]^i\ar[dr]_f & \mathbf{P}^n_Y \ar[d]\\
+    & Y
+  }
+  $$
+  where $i$ is an immersion, such that for some integer $k$, we have
+  $\mathcal{L}^{\otimes k} \simeq i^*\mathcal{O}(1)$, where $\mathcal{O}(1)$ is
+  the canonical sheaf on $\mathbf{P}^n_k$.\todo{Is this equivalent to Definition
+  \ref{definition-relatively-ample}?}
+\end{definition}
+
 \begin{lemma}[Serre vanishing for algebraic spaces, {\cite[\href{http://stacks.math.columbia.edu/tag/0D38}{Tag 0D38}]{stacks-project}}]\label{lemma-vanshing-gives-ample}
 Let $R$ be a Noetherian ring. Let $X$ be an algebraic space over $R$
 such that the structure morphism $f : X \to \Spec(R)$ is proper.
@@ -141,41 +157,41 @@ $$
 for all $m > m_0$.
 Hence, for all $m > m_0$,
 $$
- \sum\nolimits_{i = 2}^{\dim(X)} h^i(X,\mathcal{L}^{\otimes m})
+N := \sum\nolimits_{i = 2}^{\dim(X)} (-1)^i\,h^i(X,\mathcal{L}^{\otimes m})
 $$
-is a constant, say, $N$.
-Since
+is a constant.
+Now since $\chi(X,\mathcal{L}^{\otimes m})$ has leading coefficient
+$(\mathcal{L}^{\dim X} \cdot X)$, which is positive by assumption,
+we see that
 $$
   \chi(X,\mathcal{L}^{\otimes m})
     = h^0(X,\mathcal{L}^{\otimes m}) - h^1(X,\mathcal{L}^{\otimes m})
       + N \to \infty
 $$
-as $m \to \infty$ just by the hypothesis that the leading coefficient
-$(\mathcal{L}^{\dim X} \cdot X)$ of the Euler characteristic
-$\chi(X,\mathcal{L}^{\otimes m})$ is positive\todo{Reference a lemma. OK},
-we have that
+as $m \to \infty$. Thus,
 $h^0(X,\mathcal{L}^{\otimes m}) - h^1(X,\mathcal{L}^{\otimes m}) \to \infty$
-as $m \to \infty$.
-Hence $h^0(X,\mathcal{L}^{\otimes m}) \to \infty$ as $m \to \infty$.
-Thus we may replace $\mathcal{L}$ by a multiple $\mathcal{L}^{\otimes m}$
+as $m \to \infty$; in particular,
+$h^0(X,\mathcal{L}^{\otimes m}) \to \infty$ as $m \to \infty$.
+We may therefore replace $\mathcal{L}$ by a multiple $\mathcal{L}^{\otimes m}$
 so that $\mathcal{L} = \mathcal{O}_X(D)$ for some effective Cartier divisor
 $D$.
 
 The short exact sequence\todo{Put pushforward along inclusion \(i \colon D
     \hookrightarrow X\)? OK}
 $$
-  0 \to \mathcal{O}_X((m-1)D) \to \mathcal{O}_X(mD) \to \mathcal{O}_D(mD) \to 0
+0 \longrightarrow \mathcal{O}_X((m-1)D) \longrightarrow \mathcal{O}_X(mD)
+\longrightarrow \mathcal{O}_D(mD) \longrightarrow 0
 $$
 together with Serre vanishing (Lemma \ref{lemma-vanshing-gives-ample}) applied to $\mathcal{O}_D(mD)$,
 we have a surjection
 $$
-\rho_m \colon H^1(X,\mathcal{O}_X((m -1)D)) \to H^1(X,\mathcal{O}_X(mD))
+\rho_m : H^1(X,\mathcal{O}_X((m -1)D)) \longrightarrow H^1(X,\mathcal{O}_X(mD))
 $$
 for all $m$ sufficiently large.
 Hence the $h^1(X,\mathcal{O}_X(mD))$ form a nonincreasing sequence and thus
-stabilizes for $m$ sufficiently large, in which time the map
+stabilizes for $m$ sufficiently large, at which time the map
 $$
-H^0(X,\mathcal{O}_X(mD)) \to H^0(D,\mathcal{O}_D(mD))
+H^0(X,\mathcal{O}_X(mD)) \longrightarrow H^0(D,\mathcal{O}_D(mD))
 $$
 is surjective.
 By induction, $\mathcal{O}_D(D)$ is ample on $D$ and hence $\mathcal{O}_D(mD)$
