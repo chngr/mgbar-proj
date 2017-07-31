@@ -7,6 +7,7 @@
 \title{Semipositivity}
 \maketitle
 
+
 \section{Introduction}
 This section develops the basic properties of semipositivity.
 
@@ -29,19 +30,22 @@ The following representations are semipositive:
 
 
 \begin{definition}
-semipositivity of bundle
+A locally free sheaf $V$ on a scheme $X$ is semipositive if for every map from a proper curve $f:C\to X$ every quotient line bundle of $f^*V$ has nonnegative degree.
 \end{definition}
 
 \begin{lemma}
-equivalent definition ( 3.3(i))
+A locally free sheaf $V$ on a scheme $X$ is semipositive if and only if $O_{Proj V}(1)$ is nef on $Proj_XV$.
 \end{lemma}
+\begin{proof}
+
+\end{proof}
 
 \begin{lemma}
-3.4
+3.4 Semipositivity is an open condition in flat families.
 \end{lemma}
 
-\begin{lemma}
-Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$ over a scheme $X$. Let $\rho:\prod_i GL(r_i)\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. 
+\begin{lemma}\label{apply_rho_still_semipos}
+Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$ on $X$. Let $\rho:\prod_i GL(r_i)\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. Then, $W$ is a semipositive vector bundle.
 \end{lemma}
 
 \begin{proof}
@@ -49,11 +53,19 @@ should probably have auxiliary lemmas
 \end{proof}
 
 \begin{lemma}
-Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$ over a scheme $X$. Let $\rho:\prod_i GL(r_i)\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. Let $V$ be the subbundle of $W$ associated to a subrepresentation of $\rho$. Then, if $W$ is semipositive, then $V$ is semipositive.
+Let $X$ be a scheme and $V$ a semipositive vector bundle on $X$. Then, $Sym^dV$ is a semipositive vector bundle.
 \end{lemma}
 
 \begin{proof}
+Immediate from and Lemma \todo{sym is semipos} and Lemma \ref{apply_rho_still_semipos}.
+\end{proof}
 
+\begin{lemma}
+Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$. Let $G=\prod_{i=1}^{n}GL(r_i)$, let $\rho:G\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. Let $x\in X$ be a point, and let $V_x$ be a $G$-invariant subspace of $W_x$, which defines a subbundle $V\subset W$. Then, $V$ is a semipositive vector bundle.
+\end{lemma}
+
+\begin{proof}
+The $G$-invariant subspace $V_x\subset W_x$ defines a subrepresentation $\sigma$ of $\rho$, and we see that $V=\sigma(V_1,\ldots,V_n)$. By \todo{ref}, $\sigma$ is semipositive, so by Lemma \ref{apply_rho_still_semipos}, $V$ is semipositive.
 \end{proof}
 
 
