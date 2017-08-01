@@ -49,6 +49,16 @@ for all $n \geq n_0$ and $p > 0$.
 \end{enumerate}
 \end{lemma}
 
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D2W}{Tag 0D2W}]{stacks-project}}]
+\label{lemma-Noetherian-h1-zero-invertible}
+Let $S$ be a scheme. Let $X$ be a Noetherian algebraic space over $S$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Assume that for every coherent $\mathcal{O}_X$-module
+$\mathcal{F}$ there exists an $n \geq 1$ such that
+$H^1(X, \mathcal{F} \otimes_{\mathcal{O}_X} \mathcal{L}^{\otimes n}) = 0$.
+Then $X$ is a scheme and $\mathcal{L}$ is ample on $X$.
+\end{lemma}
+
 \section{Numerical intersection theory for spaces}
 \begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0DN4}{Tag 0DN4}]{stacks-project}}]\label{tag:0DN4}
 Let $k$ be a field. Let $X$ be a proper algebraic space over $k$.
@@ -83,6 +93,21 @@ case that $\mathcal{L}_1 = \ldots = \mathcal{L}_d = \mathcal{L}$
 we write $(\mathcal{L}^d \cdot Z)$.
 \end{definition}
 
+\section{Nakai--Moishezon Criterion}
+
+\begin{lemma}
+\label{lemma-surjective-finite-morphism-ample}
+Let $R$ be a Noetherian ring.
+Let $X$ and $Y$ be algebraic spaces over $R$.
+Let $f : Y \to X$ be a morphism of schemes proper over $R$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Assume $f$ is finite and surjective.
+Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
+\end{lemma}
+
+\begin{proof}
+If $\mathcal{L}$ is ample...
+\end{proof}
 
 \begin{theorem}[Nakai--Moishezon Criterion]
   Let $k$ be a field. Let $X$ be a proper algebraic space over $k$. Let
