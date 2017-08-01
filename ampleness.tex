@@ -73,6 +73,20 @@ Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
 Then $\mathcal{L}$ is ample if and only if $\deg(\mathcal{L}) > 0$.
 \end{lemma}
 
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0892}{Tag 0892}]{stacks-project}}]
+\label{lemma-pullback-ample-tensor-relatively-ample}
+Let $f : X \to Y$ be a morphism of schemes, $\mathcal{M}$
+an invertible $\mathcal{O}_Y$-module, and $\mathcal{L}$ an
+invertible $\mathcal{O}_X$-module.
+\begin{enumerate}
+\item If $\mathcal{L}$ is $f$-ample and $\mathcal{M}$
+is ample, then $\mathcal{L} \otimes f^*\mathcal{M}^{\otimes a}$ is ample
+for $a \gg 0$.
+\item If $\mathcal{M}$ is ample
+and $f$ quasi-affine, then $f^*\mathcal{M}$ is ample.
+\end{enumerate}
+\end{lemma}
+
 \section{Numerical intersection theory for schemes}
 
 \begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0BEV}{Tag 0BEV}]{stacks-project}}]
@@ -170,7 +184,8 @@ Lemma~\ref{lemma-regular-meromorphic-section-exists}.
 Let $\mathcal{I}_1$ be the sheaf of denominators of $\mathcal{L}$ and set
 $\mathcal{I}_2 = \mathcal{I}_1 \otimes \mathcal{L}$.
 Let $Y_j$ be the closed subschemes defined by $\mathcal{I}_j$ with $j = 1,2$.
-By~\ref{lemma-regular-meromorphic-ideal-denominators}, $\dim(Y_j) < \dim(X)$.
+By Lemma~\ref{lemma-regular-meromorphic-ideal-denominators},
+$\dim(Y_j) < \dim(X)$.
 Then, for all $m \geq 0$, we the following commutative diagram with exact rows:
 $$
 \xymatrix{
@@ -287,17 +302,22 @@ $$
 $$
 where the top square is cartesian, and $C$ is a complete curve in $X_y$. By
 commutativity of the diagram, we see that
-$$\mathcal{L}\rvert_C = (f^*\mathcal{O}_{\mathbf{P}^n}(1))\rvert_C \simeq
-\pi^*\mathcal{O}_{\Spec(k(y))} = \mathcal{O}_C,$$
+$$
+  \mathcal{L}\rvert_C =
+    (f^*\mathcal{O}_{\mathbf{P}^n}(1))\rvert_C \simeq
+    \pi^*\mathcal{O}_{\Spec(k(y))} =
+    \mathcal{O}_C,
+$$
 which is a contradiction, since $(\mathcal{L}^{\dim X - 1} \cdot C) > 0$ by (2),
 whereas $\mathcal{O}_C$ has constant Euler characteristic. Thus, $f$ is
 quasi-finite; since it is proper by the fact that both $X$ and $\mathbf{P}^n_k$
 are proper, we moreover have that $f$ is finite by
-Lemma~\ref{lemma-characterize-finite}. Finally, the pullback
-of an ample invertible sheaf via a finite morphism is ample by applying Lemma
-\ref{lemma-surjective-finite-morphism-ample} to the finite surjective morphism
-$X \to f(X)$, hence $\mathcal{O}_X(mD)$ is ample for $m \gg 0$, hence
-$\mathcal{O}_X(D)$ is ample by Lemma \ref{lemma-ample-power-ample}.
+Lemma~\ref{lemma-characterize-finite}.
+Since the pullback of an ample invertible sheaf via a quasi-finite morphism is
+ample by Lemma~\ref{lemma-pullback-ample-tensor-relatively-ample} and finite
+morphisms are quasi-finite by definition,
+$\mathcal{O}_X(mD)$ is ample for $m \gg 0$.
+Hence $\mathcal{O}_X(D)$ is ample by Lemma \ref{lemma-ample-power-ample}.
 \end{proof}
 
 \bibliographystyle{unsrt}
