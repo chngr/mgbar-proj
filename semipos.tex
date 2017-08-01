@@ -7,7 +7,6 @@
 \title{Semipositivity}
 \maketitle
 
-
 \section{Introduction}
 This section develops the basic properties of semipositivity.
 
@@ -30,42 +29,96 @@ The following representations are semipositive:
 
 
 \begin{definition}
-A locally free sheaf $V$ on a scheme $X$ is semipositive if for every map from a proper curve $f:C\to X$ every quotient line bundle of $f^*V$ has nonnegative degree.
+A locally free sheaf $V$ on a scheme $X$ is semipositive if for every map from a proper smooth curve $f:C\to X$ every quotient line bundle of $f^*V$ has nonnegative degree.
 \end{definition}
 
-\begin{lemma}
-A locally free sheaf $V$ on a scheme $X$ is semipositive if and only if $O_{Proj V}(1)$ is nef on $Proj_XV$.
+\begin{lemma}\label{semipos=nef}
+A locally free sheaf $V$ on a scheme $X$ is semipositive if and only if $\mathcal{O}_{Proj V}(1)$ is nef on $Proj_XV$.
 \end{lemma}
+\begin{proof}
+Let $\pi: Proj_X V\to V$ be the projection map. By definitions, semipositivity of $V$ implies nef-ness of $\mathcal{O}_{Proj V}(1)$. For the other direction, consider $C\subset \mathbb{P}_XV$ a curve. Then $\mathcal{O}_{\mathbb{P}V}(1)|_C$ is a quotient of $\pi^*V|_C$. 
+\end{proof}
+
+\begin{lemma}
+Semipositivity is an open condition in flat families.
+\end{lemma}
+
+\begin{proof}
+It follows from Lemma \ref{semipos=nef} and nef-ness is an open condition.
+\end{proof}
+
+\begin{lemma}\label{global_generation_of_specific_twist_on_curve}
+Let $C$ be a smooth curve of genus $g$ over a field and let $\mathcal{E}$ be a vector bundle on $C$. Let $\mathcal{L}$ be a line bundle on $C$ of degree at least $2g$. Then $\mathcal{E}\otimes\mathcal{L}$ is globally generated.
+\end{lemma}
+
 \begin{proof}
 
 \end{proof}
 
+
 \begin{lemma}
-3.4 Semipositivity is an open condition in flat families.
+Let $C$ be a smooth curve over a field of characteristic $p>0$. Let $V_1,\ldots,V_n$ be vector bundles on $C$ with no line bundle quotients of negative degree. Then, $\rho(V_1,\ldots,V_n)$ has no line bundle quotients of negative degree.
 \end{lemma}
+\begin{proof}
+Let $g$ be the genus of $C$, and let $\mathcal{L}$ be a line bundle of degree at least $2g$, as in Lemma \ref{apply_rho_still_semipos}. 
+For each $i$, there exists a generically surjective map \todo{say why}
+\begin{equation}
+f_i:(\mathcal{L}^{-1})^{\oplus r_i}\to V_i
+\end{equation}
+Applying \todo{insert ref}, we thus get a generaically surjective \todo{why?} map
+\begin{equation}
+\rho(f_1,\ldots,f_n):\bigoplus_{i}\mathcal{L}^{-\otimes b_i}\to\rho(V_1,\ldots,V_n).
+\end{equation}
+
+Let $N(g,\rho)$ be the positive integer such that $\min\deg\mathcal{L}^{-b_i}=-N(g,\rho)$; $N$ depends on $g$ and $\rho$ but not on the $V_i$.\todo{why?}
+
+Suppose $\mathcal{M}$ is a line bundle quotient of $\rho(V_1,\ldots,V_n)$. By pre-composing with $\rho(f_1,\ldots,f_n)$, we obtain a nonzero map
+\begin{equation}
+\bigoplus_{i}\mathcal{L}^{-\otimes b_i}\to\mathcal{M}.
+\end{equation}
+Thus, we conclude that
+\begin{equation*}\label{degree_of_quotient_not_too_small}
+\deg\mathcal{M}\ge -N.
+\end{equation*}
+
+
+Finally, suppose that $\rho(V_1,\ldots,V_n)$ has a line bundle quotient $\mathcal{N}$ of degree $d<0$. Let $F:C\to C$ be the absolute Frobenius map on $C$. Then, by pulling back the surjection $\rho(V_1,\ldots,V_n)\to\mathcal{N}$ by $F^t$, we obtain a quotient line bundle of $\rho((F^{t})^{*}V_1,\ldots,(F^{t})^{*}V_n)$ of degree $dp^{t}<-N$ for sufficiently large $t$, contradicting \ref{degree_of_quotient_not_too_small}.
+
+\end{proof}
+
+\begin{lemma}\label{no_negative_quotient_on_curve}
+Let $C$ be a smooth curve any field. Let $V_1,\ldots,V_n$ be vector bundles on $C$ with no line bundle quotients of negative degree. Then, $\rho(V_1,\ldots,V_n)$ has no line bundle quotients of negative degree.
+\end{lemma}
+\begin{proof}
+spread out, use positive char case.
+\end{proof}
+
 
 \begin{lemma}\label{apply_rho_still_semipos}
-Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$ on $X$. Let $\rho:\prod_i GL(r_i)\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. Then, $W$ is a semipositive vector bundle.
+Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$ on $X$. 
+Let $\rho:\prod_i GL(r_i)\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. 
+Then, $W$ is a semipositive vector bundle.
 \end{lemma}
 
 \begin{proof}
-should probably have auxiliary lemmas
+Immediate from Lemma \ref{no_negative_quotient_on_curve} and the definition of semipositivity.
 \end{proof}
 
 \begin{lemma}
-Let $X$ be a scheme and $V$ a semipositive vector bundle on $X$. Then, $Sym^dV$ is a semipositive vector bundle.
+Let $X$ be a scheme and $V$ a semipositive vector bundle on $X$. 
+Then, $Sym^dV$ is a semipositive vector bundle.
 \end{lemma}
 
-\begin{proof}
-Immediate from and Lemma \todo{sym is semipos} and Lemma \ref{apply_rho_still_semipos}.
-\end{proof}
 
 \begin{lemma}
-Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$. Let $G=\prod_{i=1}^{n}GL(r_i)$, let $\rho:G\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. Let $x\in X$ be a point, and let $V_x$ be a $G$-invariant subspace of $W_x$, which defines a subbundle $V\subset W$. Then, $V$ is a semipositive vector bundle.
+Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$. 
+Let $G=\prod_{i=1}^{n}GL(r_i)$, let $\rho:G\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. Let $x\in X$ be a point, and let $V_x$ be a $G$-invariant subspace of $W_x$, which defines a subbundle $V\subset W$. 
+Then, $V$ is a semipositive vector bundle.
 \end{lemma}
 
 \begin{proof}
-The $G$-invariant subspace $V_x\subset W_x$ defines a subrepresentation $\sigma$ of $\rho$, and we see that $V=\sigma(V_1,\ldots,V_n)$. By \todo{ref}, $\sigma$ is semipositive, so by Lemma \ref{apply_rho_still_semipos}, $V$ is semipositive.
+The $G$-invariant subspace $V_x\subset W_x$ defines a subrepresentation $\sigma$ of $\rho$, and we see that $V=\sigma(V_1,\ldots,V_n)$.
+ By \todo{ref}, $\sigma$ is semipositive, so by Lemma \ref{apply_rho_still_semipos}, $V$ is semipositive.
 \end{proof}
 
 

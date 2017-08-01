@@ -66,6 +66,13 @@ Then $i^*\mathcal{L}$ is ample on $Z$, if and only if
 $\mathcal{L}$ is ample on $X$.
 \end{lemma}
 
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0B5X}{Tag 0B5X}]{stacks-project}}]
+\label{lemma-ample-curve}
+Let $k$ be a field. Let $X$ be a proper curve over $k$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Then $\mathcal{L}$ is ample if and only if $\deg(\mathcal{L}) > 0$.
+\end{lemma}
+
 \section{Numerical intersection theory for schemes}
 
 \begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0BEV}{Tag 0BEV}]{stacks-project}}]
@@ -97,10 +104,10 @@ Then (2) follows from Lemma~\ref{lemma-ample-positive}.
 
 Assume (2) holds.
 Using Lemma~\ref{lemma-surjective-finite-morphism-ample} and
-Lemma~\ref{lemma-ample-on-reduction}, reduce to the case $X$ is integral.
-We proceed by induction on $\mathrm{dim}(X)$.
-When $\mathrm{dim}(X) = 1$, (2) says that $\deg(\mathcal{L}) > 0$ and hence
-by ...\todo{Find reference} $L$ is ample.
+Lemma~\ref{lemma-ample-on-reduction}, we reduce to the case $X$ is integral.
+We proceed by induction on $\dim(X)$.
+When $\dim(X) = 1$, our assumption says that $\deg(\mathcal{L}) > 0$ and hence
+$\mathcal{L}$ is ample by Lemma~\ref{lemma-ample-curve}.
 
 Now assume $\dim(X) > 1$ and the theorem is true for proper schemes of lower
 dimension.
