@@ -49,6 +49,34 @@ that each of the morphisms $f^{-1}(Y_i) \to Y_i$ is affine.
 \end{enumerate}
 \end{lemma}
 
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/07UT}{Tag 07UT}]{stacks-project}}]
+\label{lemma-property-higher-rank-cohomological}
+Let $S$ be a scheme. Let $X$ be a Noetherian algebraic space over $S$.
+Let $\mathcal{P}$ be a property of coherent sheaves on $X$. Assume
+\begin{enumerate}
+\item For any short exact sequence of coherent sheaves
+$$
+0 \to \mathcal{F}_1 \to \mathcal{F} \to \mathcal{F}_2 \to 0
+$$
+if $\mathcal{F}_i$, $i = 1, 2$ have property $\mathcal{P}$
+then so does $\mathcal{F}$.
+\item If $\mathcal{P}$ holds for $\mathcal{F}^{\oplus r}$ for
+some $r \geq 1$, then it holds for $\mathcal{F}$.
+\item For every reduced closed subspace $i : Z \to X$ with
+$|Z|$ irreducible there exists a coherent sheaf $\mathcal{G}$ on $Z$
+such that
+\begin{enumerate}
+\item $\text{Supp}(\mathcal{G}) = Z$,
+\item for every nonzero quasi-coherent sheaf of ideals
+$\mathcal{I} \subset \mathcal{O}_Z$ there exists a quasi-coherent
+subsheaf $\mathcal{G}' \subset \mathcal{I}\mathcal{G}$ such that
+$\text{Supp}(\mathcal{G}/\mathcal{G}')$ is proper closed in $Z$
+and such that $\mathcal{P}$ holds for $i_*\mathcal{G}'$.
+\end{enumerate}
+\end{enumerate}
+Then property $\mathcal{P}$ holds for every coherent sheaf on $X$.
+\end{lemma}
+
 \section{Ampleness for spaces}
 \begin{definition}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D31}{Tag 0D31}]{stacks-project}}]\label{definition-relatively-ample}
 Let $S$ be a scheme.
@@ -316,6 +344,61 @@ Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
   Therefore $Y$ is a scheme.
   Then $f^*\mathcal{L}$ is ample by the schemes case,
   Lemma \ref{cohomology-schemes-lemma-surjective-finite-morphism-ample}.
+
+\medskip\noindent
+Assume that $f^*\mathcal{L}$ is ample.
+Let $P$ be the following property on coherent $\mathcal{O}_X$-modules
+$\mathcal{F}$:
+there exists an $n_0$ such that $H^p(X, \mathcal{F} \otimes
+\mathcal{L}^{\otimes n}) = 0$ for all $n \geq n_0$ and $p > 0$.
+We will prove that $P$ holds for any coherent $\mathcal{O}_X$-module
+$\mathcal{F}$, which suffices to prove that $\mathcal{L}$ is ample.
+We are going to apply Lemma \ref{lemma-property-higher-rank-cohomological}.
+Thus we have to verify (1), (2) and (3) of that lemma for $P$.
+Property (1) follows from the long exact cohomology sequence associated
+to a short exact sequence of sheaves and the fact that tensoring with
+an invertible sheaf is an exact functor.
+Property (2) follows since $H^p(X, -)$ is an additive functor.
+To see (3) let $Z \subset X$ be an integral closed subscheme with generic point
+$\xi$.
+Let $\mathcal{F}$ be a coherent sheaf on $Y$ such that the support of
+$f_*\mathcal{F}$ is equal to $Z$ and $(f_*\mathcal{F})_\xi$ is annihilated by
+$\mathfrak m_\xi$,
+see Lemma \ref{lemma-finite-morphism-Noetherian}. We claim that
+taking $\mathcal{G} = f_*\mathcal{F}$ works. We only have to verify
+part (3)(c) of Lemma \ref{lemma-property-higher-rank-cohomological}.
+Hence assume that $\mathcal{J} \subset \mathcal{O}_X$ is a
+quasi-coherent sheaf of ideals such that
+$\mathcal{J}_\xi = \mathcal{O}_{X, \xi}$.
+A finite morphism is affine hence by
+Lemma \ref{lemma-affine-morphism-projection-ideal} we see that
+$\mathcal{J}\mathcal{G} = f_*(f^{-1}\mathcal{J}\mathcal{F})$.
+Also, as pointed out in the proof of
+Lemma \ref{lemma-affine-morphism-projection-ideal} the sheaf
+$f^{-1}\mathcal{J}\mathcal{F}$ is a coherent $\mathcal{O}_Y$-module.
+By assumption we see that there exists an $n_0$ such that
+$$
+H^p(Y, f^{-1}\mathcal{J}\mathcal{F}
+\otimes_{\mathcal{O}_Y} f^*\mathcal{L}^{\otimes n}) = 0,
+$$
+for $n \geq n_0$ and $p > 0$. Since $f$ is finite, hence affine, we see that
+\begin{align*}
+H^p(X, \mathcal{J}\mathcal{G} \otimes_{\mathcal{O}_X}
+\mathcal{L}^{\otimes n})
+& =
+H^p(X, f_*(f^{-1}\mathcal{J}\mathcal{F}) \otimes_{\mathcal{O}_X}
+\mathcal{L}^{\otimes n}) \\
+& =
+H^p(X, f_*(f^{-1}\mathcal{J}\mathcal{F}) \otimes_{\mathcal{O}_Y}
+f^*\mathcal{L}^{\otimes n})) \\
+& =
+H^p(Y, f^{-1}\mathcal{J}\mathcal{F} \otimes_{\mathcal{O}_Y}
+f^*\mathcal{L}^{\otimes n}) = 0
+\end{align*}
+by references cited earlier in this proof.
+Hence the quasi-coherent subsheaf $\mathcal{G}' = \mathcal{J}\mathcal{G}$
+satisfies $P$. This verifies property (3)(c) of
+Lemma \ref{lemma-property-higher-rank-cohomological} as desired.
 \end{proof}
 
 \begin{theorem}[Nakai--Moishezon Criterion for algebraic spaces {\cite[Thm.\ 3.11]{Ko90}}]
