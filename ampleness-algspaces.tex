@@ -15,6 +15,15 @@ invertible $\mathcal{O}_X$-module. Assume $f$ is finite and surjective.
 Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
 \end{lemma}
 
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/01YP}{Tag 01YP}]{stacks-project}}]
+\label{coherent-lemma-affine-morphism-projection-ideal}
+Let $f : Y \to X$ be a morphism of schemes.
+Let $\mathcal{F}$ be a quasi-coherent sheaf on $Y$.
+Let $\mathcal{I}$ be a quasi-coherent sheaf of ideals on $X$.
+If the morphism $f$ is affine then
+$\mathcal{I}f_*\mathcal{F} = f_*(f^{-1}\mathcal{I}\mathcal{F})$.
+\end{lemma}
+
 \section{Basic properties of algebraic spaces}
 
 \begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/025W}{Tag 025W}]{stacks-project}}]
@@ -75,6 +84,14 @@ and such that $\mathcal{P}$ holds for $i_*\mathcal{G}'$.
 \end{enumerate}
 \end{enumerate}
 Then property $\mathcal{P}$ holds for every coherent sheaf on $X$.
+\end{lemma}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/073H}{Tag 073H}]{stacks-project}}]
+\label{lemma-affine-vanishing-higher-direct-images}
+Let $S$ be a scheme. Let $f : X \to Y$ be an affine
+morphism of algebraic spaces over $S$. Then
+$R^if_*\mathcal{F} = 0$ for $i > 0$ and any quasi-coherent
+$\mathcal{O}_X$-module $\mathcal{F}$.
 \end{lemma}
 
 \section{Ampleness for spaces}
@@ -359,46 +376,43 @@ Property (1) follows from the long exact cohomology sequence associated
 to a short exact sequence of sheaves and the fact that tensoring with
 an invertible sheaf is an exact functor.
 Property (2) follows since $H^p(X, -)$ is an additive functor.
-To see (3) let $Z \subset X$ be an integral closed subscheme with generic point
-$\xi$.
-Let $\mathcal{F}$ be a coherent sheaf on $Y$ such that the support of
-$f_*\mathcal{F}$ is equal to $Z$ and $(f_*\mathcal{F})_\xi$ is annihilated by
-$\mathfrak m_\xi$,
-see Lemma \ref{lemma-finite-morphism-Noetherian}. We claim that
-taking $\mathcal{G} = f_*\mathcal{F}$ works. We only have to verify
-part (3)(c) of Lemma \ref{lemma-property-higher-rank-cohomological}.
-Hence assume that $\mathcal{J} \subset \mathcal{O}_X$ is a
-quasi-coherent sheaf of ideals such that
-$\mathcal{J}_\xi = \mathcal{O}_{X, \xi}$.
-A finite morphism is affine hence by
-Lemma \ref{lemma-affine-morphism-projection-ideal} we see that
-$\mathcal{J}\mathcal{G} = f_*(f^{-1}\mathcal{J}\mathcal{F})$.
-Also, as pointed out in the proof of
-Lemma \ref{lemma-affine-morphism-projection-ideal} the sheaf
-$f^{-1}\mathcal{J}\mathcal{F}$ is a coherent $\mathcal{O}_Y$-module.
-By assumption we see that there exists an $n_0$ such that
+To see (3) let $Z \subset X$ be reduced closed subspace with $|Z|$
+irreducible.
+Form the fibre product diagram
 $$
-H^p(Y, f^{-1}\mathcal{J}\mathcal{F}
-\otimes_{\mathcal{O}_Y} f^*\mathcal{L}^{\otimes n}) = 0,
+\xymatrix{
+  W \ar[r]_{i'} \ar[d]_{f'} & Y \ar[d]^{f} \\
+  Z \ar[r]^{i} & X.
+}
 $$
-for $n \geq n_0$ and $p > 0$. Since $f$ is finite, hence affine, we see that
+Let $\mathcal{G} = f'_*\mathcal{O}_W$.
+Since $f'$ is surjective, part (3)(a) of Lemma
+\ref{lemma-property-higher-rank-cohomological} holds.
+For part (3)(b), let $\mathcal{I} \subset \mathcal{O}_Z$ be a nonzero sheaf
+of ideals.
+Let $\mathcal{G}' = \mathcal{I}\mathcal{G}$.
+We have
+$$
+\mathcal{I} \mathcal{G} = f'_*(\mathcal{I}')
+$$
+where $\mathcal{I}' = \Im((f')^*\mathcal{I} \to \mathcal{O}_W)$.
+This is true because $f'$ is a (representable) affine morphism of
+algebraic spaces and hence the result can be checked on an \'etale
+covering of $Z$ by a scheme in which case the result is
+Cohomology of Schemes, Lemma
+\ref{coherent-lemma-affine-morphism-projection-ideal}.
+Finally, $f'$ is affine, hence $R^1f'_*\mathcal{I}' = 0$ by
+Lemma \ref{lemma-affine-vanishing-higher-direct-images}.
+Hence
 \begin{align*}
-H^p(X, \mathcal{J}\mathcal{G} \otimes_{\mathcal{O}_X}
-\mathcal{L}^{\otimes n})
-& =
-H^p(X, f_*(f^{-1}\mathcal{J}\mathcal{F}) \otimes_{\mathcal{O}_X}
-\mathcal{L}^{\otimes n}) \\
-& =
-H^p(X, f_*(f^{-1}\mathcal{J}\mathcal{F}) \otimes_{\mathcal{O}_Y}
-f^*\mathcal{L}^{\otimes n})) \\
-& =
-H^p(Y, f^{-1}\mathcal{J}\mathcal{F} \otimes_{\mathcal{O}_Y}
-f^*\mathcal{L}^{\otimes n}) = 0
+H^p(X, \mathcal{G}' \otimes_{\mathcal{O}_X} \mathcal{L}^{\otimes n})
+  & = H^p(X, i_*f_*'\mathcal{I}' \otimes_{\mathcal{O}_X} \mathcal{L}^{\otimes n}) \\
+  & = H^p(X, f_*(i'_*\mathcal{I}' \otimes_{\mathcal{O}_Y} f^*\mathcal{L}^{\otimes n})) \\
+  & = H^p(Y, i'_*\mathcal{I}' \otimes_{\mathcal{O}_Y} f^*\mathcal{L}^{\otimes n}) = 0
 \end{align*}
-by references cited earlier in this proof.
-Hence the quasi-coherent subsheaf $\mathcal{G}' = \mathcal{J}\mathcal{G}$
-satisfies $P$. This verifies property (3)(c) of
-Lemma \ref{lemma-property-higher-rank-cohomological} as desired.
+since $f^*\mathcal{L}$ is ample.
+This verifies (3)(c) of Lemma \ref{lemma-property-higher-rank-cohomological} as
+desired.
 \end{proof}
 
 \begin{theorem}[Nakai--Moishezon Criterion for algebraic spaces {\cite[Thm.\ 3.11]{Ko90}}]
