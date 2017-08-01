@@ -6,6 +6,32 @@
 \title{Ampleness Criteria for algebraic spaces}
 \maketitle
 
+\section{Facts from schemes}
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0B5V}{Tag 0B5V}]{stacks-project}}]
+\label{cohomology-schemes-lemma-surjective-finite-morphism-ample}
+Let $R$ be a Noetherian ring. Let $f : Y \to X$ be a morphism of
+schemes proper over $R$. Let $\mathcal{L}$ be an
+invertible $\mathcal{O}_X$-module. Assume $f$ is finite and surjective.
+Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
+\end{lemma}
+
+\section{Basic properties of algebraic spaces}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/025W}{Tag 025W}]{stacks-project}}]
+\label{lemma-representable-diagonal}
+Let $S$ be a scheme contained in $\Sch_{fppf}$.
+Let $F$ be a presheaf of sets on $(\Sch/S)_{fppf}$.
+The following are equivalent:
+\begin{enumerate}
+\item the diagonal $F \to F \times F$ is representable,
+\item for $U \in \Ob((\Sch/S)_{fppf})$ and any $a \in F(U)$
+the map $a : h_U \to F$ is representable,
+\item for every pair $U, V \in \Ob((\Sch/S)_{fppf})$
+and any $a \in F(U)$, $b \in F(V)$ the fibre product
+$h_U \times_{a, F, b} h_V$ is representable.
+\end{enumerate}
+\end{lemma}
+
 \section{Ampleness for spaces}
 \begin{definition}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D31}{Tag 0D31}]{stacks-project}}]\label{definition-relatively-ample}
 Let $S$ be a scheme.
@@ -47,6 +73,14 @@ Definition \ref{definition-relatively-ample}, and
 in the sense of
 Morphisms, Definition \ref{morphisms-definition-relatively-ample}.
 \end{enumerate}
+\end{lemma}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D34}{Tag 0D34}]{stacks-project}}]
+\label{lemma-relatively-ample-properties}
+Let $S$ be a scheme.
+Let $f : X \to Y$ be a morphism of algebraic spaces over $S$.
+If there exists an $f$-ample invertible sheaf, then
+$f$ is representable, quasi-compact, and separated.
 \end{lemma}
 
 \begin{lemma}[Serre vanishing for algebraic spaces, {\cite[\href{http://stacks.math.columbia.edu/tag/0D38}{Tag 0D38}]{stacks-project}}]
@@ -243,20 +277,46 @@ for all $q$.
 \end{enumerate}
 \end{lemma}
 
+
+
 \section{Nakai--Moishezon Criterion}
 
 \begin{lemma}
 \label{lemma-surjective-finite-morphism-ample}
 Let $R$ be a Noetherian ring.
-Let $X$ and $Y$ be algebraic spaces over $R$.
-Let $f : Y \to X$ be a morphism of schemes proper over $R$.
+Let $X$ and $Y$ be algebraic spaces over $R$ such that the structure
+maps $X \to \Spec(R)$ and $Y \to \Spec(R)$ are representable.
+Let $f : Y \to X$ be a proper morphism of algebraic spaces over $R$.
 Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
 Assume $f$ is finite and surjective.
 Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
 \end{lemma}
 
 \begin{proof}
-If $\mathcal{L}$ is ample...
+If $\mathcal{L}$ is ample, then $X$ is a scheme by
+Lemma~\ref{lemma-relatively-ample-properties}.
+
+Assume $f^*\mathcal{L}$ is ample.
+By Lemma~\ref{lemma-relatively-ample-properties}, this implies $Y$ is a scheme.
+Let $Z$ be any scheme over $R$ and consider the commutative diagram
+$$
+\xymatrix{
+  Y \times_{\Spec(R)} Z \ar[r]_{f_Z} \ar[d]_p  &
+  X \times_{\Spec(R)} Z \ar[r] \ar[d]_q &
+  Z \ar[d] \\
+  Y \ar[r]^f & X \ar[r] & \Spec(R)
+}
+$$
+in which the squares are cartesian.
+As the structure maps from $X$ and $Y$ to $\Spec(R)$ are representable, both
+$Y \times_{\Spec(R)} Z$ and $X \times_{\Spec(R)} Z$ are schemes.
+Moreover, since finite and surjective morphisms are stable under base change,
+$f_Z$ is also finite surjective.
+By definition, $f^*\mathcal{L}$ ample means $p^*f^*\mathcal{L}$ is ample.
+By commutativity of the left square, $p^*f^*\mathcal{L} = f_Z^*q^*\mathcal{L}$.
+Hence by Lemma~\ref{cohomology-schemes-lemma-surjective-finite-morphism-ample},
+$q^*\mathcal{L}$ is ample on $X \times_{\Spec(R)} Z$.
+Thus $\mathcal{L}$ is ample on $X$.
 \end{proof}
 
 \begin{theorem}[Nakai--Moishezon Criterion for algebraic spaces
