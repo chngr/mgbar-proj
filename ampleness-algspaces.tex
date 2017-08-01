@@ -7,14 +7,14 @@
 \maketitle
 
 \section{Ampleness for spaces}
-\begin{definition}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D31}{Tag 0D31}]{stacks-project}}]
+\begin{definition}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D31}{Tag 0D31}]{stacks-project}}]\label{definition-relatively-ample}
 Let $S$ be a scheme.
 Let $f : X \to Y$ be a morphism of algebraic spaces over $S$.
 Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
 We say $\mathcal{L}$ is {\it relatively ample}, or {\it $f$-relatively ample},
 or {\it ample on $X/Y$}, or {\it $f$-ample} if $f : X \to Y$
 is representable and for every morphism $Z \to Y$
-where $Z$ is a scheme, the pullback $\mathcal{L}_T$ of $\mathcal{L}$
+where $Z$ is a scheme, the pullback $\mathcal{L}_T$\todo{Report typo} of $\mathcal{L}$
 to $X_Z = Z \times_Y X$ is ample on $X_Z/Z$.
 \end{definition}
 
@@ -33,6 +33,21 @@ to $X_Z = Z \times_Y X$ is ample on $X_Z/Z$.
   the canonical sheaf on $\mathbf{P}^n_k$.\todo{Is this equivalent to Definition
   \ref{definition-relatively-ample}?}
 \end{definition}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D32}{Tag 0D32}]{stacks-project}}]
+\label{lemma-relatively-ample-sanity-check}
+Let $S$ be a scheme.
+Let $f : X \to Y$ be a morphism of algebraic spaces over $S$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Assume $Y$ is a scheme. The following are equivalent
+\begin{enumerate}
+\item $\mathcal{L}$ is ample on $X/Y$ in the sense of
+Definition \ref{definition-relatively-ample}, and
+\item $X$ is a scheme and $\mathcal{L}$ is ample on $X/Y$
+in the sense of
+Morphisms, Definition \ref{morphisms-definition-relatively-ample}.
+\end{enumerate}
+\end{lemma}
 
 \begin{lemma}[Serre vanishing for algebraic spaces, {\cite[\href{http://stacks.math.columbia.edu/tag/0D38}{Tag 0D38}]{stacks-project}}]
 Let $R$ be a Noetherian ring. Let $X$ be an algebraic space over $R$
@@ -93,6 +108,43 @@ case that $\mathcal{L}_1 = \ldots = \mathcal{L}_d = \mathcal{L}$
 we write $(\mathcal{L}^d \cdot Z)$.
 \end{definition}
 
+\section{Finiteness and cohomology}
+This is a generalization of \cite[Lem.\ 2.8]{Ko90}.
+\begin{proposition}[{\cite[\href{http://stacks.math.columbia.edu/tag/09YC}{Tag 09YC}]{stacks-project}}]
+\label{proposition-there-is-a-scheme-finite-over}
+Let $S$ be a scheme. Let $X$ be a quasi-compact and quasi-separated
+algebraic space over $S$.
+\begin{enumerate}
+\item There exists a surjective finite morphism $Y \to X$
+of finite presentation where $Y$ is a scheme,
+\item given a surjective \'etale morphism $U \to X$ we may choose
+$Y \to X$ such that for every $y \in Y$ there is an open neighbourhood
+$V \subset Y$ such that $V \to X$ factors through $U$.
+\end{enumerate}
+\end{proposition}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0A4K}{Tag 0A4K}]{stacks-project}}]
+\label{lemma-finite-higher-direct-image-zero}
+Let $S$ be a scheme. Let $f : X \to Y$ be an integral (for example finite)
+morphism of algebraic spaces. Then
+$f_* : \textit{Ab}(X_\etale) \to \textit{Ab}(Y_\etale)$
+is an exact functor and $R^pf_* = 0$ for $p > 0$.
+\end{lemma}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0733}{Tag 0733}]{stacks-project}}]
+\label{lemma-apply-Leray}
+Let $f : (\Sh(\mathcal{C}), \mathcal{O}_\mathcal{C}) \to
+(\Sh(\mathcal{D}), \mathcal{O}_\mathcal{D})$ be a morphism of ringed topoi.
+Let $\mathcal{F}$ be an $\mathcal{O}_\mathcal{C}$-module.
+\begin{enumerate}
+\item If $R^qf_*\mathcal{F} = 0$ for $q > 0$, then
+$H^p(\mathcal{C}, \mathcal{F}) = H^p(\mathcal{D}, f_*\mathcal{F})$ for all $p$.
+\item If $H^p(\mathcal{D}, R^qf_*\mathcal{F}) = 0$ for all $q$ and $p > 0$,
+then $H^q(\mathcal{C}, \mathcal{F}) = H^0(\mathcal{D}, R^qf_*\mathcal{F})$
+for all $q$.
+\end{enumerate}
+\end{lemma}
+
 \section{Nakai--Moishezon Criterion}
 
 \begin{lemma}
@@ -115,10 +167,38 @@ If $\mathcal{L}$ is ample...
   equivalent:
   \begin{enumerate}
     \item $\mathcal{L}$ is ample on $X/k$.
-    \item For every reduced closed subspace $Y$ of $X$ such that $\lvert Y
-      \rvert$ is irreducible, $(\mathcal{L}^{\dim(Y)} \cdot Y) > 0$.
+    \item For every integral closed subspace $Y$ of $X$, $(\mathcal{L}^{\dim(Y)}
+      \cdot Y) > 0$.
   \end{enumerate}
 \end{theorem}
+\begin{proof}
+  Assume (1) holds. Then, $X$ is a scheme, and $\mathcal{L}$ is ample on $X/k$
+  in the scheme-theoretic sense by Lemma
+  \ref{lemma-relatively-ample-sanity-check}. By the Nakai--Moishezon criterion
+  for schemes, we therefore have that (2) holds.
+  \par Now suppose (2) holds. First, let $p : X' \to X$ be a finite
+  surjective cover of $X$ by a scheme $X'$. By Lemma
+  \ref{lemma-surjective-finite-morphism-ample}, we have that $\mathcal{L}$ is
+  ample if and only if $p^*\mathcal{L}$ is ample, and so by the Nakai--Moishezon
+  criterion for schemes, it suffices to show that for every integral closed
+  subscheme $Y'$ in $X'$, we have $(p^*\mathcal{L}^{\dim(Y')} \cdot Y') > 0$.
+  Let $Y$ be the image of $Y'$ in $Y$, so that we have a commutative (but not
+  cartesian) diagram
+  $$
+    \xymatrix{
+      Y' \ar@{^{(}->}[r]^{i'}\ar[d]_q & X'\ar[d]^p\\
+      Y \ar@{^{(}->}[r]^i & X
+    }
+  $$
+  Note that $Y'$ is a subscheme of the inverse image of $Y$ in $X'$, hence
+  $q : Y' \to Y$ is finite surjective. Now, by Leray (Lemma
+  \ref{lemma-apply-Leray}),
+  $$
+    \chi(Y',(p^*\mathcal{L}^{\otimes n})\rvert_{Y'})
+    = \chi(Y',q^*(\mathcal{L}^{\otimes n}\rvert_Y))
+    = \chi(Y,q_*q^*(\mathcal{L}^{\otimes n}\rvert_Y))
+  $$
+\end{proof}
 
 \bibliographystyle{unsrt}
 \bibliography{references}
