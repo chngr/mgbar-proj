@@ -63,13 +63,20 @@ $$\rho(f_1,\dots, f_n):\rho(V_1,\dots, V_n)\rightarrow \rho(W_1,\dots,W_n).$$
 A locally free sheaf $V$ on a scheme $X$ is semipositive if for every map from a proper smooth curve $f:C\to X$ every quotient line bundle of $f^*V$ has nonnegative degree.
 \end{definition}
 
+\begin{lemma}\label{pullback of semipos}
+Let $V$ be a semipositive vector bundle on a scheme $X$. For any morphism $f:Y\to X$, the pullback $f^*V$ is semipositive vector bundle on $Y$.
+\end{lemma}
+\begin{proof}
+Consider any morphism $g:C\to Y$, where $C$ is a smooth proper curve. Then as $g^*(f^*V)=(gf)^*V$ and $V$ is semipositive, any quotient line bundle of  $g^*(f^*V)$ is of positive degree. Hence, $f^*V$ is semipositive too.
+\end{proof}
+
 \begin{lemma}\label{semipos=nef}
 A locally free sheaf $V$ on a scheme $X$ is semipositive if and only if $\mathcal{O}_{Proj V}(1)$ is nef on $Proj_XV$.
 \end{lemma}
 \begin{proof}
 Let $\pi: Proj_X V\to V$ be the projection map. Assume $\mathcal{O}_{\mathbb{P}V}(1)$ be nef. Let $L$ be  any quotient line bundle of $f^*V$ over a smooth proper curve $C$. Then $\deg \mathcal{O}_{\mathbb{P}L}(1)=\deg L$. Since $\mathbb{P}_CL$ is a curve in $\mathbb{P}_CV$, we have $\deg L=\mathcal{O}_{\mathbb{P}V}(1)|\mathbb{P}_CL$. Hence, using that $\mathcal{O}_{\mathbb{P}V}(1)$ be nef is nef, we get $\deg L>0$ and so $V$ is semipositive.
 
-For the other direction, consider any smooth proper $C\subset \mathbb{P}_XV$ curve. By the universal property of relative Proj $\mathcal{O}_{\mathbb{P}V}(1)|_C$ is a quotient of $\pi^*V|_C$. Thus, semipositivity of $V$ implies nefness of $\mathcal{O}_{Proj V}(1)$.
+For the other direction, consider any smooth proper $C\subset \mathbb{P}_XV$ curve. By the universal property of relative Proj $\mathcal{O}_{\mathbb{P}V}(1)|_C$ is a quotient of $\pi^*V|_C$. By lemma \ref{pullback of semipos} $\pi^*V$ is semipositive and hence, $\deg  \mathcal{O}_{\mathbb{P}V}(1)|_C\geq 0$. Thus, semipositivity of $V$ implies nefness of $\mathcal{O}_{Proj V}(1)$.
 \end{proof}
 
 \begin{lemma}
