@@ -293,11 +293,6 @@ Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
 \end{lemma}
 
 \begin{proof}
-If $\mathcal{L}$ is ample, then $X$ is a scheme by
-Lemma~\ref{lemma-relatively-ample-properties}.
-
-Assume $f^*\mathcal{L}$ is ample.
-By Lemma~\ref{lemma-relatively-ample-properties}, this implies $Y$ is a scheme.
 Let $Z$ be any scheme over $R$ and consider the commutative diagram
 $$
 \xymatrix{
@@ -315,8 +310,10 @@ $f_Z$ is also finite surjective.
 By definition, $f^*\mathcal{L}$ ample means $p^*f^*\mathcal{L}$ is ample.
 By commutativity of the left square, $p^*f^*\mathcal{L} = f_Z^*q^*\mathcal{L}$.
 Hence by Lemma~\ref{cohomology-schemes-lemma-surjective-finite-morphism-ample},
-$q^*\mathcal{L}$ is ample on $X \times_{\Spec(R)} Z$.
-Thus $\mathcal{L}$ is ample on $X$.
+$q^*\mathcal{L}$ is ample on $X \times_{\Spec(R)} Z$ if and only if
+$f_Z^*q^*\mathcal{L}$ is ample on $Y \times_{\Spec(R)} Z$.
+By definition, this means that $\mathcal{L}$ is ample on $X$ if and only if
+$f^*\mathcal{L}$ is ample on $Y$.
 \end{proof}
 
 \begin{theorem}[Nakai--Moishezon Criterion for algebraic spaces
