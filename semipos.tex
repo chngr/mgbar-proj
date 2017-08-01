@@ -15,11 +15,42 @@ This section develops the basic properties of semipositivity.
 Let $G=\prod_i GL(E_i)$ be a product of general linear groups. A representation $\rho:G\rightarrow GL(F)$ is called semipositive (or polynomial) if it extends to a morphism $\overline{\rho}:\prod_i End(E_i)\rightarrow End(F)$.
 \end{definition}
 
+\todo{give notation for $H$-bundle you get from a $G$-bundle and a map $G\to H$}.
+
+\begin{definition}
+Let $V_1,\dots, V_n$ vector bundles of rank $r_1,\dots, r_n$ over a base space X, and let $\rho:\prod_i GL(r_i)\rightarrow GL(m)$ be any representation. One can define a bundle $\rho(V_1,\dots, V_n)$ of rank $m$ as follows: every $V_i$ is a principal $GL(r_i)$-bundle, hence it corresponds to a point $x_i$ in $H^1(X, GL(r_i))$; the map $\rho$ induces a map $\rho^*:H^1(X,\prod_i GL(r_i)\rightarrow H^1(X, GL(m))$, i.e. $\rho: \prod_i H^1(X,GL(r_i))\rightarrow H^1(X, GL(m))$. We define $\rho(V_1,\dots, V_n)$ to be the principal $GL(m)$-bundle corresponding to $\rho^*(x_1,\dots,x_n)$.
+\end{definition}
+
 \begin{lemma}
-The following representations are semipositive:
-\item[(i)] Symmetric products;
-\item[(ii)] Let $V_1, \dots, V_n$ be vector bundles with typical fibers $E_i$ and let $\rho$ be any representation of $G$. One can define a vector bundle $\rho(V_1,\dots,V_n)$ as follows: TO DO.
-\item[(iii)] Assume in example (ii) that every $V_i$ is a direct sum of line bundles $\sum_j L_{ij}$. Then the structure group of  $V_i$ can be reduced to a torus. Thus the structure group of $\rho(V_1,\dots, V_n)$ is also a torus and is a direct sum of line bundles of the form $\otimes L_{ij}^{a_{ij}}$. Since $\rho$ is semipositive, each of the $a_{ij}$ is nonnegative.
+For $i=1,2,\ldots,n$, let $V_i=\sum_{j}\mathcal{L}_{ij}$ be a vector bundle of rank $r_i$ that splits as a direct sum of line bundles $\mathcal{L}_{ij}$. Let $\rho:\prod_{i}GL(r_i)\to GL(m)$ be a semipositive representation. Then, $\rho(V_1,\ldots,V_n)$ is a a direct sum of line bundles of the form $\oplus_{i,j}\otimes\mathcal{L}_{ij}^{a_{ij}}$, where $a_{ij}\ge0$.
+\end{lemma}
+
+\begin{proof}
+\todo{add details, maybe}
+For each $i$, we have a diagonal embedding $\psi_i:\prod_{j=1}^{r_i}GL(1)\to GL(r_i)$...
+Taking the product over $i$ and post-composing with $\rho$ yields a map
+\begin{equation}
+\prod_{i=1}^{n}\prod_{j=1}^{r_i}GL(1)\to GL(m),
+\end{equation}
+which factors through a maximal torus $\psi:\prod_{k=1}^{m}GL(1)\to GL(m)$.
+\todo{make diagram...}
+
+Thus $\rho(V_1,\ldots,V_n)$ splits as the direct sum of the line bundles you get from $\prod\prod GL(1)\to GL(1)$ after projecting to the $t$-th factor...
+
+This map is a character, so of the form $(z_{ij})\mapsto \prod z_{ij}^{a_{ij,t}}$, and $a_{ij,t}\ge0$ by semipositivity.
+
+Then $\rho(V_1,\ldots,V_n)$ is the direct sum of $\otimes\mathcal{L}_{ij}^{a_{ij,t}}$ over $t\in[1,n]$.
+
+\end{proof}
+
+\begin{lemma}
+The following properties hold for semipositive representations:
+\item[(i)] Symmetric products are semipositive;
+\item[(ii)] Subrepresentations of semipositive representations are semipositive;
+\item[(iii)] Let $V_1,\dots, V_n$ be vector bundles such that each $V_i$ is a sum of line bundles $\sum_j L_{ij}$, and $\rho$ a semipositive respresentation. Then the structure group of $\rho(V_1,\dots, V_n)$ is a torus and is a direct sum of line bundles $\otimes L_{ij}^{a_{ij}}$, where each of the $a_{ij}$ are nonnegative.
+\item[(iv)] Let $V_1,\dots, V_n$ and $W_1,\dots, W_n$ be vector bundles such that $rk (V_i)=rk(W_i)$, and let $f_i: V_i\rightarrow W_i$ be sheaf homomorphisms. If $\rho$ is semipositive, then there exists a natural map 
+$$\rho(f_1,\dots, f_n):\rho(V_1,\dots, V_n)\rightarrow \rho(W_1,\dots,W_n).$$
+\item[(v)] Let $V_1,\dots, V_n$ be vector bundles over a base $X$, and $f:X'\rightarrow X$ a morphism. Then $\rho(f^*V_1,\dots,f^*V_n)=f^*(\rho(V_1,\dots,V_n))$.
 \end{lemma}
 
 
@@ -45,25 +76,84 @@ For the other direction, consider any smooth proper $C\subset \mathbb{P}_XV$ cur
 3.4 Semipositivity is an open condition in flat families.
 Let $f:Y\to X$ be a flat map and $V$ be a vector bundle on $Y$. Then the set of points $x\in X$ such that the vector bundle $V_x$ is semipositive on the fiber $Y_x$ is open.
 \end{lemma}
+
 \begin{proof}
 It follows from lemma \ref{semipos=nef} and nefness is an open condition.
 Let $\pi:\mathbb{P}_YV\to Y$ be the projection map.  Note $\pi$ is flat. Given a point $x\in X$, by lemma \ref{semipos=nef} the vector bunlde $V_x$ is semipositive if and only if $\mathcal{O}_{Proj V}(1)_x$ is nef. The compositve morphism $f\circ \pi$ is flat. Since nefness is an open condition in flat families, the set of points $x\in X$ such that $\mathcal{O}_{\mathbb{P}V}(1)$ is nef is open in $X$.
 \end{proof}
 
-\begin{lemma}
-Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$ over a scheme $X$. Let $\rho:\prod_i GL(r_i)\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. 
+\begin{lemma}\label{global_generation_of_specific_twist_on_curve}
+Let $C$ be a smooth curve of genus $g$ over a field and let $\mathcal{E}$ be a vector bundle on $C$. Let $\mathcal{L}$ be a line bundle on $C$ of degree at least $2g$. Then $\mathcal{E}\otimes\mathcal{L}$ is globally generated.
 \end{lemma}
 
 \begin{proof}
-should probably have auxiliary lemmas
+
+\end{proof}
+
+
+\begin{lemma}
+Let $C$ be a smooth curve over a field of characteristic $p>0$. Let $V_1,\ldots,V_n$ be vector bundles on $C$ with no line bundle quotients of negative degree. Then, $\rho(V_1,\ldots,V_n)$ has no line bundle quotients of negative degree.
+\end{lemma}
+\begin{proof}
+Let $g$ be the genus of $C$, and let $\mathcal{L}$ be a line bundle of degree at least $2g$, as in Lemma \ref{apply_rho_still_semipos}. 
+For each $i$, there exists a generically surjective map \todo{say why}
+\begin{equation}
+f_i:(\mathcal{L}^{-1})^{\oplus r_i}\to V_i
+\end{equation}
+Applying \todo{insert ref}, we thus get a generaically surjective \todo{why?} map
+\begin{equation}
+\rho(f_1,\ldots,f_n):\bigoplus_{i}\mathcal{L}^{-\otimes b_i}\to\rho(V_1,\ldots,V_n).
+\end{equation}
+
+Let $N(g,\rho)$ be the positive integer such that $\min\deg\mathcal{L}^{-b_i}=-N(g,\rho)$; $N$ depends on $g$ and $\rho$ but not on the $V_i$.\todo{why?}
+
+Suppose $\mathcal{M}$ is a line bundle quotient of $\rho(V_1,\ldots,V_n)$. By pre-composing with $\rho(f_1,\ldots,f_n)$, we obtain a nonzero map
+\begin{equation}
+\bigoplus_{i}\mathcal{L}^{-\otimes b_i}\to\mathcal{M}.
+\end{equation}
+Thus, we conclude that
+\begin{equation*}\label{degree_of_quotient_not_too_small}
+\deg\mathcal{M}\ge -N.
+\end{equation*}
+
+
+Finally, suppose that $\rho(V_1,\ldots,V_n)$ has a line bundle quotient $\mathcal{N}$ of degree $d<0$. Let $F:C\to C$ be the absolute Frobenius map on $C$. Then, by pulling back the surjection $\rho(V_1,\ldots,V_n)\to\mathcal{N}$ by $F^t$, we obtain a quotient line bundle of $\rho((F^{t})^{*}V_1,\ldots,(F^{t})^{*}V_n)$ of degree $dp^{t}<-N$ for sufficiently large $t$, contradicting \ref{degree_of_quotient_not_too_small}.
+
+\end{proof}
+
+\begin{lemma}\label{no_negative_quotient_on_curve}
+Let $C$ be a smooth curve any field. Let $V_1,\ldots,V_n$ be vector bundles on $C$ with no line bundle quotients of negative degree. Then, $\rho(V_1,\ldots,V_n)$ has no line bundle quotients of negative degree.
+\end{lemma}
+\begin{proof}
+spread out, use positive char case.
+\end{proof}
+
+
+\begin{lemma}\label{apply_rho_still_semipos}
+Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$ on $X$. 
+Let $\rho:\prod_i GL(r_i)\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. 
+Then, $W$ is a semipositive vector bundle.
+\end{lemma}
+
+\begin{proof}
+Immediate from Lemma \ref{no_negative_quotient_on_curve} and the definition of semipositivity.
 \end{proof}
 
 \begin{lemma}
-Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$ over a scheme $X$. Let $\rho:\prod_i GL(r_i)\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. Let $V$ be the subbundle of $W$ associated to a subrepresentation of $\rho$. Then, if $W$ is semipositive, then $V$ is semipositive.
+Let $X$ be a scheme and $V$ a semipositive vector bundle on $X$. 
+Then, $Sym^dV$ is a semipositive vector bundle.
+\end{lemma}
+
+
+\begin{lemma}
+Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$. 
+Let $G=\prod_{i=1}^{n}GL(r_i)$, let $\rho:G\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. Let $x\in X$ be a point, and let $V_x$ be a $G$-invariant subspace of $W_x$, which defines a subbundle $V\subset W$. 
+Then, $V$ is a semipositive vector bundle.
 \end{lemma}
 
 \begin{proof}
-
+The $G$-invariant subspace $V_x\subset W_x$ defines a subrepresentation $\sigma$ of $\rho$, and we see that $V=\sigma(V_1,\ldots,V_n)$.
+ By \todo{ref}, $\sigma$ is semipositive, so by Lemma \ref{apply_rho_still_semipos}, $V$ is semipositive.
 \end{proof}
 
 

@@ -6,15 +6,58 @@
 \title{Ampleness Criteria for algebraic spaces}
 \maketitle
 
+\section{Facts from schemes}
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0B5V}{Tag 0B5V}]{stacks-project}}]
+\label{cohomology-schemes-lemma-surjective-finite-morphism-ample}
+Let $R$ be a Noetherian ring. Let $f : Y \to X$ be a morphism of
+schemes proper over $R$. Let $\mathcal{L}$ be an
+invertible $\mathcal{O}_X$-module. Assume $f$ is finite and surjective.
+Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
+\end{lemma}
+
+\section{Basic properties of algebraic spaces}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/025W}{Tag 025W}]{stacks-project}}]
+\label{lemma-representable-diagonal}
+Let $S$ be a scheme contained in $\Sch_{fppf}$.
+Let $F$ be a presheaf of sets on $(\Sch/S)_{fppf}$.
+The following are equivalent:
+\begin{enumerate}
+\item the diagonal $F \to F \times F$ is representable,
+\item for $U \in \Ob((\Sch/S)_{fppf})$ and any $a \in F(U)$
+the map $a : h_U \to F$ is representable,
+\item for every pair $U, V \in \Ob((\Sch/S)_{fppf})$
+and any $a \in F(U)$, $b \in F(V)$ the fibre product
+$h_U \times_{a, F, b} h_V$ is representable.
+\end{enumerate}
+\end{lemma}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/03WG}{Tag 03WG}]{stacks-project}}]
+\label{lemma-affine-local}
+Let $S$ be a scheme.
+Let $f : X \to Y$ be a morphism of algebraic spaces over $S$.
+The following are equivalent:
+\begin{enumerate}
+\item $f$ is representable and affine,
+\item $f$ is affine,
+\item for every affine scheme $V$ and \'etale morphism $V \to Y$
+the scheme $X \times_Y V$ is affine,
+\item there exists a scheme $V$ and a surjective \'etale morphism
+$V \to Y$ such that $V \times_Y X \to V$ is affine, and
+\item there exists a Zariski covering $Y = \bigcup Y_i$ such
+that each of the morphisms $f^{-1}(Y_i) \to Y_i$ is affine.
+\end{enumerate}
+\end{lemma}
+
 \section{Ampleness for spaces}
-\begin{definition}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D31}{Tag 0D31}]{stacks-project}}]
+\begin{definition}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D31}{Tag 0D31}]{stacks-project}}]\label{definition-relatively-ample}
 Let $S$ be a scheme.
 Let $f : X \to Y$ be a morphism of algebraic spaces over $S$.
 Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
 We say $\mathcal{L}$ is {\it relatively ample}, or {\it $f$-relatively ample},
 or {\it ample on $X/Y$}, or {\it $f$-ample} if $f : X \to Y$
 is representable and for every morphism $Z \to Y$
-where $Z$ is a scheme, the pullback $\mathcal{L}_T$ of $\mathcal{L}$
+where $Z$ is a scheme, the pullback $\mathcal{L}_T$\todo{Report typo} of $\mathcal{L}$
 to $X_Z = Z \times_Y X$ is ample on $X_Z/Z$.
 \end{definition}
 
@@ -34,6 +77,29 @@ to $X_Z = Z \times_Y X$ is ample on $X_Z/Z$.
   \ref{definition-relatively-ample}?}
 \end{definition}
 
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D32}{Tag 0D32}]{stacks-project}}]
+\label{lemma-relatively-ample-sanity-check}
+Let $S$ be a scheme.
+Let $f : X \to Y$ be a morphism of algebraic spaces over $S$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Assume $Y$ is a scheme. The following are equivalent
+\begin{enumerate}
+\item $\mathcal{L}$ is ample on $X/Y$ in the sense of
+Definition \ref{definition-relatively-ample}, and
+\item $X$ is a scheme and $\mathcal{L}$ is ample on $X/Y$
+in the sense of
+Morphisms, Definition \ref{morphisms-definition-relatively-ample}.
+\end{enumerate}
+\end{lemma}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D34}{Tag 0D34}]{stacks-project}}]
+\label{lemma-relatively-ample-properties}
+Let $S$ be a scheme.
+Let $f : X \to Y$ be a morphism of algebraic spaces over $S$.
+If there exists an $f$-ample invertible sheaf, then
+$f$ is representable, quasi-compact, and separated.
+\end{lemma}
+
 \begin{lemma}[Serre vanishing for algebraic spaces, {\cite[\href{http://stacks.math.columbia.edu/tag/0D38}{Tag 0D38}]{stacks-project}}]
 Let $R$ be a Noetherian ring. Let $X$ be an algebraic space over $R$
 such that the structure morphism $f : X \to \Spec(R)$ is proper.
@@ -49,8 +115,54 @@ for all $n \geq n_0$ and $p > 0$.
 \end{enumerate}
 \end{lemma}
 
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D2W}{Tag 0D2W}]{stacks-project}}]
+\label{lemma-Noetherian-h1-zero-invertible}
+Let $S$ be a scheme. Let $X$ be a Noetherian algebraic space over $S$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Assume that for every coherent $\mathcal{O}_X$-module
+$\mathcal{F}$ there exists an $n \geq 1$ such that
+$H^1(X, \mathcal{F} \otimes_{\mathcal{O}_X} \mathcal{L}^{\otimes n}) = 0$.
+Then $X$ is a scheme and $\mathcal{L}$ is ample on $X$.
+\end{lemma}
+
+\section{Euler characteristics for spaces}
+\begin{lemma}[{cf.\ \cite[\href{http://stacks.math.columbia.edu/tag/0BEK}{Tag 0BEK}]{stacks-project}}]
+\label{lemma-euler-characteristic-morphism}
+Let $k$ be a field. Let $f : Y \to X$ be a morphism of proper algebraic spaces
+over $k$. Let $\mathcal{G}$ be a coherent $\mathcal{O}_Y$-module. Then
+$$
+\chi(Y, \mathcal{G}) = \sum (-1)^i \chi(X, R^if_*\mathcal{G})
+$$
+\end{lemma}
+
+\begin{proof}
+The formula makes sense: the sheaves $R^if_*\mathcal{G}$ are coherent
+and only a finite number of them are nonzero, see
+\cite[\href{http://stacks.math.columbia.edu/tag/08AR}{Tag 08AR}]{stacks-project}
+and \cite[\href{http://stacks.math.columbia.edu/tag/073G}{Tag
+073G}]{stacks-project}. By the Leray spectral sequence
+\cite[\href{http://stacks.math.columbia.edu/tag/0732}{Tag 0732}]{stacks-project}
+there is a spectral
+sequence with
+$$
+E_2^{p, q} = H^p(X, R^qf_*\mathcal{G})
+$$
+converging to $H^{p + q}(Y, \mathcal{G})$. By finiteness of cohomology
+on $X$ we see that only a finite number of $E_2^{p, q}$ are nonzero
+and each $E_2^{p, q}$ is a finite dimensional vector space. It follows
+that the same is true for $E_r^{p, q}$ for $r \geq 2$ and that
+$$
+\sum (-1)^{p + q} \dim_k E_r^{p, q}
+$$
+is independent of $r$. Since for $r$ large enough we have
+$E_r^{p, q} = E_\infty^{p, q}$ and since convergence means there
+is a filtration on $H^n(Y, \mathcal{G})$ whose graded pieces are
+$E_\infty^{p, q}$ with $p + 1 = n$ (this is the meaning of convergence
+of the spectral sequence), we conclude.
+\end{proof}
+
 \section{Numerical intersection theory for spaces}
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0DN4}{Tag 0DN4}]{stacks-project}}]\label{tag:0DN4}
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0DN4}{Tag 0DN4}]{stacks-project}}]\label{lemma-numerical-polynomial-from-euler}
 Let $k$ be a field. Let $X$ be a proper algebraic space over $k$.
 Let $\mathcal{F}$ be a coherent $\mathcal{O}_X$-module. Let
 $\mathcal{L}_1, \ldots, \mathcal{L}_r$ be invertible $\mathcal{O}_X$-modules.
@@ -67,7 +179,7 @@ most the dimension of the scheme theoretic support of $\mathcal{F}$.
 We can then define:
 \begin{definition}[{cf.\ \cite[\href{http://stacks.math.columbia.edu/tag/0BEP}{Tag 0BEP}]{stacks-project}}]\label{tag:0BEP}
 Let $k$ be a field. Let $X$ be a proper algebraic space over $k$. Let
-$i : Z \to X$ be a closed subscheme of dimension $d$. Let
+$i : Z \to X$ be a closed subspace of dimension $d$. Let
 $\mathcal{L}_1, \ldots, \mathcal{L}_d$ be invertible
 $\mathcal{O}_X$-modules. We define the {\it intersection number}
 $(\mathcal{L}_1 \cdots \mathcal{L}_d \cdot Z)$
@@ -82,7 +194,163 @@ In the special
 case that $\mathcal{L}_1 = \ldots = \mathcal{L}_d = \mathcal{L}$
 we write $(\mathcal{L}^d \cdot Z)$.
 \end{definition}
+\begin{lemma}[{cf.\ \cite[\href{http://stacks.math.columbia.edu/tag/0BET}{Tag 0BET}]{stacks-project}}]
+\label{lemma-intersection-number-and-pullback}
+Let $k$ be a field. Let $f : Y \to X$ be a morphism of proper algebraic spaces
+over $k$.
+Let $Z \subset Y$ be an integral closed subspace of dimension $d$ and let
+$\mathcal{L}_1, \ldots, \mathcal{L}_d$ be invertible $\mathcal{O}_X$-modules.
+Then
+$$
+(f^*\mathcal{L}_1 \cdots f^*\mathcal{L}_d \cdot Z) =
+\deg(f|_Z : Z \to f(Z)) (\mathcal{L}_1 \cdots \mathcal{L}_d \cdot f(Z))
+$$
+where $\deg(Z \to f(Z))$ is as in
+{\it \cite[\href{http://stacks.math.columbia.edu/tag/0AD6}{Tag 0AD6}]{stacks-project}}
+or $0$ if $\dim(f(Z)) < d$.\todo{Prove this.}
+\end{lemma}
+%\begin{proof}
+%The left hand side is computed using the coefficient of $n_1 \ldots n_d$
+%in the function
+%$$
+%\chi(Y, \mathcal{O}_Z \otimes f^*\mathcal{L}_1^{\otimes n_1} \otimes
+%\ldots \otimes f^*\mathcal{L}_d^{\otimes n_d}) =
+%\sum (-1)^i
+%\chi(X, R^if_*\mathcal{O}_Z \otimes
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d})
+%$$
+%The equality follows from Lemma \ref{lemma-euler-characteristic-morphism}
+%and the projection formula
+%\cite[\href{http://stacks.math.columbia.edu/tag/0944}{Tag 0944}]{stacks-project}.
+%If $f(Z)$ has dimension $< d$, then the right hand side
+%is a polynomial of total degree $<d$ by
+%Lemma \ref{lemma-numerical-polynomial-from-euler}
+%and the result is true. Assume $\dim(f(Z)) = d$. Let
+%$\xi \in \lvert f(Z) \rvert$ be the generic point. By
+%dimension theory
+%the generic point of $Z$ is the unique point of $Z$ mapping to $\xi$.
+%Then $f : Z \to f(Z)$ is finite over a nonempty open of $f(Z)$, see
+%Morphisms, Lemma \ref{morphisms-lemma-generically-finite}.
+%Thus $\deg(f : Z \to f(Z))$ is defined and in fact it is equal
+%to the length of the stalk of $f_*\mathcal{O}_Z$ at $\xi$
+%over $\mathcal{O}_{X, \xi}$. Moreover, the stalk of
+%$R^if_*\mathcal{O}_X$ at $\xi$ is zero for $i > 0$ because
+%we just saw that $f|_Z$ is finite in a neighbourhood of $\xi$
+%(so that Cohomology of Schemes, Lemma
+%\ref{coherent-lemma-finite-pushforward-coherent} gives the vanishing).
+%Thus the terms $\chi(X, R^if_*\mathcal{O}_Z \otimes
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d})$ with $i > 0$ have total
+%degree $< d$ and
+%$$
+%\chi(X, f_*\mathcal{O}_Z \otimes
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d})
+%=
+%\deg(f : Z \to f(Z)) \chi(f(Z),
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d}|_{f(Z)})
+%$$
+%modulo a polynomial of total degree $< d$ by
+%Lemma \ref{lemma-numerical-polynomial-leading-term}.
+%The desired result follows.
+%\end{proof}
 
+\section{Finiteness and cohomology}
+This is a generalization of \cite[Lem.\ 2.8]{Ko90}.
+\begin{proposition}[{\cite[\href{http://stacks.math.columbia.edu/tag/09YC}{Tag 09YC}]{stacks-project}}]
+\label{proposition-there-is-a-scheme-finite-over}
+Let $S$ be a scheme. Let $X$ be a quasi-compact and quasi-separated
+algebraic space over $S$.
+\begin{enumerate}
+\item There exists a surjective finite morphism $Y \to X$
+of finite presentation where $Y$ is a scheme,
+\item given a surjective \'etale morphism $U \to X$ we may choose
+$Y \to X$ such that for every $y \in Y$ there is an open neighbourhood
+$V \subset Y$ such that $V \to X$ factors through $U$.
+\end{enumerate}
+\end{proposition}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0A4K}{Tag 0A4K}]{stacks-project}}]
+\label{lemma-finite-higher-direct-image-zero}
+Let $S$ be a scheme. Let $f : X \to Y$ be an integral (for example finite)
+morphism of algebraic spaces. Then
+$f_* : \textit{Ab}(X_\etale) \to \textit{Ab}(Y_\etale)$
+is an exact functor and $R^pf_* = 0$ for $p > 0$.
+\end{lemma}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0733}{Tag 0733}]{stacks-project}}]
+\label{lemma-apply-Leray}
+Let $f : (\Sh(\mathcal{C}), \mathcal{O}_\mathcal{C}) \to
+(\Sh(\mathcal{D}), \mathcal{O}_\mathcal{D})$ be a morphism of ringed topoi.
+Let $\mathcal{F}$ be an $\mathcal{O}_\mathcal{C}$-module.
+\begin{enumerate}
+\item If $R^qf_*\mathcal{F} = 0$ for $q > 0$, then
+$H^p(\mathcal{C}, \mathcal{F}) = H^p(\mathcal{D}, f_*\mathcal{F})$ for all $p$.
+\item If $H^p(\mathcal{D}, R^qf_*\mathcal{F}) = 0$ for all $q$ and $p > 0$,
+then $H^q(\mathcal{C}, \mathcal{F}) = H^0(\mathcal{D}, R^qf_*\mathcal{F})$
+for all $q$.
+\end{enumerate}
+\end{lemma}
+
+
+
+\section{Nakai--Moishezon Criterion}
+
+\begin{lemma}
+\label{lemma-surjective-finite-morphism-ample}
+Let $R$ be a Noetherian ring.
+Let $X$ and $Y$ be algebraic spaces over $R$.
+Let $f : Y \to X$ be a proper morphism of algebraic spaces over $R$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Assume $f$ is finite and surjective.
+Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
+\end{lemma}
+
+\begin{proof}
+  Suppose that $\mathcal{L}$ is ample.
+  Then $X \to \Spec(R)$ is representable and hence $X$ is a scheme.
+  But $f : Y \to X$ is finite and hence affine, so, by
+  Lemma \ref{lemma-affine-local}, $f$ is representable.
+  Therefore $Y$ is a scheme.
+  Then $f^*\mathcal{L}$ is ample by the schemes case,
+  Lemma \ref{cohomology-schemes-lemma-surjective-finite-morphism-ample}.
+\end{proof}
+
+\begin{theorem}[Nakai--Moishezon Criterion for algebraic spaces {\cite[Thm.\ 3.11]{Ko90}}]
+  Let $k$ be a field. Let $X$ be a proper algebraic space over $k$. Let
+  $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module. Then the following are
+  equivalent:
+  \begin{enumerate}
+    \item $\mathcal{L}$ is ample on $X/k$.
+    \item For every integral closed subspace $Y$ of $X$, $(\mathcal{L}^{\dim(Y)}
+      \cdot Y) > 0$.
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  Assume (1) holds. Then, $X$ is a scheme, and $\mathcal{L}$ is ample on $X/k$
+  in the scheme-theoretic sense by Lemma
+  \ref{lemma-relatively-ample-sanity-check}.
+  The Nakai--Moishezon criterion for schemes implies (2).
+
+  Now suppose (2) holds.
+  By Lemma~\ref{proposition-there-is-a-scheme-finite-over}, we can choose
+  a finite surjective map $p : X' \to X$ from a scheme $X'$.
+  By Lemma~\ref{lemma-surjective-finite-morphism-ample}, $\mathcal{L}$ is
+  ample if and only if $p^*\mathcal{L}$ is ample, so by the Nakai--Moishezon
+  criterion for schemes, it suffices to show that for every integral closed
+  subscheme $Y'$ in $X'$, we have $(p^*\mathcal{L}^{\dim(Y')} \cdot Y') > 0$.
+  Let $Y$ be the image of $Y'$ in $Y$; by Lemma
+  \ref{lemma-intersection-number-and-pullback}, we then have
+  $$
+  ( (p^*\mathcal{L})^{\dim Y'} \cdot Y') = \deg(p\rvert_{Y'} : Y' \to
+  Y)(\mathcal{L}^{\dim Y'} \cdot Y).
+  $$
+  Note $\dim Y' = \dim Y$ since $p\rvert_{Y'} : Y' \to Y$ is finite surjective.
+  Since $(\mathcal{L}^{\dim Y} \cdot Y) > 0$ by (2), we therefore see that
+  $( (p^*\mathcal{L})^{\dim Y'} \cdot Y') > 0$.
+\end{proof}
 
 \bibliographystyle{unsrt}
 \bibliography{references}
