@@ -16,11 +16,42 @@ This section develops the basic properties of semipositivity.
 Let $G=\prod_i GL(E_i)$ be a product of general linear groups. A representation $\rho:G\rightarrow GL(F)$ is called semipositive (or polynomial) if it extends to a morphism $\overline{\rho}:\prod_i End(E_i)\rightarrow End(F)$.
 \end{definition}
 
+\todo{give notation for $H$-bundle you get from a $G$-bundle and a map $G\to H$}.
+
+\begin{definition}
+Let $V_1,\dots, V_n$ vector bundles of rank $r_1,\dots, r_n$ over a base space X, and let $\rho:\prod_i GL(r_i)\rightarrow GL(m)$ be any representation. One can define a bundle $\rho(V_1,\dots, V_n)$ of rank $m$ as follows: every $V_i$ is a principal $GL(r_i)$-bundle, hence it corresponds to a point $x_i$ in $H^1(X, GL(r_i))$; the map $\rho$ induces a map $\rho^*:H^1(X,\prod_i GL(r_i)\rightarrow H^1(X, GL(m))$, i.e. $\rho: \prod_i H^1(X,GL(r_i))\rightarrow H^1(X, GL(m))$. We define $\rho(V_1,\dots, V_n)$ to be the principal $GL(m)$-bundle corresponding to $\rho^*(x_1,\dots,x_n)$.
+\end{definition}
+
 \begin{lemma}
-The following representations are semipositive:
-\item[(i)] Symmetric products;
-\item[(ii)] Let $V_1, \dots, V_n$ be vector bundles with typical fibers $E_i$ and let $\rho$ be any representation of $G$. One can define a vector bundle $\rho(V_1,\dots,V_n)$ as follows: TO DO.
-\item[(iii)] Assume in example (ii) that every $V_i$ is a direct sum of line bundles $\sum_j L_{ij}$. Then the structure group of  $V_i$ can be reduced to a torus. Thus the structure group of $\rho(V_1,\dots, V_n)$ is also a torus and is a direct sum of line bundles of the form $\otimes L_{ij}^{a_{ij}}$. Since $\rho$ is semipositive, each of the $a_{ij}$ is nonnegative.
+For $i=1,2,\ldots,n$, let $V_i=\sum_{j}\mathcal{L}_{ij}$ be a vector bundle of rank $r_i$ that splits as a direct sum of line bundles $\mathcal{L}_{ij}$. Let $\rho:\prod_{i}GL(r_i)\to GL(m)$ be a semipositive representation. Then, $\rho(V_1,\ldots,V_n)$ is a a direct sum of line bundles of the form $\oplus_{i,j}\otimes\mathcal{L}_{ij}^{a_{ij}}$, where $a_{ij}\ge0$.
+\end{lemma}
+
+\begin{proof}
+\todo{add details, maybe}
+For each $i$, we have a diagonal embedding $\psi_i:\prod_{j=1}^{r_i}GL(1)\to GL(r_i)$...
+Taking the product over $i$ and post-composing with $\rho$ yields a map
+\begin{equation}
+\prod_{i=1}^{n}\prod_{j=1}^{r_i}GL(1)\to GL(m),
+\end{equation}
+which factors through a maximal torus $\psi:\prod_{k=1}^{m}GL(1)\to GL(m)$.
+\todo{make diagram...}
+
+Thus $\rho(V_1,\ldots,V_n)$ splits as the direct sum of the line bundles you get from $\prod\prod GL(1)\to GL(1)$ after projecting to the $t$-th factor...
+
+This map is a character, so of the form $(z_{ij})\mapsto \prod z_{ij}^{a_{ij,t}}$, and $a_{ij,t}\ge0$ by semipositivity.
+
+Then $\rho(V_1,\ldots,V_n)$ is the direct sum of $\otimes\mathcal{L}_{ij}^{a_{ij,t}}$ over $t\in[1,n]$.
+
+\end{proof}
+
+\begin{lemma}
+The following properties hold for semipositive representations:
+\item[(i)] Symmetric products are semipositive;
+\item[(ii)] Subrepresentations of semipositive representations are semipositive;
+\item[(iii)] Let $V_1,\dots, V_n$ be vector bundles such that each $V_i$ is a sum of line bundles $\sum_j L_{ij}$, and $\rho$ a semipositive respresentation. Then the structure group of $\rho(V_1,\dots, V_n)$ is a torus and is a direct sum of line bundles $\otimes L_{ij}^{a_{ij}}$, where each of the $a_{ij}$ are nonnegative.
+\item[(iv)] Let $V_1,\dots, V_n$ and $W_1,\dots, W_n$ be vector bundles such that $rk (V_i)=rk(W_i)$, and let $f_i: V_i\rightarrow W_i$ be sheaf homomorphisms. If $\rho$ is semipositive, then there exists a natural map 
+$$\rho(f_1,\dots, f_n):\rho(V_1,\dots, V_n)\rightarrow \rho(W_1,\dots,W_n).$$
+\item[(v)] Let $V_1,\dots, V_n$ be vector bundles over a base $X$, and $f:X'\rightarrow X$ a morphism. Then $\rho(f^*V_1,\dots,f^*V_n)=f^*(\rho(V_1,\dots,V_n))$.
 \end{lemma}
 
 
