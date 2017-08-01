@@ -36,14 +36,18 @@ A locally free sheaf $V$ on a scheme $X$ is semipositive if for every map from a
 A locally free sheaf $V$ on a scheme $X$ is semipositive if and only if $\mathcal{O}_{Proj V}(1)$ is nef on $Proj_XV$.
 \end{lemma}
 \begin{proof}
-Let $\pi: Proj_X V\to V$ be the projection map. By definitions, semipositivity of $V$ implies nef-ness of $\mathcal{O}_{Proj V}(1)$. For the other direction, consider $C\subset \mathbb{P}_XV$ a curve. Then $\mathcal{O}_{\mathbb{P}V}(1)|_C$ is a quotient of $\pi^*V|_C$. 
+Let $\pi: Proj_X V\to V$ be the projection map. Assume $\mathcal{O}_{\mathbb{P}V}(1)$ be nef. Let $L$ be  any quotient line bundle of $f^*V$ over a smooth proper curve $C$. Then $\deg \mathcal{O}_{\mathbb{P}L}(1)=\deg L$. Since $\mathbb{P}_CL$ is a curve in $\mathbb{P}_CV$, we have $\deg L=\mathcal{O}_{\mathbb{P}V}(1)|\mathbb{P}_CL$. Hence, using that $\mathcal{O}_{\mathbb{P}V}(1)$ be nef is nef, we get $\deg L>0$ and so $V$ is semipositive.
+
+For the other direction, consider any smooth proper $C\subset \mathbb{P}_XV$ curve. By the universal property of relative Proj $\mathcal{O}_{\mathbb{P}V}(1)|_C$ is a quotient of $\pi^*V|_C$. Thus, semipositivity of $V$ implies nefness of $\mathcal{O}_{Proj V}(1)$.
 \end{proof}
 
 \begin{lemma}
 3.4 Semipositivity is an open condition in flat families.
+Let $f:Y\to X$ be a flat map and $V$ be a vector bundle on $Y$. Then the set of points $x\in X$ such that the vector bundle $V_x$ is semipositive on the fiber $Y_x$ is open.
 \end{lemma}
 \begin{proof}
-It follows from lemma \ref{semipos=nef} and nef-ness is an open condition.
+It follows from lemma \ref{semipos=nef} and nefness is an open condition.
+Let $\pi:\mathbb{P}_YV\to Y$ be the projection map.  Note $\pi$ is flat. Given a point $x\in X$, by lemma \ref{semipos=nef} the vector bunlde $V_x$ is semipositive if and only if $\mathcal{O}_{Proj V}(1)_x$ is nef. The compositve morphism $f\circ \pi$ is flat. Since nefness is an open condition in flat families, the set of points $x\in X$ such that $\mathcal{O}_{\mathbb{P}V}(1)$ is nef is open in $X$.
 \end{proof}
 
 \begin{lemma}
