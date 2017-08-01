@@ -107,6 +107,69 @@ In the special
 case that $\mathcal{L}_1 = \ldots = \mathcal{L}_d = \mathcal{L}$
 we write $(\mathcal{L}^d \cdot Z)$.
 \end{definition}
+\begin{lemma}[{cf.\ \cite[\href{http://stacks.math.columbia.edu/tag/0BET}{Tag 0BET}]{stacks-project}}]
+\label{lemma-intersection-number-and-pullback}
+Let $k$ be a field. Let $f : Y \to X$ be a morphism of proper algebraic spaces
+over $k$.
+Let $Z \subset Y$ be an integral closed subspace of dimension $d$ and let
+$\mathcal{L}_1, \ldots, \mathcal{L}_d$ be invertible $\mathcal{O}_X$-modules.
+Then
+$$
+(f^*\mathcal{L}_1 \cdots f^*\mathcal{L}_d \cdot Z) =
+\deg(f|_Z : Z \to f(Z)) (\mathcal{L}_1 \cdots \mathcal{L}_d \cdot f(Z))
+$$
+where $\deg(Z \to f(Z))$ is as in
+Morphisms, Definition \ref{morphisms-definition-degree}
+or $0$ if $\dim(f(Z)) < d$.\todo{Prove this.}
+\end{lemma}
+%\begin{proof}
+%The left hand side is computed using the coefficient of $n_1 \ldots n_d$
+%in the function
+%$$
+%\chi(Y, \mathcal{O}_Z \otimes f^*\mathcal{L}_1^{\otimes n_1} \otimes
+%\ldots \otimes f^*\mathcal{L}_d^{\otimes n_d}) =
+%\sum (-1)^i
+%\chi(X, R^if_*\mathcal{O}_Z \otimes
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d})
+%$$
+%The equality follows from Lemma \ref{lemma-euler-characteristic-morphism}
+%and the projection formula
+%(Cohomology, Lemma \ref{cohomology-lemma-projection-formula}).
+%If $f(Z)$ has dimension $< d$, then the right hand side
+%is a polynomial of total degree $<d$ by
+%Lemma \ref{lemma-numerical-polynomial-from-euler}
+%and the result is true. Assume $\dim(f(Z)) = d$. Let
+%$\xi \in f(Z)$ be the generic point. By
+%dimension theory (see Lemmas \ref{lemma-dimension-locally-algebraic} and
+%\ref{lemma-dimension-fibres-locally-algebraic})
+%the generic point of $Z$ is the unique point of $Z$ mapping to $\xi$.
+%Then $f : Z \to f(Z)$ is finite over a nonempty open of $f(Z)$, see
+%Morphisms, Lemma \ref{morphisms-lemma-generically-finite}.
+%Thus $\deg(f : Z \to f(Z))$ is defined and in fact it is equal
+%to the length of the stalk of $f_*\mathcal{O}_Z$ at $\xi$
+%over $\mathcal{O}_{X, \xi}$. Moreover, the stalk of
+%$R^if_*\mathcal{O}_X$ at $\xi$ is zero for $i > 0$ because
+%we just saw that $f|_Z$ is finite in a neighbourhood of $\xi$
+%(so that Cohomology of Schemes, Lemma
+%\ref{coherent-lemma-finite-pushforward-coherent} gives the vanishing).
+%Thus the terms $\chi(X, R^if_*\mathcal{O}_Z \otimes
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d})$ with $i > 0$ have total
+%degree $< d$ and
+%$$
+%\chi(X, f_*\mathcal{O}_Z \otimes
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d})
+%=
+%\deg(f : Z \to f(Z)) \chi(f(Z),
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d}|_{f(Z)})
+%$$
+%modulo a polynomial of total degree $< d$ by
+%Lemma \ref{lemma-numerical-polynomial-leading-term}.
+%The desired result follows.
+%\end{proof}
 
 \section{Finiteness and cohomology}
 This is a generalization of \cite[Lem.\ 2.8]{Ko90}.
@@ -182,22 +245,15 @@ If $\mathcal{L}$ is ample...
   ample if and only if $p^*\mathcal{L}$ is ample, and so by the Nakai--Moishezon
   criterion for schemes, it suffices to show that for every integral closed
   subscheme $Y'$ in $X'$, we have $(p^*\mathcal{L}^{\dim(Y')} \cdot Y') > 0$.
-  Let $Y$ be the image of $Y'$ in $Y$, so that we have a commutative (but not
-  cartesian) diagram
+  Let $Y$ be the image of $Y'$ in $Y$; by Lemma
+  \ref{lemma-intersection-number-and-pullback}, we then have
   $$
-    \xymatrix{
-      Y' \ar@{^{(}->}[r]^{i'}\ar[d]_q & X'\ar[d]^p\\
-      Y \ar@{^{(}->}[r]^i & X
-    }
+  ( (p^*\mathcal{L})^{\dim Y'} \cdot Y') = \deg(p\rvert_{Y'} : Y' \to
+  Y)(\mathcal{L}^{\dim Y'} \cdot Y).
   $$
-  Note that $Y'$ is a subscheme of the inverse image of $Y$ in $X'$, hence
-  $q : Y' \to Y$ is finite surjective. Now, by Leray (Lemma
-  \ref{lemma-apply-Leray}),
-  $$
-    \chi(Y',(p^*\mathcal{L}^{\otimes n})\rvert_{Y'})
-    = \chi(Y',q^*(\mathcal{L}^{\otimes n}\rvert_Y))
-    = \chi(Y,q_*q^*(\mathcal{L}^{\otimes n}\rvert_Y))
-  $$
+  Note $\dim Y' = \dim Y$ since $p\rvert_{Y'} : Y' \to Y$ is finite surjective.
+  Since $(\mathcal{L}^{\dim Y} \cdot Y) > 0$ by (2), we therefore see that
+  $( (p^*\mathcal{L})^{\dim Y'} \cdot Y') > 0$.
 \end{proof}
 
 \bibliographystyle{unsrt}
