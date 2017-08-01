@@ -32,6 +32,23 @@ $h_U \times_{a, F, b} h_V$ is representable.
 \end{enumerate}
 \end{lemma}
 
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/03WG}{Tag 03WG}]{stacks-project}}]
+\label{lemma-affine-local}
+Let $S$ be a scheme.
+Let $f : X \to Y$ be a morphism of algebraic spaces over $S$.
+The following are equivalent:
+\begin{enumerate}
+\item $f$ is representable and affine,
+\item $f$ is affine,
+\item for every affine scheme $V$ and \'etale morphism $V \to Y$
+the scheme $X \times_Y V$ is affine,
+\item there exists a scheme $V$ and a surjective \'etale morphism
+$V \to Y$ such that $V \times_Y X \to V$ is affine, and
+\item there exists a Zariski covering $Y = \bigcup Y_i$ such
+that each of the morphisms $f^{-1}(Y_i) \to Y_i$ is affine.
+\end{enumerate}
+\end{lemma}
+
 \section{Ampleness for spaces}
 \begin{definition}[{\cite[\href{http://stacks.math.columbia.edu/tag/0D31}{Tag 0D31}]{stacks-project}}]\label{definition-relatively-ample}
 Let $S$ be a scheme.
@@ -284,8 +301,7 @@ for all $q$.
 \begin{lemma}
 \label{lemma-surjective-finite-morphism-ample}
 Let $R$ be a Noetherian ring.
-Let $X$ and $Y$ be algebraic spaces over $R$ such that the structure
-maps $X \to \Spec(R)$ and $Y \to \Spec(R)$ are representable.
+Let $X$ and $Y$ be algebraic spaces over $R$.
 Let $f : Y \to X$ be a proper morphism of algebraic spaces over $R$.
 Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
 Assume $f$ is finite and surjective.
@@ -293,27 +309,13 @@ Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
 \end{lemma}
 
 \begin{proof}
-Let $Z$ be any scheme over $R$ and consider the commutative diagram
-$$
-\xymatrix{
-  Y \times_{\Spec(R)} Z \ar[r]_{f_Z} \ar[d]_p  &
-  X \times_{\Spec(R)} Z \ar[r] \ar[d]_q &
-  Z \ar[d] \\
-  Y \ar[r]^f & X \ar[r] & \Spec(R)
-}
-$$
-in which the squares are cartesian.
-As the structure maps from $X$ and $Y$ to $\Spec(R)$ are representable, both
-$Y \times_{\Spec(R)} Z$ and $X \times_{\Spec(R)} Z$ are schemes.
-Moreover, since finite and surjective morphisms are stable under base change,
-$f_Z$ is also finite surjective.
-By definition, $f^*\mathcal{L}$ ample means $p^*f^*\mathcal{L}$ is ample.
-By commutativity of the left square, $p^*f^*\mathcal{L} = f_Z^*q^*\mathcal{L}$.
-Hence by Lemma~\ref{cohomology-schemes-lemma-surjective-finite-morphism-ample},
-$q^*\mathcal{L}$ is ample on $X \times_{\Spec(R)} Z$ if and only if
-$f_Z^*q^*\mathcal{L}$ is ample on $Y \times_{\Spec(R)} Z$.
-By definition, this means that $\mathcal{L}$ is ample on $X$ if and only if
-$f^*\mathcal{L}$ is ample on $Y$.
+  Suppose that $\mathcal{L}$ is ample.
+  Then $X \to \Spec(R)$ is representable and hence $X$ is a scheme.
+  But $f : Y \to X$ is finite and hence affine, so, by
+  Lemma \ref{lemma-affine-local}, $f$ is representable.
+  Therefore $Y$ is a scheme.
+  Then $f^*\mathcal{L}$ is ample by the schemes case,
+  Lemma \ref{cohomology-schemes-lemma-surjective-finite-morphism-ample}.
 \end{proof}
 
 \begin{theorem}[Nakai--Moishezon Criterion for algebraic spaces {\cite[Thm.\ 3.11]{Ko90}}]
