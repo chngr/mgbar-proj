@@ -82,6 +82,46 @@ a closed subscheme of dimension $d$. If $\mathcal{L}_1, \ldots, \mathcal{L}_d$
 are ample, then $(\mathcal{L}_1 \cdots \mathcal{L}_d \cdot Z)$ is positive.
 \end{lemma}
 
+\section{Meromorphic functions}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/02OZ}{Tag 02OZ}]{stacks-project}}]
+\label{lemma-regular-meromorphic-section-exists}
+Let $X$ be a scheme.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+In each of the following cases $\mathcal{L}$ has a regular meromorphic
+section:
+\begin{enumerate}
+\item $X$ is integral,
+\item $X$ is reduced and any quasi-compact open has a finite
+number of irreducible components, and
+\item $X$ is locally Noetherian and has no embedded points.
+\end{enumerate}
+\end{lemma}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/02P0}{Tag 02P0}]{stacks-project}}]
+\label{lemma-regular-meromorphic-ideal-denominators}
+Let $X$ be a scheme.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Let $s$ be a regular meromorphic section of $\mathcal{L}$.
+Let us denote $\mathcal{I} \subset \mathcal{O}_X$ the
+sheaf of ideals defined by the rule
+$$
+\mathcal{I}(V)
+=
+\{f \in \mathcal{O}_X(V) \mid fs \in \mathcal{L}(V)\}.
+$$
+The formula makes sense since
+$\mathcal{L}(V) \subset \mathcal{K}_X(\mathcal{L})(V)$.
+Then $\mathcal{I}$ is a quasi-coherent sheaf of ideals and
+we have injective maps
+$$
+1 : \mathcal{I} \longrightarrow \mathcal{O}_X,
+\quad
+s : \mathcal{I} \longrightarrow \mathcal{L}
+$$
+whose cokernels are supported on closed nowhere dense subsets of $X$.
+\end{lemma}
+
 \section{Nakai--Moishezon}
 In this section, we work out some ampleness criteria for schemes over
 algebraically closed fields.
@@ -109,19 +149,15 @@ We proceed by induction on $\dim(X)$.
 When $\dim(X) = 1$, our assumption says that $\deg(\mathcal{L}) > 0$ and hence
 $\mathcal{L}$ is ample by Lemma~\ref{lemma-ample-curve}.
 
-Now assume $\dim(X) > 1$ and the theorem is true for proper schemes of lower
-dimension.
-Let $\mathcal{K}_X$ be the sheaf of meromorphic functions on $X$.
-Then $\mathcal{L}$ is a subsheaf of $\mathcal{K}_X$.\todo{Explain. Maybe need to fix
-an identification with $\mathcal{O}_X(D)$ to show that the ideals have positive
-codimension.}
-Set $\mathcal{I}_1 = \mathcal{O}_X \cap \mathcal{L}$
-and $\mathcal{I}_2 = \mathcal{O}_X \cap \mathcal{L}^{-1}$ with intersections
-taken inside $\mathcal{K}_X$.
-Then $\mathcal{I}_1$ and $\mathcal{I}_2$ are ideal sheaves on $X$.
-Let $Y_j$ be the closed subscheme of $X$ defined by $\mathcal{I}_j$, $j = 1,2$.
-Note that the $Y_j$ have positive codimension in $X$.\todo{Justify.}
-Then, for all $m \geq $, we the following commutative diagram with exact rows:
+Now suppose $\dim(X) > 1$ and that the theorem is true for all proper schemes
+of lower dimension.
+Since $X$ is integral, $\mathcal{L}$ has a regular meromorphic section by
+Lemma~\ref{lemma-regular-meromorphic-section-exists}.
+Let $\mathcal{I}_1$ be the sheaf of denominators of $\mathcal{L}$ and set
+$\mathcal{I}_2 = \mathcal{I}_1 \otimes \mathcal{L}$.
+Let $Y_j$ be the closed subschemes defined by $\mathcal{I}_j$ with $j = 1,2$.
+By~\ref{lemma-regular-meromorphic-ideal-denominators}, $\dim(Y_j) < \dim(X)$.
+Then, for all $m \geq 0$, we the following commutative diagram with exact rows:
 $$
 \xymatrix{
   0 \ar[r]
@@ -137,7 +173,7 @@ $$
 }
 $$
 By induction, $\mathcal{L}\rvert_{Y_j}$ is ample on $Y_j$ for $j = 1,2$.
-Hence by Serre vanishing\todo{Find reference}, there is some $m_0 > 0$
+Hence by Lemma~\ref{lemma-vanshing-gives-ample}, there is some $m_0 \geq 0$
 such that for all $m \geq m_0$,
 $H^i(Y_j,\mathcal{L}^{\otimes m}\rvert_{Y_j}) = 0$ for all $i > 0$.
 Thus, taking the long exact sequence in cohomology of the sequences above,
