@@ -49,6 +49,14 @@ such that $H^1(X, \mathcal{I} \otimes \mathcal{L}^{\otimes n}) = 0$.
 \end{enumerate}
 \end{lemma}
 
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0B5V}{Tag 0B5V}]{stacks-project}}]
+\label{lemma-surjective-finite-morphism-ample}
+Let $R$ be a Noetherian ring. Let $f : Y \to X$ be a morphism of
+schemes proper over $R$. Let $\mathcal{L}$ be an
+invertible $\mathcal{O}_X$-module. Assume $f$ is finite and surjective.
+Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
+\end{lemma}
+
 \begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/09MS}{Tag 09MS}]{stacks-project}}]
 \label{lemma-ample-on-reduction}
 Let $i : Z \to X$ be a closed immersion of Noetherian schemes
@@ -58,6 +66,27 @@ Then $i^*\mathcal{L}$ is ample on $Z$, if and only if
 $\mathcal{L}$ is ample on $X$.
 \end{lemma}
 
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0B5X}{Tag 0B5X}]{stacks-project}}]
+\label{lemma-ample-curve}
+Let $k$ be a field. Let $X$ be a proper curve over $k$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Then $\mathcal{L}$ is ample if and only if $\deg(\mathcal{L}) > 0$.
+\end{lemma}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0892}{Tag 0892}]{stacks-project}}]
+\label{lemma-pullback-ample-tensor-relatively-ample}
+Let $f : X \to Y$ be a morphism of schemes, $\mathcal{M}$
+an invertible $\mathcal{O}_Y$-module, and $\mathcal{L}$ an
+invertible $\mathcal{O}_X$-module.
+\begin{enumerate}
+\item If $\mathcal{L}$ is $f$-ample and $\mathcal{M}$
+is ample, then $\mathcal{L} \otimes f^*\mathcal{M}^{\otimes a}$ is ample
+for $a \gg 0$.
+\item If $\mathcal{M}$ is ample
+and $f$ quasi-affine, then $f^*\mathcal{M}$ is ample.
+\end{enumerate}
+\end{lemma}
+
 \section{Numerical intersection theory for schemes}
 
 \begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0BEV}{Tag 0BEV}]{stacks-project}}]
@@ -65,6 +94,60 @@ $\mathcal{L}$ is ample on $X$.
 Let $k$ be a field. Let $X$ be proper over $k$. Let $Z \subset X$ be
 a closed subscheme of dimension $d$. If $\mathcal{L}_1, \ldots, \mathcal{L}_d$
 are ample, then $(\mathcal{L}_1 \cdots \mathcal{L}_d \cdot Z)$ is positive.
+\end{lemma}
+
+\section{Meromorphic functions}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/02OZ}{Tag 02OZ}]{stacks-project}}]
+\label{lemma-regular-meromorphic-section-exists}
+Let $X$ be a scheme.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+In each of the following cases $\mathcal{L}$ has a regular meromorphic
+section:
+\begin{enumerate}
+\item $X$ is integral,
+\item $X$ is reduced and any quasi-compact open has a finite
+number of irreducible components, and
+\item $X$ is locally Noetherian and has no embedded points.
+\end{enumerate}
+\end{lemma}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/02P0}{Tag 02P0}]{stacks-project}}]
+\label{lemma-regular-meromorphic-ideal-denominators}
+Let $X$ be a scheme.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Let $s$ be a regular meromorphic section of $\mathcal{L}$.
+Let us denote $\mathcal{I} \subset \mathcal{O}_X$ the
+sheaf of ideals defined by the rule
+$$
+\mathcal{I}(V)
+=
+\{f \in \mathcal{O}_X(V) \mid fs \in \mathcal{L}(V)\}.
+$$
+The formula makes sense since
+$\mathcal{L}(V) \subset \mathcal{K}_X(\mathcal{L})(V)$.
+Then $\mathcal{I}$ is a quasi-coherent sheaf of ideals and
+we have injective maps
+$$
+1 : \mathcal{I} \longrightarrow \mathcal{O}_X,
+\quad
+s : \mathcal{I} \longrightarrow \mathcal{L}
+$$
+whose cokernels are supported on closed nowhere dense subsets of $X$.
+\end{lemma}
+
+\section{Finite morphisms}
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/02OG}{Tag 02OG}]{stacks-project}}]
+\label{lemma-characterize-finite}
+(For a more general version see
+More on Morphisms, Lemma \ref{more-morphisms-lemma-characterize-finite}).
+Let $f : X \to S$ be a morphism of schemes.
+Assume $S$ is locally Noetherian.
+The following are equivalent
+\begin{enumerate}
+\item $f$ is finite, and
+\item $f$ is proper with finite fibres.
+\end{enumerate}
 \end{lemma}
 
 \section{Nakai--Moishezon}
@@ -88,24 +171,22 @@ Assume (1) holds.
 Then (2) follows from Lemma~\ref{lemma-ample-positive}.
 
 Assume (2) holds.
-Reduce to the integral case.\todo{Figure out how to package this reduction.}
-We proceed by induction on $\mathrm{dim}(X)$.
-When $\mathrm{dim}(X) = 1$, (2) says that $\deg(\mathcal{L}) > 0$ and hence
-by ...\todo{Find reference} $L$ is ample.
+Using Lemma~\ref{lemma-surjective-finite-morphism-ample} and
+Lemma~\ref{lemma-ample-on-reduction}, we reduce to the case $X$ is integral.
+We proceed by induction on $\dim(X)$.
+When $\dim(X) = 1$, our assumption says that $\deg(\mathcal{L}) > 0$ and hence
+$\mathcal{L}$ is ample by Lemma~\ref{lemma-ample-curve}.
 
-Now assume $\dim(X) > 1$ and the theorem is true for proper schemes of lower
-dimension.
-Let $\mathcal{K}_X$ be the sheaf of meromorphic functions on $X$.
-Then $\mathcal{L}$ is a subsheaf of $\mathcal{K}_X$.\todo{Explain. Maybe need to fix
-an identification with $\mathcal{O}_X(D)$ to show that the ideals have positive
-codimension.}
-Set $\mathcal{I}_1 = \mathcal{O}_X \cap \mathcal{L}$
-and $\mathcal{I}_2 = \mathcal{O}_X \cap \mathcal{L}^{-1}$ with intersections
-taken inside $\mathcal{K}_X$.
-Then $\mathcal{I}_1$ and $\mathcal{I}_2$ are ideal sheaves on $X$.
-Let $Y_j$ be the closed subscheme of $X$ defined by $\mathcal{I}_j$, $j = 1,2$.
-Note that the $Y_j$ have positive codimension in $X$.\todo{Justify.}
-Then, for all $m \geq $, we the following commutative diagram with exact rows:
+Now suppose $\dim(X) > 1$ and that the theorem is true for all proper schemes
+of lower dimension.
+Since $X$ is integral, $\mathcal{L}$ has a regular meromorphic section by
+Lemma~\ref{lemma-regular-meromorphic-section-exists}.
+Let $\mathcal{I}_1$ be the sheaf of denominators of $\mathcal{L}$ and set
+$\mathcal{I}_2 = \mathcal{I}_1 \otimes \mathcal{L}$.
+Let $Y_j$ be the closed subschemes defined by $\mathcal{I}_j$ with $j = 1,2$.
+By Lemma~\ref{lemma-regular-meromorphic-ideal-denominators},
+$\dim(Y_j) < \dim(X)$.
+Then, for all $m \geq 0$, we the following commutative diagram with exact rows:
 $$
 \xymatrix{
   0 \ar[r]
@@ -121,7 +202,7 @@ $$
 }
 $$
 By induction, $\mathcal{L}\rvert_{Y_j}$ is ample on $Y_j$ for $j = 1,2$.
-Hence by Serre vanishing\todo{Find reference}, there is some $m_0 > 0$
+Hence by Lemma~\ref{lemma-vanshing-gives-ample}, there is some $m_0 \geq 0$
 such that for all $m \geq m_0$,
 $H^i(Y_j,\mathcal{L}^{\otimes m}\rvert_{Y_j}) = 0$ for all $i > 0$.
 Thus, taking the long exact sequence in cohomology of the sequences above,
@@ -150,39 +231,93 @@ as $m \to \infty$. Thus,
 $h^0(X,\mathcal{L}^{\otimes m}) - h^1(X,\mathcal{L}^{\otimes m}) \to \infty$
 as $m \to \infty$; in particular,
 $h^0(X,\mathcal{L}^{\otimes m}) \to \infty$ as $m \to \infty$.
-We may therefore replace $\mathcal{L}$ by a multiple $\mathcal{L}^{\otimes m}$
-so that $\mathcal{L} = \mathcal{O}_X(D)$ for some effective Cartier divisor
-$D$.
+By Lemma \ref{lemma-ample-power-ample}, we may replace $\mathcal{L}$ by
+$\mathcal{L}^{\otimes m}$ to assume $\mathcal{L} = \mathcal{O}_X(D)$ for some
+effective Cartier divisor $D$.
 
-The short exact sequence\todo{Put pushforward along inclusion \(i \colon D
-    \hookrightarrow X\)? OK}
+We now claim that $\mathcal{L}^{\otimes m} = \mathcal{O}_X(mD)$ is generated by
+its global sections for $m \gg 0$. Consider the short exact sequence
 $$
 0 \longrightarrow \mathcal{O}_X((m-1)D) \longrightarrow \mathcal{O}_X(mD)
-\longrightarrow \mathcal{O}_D(mD) \longrightarrow 0
+\longrightarrow \mathcal{O}_D(mD) \longrightarrow 0.
 $$
-together with Serre vanishing (Lemma \ref{lemma-vanshing-gives-ample}) applied to $\mathcal{O}_D(mD)$,
-we have a surjection
+Since $\mathcal{O}_D(mD)$ is ample by the inductive hypothesis,
+Serre vanishing (Lemma \ref{lemma-vanshing-gives-ample}) implies
+$H^1(D,\mathcal{O}_D(mD)) = 0$ for $m \gg 0$, hence the maps
 $$
 \rho_m : H^1(X,\mathcal{O}_X((m -1)D)) \longrightarrow H^1(X,\mathcal{O}_X(mD))
 $$
-for all $m$ sufficiently large.
-Hence the $h^1(X,\mathcal{O}_X(mD))$ form a nonincreasing sequence and thus
-stabilizes for $m$ sufficiently large, at which time the map
+arising from the long exact sequence on cohomology
+are surjective for all $m \gg 0$. Since the vector spaces
+$H^1(X,\mathcal{O}_X(mD))$ are all finite-dimensional, we have that for $m \gg
+0$, the sequence
+$$h^1(X,\mathcal{O}_X(mD)) \ge h^1(X,\mathcal{O}_X((m+1)D)) \ge \cdots$$
+is a nonincreasing sequence of nonnegative integers, and thus stabilizes for $m
+\gg 0$. The maps $\rho_m$ are therefore bijective for $m \gg 0$, hence
+\begin{equation}\label{eq:restriction-surjects}
+  H^0(X,\mathcal{O}_X(mD)) \longrightarrow H^0(D,\mathcal{O}_D(mD))
+\end{equation}
+is surjective for $m \gg 0$. We can now show $\mathcal{O}_X(mD)$ is generated by
+global sections. If $x \in X \setminus D$, then a global section in
+$H^0(X,\mathcal{O}_X(mD))$ defining $mD$ generates $(\mathcal{O}_X(mD))_x$,
+since $\mathcal{O}_X(mD)$ restricted to $X \setminus D$ is trivial.
+Otherwise, suppose $x \in D$. By inductive hypothesis, since $\mathcal{O}_D(D)$
+is ample, the invertible sheaf $\mathcal{O}_D(mD)$ is generated by global
+sections for all $m \gg 0$, i.e., the morphism
 $$
-H^0(X,\mathcal{O}_X(mD)) \longrightarrow H^0(D,\mathcal{O}_D(mD))
+H^0(D,\mathcal{O}_D(mD)) \otimes_k \mathcal{O}_D \longrightarrow
+\mathcal{O}_D(mD)
 $$
-is surjective.
-By induction, $\mathcal{O}_D(D)$ is ample on $D$ and hence $\mathcal{O}_D(mD)$
-is generated by global sections for $m$ large.
-By Nakayama's Lemma, $\mathcal{O}_X(mD)$ is generated by global sections\todo{How do.}.
-Hence there is a morphism $f : X \to \mathbf{P}^n_k$ such that
-$f^*\mathcal{O}_{\mathbf{P}^n}(1) = \mathcal{O}_X(mD)$.
-As $X$ is proper, $f$ is proper.\todo{Maybe reference the required property.}
-Since $\mathcal{O}_X(mD)$ restricted to any fibre is trivial, (2) implies that
-every fibre must be zero dimensional\todo{Be more careful with this; split out to lemma?}.
-Hence $f$ is quasi-finite, and therefore finite by ...\todo{Reference.}.
-By ...\todo{Pullback by finite of ample is ample.}, $\mathcal{O}_X(mD)$ is ample
-and so $\mathcal{O}_X(D)$ is ample.
+is surjective. Thus, in the commutative diagram
+$$
+\xymatrix{
+  H^0(X,\mathcal{O}_X(mD)) \otimes_k \mathcal{O}_X/\mathfrak{m}_x
+  \ar[r]\ar@{->>}[d] & \mathcal{O}_X(mD) \otimes_{\mathcal{O}_X}
+  \mathcal{O}_X/\mathfrak{m}_x \ar[d]^\simeq\\
+  H^0(D,\mathcal{O}_D(mD)) \otimes_k \mathcal{O}_D/\mathfrak{m}_x \ar@{->>}[r] &
+  \mathcal{O}_D(mD) \otimes_{\mathcal{O}_D} \mathcal{O}_D/\mathfrak{m}_x
+}
+$$
+the bottom arrow is surjective. By \eqref{eq:restriction-surjects}, the left
+arrow is surjective. The commutativity of the diagram implies the top row is
+surjective, hence
+$$
+H^0(X,\mathcal{O}_X(mD)) \otimes_k \mathcal{O}_{X,x} \longrightarrow
+(\mathcal{O}_X(mD))_x
+$$
+is surjective by Nakayama's lemma, i.e., $\mathcal{O}_X(mD)$ is generated by
+global sections.
+
+We therefore see that $\mathcal{O}_X(mD)$ induces a morphism $f : X \to
+\mathbf{P}^n_k$ such that $f^*\mathcal{O}_{\mathbf{P}^n}(1) =
+\mathcal{O}_X(mD)$ for $m \gg 0$. As $X$ is proper, $f$ is proper.
+We now claim that for all $y \in \mathbf{P}^n_k$, the fiber $X_y$ has finitely
+many points. If not, we have a commutative diagram
+$$
+\xymatrix{
+  X \ar[r]^f & \mathbf{P}^n_k\\
+  X_y \ar@{^{(}->}[u] \ar[r] & \Spec(k(y)) \ar@{^{(}->}[u]\\
+  C \ar@{^{(}->}[u]\ar[ur]_\pi
+}
+$$
+where the top square is cartesian, and $C$ is a complete curve in $X_y$. By
+commutativity of the diagram, we see that
+$$
+  \mathcal{L}\rvert_C =
+    (f^*\mathcal{O}_{\mathbf{P}^n}(1))\rvert_C \simeq
+    \pi^*\mathcal{O}_{\Spec(k(y))} =
+    \mathcal{O}_C,
+$$
+which is a contradiction, since $(\mathcal{L}^{\dim X - 1} \cdot C) > 0$ by (2),
+whereas $\mathcal{O}_C$ has constant Euler characteristic. Thus, $f$ is
+quasi-finite; since it is proper by the fact that both $X$ and $\mathbf{P}^n_k$
+are proper, we moreover have that $f$ is finite by
+Lemma~\ref{lemma-characterize-finite}.
+Since the pullback of an ample invertible sheaf via a quasi-finite morphism is
+ample by Lemma~\ref{lemma-pullback-ample-tensor-relatively-ample} and finite
+morphisms are quasi-finite by definition,
+$\mathcal{O}_X(mD)$ is ample for $m \gg 0$.
+Hence $\mathcal{O}_X(D)$ is ample by Lemma \ref{lemma-ample-power-ample}.
 \end{proof}
 
 \bibliographystyle{unsrt}
