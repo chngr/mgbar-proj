@@ -74,8 +74,44 @@ $H^1(X, \mathcal{F} \otimes_{\mathcal{O}_X} \mathcal{L}^{\otimes n}) = 0$.
 Then $X$ is a scheme and $\mathcal{L}$ is ample on $X$.
 \end{lemma}
 
+\section{Euler characteristics for spaces}
+\begin{lemma}[{cf.\ \cite[\href{http://stacks.math.columbia.edu/tag/0BEK}{Tag 0BEK}]{stacks-project}}]
+\label{lemma-euler-characteristic-morphism}
+Let $k$ be a field. Let $f : Y \to X$ be a morphism of proper algebraic spaces
+over $k$. Let $\mathcal{G}$ be a coherent $\mathcal{O}_Y$-module. Then
+$$
+\chi(Y, \mathcal{G}) = \sum (-1)^i \chi(X, R^if_*\mathcal{G})
+$$
+\end{lemma}
+
+\begin{proof}
+The formula makes sense: the sheaves $R^if_*\mathcal{G}$ are coherent
+and only a finite number of them are nonzero, see
+\cite[\href{http://stacks.math.columbia.edu/tag/08AR}{Tag 08AR}]{stacks-project}
+and \cite[\href{http://stacks.math.columbia.edu/tag/073G}{Tag
+073G}]{stacks-project}. By the Leray spectral sequence
+\cite[\href{http://stacks.math.columbia.edu/tag/0732}{Tag 0732}]{stacks-project}
+there is a spectral
+sequence with
+$$
+E_2^{p, q} = H^p(X, R^qf_*\mathcal{G})
+$$
+converging to $H^{p + q}(Y, \mathcal{G})$. By finiteness of cohomology
+on $X$ we see that only a finite number of $E_2^{p, q}$ are nonzero
+and each $E_2^{p, q}$ is a finite dimensional vector space. It follows
+that the same is true for $E_r^{p, q}$ for $r \geq 2$ and that
+$$
+\sum (-1)^{p + q} \dim_k E_r^{p, q}
+$$
+is independent of $r$. Since for $r$ large enough we have
+$E_r^{p, q} = E_\infty^{p, q}$ and since convergence means there
+is a filtration on $H^n(Y, \mathcal{G})$ whose graded pieces are
+$E_\infty^{p, q}$ with $p + 1 = n$ (this is the meaning of convergence
+of the spectral sequence), we conclude.
+\end{proof}
+
 \section{Numerical intersection theory for spaces}
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0DN4}{Tag 0DN4}]{stacks-project}}]\label{tag:0DN4}
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0DN4}{Tag 0DN4}]{stacks-project}}]\label{lemma-numerical-polynomial-from-euler}
 Let $k$ be a field. Let $X$ be a proper algebraic space over $k$.
 Let $\mathcal{F}$ be a coherent $\mathcal{O}_X$-module. Let
 $\mathcal{L}_1, \ldots, \mathcal{L}_r$ be invertible $\mathcal{O}_X$-modules.
@@ -92,7 +128,7 @@ most the dimension of the scheme theoretic support of $\mathcal{F}$.
 We can then define:
 \begin{definition}[{cf.\ \cite[\href{http://stacks.math.columbia.edu/tag/0BEP}{Tag 0BEP}]{stacks-project}}]\label{tag:0BEP}
 Let $k$ be a field. Let $X$ be a proper algebraic space over $k$. Let
-$i : Z \to X$ be a closed subscheme of dimension $d$. Let
+$i : Z \to X$ be a closed subspace of dimension $d$. Let
 $\mathcal{L}_1, \ldots, \mathcal{L}_d$ be invertible
 $\mathcal{O}_X$-modules. We define the {\it intersection number}
 $(\mathcal{L}_1 \cdots \mathcal{L}_d \cdot Z)$
@@ -119,7 +155,7 @@ $$
 \deg(f|_Z : Z \to f(Z)) (\mathcal{L}_1 \cdots \mathcal{L}_d \cdot f(Z))
 $$
 where $\deg(Z \to f(Z))$ is as in
-Morphisms, Definition \ref{morphisms-definition-degree}
+{\it \cite[\href{http://stacks.math.columbia.edu/tag/0AD6}{Tag 0AD6}]{stacks-project}}
 or $0$ if $\dim(f(Z)) < d$.\todo{Prove this.}
 \end{lemma}
 %\begin{proof}
@@ -135,14 +171,13 @@ or $0$ if $\dim(f(Z)) < d$.\todo{Prove this.}
 %$$
 %The equality follows from Lemma \ref{lemma-euler-characteristic-morphism}
 %and the projection formula
-%(Cohomology, Lemma \ref{cohomology-lemma-projection-formula}).
+%\cite[\href{http://stacks.math.columbia.edu/tag/0944}{Tag 0944}]{stacks-project}.
 %If $f(Z)$ has dimension $< d$, then the right hand side
 %is a polynomial of total degree $<d$ by
 %Lemma \ref{lemma-numerical-polynomial-from-euler}
 %and the result is true. Assume $\dim(f(Z)) = d$. Let
-%$\xi \in f(Z)$ be the generic point. By
-%dimension theory (see Lemmas \ref{lemma-dimension-locally-algebraic} and
-%\ref{lemma-dimension-fibres-locally-algebraic})
+%$\xi \in \lvert f(Z) \rvert$ be the generic point. By
+%dimension theory
 %the generic point of $Z$ is the unique point of $Z$ mapping to $\xi$.
 %Then $f : Z \to f(Z)$ is finite over a nonempty open of $f(Z)$, see
 %Morphisms, Lemma \ref{morphisms-lemma-generically-finite}.
@@ -224,7 +259,8 @@ Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
 If $\mathcal{L}$ is ample...
 \end{proof}
 
-\begin{theorem}[Nakai--Moishezon Criterion]
+\begin{theorem}[Nakai--Moishezon Criterion for algebraic spaces
+  {\cite[Thm.\ 3.11]{Ko90}}]
   Let $k$ be a field. Let $X$ be a proper algebraic space over $k$. Let
   $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module. Then the following are
   equivalent:
