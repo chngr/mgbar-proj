@@ -226,11 +226,27 @@ global sections.
 We therefore see that $\mathcal{O}_X(mD)$ induces a morphism $f : X \to
 \mathbf{P}^n_k$ such that $f^*\mathcal{O}_{\mathbf{P}^n}(1) =
 \mathcal{O}_X(mD)$ for $m \gg 0$. As $X$ is proper, $f$ is proper.
-Since $\mathcal{O}_X(mD)$ restricted to any fibre is trivial, (2) implies that
-every fibre must be zero dimensional\todo{Be more careful with this; split out to lemma?}.
-Hence $f$ is quasi-finite, and therefore finite by ...\todo{Reference.}.
-By ...\todo{Pullback by finite of ample is ample.}, $\mathcal{O}_X(mD)$ is ample
-and so $\mathcal{O}_X(D)$ is ample.
+We now claim that for all $y \in \mathbf{P}^n_k$, the fiber $X_y$ has finitely
+many points. If not, we have a commutative diagram
+$$
+\xymatrix{
+  X \ar[r]^f & \mathbf{P}^n_k\\
+  X_y \ar@{^{(}->}[u] \ar[r] & \Spec(k(y)) \ar@{^{(}->}[u]\\
+  C \ar@{^{(}->}[u]\ar[ur]_\pi
+}
+$$
+where the top square is cartesian, and $C$ is a complete curve in $X_y$. By
+commutativity of the diagram, we see that
+$$\mathcal{L}\rvert_C = (f^*\mathcal{O}_{\mathbf{P}^n}(1))\rvert_C \simeq
+\pi^*\mathcal{O}_{\Spec(k(y))} = \mathcal{O}_C,$$
+which is a contradiction, since $(\mathcal{L}^{\dim X - 1} \cdot C) > 0$ by (2),
+whereas $\mathcal{O}_C$ has constant Euler characteristic. Thus, $f$ is
+quasi-finite; since it is proper by the fact that both $X$ and $\mathbf{P}^n_k$
+are proper, we moreover have that $f$ is finite by 02OG. Finally, the pullback
+of an ample invertible sheaf via a finite morphism is ample by applying Lemma
+\ref{lemma-surjective-finite-morphism-ample} to the finite surjective morphism
+$X \to f(X)$, hence $\mathcal{O}_X(mD)$ is ample for $m \gg 0$, hence
+$\mathcal{O}_X(D)$ is ample by Lemma \ref{lemma-ample-power-ample}.
 \end{proof}
 
 \bibliographystyle{unsrt}
