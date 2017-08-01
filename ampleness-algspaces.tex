@@ -293,11 +293,6 @@ Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
 \end{lemma}
 
 \begin{proof}
-If $\mathcal{L}$ is ample, then $X$ is a scheme by
-Lemma~\ref{lemma-relatively-ample-properties}.
-
-Assume $f^*\mathcal{L}$ is ample.
-By Lemma~\ref{lemma-relatively-ample-properties}, this implies $Y$ is a scheme.
 Let $Z$ be any scheme over $R$ and consider the commutative diagram
 $$
 \xymatrix{
@@ -315,12 +310,13 @@ $f_Z$ is also finite surjective.
 By definition, $f^*\mathcal{L}$ ample means $p^*f^*\mathcal{L}$ is ample.
 By commutativity of the left square, $p^*f^*\mathcal{L} = f_Z^*q^*\mathcal{L}$.
 Hence by Lemma~\ref{cohomology-schemes-lemma-surjective-finite-morphism-ample},
-$q^*\mathcal{L}$ is ample on $X \times_{\Spec(R)} Z$.
-Thus $\mathcal{L}$ is ample on $X$.
+$q^*\mathcal{L}$ is ample on $X \times_{\Spec(R)} Z$ if and only if
+$f_Z^*q^*\mathcal{L}$ is ample on $Y \times_{\Spec(R)} Z$.
+By definition, this means that $\mathcal{L}$ is ample on $X$ if and only if
+$f^*\mathcal{L}$ is ample on $Y$.
 \end{proof}
 
-\begin{theorem}[Nakai--Moishezon Criterion for algebraic spaces
-  {\cite[Thm.\ 3.11]{Ko90}}]
+\begin{theorem}[Nakai--Moishezon Criterion for algebraic spaces {\cite[Thm.\ 3.11]{Ko90}}]
   Let $k$ be a field. Let $X$ be a proper algebraic space over $k$. Let
   $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module. Then the following are
   equivalent:
@@ -333,12 +329,14 @@ Thus $\mathcal{L}$ is ample on $X$.
 \begin{proof}
   Assume (1) holds. Then, $X$ is a scheme, and $\mathcal{L}$ is ample on $X/k$
   in the scheme-theoretic sense by Lemma
-  \ref{lemma-relatively-ample-sanity-check}. By the Nakai--Moishezon criterion
-  for schemes, we therefore have that (2) holds.
-  \par Now suppose (2) holds. First, let $p : X' \to X$ be a finite
-  surjective cover of $X$ by a scheme $X'$. By Lemma
-  \ref{lemma-surjective-finite-morphism-ample}, we have that $\mathcal{L}$ is
-  ample if and only if $p^*\mathcal{L}$ is ample, and so by the Nakai--Moishezon
+  \ref{lemma-relatively-ample-sanity-check}.
+  The Nakai--Moishezon criterion for schemes implies (2).
+
+  Now suppose (2) holds.
+  By Lemma~\ref{proposition-there-is-a-scheme-finite-over}, we can choose
+  a finite surjective map $p : X' \to X$ from a scheme $X'$.
+  By Lemma~\ref{lemma-surjective-finite-morphism-ample}, $\mathcal{L}$ is
+  ample if and only if $p^*\mathcal{L}$ is ample, so by the Nakai--Moishezon
   criterion for schemes, it suffices to show that for every integral closed
   subscheme $Y'$ in $X'$, we have $(p^*\mathcal{L}^{\dim(Y')} \cdot Y') > 0$.
   Let $Y$ be the image of $Y'$ in $Y$; by Lemma
