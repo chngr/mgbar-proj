@@ -18,7 +18,7 @@ Let $G=\prod_i GL(E_i)$ be a product of general linear groups. A representation 
 \todo{give notation for $H$-bundle you get from a $G$-bundle and a map $G\to H$}.
 
 \begin{definition}
-Let $V_1,\dots, V_n$ vector bundles of rank $r_1,\dots, r_n$ over a base space X, and let $\rho:\prod_i GL(r_i)\rightarrow GL(m)$ be any representation. One can define a bundle $\rho(V_1,\dots, V_n)$ of rank $m$ as follows: every $V_i$ is a principal $GL(r_i)$-bundle, hence it corresponds to a point $x_i$ in $H^1(X, GL(r_i))$; the map $\rho$ induces a map $\rho^*:H^1(X,\prod_i GL(r_i)\rightarrow H^1(X, GL(m))$, i.e. $\rho: \prod_i H^1(X,GL(r_i))\rightarrow H^1(X, GL(m))$. We define $\rho(V_1,\dots, V_n)$ to be the principal $GL(m)$-bundle corresponding to $\rho^*(x_1,\dots,x_n)$.
+Let $V_1,\dots, V_n$ vector bundles of rank $r_1,\dots, r_n$ over a base space X, and let $\rho:\prod_i GL(r_i)\rightarrow GL(m)$ be any representation. One can define a bundle $\rho(V_1,\dots, V_n)$ of rank $m$ as follows: every $V_i$ is a principal $GL(r_i)$-bundle, hence it corresponds to a point $x_i$ in $H^1(X, GL(r_i))$; the map $\rho$ induces a map $\rho^*:H^1(X,\prod_i GL(r_i))\rightarrow H^1(X, GL(m))$, i.e. $\rho: \prod_i H^1(X,GL(r_i))\rightarrow H^1(X, GL(m))$. We define $\rho(V_1,\dots, V_n)$ to be the principal $GL(m)$-bundle corresponding to the point $\rho^*(x_1,\dots,x_n)$.
 \end{definition}
 
 \begin{lemma}
@@ -27,19 +27,24 @@ For $i=1,2,\ldots,n$, let $V_i=\sum_{j}\mathcal{L}_{ij}$ be a vector bundle of r
 
 \begin{proof}
 \todo{add details, maybe}
-For each $i$, we have a diagonal embedding $\psi_i:\prod_{j=1}^{r_i}GL(1)\to GL(r_i)$...
+For each $i$, we have a diagonal embedding $\psi_i:\prod_{j=1}^{r_i}GL(1)\to GL(r_i)$.
 Taking the product over $i$ and post-composing with $\rho$ yields a map
 \begin{equation}
 \prod_{i=1}^{n}\prod_{j=1}^{r_i}GL(1)\to GL(m),
 \end{equation}
-which factors through a maximal torus $\psi:\prod_{k=1}^{m}GL(1)\to GL(m)$.
+which factors through a maximal torus $\psi:\prod_{k=1}^{m}GL(1)\to GL(m)$, as in the following diagram:
 \todo{make diagram...}
 
-Thus $\rho(V_1,\ldots,V_n)$ splits as the direct sum of the line bundles you get from $\prod\prod GL(1)\to GL(1)$ after projecting to the $t$-th factor...
+$$\xymatrix{
+\prod_{i=1}^{n}\prod_{j=1}^{r_i} GL(1)\ar[r]^{\prod_i\psi_i} \ar[rd] &\prod_{i=1}^{n}GL(r_i)\ar[r]^{\rho} &GL(m)\\
+&\prod_{k=1}^{m}GL(1)\ar[ru]\ar[d]^{proj_t}&\\
+&GL(1)&
+}$$
 
-This map is a character, so of the form $(z_{ij})\mapsto \prod z_{ij}^{a_{ij,t}}$, and $a_{ij,t}\ge0$ by semipositivity.
 
-Then $\rho(V_1,\ldots,V_n)$ is the direct sum of $\otimes\mathcal{L}_{ij}^{a_{ij,t}}$ over $t\in[1,n]$.
+Now consider the projection on the $t$-th factor $proj_t:\prod_{k=1}^mGL(1)\to GL(1)$. The composition $\prod_{i=1}^n\prod_{j=1}^{k} GL(1)\to GL(1)$ is a character, hence it is of the form $(z_{ij})_{i,j}\mapsto \prod z_{ij}^{a_{ij,t}}$. For a cover of $X$ that trivializez the bundles, $z_{ij}$ correspond to the transition functions of $\mathcal{L}_{ij}$, hence, $\prod z_{ij}^{a_{ij,t}}$ correspond to $\otimes\mathcal{L}_{ij}^{a_{ij,t}}$.
+
+Pulling back to $\prod_{k=1}^{m} GL(m)$, we see that $\rho(V_1,\ldots,V_n)$ splits as the direct sum of the line bundles  $\oplus_t \otimes_{i,j}L_{ij}^{a_{ij,t}}$.
 
 \end{proof}
 
