@@ -92,17 +92,30 @@ $$
 u : X \to [\mathrm{Gr}(n,k)/G]
 $$
 is quasi-finite on a nonempty open subset of $X$.
-Then $(\det(\mathcal{Q}))^{\dim(Y)} > 0$.
+Then $(\det(\mathcal{Q})^{\dim(Y)}) > 0$.
 \end{lemma}
 
 \begin{proof}
+Consider the given surjection $\mathcal{F} \to \mathcal{Q}$ of locally free
+$\mathcal{O}_X$-modules over $X$.
+Taking $k$\textsuperscript{th} exterior powers, we obtain a surjection
+$$
+  \bigwedge\nolimits^k \mathcal{F} \to \det(\mathcal{Q})
+$$
+from $\bigwedge^k\mathcal{F}$ to the invertible module $\det(\mathcal{Q})$.
+Thus we obtain a morphism
+$$
+  u : X \to \mathbf{P}\big(\bigwedge\nolimits^k \mathcal{F}\big)
+$$
+such that
+$u^*\mathcal{O}_{\mathbf{P}(\bigwedge^k\mathcal{F})}(1) = \det(\mathcal{Q})$.
+
 Let $\mathbf{P} = \mathbf{P}((\mathcal{F}^\vee)^{\oplus n})$ be the projective
 bundle associated with $(\mathcal{F}^\vee)^{\oplus n}$ and write
 $\pi : \mathbf{P} \to X$ for the projection.
 Using the projection formula, Lemma \ref{lemma-projection-formula},
 \begin{align*}
-H^0(\mathbf{P}, \pi^*\mathcal{F}
-  \otimes_{\mathcal{O}_{\mathbf{P}}} \mathcal{O}_{\mathbf{P}}(1))
+H^0(\mathbf{P}, \pi^*\mathcal{F}(1))
   & \cong
 H^0(X, \pi_*(\pi^*\mathcal{F} \otimes_{\mathcal{O}_{\mathbf{P}}}
   \mathcal{O}_{\mathbf{P}}(1))) \\
@@ -119,10 +132,45 @@ $H^0(\mathbf{P}, \pi^*\mathcal{F}
   \otimes_{\mathcal{O}_{\mathbf{P}}} \mathcal{O}_{\mathbf{P}}(1))$ and hence
 a morphism
 $$
-  \mathcal{O}_{\mathbf{P}}^{\oplus n}
-    \to \pi^*\mathcal{F} \otimes_{\mathcal{O}_{\mathbf{P}}} \mathcal{O}_{\mathbf{P}}(1)
+  B : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to \pi^*\mathcal{F}(1)
 $$
 of sheaves over $\mathbf{P}$.
+Let $D \subset \mathbf{P}$ be the support of the cokernel of $B$.
+Composing $B$ with the pullback of the given surjection
+$\mathcal{F} \to \mathcal{Q}$, we obtain a morphism
+$$
+  U : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to
+        \pi^*\mathcal{F}(1) \to
+        \pi^*\mathcal{Q}(1).
+$$
+By construction, this morphism is surjective away from $D$.
+Taking $k$\textsuperscript{th} exterior powers of this morphism, we obtain a
+morphism
+$$
+  \bigwedge^k U : \mathcal{O}_{\mathbf{P}}^{\oplus \binom{n}{k}} \to
+    \pi^*\big(\bigwedge\nolimits^k W\big)(k) \to
+    \pi^*\det(Q)(k)
+$$
+which is surjective away from $D$.
+
+Choose a $G$-orbit closure $P$ in $\mathbf{P}$ and write $i : P \to \mathbf{P}$
+for the inclusion.\todo{Is it really important that we take closure of the
+  projective fibres rather than the entire orbit?}
+Write $\overline{\pi} : P \to X$ for the restriction of $\pi$ to $P$.
+Pulling back $B$ via $i$, we obtain a map
+$$
+  \overline{B} : \mathcal{O}_P^{\oplus n} \to \overline{\pi}^* \mathcal{F}(1)
+$$
+of sheaves of $\mathcal{O}_P$-modules over $P$.
+Composing $\overline{B}$ with the pullback of the given surjection
+$\mathcal{F} \to \mathcal{Q}$, we obtain a map
+$$
+  \overline{U} : \mathcal{O}_P^{\oplus n} \to
+                  \overline{\pi}^*\mathcal{F}(1) \to
+                  \overline{\pi}^*\mathcal{Q}(1).
+$$
+Being the composition of $\overline{B}$ with a surjection, $\overline{U}$ is
+surjective away from $P \cap D$.
 \end{proof}
 
 \begin{lemma}
