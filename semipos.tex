@@ -10,78 +10,147 @@
 \section{Introduction}
 This section develops the basic properties of semipositivity.
 
+\begin{remark}
+We will work over a field throughout. One can extend the discussion to a more general situation, where we have a principal $\mathcal{G}$-bundle over a scheme $X$, where $\mathcal{G}$ is a product of constant group schemes associated to general linear groups, and a representation $\rho:\mathcal{G}\to\mathcal{GL}(m)$, where $\mathcal{Gl}(m)$ is the constant group scheme associated to $\mathrm{GL}(m)$. However, we are unaware of applications that need this level of generality, so we stick to $X$ over a field and $\rho$ a constant representation.
+\end{remark}
+
+\begin{remark}
+This discussion should eventually be extended to algebraic spaces over a field to make the application to $\overline{M}_g$ work, but all of the statements should go through easily.
+\end{remark}
 
 \begin{definition}
-Let $G=\prod_i GL(E_i)$ be a product of general linear groups. A representation $\rho:G\rightarrow GL(F)$ is called semipositive (or polynomial) if it extends to a morphism $\overline{\rho}:\prod_i End(E_i)\rightarrow End(F)$.
+Let $k$ be a field.
+Let $V_1,\ldots,V_n,W$ be finite-dimensional vector spaces over $k$.
+Let $G=\prod_{i=1}^{n}=\mathrm{GL}(V_i)$.
+A representation $\rho:G\rightarrow \mathrm{GL}(W)$ is called \textit{semipositive} if it extends to a morphism of monoids $\overline{\rho}:\prod_i \mathrm{End}(V_i)\rightarrow\mathrm{End}(W)$.
 \end{definition}
 
-\todo{give notation for $H$-bundle you get from a $G$-bundle and a map $G\to H$}.
 
-\begin{definition}
-Let $V_1,\dots, V_n$ vector bundles of rank $r_1,\dots, r_n$ over a base space X, and let $\rho:\prod_i GL(r_i)\rightarrow GL(m)$ be any representation. One can define a bundle $\rho(V_1,\dots, V_n)$ of rank $m$ as follows: every $V_i$ is a principal $GL(r_i)$-bundle, hence it corresponds to a point $x_i$ in $H^1(X, GL(r_i))$; the map $\rho$ induces a map $\rho^*:H^1(X,\prod_i GL(r_i))\rightarrow H^1(X, GL(m))$, i.e. $\rho: \prod_i H^1(X,GL(r_i))\rightarrow H^1(X, GL(m))$. We define $\rho(V_1,\dots, V_n)$ to be the principal $GL(m)$-bundle corresponding to the point $\rho^*(x_1,\dots,x_n)$.
-\end{definition}
 
 \begin{lemma}
-For $i=1,2,\ldots,n$, let $V_i=\sum_{j}\mathcal{L}_{ij}$ be a vector bundle of rank $r_i$ that splits as a direct sum of line bundles $\mathcal{L}_{ij}$. Let $\rho:\prod_{i}GL(r_i)\to GL(m)$ be a semipositive representation. Then, $\rho(V_1,\ldots,V_n)$ is a a direct sum of line bundles of the form $\oplus_{i,j}\otimes\mathcal{L}_{ij}^{a_{ij}}$, where $a_{ij}\ge0$.
+\item[(i)] Let $k$ be a field. Let $V$ be a finite-dimensional vector space over $k$ and let $d$ be a positive integer. Then, the natural representations $\mathrm{GL}(V)\to \mathrm{GL}(\mathrm{Sym}^dV)$ and $\mathrm{GL}(V)\to \mathrm{GL}(\Lambda^dV)$ are semipositive.
+\item[(ii)] Subrepresentations and quotients of semipositive representations are semipositive.
 \end{lemma}
 
 \begin{proof}
-\todo{add details, maybe}
-For each $i$, we have a diagonal embedding $\psi_i:\prod_{j=1}^{r_i}GL(1)\to GL(r_i)$.
+\item[(i)] Obvious.
+\item[(ii)] Let $\rho:G\to \mathrm{GL}(W)$ be a semipositive representation and let $W'\subset W$ be a subrepresentation. 
+We may easily reduce to the case $G=\mathrm{GL}(V)$. 
+Then, $\rho$ extends to a morphism of monoids $\overline{\rho}:\mathrm{End}(V)\to \mathrm{End}(W)$. 
+The representation $\rho$ also gives a morphism of schemes $\phi:\mathrm{GL}(V)\times W\to W$, where $W$ has been given the obvious scheme structure. 
+Similarly, $\overline{\rho}$ gives rise to an extension $\overline{\phi}:\mathrm{End}(V)\times W\to W$. 
+
+The fact that $W'\subset W$ is a subrepresentation is equivalent to the fact that the image of $\phi$ when restricted to the closed subscheme $\mathrm{GL}(V)\times W'$ is $W'$. 
+It is sufficient to prove the same statement for the closed subscheme $\mathrm{End}(V)\times W'$ of $\mathrm{End}(V)\times W$. 
+However, by assumption the dense open subscheme $\mathrm{GL}(V)\times W'$ of $\mathrm{End}(V)\times W'$ maps to $W'$, so $\mathrm{End}(V)\times W'$ must as well, as desired.
+
+The case of quotients of semipositive representations is proved similarly.
+\end{proof}
+
+
+
+
+\begin{definition}
+Let $k$ be a field.
+Let $X$ be a $k$-scheme.
+Let $f:G\to H$ be a morphism of $k$-groups, and let $\pi:P\to X$ be a principal $G$-bundle corresponding to a class $\pi\in H^1(X,G)$. 
+Let $f^{*}:H^1(X,G)\to H^1(X,H)$ be the induced map on cohomology. 
+Then, we denote the principal $H$-bundle corresponding to the class $f^{*}(\pi)$ by $\pi_f:P\times_{G}H\to X$.
+\end{definition}
+
+\begin{definition}
+Let $k$ be a field.
+Let $X$ be a $k$-scheme. 
+Let $V_1,\ldots,V_n$ locally free sheaves of finite ranks $r_1,\dots, r_n$, respectively.
+Let $G=\prod_i \mathrm{GL}(r_i)$.
+Let $\rho:G\rightarrow \mathrm{GL}(m)$ be a representation. 
+Let $\pi':V'_1\times\cdots\times V'_n\to X$ be the principal $G$-bundle obtained by taking the product of the principal $\mathrm{GL}(r_i)$-bundles associated to the $V_i$.
+Then, we denote the locally free sheaf associated to the principal $\mathrm{GL}(m)$-bundle $\pi'_{\rho}$ by $\rho(V_1,\dots, V_n)$.
+\end{definition}
+
+
+
+
+
+\begin{lemma}
+Let $k$ be a field.
+\item[(i)]
+Let $V_1,\ldots,V_n,W$ be finite-dimensional vector spaces over $k$.
+Let $G=\prod_{i=1}^{n}=\mathrm{GL}(V_i)$.
+Let $\rho:G\rightarrow \mathrm{GL}(W)$ be a semipositive representation. Then, $*\rho*$ is a semipositive representation.
+\item[(ii)] Let $X$ be a $k$-scheme.
+Let $\mathcal{V}_1,\dots, \mathcal{V}_n$ and $\mathcal{V}'_1,\dots,\mathcal{V}'_n$ be locally free sheaves of finite rank on $X$.
+Assume that for each $i$, $\mathrm{rank}(\mathcal{V}_i)=\mathrm{rank}(\mathcal{V}'_i)=r_i$.
+For each $i$, let $f_i:\mathcal{V}_i\rightarrow \mathcal{V}'_i$ be a sheaf homomorphism.
+Let $\rho:\prod\mathrm{GL}(r_i)\to\mathrm{GL}(m)$ be a representation.
+If $\rho$ is semipositive, then there exists a natural map
+$$
+\rho(f_1,\dots, f_n):\rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)\rightarrow \rho(\mathcal{V}'_1,\dots,\mathcal{V}'_n)
+$$
+\end{lemma}
+
+
+
+\begin{lemma}\label{pullback_and_rho_commute}
+Let $X$ be a scheme.
+Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be locally free sheaves on $X$. Let $f:X'\rightarrow X$ a morphism of schemes.
+Then $\rho(f^*\mathcal{V}_1,\dots,f^*\mathcal{V}_n)$ and $f^*(\rho(\mathcal{V}'_1,\dots,\mathcal{V}'_n))$ are canonically isomorphic as locally free sheaves.
+\end{lemma}
+
+
+\begin{lemma}
+Let $k$ be a field.
+Let $X$ be a $k$-scheme.
+For $i=1,2,\ldots,n$, let $V_i=\oplus_{j}\mathcal{L}_{ij}$ be a locally free sheaf of rank $r_i$ that splits as a direct sum of line bundles $\mathcal{L}_{ij}$.
+Let $k$ be a field.
+Let $\rho:\prod_{i}\mathrm{GL}(r_i)\to \mathrm{GL}(m)$ be a semipositive representation. 
+Then, $\rho(\mathcal{V}_1,\ldots,V_n)$ is a a direct sum of line bundles of the form $\oplus_{i,j}\otimes\mathcal{L}_{ij}^{a_{ij}}$, where $a_{ij}\ge0$ for each $i,j$.
+\end{lemma}
+
+\begin{proof}
+For each $i$, we have a diagonal embedding $\psi_i:\prod_{j=1}^{r_i}\mathrm{GL}(1)\to \mathrm{GL}(r_i)$.
 Taking the product over $i$ and post-composing with $\rho$ yields a map
-\begin{equation}
-\prod_{i=1}^{n}\prod_{j=1}^{r_i}GL(1)\to GL(m),
-\end{equation}
-which factors through a maximal torus $\psi:\prod_{k=1}^{m}GL(1)\to GL(m)$, as in the following diagram:
-\todo{make diagram...}
-
-$$\xymatrix{
-\prod_{i=1}^{n}\prod_{j=1}^{r_i} GL(1)\ar[r]^{\prod_i\psi_i} \ar[rd] &\prod_{i=1}^{n}GL(r_i)\ar[r]^{\rho} &GL(m)\\
-&\prod_{k=1}^{m}GL(1)\ar[ru]\ar[d]^{proj_t}&\\
-&GL(1)&
-}$$
-
-
-Now consider the projection on the $t$-th factor $proj_t:\prod_{k=1}^mGL(1)\to GL(1)$. The composition $\prod_{i=1}^n\prod_{j=1}^{k} GL(1)\to GL(1)$ is a character, hence it is of the form $(z_{ij})_{i,j}\mapsto \prod z_{ij}^{a_{ij,t}}$. For a cover of $X$ that trivializez the bundles, $z_{ij}$ correspond to the transition functions of $\mathcal{L}_{ij}$, hence, $\prod z_{ij}^{a_{ij,t}}$ correspond to $\otimes\mathcal{L}_{ij}^{a_{ij,t}}$.
-
-Pulling back to $\prod_{k=1}^{m} GL(m)$, we see that $\rho(V_1,\ldots,V_n)$ splits as the direct sum of the line bundles  $\oplus_t \otimes_{i,j}L_{ij}^{a_{ij,t}}$.
-
-\end{proof}
-
-\begin{lemma}
-The following properties hold for semipositive representations:
-\item[(i)] Symmetric products are semipositive;
-\item[(ii)] Subrepresentations of semipositive representations are semipositive;
-\item[(iii)] Let $V_1,\dots, V_n$ be vector bundles such that each $V_i$ is a sum of line bundles $\sum_j L_{ij}$, and $\rho$ a semipositive respresentation. Then the structure group of $\rho(V_1,\dots, V_n)$ is a torus and is a direct sum of line bundles $\otimes L_{ij}^{a_{ij}}$, where each of the $a_{ij}$ are nonnegative.
-\item[(iv)] Let $V_1,\dots, V_n$ and $W_1,\dots, W_n$ be vector bundles such that $rk (V_i)=rk(W_i)$, and let $f_i: V_i\rightarrow W_i$ be sheaf homomorphisms. If $\rho$ is semipositive, then there exists a natural map 
-$$\rho(f_1,\dots, f_n):\rho(V_1,\dots, V_n)\rightarrow \rho(W_1,\dots,W_n).$$
-\item[(v)] Let $V_1,\dots, V_n$ be vector bundles over a base $X$, and $f:X'\rightarrow X$ a morphism. Then $\rho(f^*V_1,\dots,f^*V_n)=f^*(\rho(V_1,\dots,V_n))$.
-\end{lemma}
+$$
+\psi:\prod_{i=1}^{n}\prod_{j=1}^{r_i}\mathrm{GL}(1)\to \mathrm{GL}(m),
+$$
+which factors through a maximal torus $\prod_{k=1}^{m}\mathrm{GL}(1)\subset \mathrm{GL}(m)$, as in the following diagram:
+$$
+\xymatrix{
+\prod_{i=1}^{n}\prod_{j=1}^{r_i} \mathrm{GL}(1)\ar[r]^{\psi} \ar[rd] &\prod_{i=1}^{n}\mathrm{GL}(r_i)\ar[r]^{\rho} &\mathrm{GL}(m)\\
+&\prod_{k=1}^{m}\mathrm{GL}(1)\ar[ru]\ar[d]^{\mathrm{pr}_t}&\\
+&\mathrm{GL}(1)&
+}
+$$
 
 
-\begin{proof}
+Now consider the projection on the $t$-th factor $\mathrm{pr}_t:\prod_{k=1}^m\mathrm{GL}(1)\to \mathrm{GL}(1)$. The composition $\prod_{i=1}^n\prod_{j=1}^{r_i} \mathrm{GL}(1)\to \mathrm{GL}(1)$ is a character, is of the form $(z_{ij})_{i,j}\mapsto \prod z_{ij}^{a_{ij,t}}$. On a trivializing cover of $X$, the $z_{ij}$ correspond to the transition functions of $\mathcal{L}_{ij}$, hence $\prod z_{ij}^{a_{ij,t}}$ correspond to $\otimes\mathcal{L}_{ij}^{a_{ij,t}}$.
+
+Pulling back to $\prod_{k=1}^{m} \mathrm{GL}(m)$, we see that $\rho(V_1,\ldots,V_n)$ splits as the direct sum of the line bundles $\oplus_t \otimes_{i,j}L_{ij}^{a_{ij,t}}$.
 
 \end{proof}
 
 
-\begin{definition}
-A locally free sheaf $V$ on a scheme $X$ is semipositive if for every map from a proper smooth curve $f:C\to X$ every quotient line bundle of $f^*V$ has nonnegative degree.
-\end{definition}
+
+\begin{definition}\label{def_semipos_bundle}
+Let $k$ be a field.
+Let $X$ be a $k$-scheme.
+Let $V$ be a locally free sheaf of finite rank on $X$.
+We say that $V$ is \textit{semipositive} if for every map from a proper and smooth $k$-scheme of dimension 1 $C$, invertible sheaf $\mathcal{L}$ on $C$, $k$-morphism $f:C\to X$, and surjection $f^{*}V\to\mathcal{L}$, we have $\deg_C\mathcal{L}\ge0$.\end{definition}
 
 \begin{lemma}\label{pullback of semipos}
-Let $V$ be a semipositive vector bundle on a scheme $X$. For any morphism $f:Y\to X$, the pullback $f^*V$ is semipositive vector bundle on $Y$.
+Let $V$ be a semipositive vector bundle on a scheme $X$. For any morphism $g:Y\to X$, the pullback $f^*V$ is semipositive vector bundle on $Y$.
 \end{lemma}
 \begin{proof}
-Consider any morphism $g:C\to Y$, where $C$ is a smooth proper curve. Then as $g^*(f^*V)=(gf)^*V$ and $V$ is semipositive, any quotient line bundle of  $g^*(f^*V)$ is of positive degree. Hence, $f^*V$ is semipositive too.
+Consider any morphism $f:C\to Y$, as in Definition \ref{def_semipos_bundle}. Then as $f^*(g^*V)=(g\circ f)^*V$ and $V$ is semipositive, any quotient invertible sheaf of $g^*(f^*V)$ has non-negative degree. Hence, $f^*V$ is semipositive.
 \end{proof}
 
 \begin{lemma}\label{semipos=nef}
-A locally free sheaf $V$ on a scheme $X$ is semipositive if and only if $\mathcal{O}_{Proj V}(1)$ is nef on $Proj_XV$.
+A locally free sheaf $V$ on a scheme $X$ is semipositive if and only if $\mathcal{O}_{\mathrm{Proj} V}(1)$ is nef on $\mathrm{Proj}_XV$.
 \end{lemma}
 \begin{proof}
-Let $\pi: Proj_X V\to V$ be the projection map. Assume $\mathcal{O}_{\mathbb{P}V}(1)$ be nef. Let $L$ be  any quotient line bundle of $f^*V$ over a smooth proper curve $C$. Then $\deg \mathcal{O}_{\mathbb{P}L}(1)=\deg L$. Since $\mathbb{P}_CL$ is a curve in $\mathbb{P}_CV$, we have $\deg L=\mathcal{O}_{\mathbb{P}V}(1)|\mathbb{P}_CL$. Hence, using that $\mathcal{O}_{\mathbb{P}V}(1)$ be nef is nef, we get $\deg L>0$ and so $V$ is semipositive.
+Let $\pi: \mathrm{Proj}_X V\to V$ be the projection map. Assume $\mathcal{O}_{\mathbb{P}V}(1)$ be nef. Let $L$ be  any quotient line bundle of $f^*V$ over a smooth proper curve $C$. Then $\deg \mathcal{O}_{\mathbb{P}L}(1)=\deg L$. Since $\mathbb{P}_CL$ is a curve in $\mathbb{P}_CV$, we have $\deg L=\mathcal{O}_{\mathbb{P}V}(1)|\mathbb{P}_CL$. Hence, using that $\mathcal{O}_{\mathbb{P}V}(1)$ be nef is nef, we get $\deg L>0$ and so $V$ is semipositive.
 
-For the other direction, consider any smooth proper $C\subset \mathbb{P}_XV$ curve. By the universal property of relative Proj $\mathcal{O}_{\mathbb{P}V}(1)|_C$ is a quotient of $\pi^*V|_C$. By lemma \ref{pullback of semipos} $\pi^*V$ is semipositive and hence, $\deg  \mathcal{O}_{\mathbb{P}V}(1)|_C\geq 0$. Thus, semipositivity of $V$ implies nefness of $\mathcal{O}_{Proj V}(1)$.
+For the other direction, consider any smooth proper $C\subset \mathbb{P}_XV$ curve. By the universal property of relative Proj $\mathcal{O}_{\mathbb{P}V}(1)|_C$ is a quotient of $\pi^*V|_C$. By lemma \ref{pullback of semipos} $\pi^*V$ is semipositive and hence, $\deg  \mathcal{O}_{\mathbb{P}V}(1)|_C\geq 0$. Thus, semipositivity of $V$ implies nefness of $\mathcal{O}_{\mathrm{Proj} V}(1)$.
 \end{proof}
 
 \begin{lemma}
@@ -91,7 +160,7 @@ Let $f:Y\to X$ be a flat map and $V$ be a vector bundle on $Y$. Then the set of 
 
 \begin{proof}
 It follows from lemma \ref{semipos=nef} and nefness is an open condition.
-Let $\pi:\mathbb{P}_YV\to Y$ be the projection map.  Note $\pi$ is flat. Given a point $x\in X$, by lemma \ref{semipos=nef} the vector bunlde $V_x$ is semipositive if and only if $\mathcal{O}_{Proj V}(1)_x$ is nef. The compositve morphism $f\circ \pi$ is flat. Since nefness is an open condition in flat families, the set of points $x\in X$ such that $\mathcal{O}_{\mathbb{P}V}(1)$ is nef is open in $X$.
+Let $\pi:\mathbb{P}_YV\to Y$ be the projection map.  Note $\pi$ is flat. Given a point $x\in X$, by lemma \ref{semipos=nef} the vector bunlde $V_x$ is semipositive if and only if $\mathcal{O}_{\mathrm{Proj} V}(1)_x$ is nef. The compositve morphism $f\circ \pi$ is flat. Since nefness is an open condition in flat families, the set of points $x\in X$ such that $\mathcal{O}_{\mathbb{P}V}(1)$ is nef is open in $X$.
 \end{proof}
 
 \begin{lemma}\label{global_generation_of_twist_on_curve}
@@ -117,7 +186,7 @@ The target of such a nonzero map is a locally free sheaf of negative degree, so 
 
 
 \begin{lemma}
-Let $C$ be a smooth curve over a field of characteristic $p>0$. Let $V_1,\ldots,V_n$ be semipositive vector bundles of ranks $r_1,\ldots,r_n$ on $C$. Let $\rho$ be a semipositive representation $\prod GL(r_i)\to GL(m)$. Then, $\rho(V_1,\ldots,V_n)$ is a semipositive vector bundle.
+Let $C$ be a smooth curve over a field of characteristic $p>0$. Let $V_1,\ldots,V_n$ be semipositive vector bundles of ranks $r_1,\ldots,r_n$ on $C$. Let $\rho$ be a semipositive representation $\prod \mathrm{GL}(r_i)\to \mathrm{GL}(m)$. Then, $\rho(V_1,\ldots,V_n)$ is a semipositive vector bundle.
 \end{lemma}
 \begin{proof}
 Let $g$ be the genus of $C$, and fix a line bundle $\mathcal{L}$ of degree at least $2g$.
@@ -150,7 +219,7 @@ However, as $(F^{t})^*V_i$ is semipositive for each $i$, this contradicts (\ref{
 \end{proof}
 
 \begin{lemma}\label{no_negative_quotient_on_curve}
-Let $C$ be a smooth curve over a field. Let $V_1,\ldots,V_n$ be semipositive vector bundles of ranks $r_1,\ldots,r_n$ on $C$. Let $\rho$ be a semipositive representation $\prod GL(r_i)\to GL(m)$. Then, $\rho(V_1,\ldots,V_n)$ is a semipositive vector bundle.
+Let $C$ be a smooth curve over a field. Let $V_1,\ldots,V_n$ be semipositive vector bundles of ranks $r_1,\ldots,r_n$ on $C$. Let $\rho$ be a semipositive representation $\prod\mathrm{GL}(r_i)\to \mathrm{GL}(m)$. Then, $\rho(V_1,\ldots,V_n)$ is a semipositive vector bundle.
 \end{lemma}
 \begin{proof}
 If the characteristic of the ground field is positive, this is Lemma \ref{semipos_of_symd_curve_charp}. Suppose that the characteristic of the ground field is zero.
@@ -159,7 +228,7 @@ If the characteristic of the ground field is positive, this is Lemma \ref{semipo
 
 \begin{lemma}\label{apply_rho_still_semipos}
 Let $X$ be a scheme, and let $V_i$, $i=1,2,\ldots,n$ be semipositive vector bundles of rank $r_i$ on $X$. 
-Let $\rho:\prod_i GL(r_i)\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. 
+Let $\rho:\prod_i \mathrm{GL}(r_i)\to \mathrm{GL}(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$. 
 Then, $W$ is a semipositive vector bundle.
 \end{lemma}
 
@@ -206,16 +275,16 @@ Immediate from Lemma \ref{no_negative_quotient_on_curve} and the definition of s
 
 \begin{lemma}\label{symd_semipos}
 Let $X$ be a scheme and $V$ a semipositive vector bundle on $X$. 
-Then, $Sym^dV$ is a semipositive vector bundle.
+Then, $\mathrm{Sym}^dV$ is a semipositive vector bundle.
 \end{lemma}
 \begin{proof}
-This is Lemma \ref{apply_rho_still_semipos} applied to the semipositive representation $Sym^d$, see \todo{ref}.
+This is Lemma \ref{apply_rho_still_semipos} applied to the semipositive representation $\mathrm{Sym}^d$, see \todo{ref}.
 \end{proof}
 
 
 \begin{lemma}
 Let $X$ be a scheme, and let $V_1,\ldots,V_n$ be semipositive vector bundles on $X$ of ranks $r_1,\ldots,r_n$, respectively. 
-Let $G=\prod_{i=1}^{n}GL(r_i)$, let $\rho:G\to GL(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$.
+Let $G=\prod_{i=1}^{n}\mathrm{GL}(r_i)$, let $\rho:G\to \mathrm{GL}(m)$ be a semipositive representation, and let $W=\rho(V_1,\ldots,V_n)$.
 Let $V\subset W$ be a $G$-subbundle of $W$. \todo{subbundle or subsheaf that is a bundle?}
 Then, $V$ is a semipositive vector bundle.
 \end{lemma}
