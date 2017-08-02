@@ -96,53 +96,49 @@ Then $(\det(\mathcal{Q})^{\dim(Y)}) > 0$.
 \end{lemma}
 
 \begin{proof}
-Consider the given surjection $\mathcal{F} \to \mathcal{Q}$ of locally free
-$\mathcal{O}_X$-modules over $X$.
-Taking $k$\textsuperscript{th} exterior powers, we obtain a surjection
-$$
-  \bigwedge\nolimits^k \mathcal{F} \to \det(\mathcal{Q})
-$$
-from $\bigwedge^k\mathcal{F}$ to the invertible module $\det(\mathcal{Q})$.
-Thus we obtain a morphism
-$$
-  u : X \to \mathbf{P}\big(\bigwedge\nolimits^k \mathcal{F}\big)
-$$
-such that
-$u^*\mathcal{O}_{\mathbf{P}(\bigwedge^k\mathcal{F})}(1) = \det(\mathcal{Q})$.
-
-Let $\mathbf{P} = \mathbf{P}((\mathcal{F}^\vee)^{\oplus n})$ be the projective
-bundle associated with $(\mathcal{F}^\vee)^{\oplus n}$ and write
+Let $\mathbf{P} = \mathbf{P}((\mathcal{E}^\vee)^{\oplus m})$ be the projective
+bundle associated with $(\mathcal{E}^\vee)^{\oplus m}$ and write
 $\pi : \mathbf{P} \to X$ for the projection.
 Using the projection formula, Lemma \ref{lemma-projection-formula},
 \begin{align*}
-H^0(\mathbf{P}, \pi^*\mathcal{F}(1))
+H^0(\mathbf{P}, \pi^*\mathcal{E}(1))
   & \cong
-H^0(X, \pi_*(\pi^*\mathcal{F} \otimes_{\mathcal{O}_{\mathbf{P}}}
+H^0(X, \pi_*(\pi^*\mathcal{E} \otimes_{\mathcal{O}_{\mathbf{P}}}
   \mathcal{O}_{\mathbf{P}}(1))) \\
   & \cong
-H^0(X,\mathcal{F} \otimes_{\mathcal{O}_X} \pi_*\mathcal{O}_{\mathbf{P}}(1)) \\
+H^0(X,\mathcal{E} \otimes_{\mathcal{O}_X} \pi_*\mathcal{O}_{\mathbf{P}}(1)) \\
   & \cong
-H^0(X,\mathcal{F} \otimes (\mathcal{F}^\vee)^{\oplus n}) \\
+H^0(X,\mathcal{E} \otimes (\mathcal{E}^\vee)^{\oplus m}) \\
   & \cong
-H^0(X,\mathrm{End}(\mathcal{F})^{\oplus n}).
+H^0(X,\mathrm{End}(\mathcal{E})^{\oplus m}).
 \end{align*}
-The $n$ canonical sections of $H^0(X,\mathrm{End}(\mathcal{F})^{\oplus n})$
-give $n$ sections of
-$H^0(\mathbf{P}, \pi^*\mathcal{F}
+The $m$ canonical sections of $H^0(X,\mathrm{End}(\mathcal{E})^{\oplus m})$
+give $m$ sections of
+$H^0(\mathbf{P}, \pi^*\mathcal{E}
   \otimes_{\mathcal{O}_{\mathbf{P}}} \mathcal{O}_{\mathbf{P}}(1))$ and hence
 a morphism
 $$
-  B : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to \pi^*\mathcal{F}(1)
+  B : \mathcal{O}_{\mathbf{P}}^{\oplus m} \to \pi^*\mathcal{E}(1)
 $$
 of sheaves over $\mathbf{P}$.
 Let $D \subset \mathbf{P}$ be the support of the cokernel of $B$.
-Composing $B$ with the pullback of the given surjection
-$\mathcal{F} \to \mathcal{Q}$, we obtain a morphism
+Then $B$ is an isomorphism away from $D$.
+Applying $\mathrm{Sym}^d$ to $B$, we obtain a morphism
+$$
+  \mathrm{Sym}^d(B) : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to
+    \pi^*\mathrm{Sym}^d(\mathcal{E})(d) = \pi^*\mathcal{F}(d).
+$$
+Composing this will the given surjection $\mathcal{F} \to \mathcal{Q}$, we
+obtain a morphism
 $$
   U : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to
-        \pi^*\mathcal{F}(1) \to
-        \pi^*\mathcal{Q}(1).
+        \pi^*\mathcal{F}(d) \to
+        \pi^*\mathcal{Q}(d)
 $$
+which is surjective away from $D$.
+By the universal property of the Grassmannian, we obtain a morphism
+$\mathbf{P} \setminus D \to \mathrm{Gr}(n,k)$.
+
 By construction, this morphism is surjective away from $D$.
 Taking $k$\textsuperscript{th} exterior powers of this morphism, we obtain a
 morphism
