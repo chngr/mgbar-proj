@@ -18,7 +18,7 @@ Let $G=\prod_i GL(E_i)$ be a product of general linear groups. A representation 
 \todo{give notation for $H$-bundle you get from a $G$-bundle and a map $G\to H$}.
 
 \begin{definition}
-Let $V_1,\dots, V_n$ vector bundles of rank $r_1,\dots, r_n$ over a base space X, and let $\rho:\prod_i GL(r_i)\rightarrow GL(m)$ be any representation. One can define a bundle $\rho(V_1,\dots, V_n)$ of rank $m$ as follows: every $V_i$ is a principal $GL(r_i)$-bundle, hence it corresponds to a point $x_i$ in $H^1(X, GL(r_i))$; the map $\rho$ induces a map $\rho^*:H^1(X,\prod_i GL(r_i)\rightarrow H^1(X, GL(m))$, i.e. $\rho: \prod_i H^1(X,GL(r_i))\rightarrow H^1(X, GL(m))$. We define $\rho(V_1,\dots, V_n)$ to be the principal $GL(m)$-bundle corresponding to $\rho^*(x_1,\dots,x_n)$.
+Let $V_1,\dots, V_n$ vector bundles of rank $r_1,\dots, r_n$ over a base space X, and let $\rho:\prod_i GL(r_i)\rightarrow GL(m)$ be any representation. One can define a bundle $\rho(V_1,\dots, V_n)$ of rank $m$ as follows: every $V_i$ is a principal $GL(r_i)$-bundle, hence it corresponds to a point $x_i$ in $H^1(X, GL(r_i))$; the map $\rho$ induces a map $\rho^*:H^1(X,\prod_i GL(r_i))\rightarrow H^1(X, GL(m))$, i.e. $\rho: \prod_i H^1(X,GL(r_i))\rightarrow H^1(X, GL(m))$. We define $\rho(V_1,\dots, V_n)$ to be the principal $GL(m)$-bundle corresponding to the point $\rho^*(x_1,\dots,x_n)$.
 \end{definition}
 
 \begin{lemma}
@@ -27,19 +27,24 @@ For $i=1,2,\ldots,n$, let $V_i=\sum_{j}\mathcal{L}_{ij}$ be a vector bundle of r
 
 \begin{proof}
 \todo{add details, maybe}
-For each $i$, we have a diagonal embedding $\psi_i:\prod_{j=1}^{r_i}GL(1)\to GL(r_i)$...
+For each $i$, we have a diagonal embedding $\psi_i:\prod_{j=1}^{r_i}GL(1)\to GL(r_i)$.
 Taking the product over $i$ and post-composing with $\rho$ yields a map
 \begin{equation}
 \prod_{i=1}^{n}\prod_{j=1}^{r_i}GL(1)\to GL(m),
 \end{equation}
-which factors through a maximal torus $\psi:\prod_{k=1}^{m}GL(1)\to GL(m)$.
+which factors through a maximal torus $\psi:\prod_{k=1}^{m}GL(1)\to GL(m)$, as in the following diagram:
 \todo{make diagram...}
 
-Thus $\rho(V_1,\ldots,V_n)$ splits as the direct sum of the line bundles you get from $\prod\prod GL(1)\to GL(1)$ after projecting to the $t$-th factor...
+$$\xymatrix{
+\prod_{i=1}^{n}\prod_{j=1}^{r_i} GL(1)\ar[r]^{\prod_i\psi_i} \ar[rd] &\prod_{i=1}^{n}GL(r_i)\ar[r]^{\rho} &GL(m)\\
+&\prod_{k=1}^{m}GL(1)\ar[ru]\ar[d]^{proj_t}&\\
+&GL(1)&
+}$$
 
-This map is a character, so of the form $(z_{ij})\mapsto \prod z_{ij}^{a_{ij,t}}$, and $a_{ij,t}\ge0$ by semipositivity.
 
-Then $\rho(V_1,\ldots,V_n)$ is the direct sum of $\otimes\mathcal{L}_{ij}^{a_{ij,t}}$ over $t\in[1,n]$.
+Now consider the projection on the $t$-th factor $proj_t:\prod_{k=1}^mGL(1)\to GL(1)$. The composition $\prod_{i=1}^n\prod_{j=1}^{k} GL(1)\to GL(1)$ is a character, hence it is of the form $(z_{ij})_{i,j}\mapsto \prod z_{ij}^{a_{ij,t}}$. For a cover of $X$ that trivializez the bundles, $z_{ij}$ correspond to the transition functions of $\mathcal{L}_{ij}$, hence, $\prod z_{ij}^{a_{ij,t}}$ correspond to $\otimes\mathcal{L}_{ij}^{a_{ij,t}}$.
+
+Pulling back to $\prod_{k=1}^{m} GL(m)$, we see that $\rho(V_1,\ldots,V_n)$ splits as the direct sum of the line bundles  $\oplus_t \otimes_{i,j}L_{ij}^{a_{ij,t}}$.
 
 \end{proof}
 
@@ -63,19 +68,30 @@ $$\rho(f_1,\dots, f_n):\rho(V_1,\dots, V_n)\rightarrow \rho(W_1,\dots,W_n).$$
 A locally free sheaf $V$ on a scheme $X$ is semipositive if for every map from a proper smooth curve $f:C\to X$ every quotient line bundle of $f^*V$ has nonnegative degree.
 \end{definition}
 
+\begin{lemma}\label{pullback of semipos}
+Let $V$ be a semipositive vector bundle on a scheme $X$. For any morphism $f:Y\to X$, the pullback $f^*V$ is semipositive vector bundle on $Y$.
+\end{lemma}
+\begin{proof}
+Consider any morphism $g:C\to Y$, where $C$ is a smooth proper curve. Then as $g^*(f^*V)=(gf)^*V$ and $V$ is semipositive, any quotient line bundle of  $g^*(f^*V)$ is of positive degree. Hence, $f^*V$ is semipositive too.
+\end{proof}
+
 \begin{lemma}\label{semipos=nef}
 A locally free sheaf $V$ on a scheme $X$ is semipositive if and only if $\mathcal{O}_{Proj V}(1)$ is nef on $Proj_XV$.
 \end{lemma}
 \begin{proof}
-Let $\pi: Proj_X V\to V$ be the projection map. By definitions, semipositivity of $V$ implies nef-ness of $\mathcal{O}_{Proj V}(1)$. For the other direction, consider $C\subset \mathbb{P}_XV$ a curve. Then $\mathcal{O}_{\mathbb{P}V}(1)|_C$ is a quotient of $\pi^*V|_C$. 
+Let $\pi: Proj_X V\to V$ be the projection map. Assume $\mathcal{O}_{\mathbb{P}V}(1)$ be nef. Let $L$ be  any quotient line bundle of $f^*V$ over a smooth proper curve $C$. Then $\deg \mathcal{O}_{\mathbb{P}L}(1)=\deg L$. Since $\mathbb{P}_CL$ is a curve in $\mathbb{P}_CV$, we have $\deg L=\mathcal{O}_{\mathbb{P}V}(1)|\mathbb{P}_CL$. Hence, using that $\mathcal{O}_{\mathbb{P}V}(1)$ be nef is nef, we get $\deg L>0$ and so $V$ is semipositive.
+
+For the other direction, consider any smooth proper $C\subset \mathbb{P}_XV$ curve. By the universal property of relative Proj $\mathcal{O}_{\mathbb{P}V}(1)|_C$ is a quotient of $\pi^*V|_C$. By lemma \ref{pullback of semipos} $\pi^*V$ is semipositive and hence, $\deg  \mathcal{O}_{\mathbb{P}V}(1)|_C\geq 0$. Thus, semipositivity of $V$ implies nefness of $\mathcal{O}_{Proj V}(1)$.
 \end{proof}
 
 \begin{lemma}
-Semipositivity is an open condition in flat families.
+3.4 Semipositivity is an open condition in flat families.
+Let $f:Y\to X$ be a flat map and $V$ be a vector bundle on $Y$. Then the set of points $x\in X$ such that the vector bundle $V_x$ is semipositive on the fiber $Y_x$ is open.
 \end{lemma}
 
 \begin{proof}
-It follows from Lemma \ref{semipos=nef} and nef-ness is an open condition.
+It follows from lemma \ref{semipos=nef} and nefness is an open condition.
+Let $\pi:\mathbb{P}_YV\to Y$ be the projection map.  Note $\pi$ is flat. Given a point $x\in X$, by lemma \ref{semipos=nef} the vector bunlde $V_x$ is semipositive if and only if $\mathcal{O}_{Proj V}(1)_x$ is nef. The compositve morphism $f\circ \pi$ is flat. Since nefness is an open condition in flat families, the set of points $x\in X$ such that $\mathcal{O}_{\mathbb{P}V}(1)$ is nef is open in $X$.
 \end{proof}
 
 \begin{lemma}\label{global_generation_of_twist_on_curve}

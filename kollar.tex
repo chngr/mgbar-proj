@@ -1,0 +1,229 @@
+\input{preamble}
+
+\newcommand{\todo}[1]{\footnote{\textbf{TODO.} #1}}
+
+\begin{document}
+\title{Koll\'ar's Argument}
+\maketitle
+
+\section{Related Results}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/01E6}{Tag 01E6}]{stacks-project}}]
+\label{lemma-projection-formula}
+Let $f : X \to Y$ be a morphism of ringed spaces.
+Let $\mathcal{F}$ be an $\mathcal{O}_X$-module.
+Let $\mathcal{E}$ be an $\mathcal{O}_Y$-module.
+Assume $\mathcal{E}$ is finite locally free on $Y$, see
+Modules, Definition \ref{modules-definition-locally-free}.
+Then there exist isomorphisms
+$$
+\mathcal{E} \otimes_{\mathcal{O}_Y} R^qf_*\mathcal{F}
+\longrightarrow
+R^qf_*(f^*\mathcal{E} \otimes_{\mathcal{O}_X} \mathcal{F})
+$$
+for all $q \geq 0$. In fact there exists an isomorphism
+$$
+\mathcal{E} \otimes_{\mathcal{O}_Y} Rf_*\mathcal{F}
+\longrightarrow
+Rf_*(f^*\mathcal{E} \otimes_{\mathcal{O}_X} \mathcal{F})
+$$
+in $D^{+}(Y)$ functorial in $\mathcal{F}$.
+\end{lemma}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0BAV}{Tag 0BAV}]{stacks-project}}]
+\label{lemma-ubiquity-nagata}
+The following types of algebraic spaces are Nagata.
+\begin{enumerate}
+\item Any algebraic space locally of finite type over a Nagata scheme.
+\item Any algebraic space locally of finite type over a field.
+\item Any algebraic space locally of finite type over a
+Noetherian complete local ring.
+\item Any algebraic space locally of finite type over $\mathbf{Z}$.
+\item Any algebraic space locally of finite type over a Dedekind ring of
+characteristic zero.
+\item And so on.
+\end{enumerate}
+\end{lemma}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0BB5}{Tag 0BB5}]{stacks-project}}]
+\label{lemma-nagata-normalization}
+Let $S$ be a scheme. Let $X$ be a Nagata algebraic space over $S$.
+The normalization $\nu : X^\nu \to X$ is a finite morphism.
+\end{lemma}
+
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/089I}{Tag 089I}]{stacks-project}}]
+\label{lemma-weak-chow}
+Let $A$ be a ring. Let $X$ be an algebraic space over $\Spec(A)$
+whose structure morphism $X \to \Spec(A)$ is separated of finite type.
+Then there exists a proper surjective morphism $X' \to X$
+where $X'$ is a scheme which is H-quasi-projective over $\Spec(A)$.
+\end{lemma}
+
+\begin{lemma}[Chow's lemma][{\cite[\href{http://stacks.math.columbia.edu/tag/088U}{Tag 088U}]{stacks-project}}]
+\label{lemma-chow-noetherian-separated}
+\begin{reference}
+\cite[IV Theorem 3.1]{Kn}
+\end{reference}
+Let $S$ be a scheme. Let $f : X \to Y$ be a morphism of algebraic spaces
+over $S$. Assume $f$ separated of finite type, and $Y$ separated and
+Noetherian. Then there exists a commutative diagram
+$$
+\xymatrix{
+X \ar[rd] & X' \ar[l] \ar[d] \ar[r] & \mathbf{P}^n_Y \ar[ld] \\
+& Y
+}
+$$
+where $X' \to X$ is a $U$-admissible blowup for some dense open
+$U \subset X$ and the morphism $X' \to \mathbf{P}^n_Y$ is an immersion.
+\end{lemma}
+
+\section{Positivity Lemma}
+
+\begin{lemma}
+\label{lemma-positive-self-intersection}
+Let $X$ be a normal projective variety over a field $k$.
+Let $\mathcal{E}$ be a semipositive locally free sheaf on $X$ with structure
+group $G$.\todo{Make sense of this?}
+Set $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and let $n$
+be the rank.
+Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $k$.
+Assume that the map\todo{Replace all occurrences of $G$ by $\mathrm{GL}$?}
+$$
+u : X \to [\mathrm{Gr}(n,k)/G]
+$$
+is quasi-finite on a nonempty open subset of $X$.
+Then $(\det(\mathcal{Q})^{\dim(Y)}) > 0$.
+\end{lemma}
+
+\begin{proof}
+Consider the given surjection $\mathcal{F} \to \mathcal{Q}$ of locally free
+$\mathcal{O}_X$-modules over $X$.
+Taking $k$\textsuperscript{th} exterior powers, we obtain a surjection
+$$
+  \bigwedge\nolimits^k \mathcal{F} \to \det(\mathcal{Q})
+$$
+from $\bigwedge^k\mathcal{F}$ to the invertible module $\det(\mathcal{Q})$.
+Thus we obtain a morphism
+$$
+  u : X \to \mathbf{P}\big(\bigwedge\nolimits^k \mathcal{F}\big)
+$$
+such that
+$u^*\mathcal{O}_{\mathbf{P}(\bigwedge^k\mathcal{F})}(1) = \det(\mathcal{Q})$.
+
+Let $\mathbf{P} = \mathbf{P}((\mathcal{F}^\vee)^{\oplus n})$ be the projective
+bundle associated with $(\mathcal{F}^\vee)^{\oplus n}$ and write
+$\pi : \mathbf{P} \to X$ for the projection.
+Using the projection formula, Lemma \ref{lemma-projection-formula},
+\begin{align*}
+H^0(\mathbf{P}, \pi^*\mathcal{F}(1))
+  & \cong
+H^0(X, \pi_*(\pi^*\mathcal{F} \otimes_{\mathcal{O}_{\mathbf{P}}}
+  \mathcal{O}_{\mathbf{P}}(1))) \\
+  & \cong
+H^0(X,\mathcal{F} \otimes_{\mathcal{O}_X} \pi_*\mathcal{O}_{\mathbf{P}}(1)) \\
+  & \cong
+H^0(X,\mathcal{F} \otimes (\mathcal{F}^\vee)^{\oplus n}) \\
+  & \cong
+H^0(X,\mathrm{End}(\mathcal{F})^{\oplus n}).
+\end{align*}
+The $n$ canonical sections of $H^0(X,\mathrm{End}(\mathcal{F})^{\oplus n})$
+give $n$ sections of
+$H^0(\mathbf{P}, \pi^*\mathcal{F}
+  \otimes_{\mathcal{O}_{\mathbf{P}}} \mathcal{O}_{\mathbf{P}}(1))$ and hence
+a morphism
+$$
+  B : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to \pi^*\mathcal{F}(1)
+$$
+of sheaves over $\mathbf{P}$.
+Let $D \subset \mathbf{P}$ be the support of the cokernel of $B$.
+Composing $B$ with the pullback of the given surjection
+$\mathcal{F} \to \mathcal{Q}$, we obtain a morphism
+$$
+  U : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to
+        \pi^*\mathcal{F}(1) \to
+        \pi^*\mathcal{Q}(1).
+$$
+By construction, this morphism is surjective away from $D$.
+Taking $k$\textsuperscript{th} exterior powers of this morphism, we obtain a
+morphism
+$$
+  \bigwedge^k U : \mathcal{O}_{\mathbf{P}}^{\oplus \binom{n}{k}} \to
+    \pi^*\big(\bigwedge\nolimits^k W\big)(k) \to
+    \pi^*\det(Q)(k)
+$$
+which is surjective away from $D$.
+
+Choose a $G$-orbit closure $P$ in $\mathbf{P}$ and write $i : P \to \mathbf{P}$
+for the inclusion.\todo{Is it really important that we take closure of the
+  projective fibres rather than the entire orbit?}
+Write $\overline{\pi} : P \to X$ for the restriction of $\pi$ to $P$.
+Pulling back $B$ via $i$, we obtain a map
+$$
+  \overline{B} : \mathcal{O}_P^{\oplus n} \to \overline{\pi}^* \mathcal{F}(1)
+$$
+of sheaves of $\mathcal{O}_P$-modules over $P$.
+Composing $\overline{B}$ with the pullback of the given surjection
+$\mathcal{F} \to \mathcal{Q}$, we obtain a map
+$$
+  \overline{U} : \mathcal{O}_P^{\oplus n} \to
+                  \overline{\pi}^*\mathcal{F}(1) \to
+                  \overline{\pi}^*\mathcal{Q}(1).
+$$
+Being the composition of $\overline{B}$ with a surjection, $\overline{U}$ is
+surjective away from $P \cap D$.
+\end{proof}
+
+\begin{lemma}
+Let $k$ be a field.
+Let $X$ be a proper algebraic space over $k$.
+Let $V$ be a semipositive vector bundle with structure group $G$.
+Set $W = \mathrm{Sym}^d(V)$ for some $d \geq 1$ and let $n$ be the rank.
+Let $Q$ be a quotient vector bundle of $W$ of rank $k$.
+Assume that the map
+$$
+u : X \to [\mathrm{Gr}(n,k)/G]
+$$
+is quasi-finite.
+Then $\det(Q)$ is ample.\todo{Rework this in terms of locally free sheaves?}
+\end{lemma}
+
+\begin{proof}
+First we reduce to the case $X$ is normal.
+Since $X$ is proper over a field, Lemma \ref{lemma-ubiquity-nagata} shows $X$
+is a Nagata algebraic space.
+By Lemma \ref{lemma-nagata-normalization}, the normalization
+$\nu : X^\nu \to X$ is a finite morphism.
+Since $\det(Q)$ is ample if and only if $\nu^*\det(Q)$ is ample by
+Lemma ...\todo{Get this lemma from \texttt{ampleness-spaces.tex}.}, we may
+assume $X$ is normal.
+
+So assume $X$ is normal.
+By the Nakai--Moishezon Criterion for spaces\todo{Reference this somehow.},
+we must show that $\det(Q)$ has positive top intersection with
+every irreducible subspace $Z \subset X$.
+So let $Z \subset X$ be any irreducible subspace and write $i : Z \to X$ for
+the inclusion.
+By Lemma \ref{lemma-chow-noetherian-separated}, there is a projective
+scheme $Z'$ and a proper birational morphism $g : Z' \to Z$.
+Now
+$$
+  (\det(Q)^{\dim(Z)} \cdot Z)
+    = (\det(i^*Q)^{\dim(Z)})
+    = (\det(g^*i^*Q)^{\dim(Z')})
+$$
+so we need to show that the top self-intersection of $\det(g^*i^*Q)$ on $Z'$
+is positive.
+But now $g^*i^*V$ is semipositive by ...\todo{Reference.},
+$g^*i^*W \cong \mathrm{Sym}^d(g^*i^*V)$\todo{Obvious?}, and $g^*i^*Q$ is a
+quotient bundle of $g^*i^*W$ of rank $k$ on $Z'$.
+Also, the map $u \circ i \circ g : Z' \to [\mathrm{Gr}(W,k)/G]$ is quasi-finite
+on the dense open on which $g$ is an isomorphism.
+Thus Lemma~\ref{lemma-positive-self-intersection},
+$(\det(g^*i^*Q)^{\dim(Z')}) > 0$ and we are done.\todo{Do we normalize $Z'$ or
+  $X$, actually? Does $X$ normal imply $Z'$ normal? That doesn't seem right...}
+\end{proof}
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
