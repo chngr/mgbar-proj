@@ -8,6 +8,28 @@
 
 \section{Related Results}
 
+\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/01E6}{Tag 01E6}]{stacks-project}}]
+\label{lemma-projection-formula}
+Let $f : X \to Y$ be a morphism of ringed spaces.
+Let $\mathcal{F}$ be an $\mathcal{O}_X$-module.
+Let $\mathcal{E}$ be an $\mathcal{O}_Y$-module.
+Assume $\mathcal{E}$ is finite locally free on $Y$, see
+Modules, Definition \ref{modules-definition-locally-free}.
+Then there exist isomorphisms
+$$
+\mathcal{E} \otimes_{\mathcal{O}_Y} R^qf_*\mathcal{F}
+\longrightarrow
+R^qf_*(f^*\mathcal{E} \otimes_{\mathcal{O}_X} \mathcal{F})
+$$
+for all $q \geq 0$. In fact there exists an isomorphism
+$$
+\mathcal{E} \otimes_{\mathcal{O}_Y} Rf_*\mathcal{F}
+\longrightarrow
+Rf_*(f^*\mathcal{E} \otimes_{\mathcal{O}_X} \mathcal{F})
+$$
+in $D^{+}(Y)$ functorial in $\mathcal{F}$.
+\end{lemma}
+
 \begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0BAV}{Tag 0BAV}]{stacks-project}}]
 \label{lemma-ubiquity-nagata}
 The following types of algebraic spaces are Nagata.
@@ -59,17 +81,49 @@ $U \subset X$ and the morphism $X' \to \mathbf{P}^n_Y$ is an immersion.
 
 \begin{lemma}
 \label{lemma-positive-self-intersection}
-Let $Y$ be a normal projective variety over a field $k$.
-Let $V$ be a semipositive vector bundle on $Y$ with structure group $G$.
-Set $W = \mathrm{Sym}^d(V)$ for some $d \geq 1$ and let $n$ be the rank.
-Let $Q$ be a quotient vector bundle of $W$ of rank $k$.
-Assume that the map
+Let $X$ be a normal projective variety over a field $k$.
+Let $\mathcal{E}$ be a semipositive locally free sheaf on $X$ with structure
+group $G$.\todo{Make sense of this?}
+Set $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and let $n$
+be the rank.
+Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $k$.
+Assume that the map\todo{Replace all occurrences of $G$ by $\mathrm{GL}$?}
 $$
-u : Y \to [\mathrm{Gr}(n,k)/G]
+u : X \to [\mathrm{Gr}(n,k)/G]
 $$
-is quasi-finite on a nonempty open subset of $Y$.
-Then $(\det(Q))^{\dim(Y)} > 0$.
+is quasi-finite on a nonempty open subset of $X$.
+Then $(\det(\mathcal{Q}))^{\dim(Y)} > 0$.
 \end{lemma}
+
+\begin{proof}
+Let $\mathbf{P} = \mathbf{P}((\mathcal{F}^\vee)^{\oplus n})$ be the projective
+bundle associated with $(\mathcal{F}^\vee)^{\oplus n}$ and write
+$\pi : \mathbf{P} \to X$ for the projection.
+Using the projection formula, Lemma \ref{lemma-projection-formula},
+\begin{align*}
+H^0(\mathbf{P}, \pi^*\mathcal{F}
+  \otimes_{\mathcal{O}_{\mathbf{P}}} \mathcal{O}_{\mathbf{P}}(1))
+  & \cong
+H^0(X, \pi_*(\pi^*\mathcal{F} \otimes_{\mathcal{O}_{\mathbf{P}}}
+  \mathcal{O}_{\mathbf{P}}(1))) \\
+  & \cong
+H^0(X,\mathcal{F} \otimes_{\mathcal{O}_X} \pi_*\mathcal{O}_{\mathbf{P}}(1)) \\
+  & \cong
+H^0(X,\mathcal{F} \otimes (\mathcal{F}^\vee)^{\oplus n}) \\
+  & \cong
+H^0(X,\mathrm{End}(\mathcal{F})^{\oplus n}).
+\end{align*}
+The $n$ canonical sections of $H^0(X,\mathrm{End}(\mathcal{F})^{\oplus n})$
+give $n$ sections of
+$H^0(\mathbf{P}, \pi^*\mathcal{F}
+  \otimes_{\mathcal{O}_{\mathbf{P}}} \mathcal{O}_{\mathbf{P}}(1))$ and hence
+a morphism
+$$
+  \mathcal{O}_{\mathbf{P}}^{\oplus n}
+    \to \pi^*\mathcal{F} \otimes_{\mathcal{O}_{\mathbf{P}}} \mathcal{O}_{\mathbf{P}}(1)
+$$
+of sheaves over $\mathbf{P}$.
+\end{proof}
 
 \begin{lemma}
 Let $k$ be a field.
@@ -82,7 +136,7 @@ $$
 u : X \to [\mathrm{Gr}(n,k)/G]
 $$
 is quasi-finite.
-Then $\det(Q)$ is ample.
+Then $\det(Q)$ is ample.\todo{Rework this in terms of locally free sheaves?}
 \end{lemma}
 
 \begin{proof}
