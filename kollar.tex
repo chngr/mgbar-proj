@@ -80,11 +80,12 @@ $U \subset X$ and the morphism $X' \to \mathbf{P}^n_Y$ is an immersion.
 \section{Positivity Lemma}
 
 \begin{lemma}
+\label{lemma-grassman-quotient-stack-map}
 Let $X$ be a scheme over a field $k$, and let $\mathcal{E}$ be a%semipositive
 locally free sheaf on $X$ of rank $m$.
 Let $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and let $n$
 be the rank of $\mathcal{F}$.
-Let $q\colon \mathcal{F} \to \mathcal{Q}$ be a locally free quotient of rank $k$. 
+Let $q\colon \mathcal{F} \to \mathcal{Q}$ be a locally free quotient of rank $k$.
 Let $G = \mathrm{PGL}_m$ be the projective general linear group over $k$.
 Then,
 \begin{enumerate}
@@ -94,7 +95,7 @@ $$
 \mathbf{P}((\mathcal{E}^\vee)^{\oplus m}) \setminus D \longrightarrow X
 $$
 is a principal $G$-bundle.
-\item There is a $G$-action on $\mathrm{Gr}(n,k)$, and 
+\item There is a $G$-action on $\mathrm{Gr}(n,k)$, and
 a $G$-equivariant map
 $$
 \mathbf{P}((\mathcal{E}^\vee)^{\oplus m}) \setminus D \longrightarrow
@@ -171,15 +172,15 @@ that $(\mathbf{P} \setminus D)/G \simeq X$.
 \begin{lemma}
 \label{lemma-positive-self-intersection}
 Let $X$ be a normal projective variety over a field $k$.
-Let $\mathcal{E}$ be a semipositive locally free sheaf on $X$ with structure
-group $G$.\todo{Make sense of this?}
-Set $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and let $n$
-be the rank.
+Let $\mathcal{E}$ be a semipositive locally free sheaf on $X$ of rank $m$.
+Set $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and set
+$n = \binom{m + d}{d}$ be the rank.
 Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $k$.
-Assume that the map\todo{Replace all occurrences of $G$ by $\mathrm{GL}$?}
+Assume that the map
 $$
-u : X \to [\mathrm{Gr}(n,k)/G]
+  u : X \to [\mathrm{Gr}(n,k)/G]
 $$
+constructed in Lemma \ref{lemma-grassman-quotient-stack-map}
 is quasi-finite on a nonempty open subset of $X$.
 Then $(\det(\mathcal{Q})^{\dim(Y)}) > 0$.
 \end{lemma}
@@ -268,51 +269,51 @@ $$u:P\dashrightarrow Gr(n,k)\subset \mathbf{P}^{{n\choose k}},$$
 
 which is a morphism on $P-D$.
 
-By construction, this map is obtained by lifting the classifying map $X\to [Gr(n,k)/PGL(m)]$ to 
+By construction, this map is obtained by lifting the classifying map $X\to [Gr(n,k)/PGL(m)]$ to
 $$u':P-D\to Gr(n,k),$$
 and composing $u'$ with the $Pl\ddot{u}cker$ embedding $Gr(n,k)\to \mathbf{P}^{{n\choose k}}$.
 \todo{u is quasifinite on open subset of orbit P}
 
-The map $u$ need not be a morphism since the image of $\overline{U}$ need not be locally free. 
-To remedy this we blow up the ideal sheaf of the image of $\overline{U}$\todo{explain better}, obtaining a new scheme $P'$, together with a birational morphism $g:P'\to P$. 
+The map $u$ need not be a morphism since the image of $\overline{U}$ need not be locally free.
+To remedy this we blow up the ideal sheaf of the image of $\overline{U}$\todo{explain better}, obtaining a new scheme $P'$, together with a birational morphism $g:P'\to P$.
 Now $u$ extends to a morphism $u':P'\to \mathbf{P}^{{n\choose k}}$. If $E$ is the exceptional divisor of the blow-up (in particular, $E$ is effective), we get
 $$g^*(\overline{\pi}^*(\det\mathcal{Q})(k))\cong u'^*\mathcal{O}_{Gr}(1)\otimes\mathcal{O}_{P'}(E).$$
 
-Let $H$ be a ample divisor on $Y$. Since $u'$ is generically finite and $\mathcal{O}_{Gr}(1)$ is big, the pullback $u'^*  \mathcal{O}_{Gr}(1)$ is big on $\mathbf{P}'$. \todo{Explain why pullback of big is big} Thus, by Kollar's definition of big, there is a natural number $m>>0$ such that we have a nontrivial section of $u'^*\mathcal{O}_{Gr}(m)\otimes g^*p^*H^{-1}$ i.e. there's a nontrivial morphism 
+Let $H$ be a ample divisor on $Y$. Since $u'$ is generically finite and $\mathcal{O}_{Gr}(1)$ is big, the pullback $u'^*  \mathcal{O}_{Gr}(1)$ is big on $\mathbf{P}'$. \todo{Explain why pullback of big is big} Thus, by Kollar's definition of big, there is a natural number $m>>0$ such that we have a nontrivial section of $u'^*\mathcal{O}_{Gr}(m)\otimes g^*p^*H^{-1}$ i.e. there's a nontrivial morphism
 
 \begin{align*}
 {O}_{\mathbf{P}'}\to & u'^*\mathcal{O}_{Gr}(m)\otimes g^*(p^*H^{-1})=g^*(p^*(\det Q)^{\otimes m}\otimes p^*H^{-1}\otimes \mathcal{O}_{\mathbf{P}}(km))\otimes \mathcal{O}_{\mathbf{P}'}(-mE)\\&\to g^*(p^*(\det Q)^{\otimes m}\otimes p^*H^{-1}\otimes \mathcal{O}_{\mathbf{P}}(km))
-\end{align*} 
+\end{align*}
 
 Then when we pushforward to $Y$ we get $$\mathcal{O}_Y\to p_*g_*\mathcal{O}_{\mathbf{P}'}\to (\det Q)^{\otimes m}\otimes H^{-1}\otimes p_*\mathcal{O}_{\mathbf{P}}(km)$$ \todo{Explain why the composite is nonzero}.
 
-After rearanging we get $$H\otimes (p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}\stackrel{\tau}\to (\det Q)^{\otimes m}$$ 
+After rearanging we get $$H\otimes (p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}\stackrel{\tau}\to (\det Q)^{\otimes m}$$
 
-If $m$ is sufficiently large, then the natural map $$\pi_*\mathcal{O}_{\mathbb{P}}(mk)\to p_*\mathcal{O}_{\mathbf{P}}(mk)$$ is surjective and so the dual is injective $$p_*\mathcal{O}_{\mathbf{P}}(mk)^*\hookrightarrow \pi_*\mathcal{O}_{\mathbb{P}}(mk)^*$$ Thus, $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}$ is a $G$-subbundle  of $(\pi_*\mathcal{O}_{\mathbb{P}}(km))^*=(Sym^{km}(\sum W^*))^*$, which is semipositive by \todo{Add reference}. Hence, $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}$  itself is semipostive. 
+If $m$ is sufficiently large, then the natural map $$\pi_*\mathcal{O}_{\mathbb{P}}(mk)\to p_*\mathcal{O}_{\mathbf{P}}(mk)$$ is surjective and so the dual is injective $$p_*\mathcal{O}_{\mathbf{P}}(mk)^*\hookrightarrow \pi_*\mathcal{O}_{\mathbb{P}}(mk)^*$$ Thus, $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}$ is a $G$-subbundle  of $(\pi_*\mathcal{O}_{\mathbb{P}}(km))^*=(Sym^{km}(\sum W^*))^*$, which is semipositive by \todo{Add reference}. Hence, $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}$  itself is semipostive.
 
 If we blow up the image sheaf of $\tau$, then we get a birational map $s:Y'\to Y$ within the commuative diagram
- 
+
 $$\xymatrix{
 &\mathbb{P}((p_*\mathcal{O}_{\mathbf{P}}(km)^{\vee})) \ar[d]^{\cong}\\
 Y'  \ar[r]|-{v'} \ar[ru]^{\tilde{v}'} \ar[d]^s &\mathbb{P}(H\otimes (p_*\mathcal{O}_{\mathbf{P}}(km)^{\vee})) \\
 Y \ar@{.>}[ru]^v &
-}$$ 
+}$$
 
-such that 
+such that
 
 $$s^*(\det Q)^{\otimes m}\cong \mathcal{O}_Y(F)\otimes \tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee})}(1)\otimes s^*H$$  Here $F$ is the exceptional divisor of the blow up.
 
-By \todo{add reference} $\tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee})}(1)$ is nef. 
-  
-So we get   
-$$s^*\det(Q)^*=s^*H\otimes \mathcal{O}_{Y'}\otimes \mathcal{O}_{Y'}(F)$$   
+By \todo{add reference} $\tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee})}(1)$ is nef.
 
-Then computing the $t=\dim Y$-fold self-intersection we get 
+So we get
+$$s^*\det(Q)^*=s^*H\otimes \mathcal{O}_{Y'}\otimes \mathcal{O}_{Y'}(F)$$
+
+Then computing the $t=\dim Y$-fold self-intersection we get
 
 \begin{align*}
 c_1(\det(Q)) & =c_1(s^*\det(Q)^{\otimes m})=(s^*\det(Q)^{\otimes m})^{(t)}\\ & =(H+N+F)^{(t)}=H^{(t)}+\sum\limits_{i=1}^{t} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)
-\end{align*} 
- Here $H$ is the pullback of an ample invertible sheaf, $N$ is nef, and $F$ is effective. Then $H+N+F$ is nef because $\det(Q)^{\otimes m}$ is nef using that $Q$ is a quotient of a semipositive sheaf.  Similarly, $N+F$ is effective because it's a sum of effective and nef. Combing we get that the sum $\sum\limits_{i=1}^{(t)} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)$ is at least 0. Additionally, $H^{(t)}>0$ is positive as $H$ is a pullback of an ample sheaf. Overall, the total sum $H^{(t)}+\sum\limits_{i=1}^{(t)} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)$ is positive. 
+\end{align*}
+ Here $H$ is the pullback of an ample invertible sheaf, $N$ is nef, and $F$ is effective. Then $H+N+F$ is nef because $\det(Q)^{\otimes m}$ is nef using that $Q$ is a quotient of a semipositive sheaf.  Similarly, $N+F$ is effective because it's a sum of effective and nef. Combing we get that the sum $\sum\limits_{i=1}^{(t)} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)$ is at least 0. Additionally, $H^{(t)}>0$ is positive as $H$ is a pullback of an ample sheaf. Overall, the total sum $H^{(t)}+\sum\limits_{i=1}^{(t)} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)$ is positive.
 \end{proof}
 
 \begin{lemma}
@@ -363,10 +364,6 @@ on the dense open on which $g$ is an isomorphism.
 Thus Lemma~\ref{lemma-positive-self-intersection},
 $(\det(g^*i^*Q)^{\dim(Z')}) > 0$ and we are done.\todo{Do we normalize $Z'$ or
   $X$, actually? Does $X$ normal imply $Z'$ normal? That doesn't seem right...}
-  
-
-
-  
 \end{proof}
 
 \bibliographystyle{unsrt}
