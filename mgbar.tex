@@ -64,14 +64,29 @@ as defined in Lemma \ref{lemma-stable-curves}.
 Then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \geq 2$.
 \end{lemma}
 
+\begin{definition}[cf.\ {\cite[Definition 4.1(i)]{Ko90}}]
+Let $k$ be a field.
+Let $X$ be an algebraic variety over $k$.
+We say $X$ is {\it semismooth} if all of its closed points are analytically
+isomorphic to one of the following:
+\begin{enumerate}
+\item a smooth point;
+\item a double crossing point $\{x_1x_2 = 0\} \subset \mathbf{A}^n$; or
+\item a pinch point $\{x_1^2 - x_2^2x_3 = 0\} \subset \mathbf{A}^n$.
+\end{enumerate}
+In this case the singular locus is smooth, and we call it the {\it double
+divisor} of $X$.
+\end{definition}
+
 \begin{theorem}[cf.\ {\cite[Theorem 4.3]{Ko90}}]
 \label{theorem-kollar-theorem-4.3}
 Let $k$ be a field.
-Let $S$ be a complete Gorenstein integral $k$-scheme of dimension $2$.
+Let $S$ be a complete Gorenstein integral $k$-scheme of dimension $2$ that is
+semismooth.
 Let $C$ be a complete connected smooth $k$-scheme of dimension $1$.
 Let $f : S \to C$ be a surjective map onto $C$.
 If the general fiber of $f$ has only nodes as singularities, %all do
-then $f_*(\omega_{S/C}^{[m]})$ is semipositive for $m \ge 2$. 
+then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \ge 2$. 
 \end{theorem}
 
 
