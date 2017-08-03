@@ -161,7 +161,11 @@ $$
 $$
 which is surjective away from $D$.
 By the universal property of the Grassmannian, we obtain a morphism
-$\mathbf{P} \setminus D \to \mathrm{Gr}(n,k)$. It is $G$-equivariant
+$\mathbf{P} \setminus D \to \mathrm{Gr}(n,k)$. It is $G$-equivariant by tracing
+the definitions.
+
+For (3), this follows from general properties of quotient stacks, plus the fact
+that $(\mathbf{P} \setminus D)/G \simeq X$.
 \end{proof}
 
 \begin{lemma}
@@ -213,8 +217,7 @@ H^0(X,\mathrm{End}(\mathcal{F})^{\oplus n}).
 \end{align*}
 The $n$ canonical sections of $H^0(X,\mathrm{End}(\mathcal{F})^{\oplus n})$
 give $n$ sections of
-$H^0(\mathbf{P}, \pi^*\mathcal{F}
-  \otimes_{\mathcal{O}_{\mathbf{P}}} \mathcal{O}_{\mathbf{P}}(1))$ and hence
+$H^0(\mathbf{P}, \pi^*\mathcal{F}(1))$ and hence
 a morphism
 $$
   B : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to \pi^*\mathcal{F}(1)
@@ -228,13 +231,15 @@ $$
         \pi^*\mathcal{F}(1) \to
         \pi^*\mathcal{Q}(1).
 $$
-By construction, this morphism is surjective away from $D$.
+By construction, this morphism is surjective away from $D$, since $B$ is surjective away from $D$, and $\pi^*\mathcal{F}(1)\to\pi^*\mathcal{Q}(1)$ remains surjective.
+
+
 Taking $k$\textsuperscript{th} exterior powers of this morphism, we obtain a
 morphism
 $$
   \bigwedge^k U : \mathcal{O}_{\mathbf{P}}^{\oplus \binom{n}{k}} \to
-    \pi^*\big(\bigwedge\nolimits^k W\big)(k) \to
-    \pi^*\det(Q)(k)
+    \pi^*\big(\bigwedge\nolimits^k \mathcal{F}\big)(k) \to
+    \pi^*\det(\mathcal{Q})(k)
 $$
 which is surjective away from $D$.
 
@@ -256,6 +261,22 @@ $$
 $$
 Being the composition of $\overline{B}$ with a surjection, $\overline{U}$ is
 surjective away from $P \cap D$.
+
+By construction, $\overline{B}$ is surjective away from $P\cap D$, so $\overline{U}$ is also surjective away from $P\cap D$. Hence we expressed $\pi^*(\det\mathcal{Q})(k)$ as the quotient of a trivial bundle of rank ${n\choose k}$. This gives a rational map:
+
+$$u:P\dashrightarrow Gr(n,k)\subset \mathbf{P}^{{n\choose k}},$$
+
+which is a morphism on $P-D$.
+
+By construction, this map is obtained by lifting the classifying map $X\to [Gr(n,k)/PGL(m)]$ to 
+$$u':P-D\to Gr(n,k),$$
+and composing $u'$ with the $Pl\ddot{u}cker$ embedding $Gr(n,k)\to \mathbf{P}^{{n\choose k}}$.
+\todo{u is quasifinite on open subset of orbit P}
+
+The map $u$ need not be a morphism since the image of $\overline{U}$ need not be locally free. 
+To remedy this we blow up the ideal sheaf of the image of $\overline{U}$\todo{explain better}, obtaining a new scheme $P'$, together with a birational morphism $g:P'\to P$. 
+Now $u$ extends to a morphism $u':P'\to \mathbf{P}^{{n\choose k}}$. If $E$ is the exceptional divisor of the blow-up (in particular, $E$ is effective), we get
+$$g^*(\overline{\pi}^*(\det\mathcal{Q})(k))\cong u'^*\mathcal{O}_{Gr}(1)\otimes\mathcal{O}_{P'}(E).$$
 
 Let $H$ be a ample divisor on $Y$. Since $u'$ is generically finite and $\mathcal{O}_{Gr}(1)$ is big, the pullback $u'^*  \mathcal{O}_{Gr}(1)$ is big on $\mathbf{P}'$. \todo{Explain why pullback of big is big} Thus, by Kollar's definition of big, there is a natural number $m>>0$ such that we have a nontrivial section of $u'^*\mathcal{O}_{Gr}(m)\otimes g^*p^*H^{-1}$ i.e. there's a nontrivial morphism 
 
@@ -292,8 +313,6 @@ Then computing the $t=\dim Y$-fold self-intersection we get
 c_1(\det(Q)) & =c_1(s^*\det(Q)^{\otimes m})=(s^*\det(Q)^{\otimes m})^{(t)}\\ & =(H+N+F)^{(t)}=H^{(t)}+\sum\limits_{i=1}^{t} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)
 \end{align*} 
  Here $H$ is the pullback of an ample invertible sheaf, $N$ is nef, and $F$ is effective. Then $H+N+F$ is nef because $\det(Q)^{\otimes m}$ is nef using that $Q$ is a quotient of a semipositive sheaf.  Similarly, $N+F$ is effective because it's a sum of effective and nef. Combing we get that the sum $\sum\limits_{i=1}^{(t)} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)$ is at least 0. Additionally, $H^{(t)}>0$ is positive as $H$ is a pullback of an ample sheaf. Overall, the total sum $H^{(t)}+\sum\limits_{i=1}^{(t)} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)$ is positive. 
-
-
 \end{proof}
 
 \begin{lemma}
