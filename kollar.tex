@@ -79,14 +79,90 @@ $U \subset X$ and the morphism $X' \to \mathbf{P}^n_Y$ is an immersion.
 
 \section{Positivity Lemma}
 
-\begin{definition}
-Let $X$ be a scheme over a field $k$, and let $\mathcal{E}$ be a semipositive
+\begin{lemma}
+Let $X$ be a scheme over a field $k$, and let $\mathcal{E}$ be a%semipositive
 locally free sheaf on $X$ of rank $m$.
 Let $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and let $n$
 be the rank of $\mathcal{F}$.
 Let $q\colon \mathcal{F} \to \mathcal{Q}$ be a locally free quotient of rank $k$. 
 Let $G = \mathrm{PGL}_m$ be the projective general linear group over $k$.
-\end{definition}
+Then,
+\begin{enumerate}
+\item There exists a closed subscheme $D \subset
+\mathbf{P}((\mathcal{E}^\vee)^{\oplus m})$ such that
+$$
+\mathbf{P}((\mathcal{E}^\vee)^{\oplus m}) \setminus D \longrightarrow X
+$$
+is a principal $G$-bundle.
+\item There is a $G$-action on $\mathrm{Gr}(n,k)$, and 
+a $G$-equivariant map
+$$
+\mathbf{P}((\mathcal{E}^\vee)^{\oplus m}) \setminus D \longrightarrow
+\mathrm{Gr}(n,k).
+$$
+\item There exists a map of stacks
+$$
+X \longrightarrow [\mathrm{Gr}(n,k)/G].
+$$
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+We first prove (1).
+Let $\mathbf{P} = \mathbf{P}( (\mathcal{E}^\vee)^{\oplus m})$ be the projective
+bundle of matrices whose columns belong to $\mathcal{E}$, and write $\pi :
+\mathbf{P} \to X$ for the projection.
+Using the projection formula (Lemma \ref{lemma-projection-formula}),
+\begin{align*}
+H^0(\mathbf{P}, \pi^*\mathcal{E}(1))
+& \cong H^0(X, \pi_*(\pi^*\mathcal{E} \otimes_{\mathcal{O}_{\mathbf{P}}}
+\mathcal{O}_{\mathbf{P}}(1)))\\
+& \cong H^0(X,\mathcal{E} \otimes_{\mathcal{O}_X}
+\pi_*\mathcal{O}_{\mathbf{P}}(1))\\
+& \cong H^0(X,\mathcal{E} \otimes (\mathcal{E}^\vee)^{\oplus m})\\
+& \cong H^0(X,\mathrm{End}(\mathcal{E})^{\oplus m})
+\end{align*}
+has $m$ sections, corresponding to the identity on each summand.
+We therefore have an evaluation morphism
+$$
+B : \mathcal{O}_{\mathbf{P}}^{\oplus m} \longrightarrow \pi^*\mathcal{E}(1).
+$$
+Taking determinants, this gives a map
+$$
+\det B : \mathcal{O}_{\mathbf{P}} \longrightarrow \det(\pi^*\mathcal{E}) (m).
+$$
+Let $\mathcal{I} \otimes \det(\pi^*\mathcal{E}) (m)$ be the image of $\det B$,
+and let $D$ be the subscheme of $\mathbf{P}$ defined by $\mathcal{I}$.
+Then, $D$ defines the locus for which $\det B$ vanishes, which is the locus of
+$\mathbf{P}$ where the corresponding matrices are not invertible. We therefore
+see that $\mathbf{P} \setminus D$ corresponds to those matrices that are
+invertible, i.e., are elements of $\mathrm{PGL}_m$. This turns $\mathbf{P}
+\setminus D$ into a principal $\mathrm{PGL}_m$-bundle over $X$.
+
+For (2), note that $\mathrm{PGL}_m$ acts on $\mathrm{Gr}(n,k)$ via
+$$
+\mathrm{GL}_m \longrightarrow (\mathrm{GL}_m)^{\times d} \longrightarrow
+\mathrm{Aut}(\mathrm{Sym}^d (k^{\oplus m})),
+$$
+which descends to their quotients by $k^*$; note that
+$\mathrm{Aut}(\mathrm{Sym}^d (k^{\oplus m}))/k^*$ is a subgroup of the
+automorphism group of the Grassmannian $\mathrm{Gr}(n,k)$.
+To show the morphism claimed exists, we fist consider what happens when we
+apply $\mathrm{Sym}^d$ to $B$, giving a morphism
+$$
+  \mathrm{Sym}^d(B) : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to
+    \pi^*\mathrm{Sym}^d(\mathcal{E})(d) = \pi^*\mathcal{F}(d).
+$$
+Composing this will the given surjection $\mathcal{F} \to \mathcal{Q}$, we
+obtain a morphism
+$$
+  U : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to
+        \pi^*\mathcal{F}(d) \to
+        \pi^*\mathcal{Q}(d)
+$$
+which is surjective away from $D$.
+By the universal property of the Grassmannian, we obtain a morphism
+$\mathbf{P} \setminus D \to \mathrm{Gr}(n,k)$. It is $G$-equivariant
+\end{proof}
 
 \begin{lemma}
 \label{lemma-positive-self-intersection}
