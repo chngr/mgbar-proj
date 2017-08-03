@@ -181,49 +181,53 @@ Then $(\det(\mathcal{Q})^{\dim(Y)}) > 0$.
 \end{lemma}
 
 \begin{proof}
-Let $\mathbf{P} = \mathbf{P}((\mathcal{E}^\vee)^{\oplus m})$ be the projective
-bundle associated with $(\mathcal{E}^\vee)^{\oplus m}$ and write
+Consider the given surjection $\mathcal{F} \to \mathcal{Q}$ of locally free
+$\mathcal{O}_X$-modules over $X$.
+Taking $k$\textsuperscript{th} exterior powers, we obtain a surjection
+$$
+  \bigwedge\nolimits^k \mathcal{F} \to \det(\mathcal{Q})
+$$
+from $\bigwedge^k\mathcal{F}$ to the invertible module $\det(\mathcal{Q})$.
+Thus we obtain a morphism
+$$
+  u : X \to \mathbf{P}\big(\bigwedge\nolimits^k \mathcal{F}\big)
+$$
+such that
+$u^*\mathcal{O}_{\mathbf{P}(\bigwedge^k\mathcal{F})}(1) = \det(\mathcal{Q})$.
+
+Let $\mathbf{P} = \mathbf{P}((\mathcal{F}^\vee)^{\oplus n})$ be the projective
+bundle associated with $(\mathcal{F}^\vee)^{\oplus n}$ and write
 $\pi : \mathbf{P} \to X$ for the projection.
 Using the projection formula, Lemma \ref{lemma-projection-formula},
 \begin{align*}
-H^0(\mathbf{P}, \pi^*\mathcal{E}(1))
+H^0(\mathbf{P}, \pi^*\mathcal{F}(1))
   & \cong
-H^0(X, \pi_*(\pi^*\mathcal{E} \otimes_{\mathcal{O}_{\mathbf{P}}}
+H^0(X, \pi_*(\pi^*\mathcal{F} \otimes_{\mathcal{O}_{\mathbf{P}}}
   \mathcal{O}_{\mathbf{P}}(1))) \\
   & \cong
-H^0(X,\mathcal{E} \otimes_{\mathcal{O}_X} \pi_*\mathcal{O}_{\mathbf{P}}(1)) \\
+H^0(X,\mathcal{F} \otimes_{\mathcal{O}_X} \pi_*\mathcal{O}_{\mathbf{P}}(1)) \\
   & \cong
-H^0(X,\mathcal{E} \otimes (\mathcal{E}^\vee)^{\oplus m}) \\
+H^0(X,\mathcal{F} \otimes (\mathcal{F}^\vee)^{\oplus n}) \\
   & \cong
-H^0(X,\mathrm{End}(\mathcal{E})^{\oplus m}).
+H^0(X,\mathrm{End}(\mathcal{F})^{\oplus n}).
 \end{align*}
-The $m$ canonical sections of $H^0(X,\mathrm{End}(\mathcal{E})^{\oplus m})$
-give $m$ sections of
-$H^0(\mathbf{P}, \pi^*\mathcal{E}
+The $n$ canonical sections of $H^0(X,\mathrm{End}(\mathcal{F})^{\oplus n})$
+give $n$ sections of
+$H^0(\mathbf{P}, \pi^*\mathcal{F}
   \otimes_{\mathcal{O}_{\mathbf{P}}} \mathcal{O}_{\mathbf{P}}(1))$ and hence
 a morphism
 $$
-  B : \mathcal{O}_{\mathbf{P}}^{\oplus m} \to \pi^*\mathcal{E}(1)
+  B : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to \pi^*\mathcal{F}(1)
 $$
 of sheaves over $\mathbf{P}$.
 Let $D \subset \mathbf{P}$ be the support of the cokernel of $B$.
-Then $B$ is an isomorphism away from $D$.
-Applying $\mathrm{Sym}^d$ to $B$, we obtain a morphism
-$$
-  \mathrm{Sym}^d(B) : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to
-    \pi^*\mathrm{Sym}^d(\mathcal{E})(d) = \pi^*\mathcal{F}(d).
-$$
-Composing this will the given surjection $\mathcal{F} \to \mathcal{Q}$, we
-obtain a morphism
+Composing $B$ with the pullback of the given surjection
+$\mathcal{F} \to \mathcal{Q}$, we obtain a morphism
 $$
   U : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to
-        \pi^*\mathcal{F}(d) \to
-        \pi^*\mathcal{Q}(d)
+        \pi^*\mathcal{F}(1) \to
+        \pi^*\mathcal{Q}(1).
 $$
-which is surjective away from $D$.
-By the universal property of the Grassmannian, we obtain a morphism
-$\mathbf{P} \setminus D \to \mathrm{Gr}(n,k)$.
-
 By construction, this morphism is surjective away from $D$.
 Taking $k$\textsuperscript{th} exterior powers of this morphism, we obtain a
 morphism
@@ -303,18 +307,32 @@ Thus Lemma~\ref{lemma-positive-self-intersection},
 $(\det(g^*i^*Q)^{\dim(Z')}) > 0$ and we are done.\todo{Do we normalize $Z'$ or
   $X$, actually? Does $X$ normal imply $Z'$ normal? That doesn't seem right...}
   
-Let $H$ be a ample divisor on $Y$. Since $u'$ is generically finite and $\mathcal{O}_{Gr}(1)$ is big, the pullback $u'^*  \mathcal{O}_{Gr}(1)$ is big on $\mathbf{P}'$. \todo{Explain why pullback of big is big} Thus, by Kollar's definition of big, there is a natural number $m>>0$ such that we have a nontrivial section of $u'^*\mathcal{O}_{Gr}(m)\otimes g^*p^*H^{-1}$ i.e. there's a nontrivial morphism $\mathcal{O}_{\mathbf{P}'}\to u'^*\mathcal{O}_{Gr}(m)\otimes g^*(p^*H^{-1}=g^*(p^*(\det Q)^{\otimes m}\otimes p^*H^{-1}\otimes \mathcal{O}_{\mathbf{P}}(km))\otimes \mathcal{O}_{\mathbf{P}'}(-mE)\to g^*(p^*(\det Q)^{\otimes m}\otimes p^*H^{-1}\otimes \mathcal{O}_{\mathbf{P}}(km))$. 
+Let $H$ be a ample divisor on $Y$. Since $u'$ is generically finite and $\mathcal{O}_{Gr}(1)$ is big, the pullback $u'^*  \mathcal{O}_{Gr}(1)$ is big on $\mathbf{P}'$. \todo{Explain why pullback of big is big} Thus, by Kollar's definition of big, there is a natural number $m>>0$ such that we have a nontrivial section of $u'^*\mathcal{O}_{Gr}(m)\otimes g^*p^*H^{-1}$ i.e. there's a nontrivial morphism 
 
-Then when we pushforward to $Y$ we get $\mathcal{O}_Y\to p_*g_*\mathcal{O}_{\mathbf{P}'}\to (\det Q)^{\otimes m}\otimes H^{-1}\otimes p_*\mathcal{O}_{\mathbf{P}}(km)$. \todo{Explain why the composite is nonzero}.
+\begin{align*}
+{O}_{\mathbf{P}'}\to & u'^*\mathcal{O}_{Gr}(m)\otimes g^*(p^*H^{-1})=g^*(p^*(\det Q)^{\otimes m}\otimes p^*H^{-1}\otimes \mathcal{O}_{\mathbf{P}}(km))\otimes \mathcal{O}_{\mathbf{P}'}(-mE)\\&\to g^*(p^*(\det Q)^{\otimes m}\otimes p^*H^{-1}\otimes \mathcal{O}_{\mathbf{P}}(km))
+\end{align*} 
 
-After rearanging we get $H\otimes (p_*\mathcal{O}_{\mathbf{P}}(km))^{\check{}}\stackrel{\tau}\to (\det Q)^{\otimes m}$. 
+Then when we pushforward to $Y$ we get $$\mathcal{O}_Y\to p_*g_*\mathcal{O}_{\mathbf{P}'}\to (\det Q)^{\otimes m}\otimes H^{-1}\otimes p_*\mathcal{O}_{\mathbf{P}}(km)$$ \todo{Explain why the composite is nonzero}.
 
-If $m$ is sufficiently large, then the natural map $\pi_*\mathcal{O}_{\mathbb{P}}(mk)\to p_*\mathcal{O}_{\mathbf{P}}(mk) $ is surjective. Then $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\check{}}$ is a $G$-subbundle  of $(\pi_*\mathcal{O}_{\mathbb{P}}(km))^*=(Sym^{km}(\sum W^*))^*$, which is semipositive by \todo{Add reference}. Hence, $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\check{}}$  itself is semipostive. 
+After rearanging we get $$H\otimes (p_*\mathcal{O}_{\mathbf{P}}(km))^{\check{}}\stackrel{\tau}\to (\det Q)^{\otimes m}$$ 
 
-$s^*(\det Q)^{\otimes m}\cong \mathcal{O}_Y(F)\otimes \tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\check{}})}(1)\otimes s^*H$. \todo{add reference} $\tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\check{}})}(1)$ is nef. 
+If $m$ is sufficiently large, then the natural map $$\pi_*\mathcal{O}_{\mathbb{P}}(mk)\to p_*\mathcal{O}_{\mathbf{P}}(mk)$$ is surjective. Then $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\check{}}$ is a $G$-subbundle  of $(\pi_*\mathcal{O}_{\mathbb{P}}(km))^*=(Sym^{km}(\sum W^*))^*$, which is semipositive by \todo{Add reference}. Hence, $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\check{}}$  itself is semipostive. 
+
+If we blow up the image sheaf of $\tau$, then we get a birational map $s:Y'\to Y$ such that
+ 
+$$\xymatrix{
+&\mathbb{P}((p_*\mathcal{O}_{\mathbf{P}}(km)^{\check{}})) \ar[d]^{\cong}\\
+Y'  \ar[r]|-{v'} \ar[ru]^{\tilde{v}'} \ar[d]^s &\mathbb{P}(H\otimes (p_*\mathcal{O}_{\mathbf{P}}(km)^{\check{}})) \\
+Y \ar@{.>}[ru]^v &
+}$$ 
+
+$$s^*(\det Q)^{\otimes m}\cong \mathcal{O}_Y(F)\otimes \tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\check{}})}(1)\otimes s^*H$$ 
+
+\todo{add reference} $\tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\check{}})}(1)$ is nef. 
   
 So we get   
-$s^*\det(Q)^*=s^*H\otimes \mathcal{O}_{Y'}\otimes \mathcal{O}_{Y'}(F)$.   
+$$s^*\det(Q)^*=s^*H\otimes \mathcal{O}_{Y'}\otimes \mathcal{O}_{Y'}(F)$$   
 
 Then computing the $t=\dim Y$-fold self-intersection we get 
 
