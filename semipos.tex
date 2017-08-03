@@ -47,8 +47,15 @@ However, by assumption the dense open subscheme $\mathrm{GL}(V)\times W'$ of $\m
 The case of quotients of semipositive representations is proved similarly.
 \end{proof}
 
+\xymatrix{
+\prod_{i=1}^{n}\prod_{j=1}^{r_i} GL(1)\ar[r]^{\prod_i\psi_i} \ar[rd] &\prod_{i=1}^{n}GL(r_i)\ar[r]^{\rho} &GL(m)\\
+&\prod_{k=1}^{m}GL(1)\ar[ru]\ar[d]^{proj_t}&\\
+&GL(1)&
+}
+\end{equation}
 
 
+Now consider the projection on the $t$-th factor $proj_t:\prod_{k=1}^mGL(1)\to GL(1)$. The composition $\prod_{i=1}^n\prod_{j=1}^{k} GL(1)\to GL(1)$ is a character, hence it is of the form $(z_{ij})_{i,j}\mapsto \prod z_{ij}^{a_{ij,t}}$. For a cover of $X$ that trivializes the bundles, $z_{ij}$ correspond to the transition functions of $\mathcal{L}_{ij}$, hence $\prod z_{ij}^{a_{ij,t}}$ correspond to $\otimes\mathcal{L}_{ij}^{a_{ij,t}}$.
 
 \begin{definition}
 Let $k$ be a field.
