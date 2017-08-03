@@ -256,6 +256,44 @@ $$
 $$
 Being the composition of $\overline{B}$ with a surjection, $\overline{U}$ is
 surjective away from $P \cap D$.
+
+Let $H$ be a ample divisor on $Y$. Since $u'$ is generically finite and $\mathcal{O}_{Gr}(1)$ is big, the pullback $u'^*  \mathcal{O}_{Gr}(1)$ is big on $\mathbf{P}'$. \todo{Explain why pullback of big is big} Thus, by Kollar's definition of big, there is a natural number $m>>0$ such that we have a nontrivial section of $u'^*\mathcal{O}_{Gr}(m)\otimes g^*p^*H^{-1}$ i.e. there's a nontrivial morphism 
+
+\begin{align*}
+{O}_{\mathbf{P}'}\to & u'^*\mathcal{O}_{Gr}(m)\otimes g^*(p^*H^{-1})=g^*(p^*(\det Q)^{\otimes m}\otimes p^*H^{-1}\otimes \mathcal{O}_{\mathbf{P}}(km))\otimes \mathcal{O}_{\mathbf{P}'}(-mE)\\&\to g^*(p^*(\det Q)^{\otimes m}\otimes p^*H^{-1}\otimes \mathcal{O}_{\mathbf{P}}(km))
+\end{align*} 
+
+Then when we pushforward to $Y$ we get $$\mathcal{O}_Y\to p_*g_*\mathcal{O}_{\mathbf{P}'}\to (\det Q)^{\otimes m}\otimes H^{-1}\otimes p_*\mathcal{O}_{\mathbf{P}}(km)$$ \todo{Explain why the composite is nonzero}.
+
+After rearanging we get $$H\otimes (p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}\stackrel{\tau}\to (\det Q)^{\otimes m}$$ 
+
+If $m$ is sufficiently large, then the natural map $$\pi_*\mathcal{O}_{\mathbb{P}}(mk)\to p_*\mathcal{O}_{\mathbf{P}}(mk)$$ is surjective and so the dual is injective $$p_*\mathcal{O}_{\mathbf{P}}(mk)^*\hookrightarrow \pi_*\mathcal{O}_{\mathbb{P}}(mk)^*$$ Thus, $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}$ is a $G$-subbundle  of $(\pi_*\mathcal{O}_{\mathbb{P}}(km))^*=(Sym^{km}(\sum W^*))^*$, which is semipositive by \todo{Add reference}. Hence, $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}$  itself is semipostive. 
+
+If we blow up the image sheaf of $\tau$, then we get a birational map $s:Y'\to Y$ within the commuative diagram
+ 
+$$\xymatrix{
+&\mathbb{P}((p_*\mathcal{O}_{\mathbf{P}}(km)^{\vee})) \ar[d]^{\cong}\\
+Y'  \ar[r]|-{v'} \ar[ru]^{\tilde{v}'} \ar[d]^s &\mathbb{P}(H\otimes (p_*\mathcal{O}_{\mathbf{P}}(km)^{\vee})) \\
+Y \ar@{.>}[ru]^v &
+}$$ 
+
+such that 
+
+$$s^*(\det Q)^{\otimes m}\cong \mathcal{O}_Y(F)\otimes \tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee})}(1)\otimes s^*H$$  Here $F$ is the exceptional divisor of the blow up.
+
+By \todo{add reference} $\tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee})}(1)$ is nef. 
+  
+So we get   
+$$s^*\det(Q)^*=s^*H\otimes \mathcal{O}_{Y'}\otimes \mathcal{O}_{Y'}(F)$$   
+
+Then computing the $t=\dim Y$-fold self-intersection we get 
+
+\begin{align*}
+c_1(\det(Q)) & =c_1(s^*\det(Q)^{\otimes m})=(s^*\det(Q)^{\otimes m})^{(t)}\\ & =(H+N+F)^{(t)}=H^{(t)}+\sum\limits_{i=1}^{t} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)
+\end{align*} 
+ Here $H$ is the pullback of an ample invertible sheaf, $N$ is nef, and $F$ is effective. Then $H+N+F$ is nef because $\det(Q)^{\otimes m}$ is nef using that $Q$ is a quotient of a semipositive sheaf.  Similarly, $N+F$ is effective because it's a sum of effective and nef. Combing we get that the sum $\sum\limits_{i=1}^{(t)} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)$ is at least 0. Additionally, $H^{(t)}>0$ is positive as $H$ is a pullback of an ample sheaf. Overall, the total sum $H^{(t)}+\sum\limits_{i=1}^{(t)} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)$ is positive. 
+
+
 \end{proof}
 
 \begin{lemma}
@@ -307,41 +345,6 @@ Thus Lemma~\ref{lemma-positive-self-intersection},
 $(\det(g^*i^*Q)^{\dim(Z')}) > 0$ and we are done.\todo{Do we normalize $Z'$ or
   $X$, actually? Does $X$ normal imply $Z'$ normal? That doesn't seem right...}
   
-Let $H$ be a ample divisor on $Y$. Since $u'$ is generically finite and $\mathcal{O}_{Gr}(1)$ is big, the pullback $u'^*  \mathcal{O}_{Gr}(1)$ is big on $\mathbf{P}'$. \todo{Explain why pullback of big is big} Thus, by Kollar's definition of big, there is a natural number $m>>0$ such that we have a nontrivial section of $u'^*\mathcal{O}_{Gr}(m)\otimes g^*p^*H^{-1}$ i.e. there's a nontrivial morphism 
-
-\begin{align*}
-{O}_{\mathbf{P}'}\to & u'^*\mathcal{O}_{Gr}(m)\otimes g^*(p^*H^{-1})=g^*(p^*(\det Q)^{\otimes m}\otimes p^*H^{-1}\otimes \mathcal{O}_{\mathbf{P}}(km))\otimes \mathcal{O}_{\mathbf{P}'}(-mE)\\&\to g^*(p^*(\det Q)^{\otimes m}\otimes p^*H^{-1}\otimes \mathcal{O}_{\mathbf{P}}(km))
-\end{align*} 
-
-Then when we pushforward to $Y$ we get $$\mathcal{O}_Y\to p_*g_*\mathcal{O}_{\mathbf{P}'}\to (\det Q)^{\otimes m}\otimes H^{-1}\otimes p_*\mathcal{O}_{\mathbf{P}}(km)$$ \todo{Explain why the composite is nonzero}.
-
-After rearanging we get $$H\otimes (p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}\stackrel{\tau}\to (\det Q)^{\otimes m}$$ 
-
-If $m$ is sufficiently large, then the natural map $$\pi_*\mathcal{O}_{\mathbb{P}}(mk)\to p_*\mathcal{O}_{\mathbf{P}}(mk)$$ is surjective and so the dual is injective $$p_*\mathcal{O}_{\mathbf{P}}(mk)^*\hookrightarrow \pi_*\mathcal{O}_{\mathbb{P}}(mk)^*$$ Thus, $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}$ is a $G$-subbundle  of $(\pi_*\mathcal{O}_{\mathbb{P}}(km))^*=(Sym^{km}(\sum W^*))^*$, which is semipositive by \todo{Add reference}. Hence, $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}$  itself is semipostive. 
-
-If we blow up the image sheaf of $\tau$, then we get a birational map $s:Y'\to Y$ within the commuative diagram
- 
-$$\xymatrix{
-&\mathbb{P}((p_*\mathcal{O}_{\mathbf{P}}(km)^{\vee})) \ar[d]^{\cong}\\
-Y'  \ar[r]|-{v'} \ar[ru]^{\tilde{v}'} \ar[d]^s &\mathbb{P}(H\otimes (p_*\mathcal{O}_{\mathbf{P}}(km)^{\vee})) \\
-Y \ar@{.>}[ru]^v &
-}$$ 
-
-such that 
-
-$$s^*(\det Q)^{\otimes m}\cong \mathcal{O}_Y(F)\otimes \tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee})}(1)\otimes s^*H$$  Here $F$ is the exceptional divisor of the blow up.
-
-By \todo{add reference} $\tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee})}(1)$ is nef. 
-  
-So we get   
-$$s^*\det(Q)^*=s^*H\otimes \mathcal{O}_{Y'}\otimes \mathcal{O}_{Y'}(F)$$   
-
-Then computing the $t=\dim Y$-fold self-intersection we get 
-
-\begin{align*}
-c_1(\det(Q)) & =c_1(s^*\det(Q)^{\otimes m})=(s^*\det(Q)^{\otimes m})^{(t)}\\ & =(H+N+F)^{(t)}=H^{(t)}+\sum\limits_{i=1}^{t} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)
-\end{align*} 
- Here $H$ is the pullback of an ample invertible sheaf, $N$ is nef, and $F$ is effective. Then $H+N+F$ is nef because $\det(Q)^{\otimes m}$ is nef using that $Q$ is a quotient of a semipositive sheaf.  Similarly, $N+F$ is effective because it's a sum of effective and nef. Combing we get that the sum $\sum\limits_{i=1}^{(t)} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)$ is at least 0. Additionally, $H^{(t)}>0$ is positive as $H$ is a pullback of an ample sheaf. Overall, the total sum $H^{(t)}+\sum\limits_{i=1}^{(t)} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)$ is positive. 
 
 
   
