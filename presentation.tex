@@ -1,0 +1,80 @@
+\input{preamble}
+\theoremstyle{definition}
+\newtheorem{question}[subsection]{Question}
+\newtheorem{steps}[subsection]{Steps}
+
+\newcommand{\todo}[1]{\footnote{\textbf{TODO.} #1}}
+\begin{document}
+\title{Projectivity of $\overline{M}_g$}
+\maketitle
+
+\section{Motivation}
+We start with the following question:
+\begin{question}
+  How does one classify algebraic varieties?
+\end{question}
+There are two complementary approaches:
+\begin{enumerate}
+  \item Vertically, discretely: Birational transformations and the minimal model
+    program (Italians, Mori, \ldots).
+  \item Horizontally, continuously: Moduli theory (Riemann, Teichm\"uller,
+    Mumford, \ldots).
+\end{enumerate}
+Our project is about moduli spaces, specifically:
+\begin{example}
+  $\overline{\mathcal{M}}_g$, $g \ge 2$, the moduli space of \emph{stable}
+  curves.
+  \begin{enumerate}
+    \item $\overline{\mathcal{M}}_g$ is a proper stack;
+    \item{}[Keel--Mori] There is a coarse moduli space $\overline{\mathcal{M}}_g
+      \to \overline{M}_g$ (proper algebraic space).
+  \end{enumerate}
+\end{example}
+Our main goal:
+\begin{theorem}
+  $\overline{M}_g$ is a projective \emph{scheme} over $\Spec \mathbf{Z}$. 
+\end{theorem}
+Three approaches:
+\begin{enumerate}
+  \item Hodge theory ($/\mathbf{C}$, Mumford): use the Jacobian map
+    $\overline{M}_g \to \overline{A}_g$ and study $\overline{A}_g$.
+  \item GIT (Mumford, Gieseker): translate to representation theory.
+  \item Koll\'ar: ``Just'' find an ample line bundle.
+\end{enumerate}
+The advantage of Koll\'ar's approach is that it is applicable to more moduli
+problems: there is no hard GIT involved, and it works over arbitrary fields or
+$\mathbf{Z}$.
+\begin{situation}
+  For us, we have the universal family
+  $$
+  \xymatrix{\mathcal{C}\ar[d]^\pi\\
+  \overline{\mathcal{M}}_g}
+  $$
+  We consider
+  $$
+  \lambda_k = \det(\pi_*
+  \omega_{\mathcal{C}/\overline{\mathcal{M}}_g}^{\otimes k}).
+  $$
+  It is a bundle, and descends to a $\mathbf{Q}$-bundle on $\overline{M}_g$.
+\end{situation}
+For other moduli problems, Koll\'ar's approach would be to find a suitable guess
+for what is an ample bundle.
+\begin{steps}\leavevmode
+  \begin{enumerate}
+    \item {\bf Semipositivity.} Let $k$ be a field, and
+      $$
+      \xymatrix{S \ar[d]^f\\C}
+      $$
+      a family of stable curves. Then, $f_*(\omega_{S/C}^{\otimes m})$ is
+      semipositive for all $m \ge 2$, i.e., it has no quotients of negative
+      degree.
+      \begin{itemize}
+        \item A vanishing theorem for $H^1$ (Ekedahl);
+        \item Classification of surfaces (Kodaira--Enriques, Bombieri--Mumford).
+      \end{itemize}
+    \item {\bf Ampleness.} 
+      Let $\mathcal{E}$ be a semipositive vector bundle of
+      rank $m$ 
+  \end{enumerate}
+\end{steps}
+\end{document}
