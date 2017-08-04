@@ -139,7 +139,36 @@ Then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \geq 2$.
 \end{lemma}
 
 
+\begin{lemma}[cf.\ {\cite[Theorem 4.6]{Ko90}}]
+\label{lemma-stable-curves-semipositive}
+Let $k$ be a field.
+Let $C$ be a proper connected smooth $k$-scheme of dimension $1$.
+Let $f : S \to C$ be a family of stable curves,
+as defined in Lemma \ref{lemma-stable-curves}.
+Let $C_t$ be a section of $f$.
+Then $\omega_{S/c}\cdot C_t\geq 0$.
+\end{lemma}
 
+\begin{proof}
+Let $i:C_t\hookrightarrow S$ be the inclusion map, and $g=f\circ i:C_t\to C$ be the corresponding isomorphism.
+Consider the short exact sequence:
+$$0\to \mathcal{O}_S(-C_t)\to\mathcal{O}_S\to i_*\mathcal{O}_{C_t}\to 0.$$
+Tensoring with $\omega_{S/C}^{\otimes m}$, we obtain:
+$$0\to \omega_{S/C}^{\otimes m}(-C_t)\to \omega_{S/C}^{\otimes m}\to i_*\mathcal{O}_{C_t}\otimes\omega_{S/C}^{\otimes m}\to 0.$$
+Applying the functor $f_*$ to the sequence, we get a map
+$$f_*\omega_{S/C}^{\otimes m}\to f_*(i_*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to R^1f_*(\omega_{S/C}^{\otimes m}(-C_t)).$$
+For $k\gg 0$, using cohomology and base change we obtain $R^1f_*(\omega_{S/C}^{\otimes m}(-C_t))=0$, so we have a surjection:
+$$f_*\omega_{S/C}^{\otimes m}\to f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
+Applying the functor $g^*$ to the above sequence, we obtain:
+$$g^*f_*\omega_{S/C}^{\otimes m}\to g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
+We now claim that the term on the right is $i^*\omega_{S/C}^{\otimes m}$, since
+\begin{align}
+i^*\omega_{S/C}^{\otimes m}& =g^*g_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
+& =g^*f_*i_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
+&=g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m}).\nonumber
+\end{align}
+This way we obtain a contradiction, since the quotient $g^*f_*\omega_{S/C}^{\otimes m}\to i^*\omega_{S/C}^{\otimes m}\to 0$ contradicts semipositivity. 
+\end{proof}
 
 
 \begin{definition}[cf.\ {\cite[Definition 4.1(i)]{Ko90}}]
@@ -210,7 +239,8 @@ $f'_*(\omega_{S'/C'}^{\otimes m})$ was semipositive.
 
 \begin{theorem}[cf.\ {\cite[Theorem 4.3]{Ko90}}]
 \label{theorem-kollar-theorem-4.3}
-In Situation \ref{situation-kollar-theorem-4.3}, 
+In Situation \ref{situation-kollar-theorem-4.3}, suppose moreover that the
+generic fiber of $f$ is a stable curve. Then,
 the sheaf $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \ge 2$. 
 \end{theorem}
 \begin{proof}
@@ -256,6 +286,11 @@ semipositive, we have that $f_*(\omega_{S/C}^{\otimes m})$ is also.
 After repeating finitely many blowups of double curves not dominating $C$,
 all remaining double curves will dominate $C$.
 
+We now claim that we may assume $S$ has no pinch points. If there are pinch
+points, then blowing them up gives a new surface birational to $S$ that only has
+double crossing points; the argument of the previous paragraph shows we may
+reduce to this case.
+
 We now claim that we may assume that every double curve $D$ in $S$ is a
 section of $f : S \to C$.
 If it is not, then consider the base change by $g : D \to C$:
@@ -267,22 +302,19 @@ D \ar[r]^g & C
 $$
 It suffices to show the statement of the Theorem for the morphism $f'$ by Lemma
 \ref{lemma-base-change-okay}, and the inverse image of $D$ in $S \times_C D$ is
-a now a section of $f'$ by using the cartesianness of the square:
-$$
-\xymatrix{
-D\ar@{=}@/_/[ddr]\ar@{^{(}->}@/^/[drr]\ar@{-->}[dr]\\
-& S \times_C D \ar[r]^{g'}\ar[d]_{f'} & S \ar[d]^f\\
-& D \ar[r]^g & C
-}
-$$
+a now a section of $f'$.
 Repeating finitely many base changes, we can ensure that every double curve is a
 section of $f : S \to C$.
 
-Now let $\nu : S' \to S$ be the normalization of $S$, and let $D'$ be the
-preimage of the double curve $D$.
-After base changes as in the previous paragraph, we may assume that every
-component of $D'$ is also a section.
-\todo{I don't know how these base changes affect normality.}
+We now claim that if $\nu : S' \to S$ is the normalization of $S$, then the
+preimage $D'$ of the double curve $D$ still consists of sections.
+Since the double curve only consists of double crossing points, the
+normalization (analyticall) locally splits up the double curve into two separate
+curves on two different irreducible components.
+These two curves will still be sections.
+
+We have therefore reduced the statement to the situation of \cite[Proposition
+4.9]{Ko90}.\todo{Where is this proved?}
 %We are now at the top of p. 255
 \end{proof}
 
@@ -302,31 +334,6 @@ Let $C_1,\ldots,C_n$ be a set of pairwise distinct sections of $f$.
 Let $m\ge2$ be an integer.
 Let $a_1,\ldots,a_n$ be non-negative integers such that $a_i\le m$ for each $i$.
 \end{situation}
-
-\begin{lemma}[cf.\ {\cite[Corollary 4.6]{Ko90}}]\label{intersection_with_section}
-Suppose we are in Situation \label{kollar_prop_4.7} where $g\ge2$. Then, $\omega_{S/C}\cdot C_t\ge0$ for any $t$.
-\end{lemma}
-
-\begin{proof}
-Let $i:C_t\hookrightarrow S$ be the inclusion map, and $g=f\circ i$.
-Consider the short exact sequence:
-$$0\to \mathcal{O}_S(-C_t)\to\mathcal{O}_S\to i_*\mathcal{O}_{C_t}\to 0.$$
-Tensoring with $\omega_{S/C}^{\otimes m}$, we obtain:
-$$0\to \omega_{S/C}^{\otimes m}(-C_t)\to \omega_{S/C}^{\otimes m}\to i_*\mathcal{O}_{C_t}\otimes\omega_{S/C}^{\otimes m}\to 0.$$
-Applying the functor $f_*$ to the sequence, we get a map
-$$f_*\omega_{S/C}^{\otimes m}\to f_*(i_*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to R^1f_*(\omega_{S/C}^{\otimes m}(-C_t)).$$
-For $k\gg 0$, using cohomology and base change we obtain $R^1f_*(\omega_{S/C}^{\otimes m}(-C_t))=0$, so we have a surjection:
-$$f_*\omega_{S/C}^{\otimes m}\to f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
-Applying the functor $g^*$ to the above sequence, we obtain:
-$$g^*f_*\omega_{S/C}^{\otimes m}\to g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
-We now claim that the term on the right is $i^*\omega_{S/C}^{\otimes m}$, since
-\begin{align}
-i^*\omega_{S/C}^{\otimes m}& =g^*g_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
-& =g^*f_*i_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
-&=g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m}).\nonumber
-\end{align}
-This way we obtain a contradiction, since the quotient $g^*f_*\omega_{S/C}^{\otimes m}\to i^*\omega_{S/C}^{\otimes m}\to 0$ contradicts semipositivity. 
-\end{proof}
 
 \begin{lemma}\label{base_case_genus_0}
 Suppose we are in Situation \ref{kollar_prop_4.7} where $g=0$ and the sections $C_i$ are pairwise disjoint.
@@ -400,7 +407,7 @@ Because $a_{t}+1\le k$ by assumption, this invertible sheaf has non-negative deg
 
 We now claim that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))=0$, unless $D_{j-1}=0$.
 Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 1, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
-On the other hand, when $D_{j-1}=0$, Grauert's Theorem shows that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))$ is an invertible sheaf.
+On the other hand, when $D_{j-1}=0$, Cohomology and Base Change shows that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))$ is an invertible sheaf.
 
 
 Thus, if $D_{j-1}\neq0$, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_1}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the semipositive locally free sheaf $f_{*}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is semipositive by \todo{ref to semipositivity section}.
@@ -428,7 +435,7 @@ We proceed by induction on $\sum a_i$.
 The base case where all of the $a_i$ are equal to zero is Lemma \todo{insert ref to kollar 4.5}.
 
 Assume the claim is proven for $D_{j-1}=\sum a_iC_i$; we will prove it for $D_{j}=D_{j-1}+C_t$.
-By Lemma \ref{intersection_with_section}, $\omega_{S/C}\cdot C_t\ge0$.
+By \todo{insert ref to our version of kollar 4.6}, $\omega_{S/C}\cdot C_t\ge0$.
 
 Consider the exact sequence
 \begin{equation*}\label{exact_seq_of_section_twisted_genus_2}
@@ -475,6 +482,21 @@ after precomposing with the inclusions of $C'_i$ into $b^*C_i$ and applying $f_*
 Because $b$ is a blowup of points on $S$, $\mathrm{Tr}''$ is generically an isomorphism. 
 We thus conclude that an invertible quotient of $\mathcal{L}$ of $f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)$ has a subsheaf that is a quotient of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$, and thus must have non-negative degree by the semipositivity of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$.
 This completes the proof.
+\end{proof}
+
+\section{Projectivity of $\overline{\mathcal{M}_g}$}
+
+\begin{lemma}
+Let $\overline{\mathcal{M}_g}$ be the moduli space of stable curves of genus $g\geq 2$ over $\mathbb{Z}$. Then $\overline{\mathcal{M}_g}$ is projective over $\mathbb{Z}$.
+\end{lemma}
+\begin{proof} 
+First we will show that there as an ample invertible sheaf as an algebraic space. Being a stable curve is an open condition. Hence, we can check locally for each stable curve $C$. Boundedness holds since $\omega_C^{\otimes 3}$ is very ample. 
+
+Completeness and separatedness follow from the stable reduction theorem. [cf.\ {[8],[5]  of Kollar}] The automorphism group is finite and reduced since $H^0(\mathcal{T}_C)=0$. The relative dualizing sheaf provides a functorial polarization which is semipositive by \ref{kollar_thm_4.3}  Hence, $\overline{\mathcal{M}_g}$ is projective over any field. 
+
+The image of the three-canonical map is a curve of degree $6g-6$, thus it is cut out by equations of degree no higher than $6g-6$. Hence $\lambda_{18g-8}$ is ample where for any $m$ we set $\lambda_m=\det \pi_*(\omega^{\otimes m}_{\mathcal{C}\overline{\mathcal{M}_g}})$, where $\pi:\mathcal{C}\to \overline{\mathcal{M}_g}$ is the universal family for the moduli space. \todo{Explain why} The image of the three-canonical map is defined by quadratic equations, making $\lambda_6$ ample. 
+
+To show projectivity over $\mathbb{Z}$ we use that $\mathbb{Q}$ inverible sheaves $\lambda_m$ exist over $\overline{\mathcal{M}_g}$. Hence, $\lambda_6$ relatively ample over $\mathbb{Z}$, making the moduli space $\overline{\mathcal{M}_g}$ projective over $\mathbb{Z}$.
 \end{proof}
 
 
