@@ -245,19 +245,35 @@ the sheaf $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \ge 2$.
 \begin{proof}
 We first claim that we may assume that every double curve in $S$ dominates $C$.
 Suppose that a double curve $D$ maps to a point in $C$.
-Then, by the semismoothness condition\todo{I think.},
-blowing up $D$ gives a map $b :
-\widetilde{S} \to S$ that separates the two irreducible components.
-There is a natural short exact sequence\todo{Why?}
-$$0 \longrightarrow b_*(\omega_{\widetilde{S}/C}^{\otimes m})
-\longrightarrow \omega_{S/C}^{\otimes m} \longrightarrow
-\mathcal{K} \longrightarrow 0,$$
-where the support of $\mathcal{K}$ is in $D$. Pushing forward, we have a
-semipositive bundle $\mathcal{K}$, hence $f_*(\omega_{S/C}^{\otimes m})$ is the
-extension of semipositive bundles, hence semipositive.
+Blowing up $D$ gives a map $b :
+\widetilde{S} \to S$.
+Suppose we know the sheaf $(b \circ f)_*(\omega_{\widetilde{S}/C}^{\otimes m})$
+is semipositive.
+The Grothendieck trace morphism
+$$
+\mathrm{Tr}_b : b_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow \omega_{S/C}^{\otimes m}
+$$
+for the blowup is injective, since $b$ is birational \cite[Prop.\ 5.77]{KM}.
+Pushing forward $\mathrm{Tr}_b$ to the curve $C$, we then have that
+$f_*(\omega_{S/C}^{\otimes m})$ is semipositive.\todo{The point should be that
+the cokernel of $\mathrm{Tr}_b$ pushes forward to a semipositive bundle.}
+Now after repeating finitely many blowups of double curves not dominating $C$,
+all remaining double curves will dominate $C$.
 \par We now claim that we may assume that every double curve $D$ in $S$ is a
 section of $f : S \to C$.
-If it is not, then we can base change by 
+If it is not, then consider the base change by $g : D \to C$:
+$$
+\xymatrix{
+S \times_C D \ar[r]^{g'}\ar[d]_{f'} & S \ar[d]^f\\
+D \ar[r]^g & C
+}
+$$
+It suffices to show the statement of the Theorem for the morphism $f'$ by Lemma
+\ref{lemma-base-change-okay}, and the inverse image of $D$ in $S \times_C D$ is
+a now a section of $f'$.
+Repeating finitely many base changes, we can ensure that every double curve is a
+section of $f : S \to C$.
 \end{proof}
 
 
