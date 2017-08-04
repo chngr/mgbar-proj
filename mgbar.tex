@@ -465,6 +465,38 @@ Reduce to the case where the sections are disjoint by blowing up.
 \end{proof}
 
 
+
+\begin{lemma}[cf.\ {\cite[Theorem 4.9]{Ko90}}]
+Let $k$ be a field.
+Let $C$ be a proper connected smooth $k$-scheme of dimension $1$.
+Let $S$ be a semismooth surface.
+Let $f:S\to C$ be a surjective map whose general fiber is a stable curve.
+Let $D$ be a double curve on $S$.
+Assume $D$ consists of section of $f:S\to C$.
+Let $g:S'\to S$ be the normalization of $S$.
+Let $D'=g^{-1}(D)$.
+Assume each component of $D'$ is a section.
+Let $m\geq 2$ any integer.
+Then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive.
+\end{lemma}
+
+\begin{proof}
+By \ref{kollar_prop_4.7} we know that $(f\circ g)_*(\omega_{S'/C}^{\otimes m})$ is semipositive.
+Observe that $g^*\omega_{S/C}\cong \omega_{S'/C}(D')$.
+Now we consider the short exact sequence;
+$$0\to\mathcal{O}_{S}(-D)\to\mathcal{O}_S\to\mathcal{O}_D\to 0.$$
+We tensor the sequence with $\omega_{S/C}$ and obtain:
+$$0\to g_*(\omega_{S'/C})\to \omega_{S/C}\to \omega_{S/C}|D\cong \mathcal{O}_D\to 0.$$
+Now we tensor the sequence with $\omega_{S/C}^{\otimes (m-1)}$ and apply the projection formula, obtaining:
+$$0\to g_*\omega_{S'/C}^{\otimes m}((m-1)D')\to \omega_{S/C}^{\otimes m}\to \mathcal{O}_D\to 0.$$
+\end{proof}
+
+Now we apply the functor $f_*$ to the sequence and use that $R^1(f\circ g)_*\omega_{S'/C}^{\otimes m}((m-1)D')=0$ for $m\geq 2$, obtaining the following sequence:
+
+$$0\to (f\circ g)_*\omega_{S'/C}^{\otimes m}((m-1)D')\to f_*\omega_{S/C}^{\otimes m}\to f_*\mathcal{O}_D\to 0.$$
+
+$f_*\mathcal{O}_D$ is isomorphic to the sum of copies of $\mathcal{O}_C$, therefore $f_*\omega_{S/C}^{\otimes m}$ is semipositive for all $k\geq 2$. 
+
 \bibliographystyle{unsrt}
 \bibliography{references}
 \end{document}
