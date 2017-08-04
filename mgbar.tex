@@ -254,11 +254,35 @@ $$
 \mathrm{Tr}_b : b_*(\omega_{\widetilde{S}/C}^{\otimes m})
 \longrightarrow \omega_{S/C}^{\otimes m}
 $$
-for the blowup is injective, since $b$ is birational \cite[Prop.\ 5.77]{KM}.
-Pushing forward $\mathrm{Tr}_b$ to the curve $C$, we then have that
-$f_*(\omega_{S/C}^{\otimes m})$ is semipositive.\todo{The point should be that
-the cokernel of $\mathrm{Tr}_b$ pushes forward to a semipositive bundle.}
-Now after repeating finitely many blowups of double curves not dominating $C$,
+for the blowup is injective, since $b$ is birational, and is an isomorphism away
+from $D$ \cite[Prop.\ 5.77]{KM}.
+We therefore have a short exact sequence
+$$
+0 \longrightarrow b_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow \omega_{S/C}^{\otimes m} \longrightarrow \mathcal{Q}
+\longrightarrow 0,
+$$
+where $\mathcal{Q}$ is supported in $D$.
+Pushing this forward $\mathrm{Tr}_b$ to the curve $C$, we then have the
+left-exact sequence
+$$
+0 \longrightarrow (f \circ b)_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow f_*(\omega_{S/C}^{\otimes m}) \longrightarrow f_*\mathcal{Q}.
+$$
+Since $D$ is contained in a fiber over $C$, the sheaf $f_*\mathcal{Q}$ is a
+skyscraper sheaf supported at a point on $C$.
+We can therefore replace $f_*\mathcal{Q}$ with the subsheaf $\mathcal{Q}'$
+making the sequence
+$$
+0 \longrightarrow (f \circ b)_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow f_*(\omega_{S/C}^{\otimes m}) \longrightarrow \mathcal{Q}'
+\longrightarrow 0
+$$
+exact.
+Since $\mathcal{Q}'$ is a skyscraper sheaf, it has positive degree on $C$.
+Thus, assuming $(f \circ b)_*(\omega_{\widetilde{S}/C}^{\otimes m})$ is
+semipositive, we have that $f_*(\omega_{S/C}^{\otimes m})$ is also.
+After repeating finitely many blowups of double curves not dominating $C$,
 all remaining double curves will dominate $C$.
 
 We now claim that we may assume $S$ has no pinch points. If there are pinch
@@ -278,7 +302,14 @@ D \ar[r]^g & C
 $$
 It suffices to show the statement of the Theorem for the morphism $f'$ by Lemma
 \ref{lemma-base-change-okay}, and the inverse image of $D$ in $S \times_C D$ is
-a now a section of $f'$.
+now a section of $f'$ by using the cartesianness of the square:
+$$
+\xymatrix{
+D\ar@{=}@/_/[ddr]\ar@{^{(}->}@/^/[drr]\ar@{-->}[dr]\\
+& S \times_C D \ar[r]^{g'}\ar[d]_{f'} & S \ar[d]^f\\
+& D \ar[r]^g & C
+}
+$$
 Repeating finitely many base changes, we can ensure that every double curve is a
 section of $f : S \to C$.
 
@@ -289,8 +320,8 @@ normalization (analyticall) locally splits up the double curve into two separate
 curves on two different irreducible components.
 These two curves will still be sections.
 
-We have therefore reduced the statement to the situation of \cite[Proposition
-4.9]{Ko90}.\todo{Where is this proved?}
+We have therefore reduced the statement to the situation of Lemma
+\ref{kollar-theorem-4.9}.
 %We are now at the top of p. 255
 \end{proof}
 
@@ -431,10 +462,61 @@ Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\o
 
 \begin{lemma}
 Suppose we are in Situation \ref{kollar_prop_4.7}.
-Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is semipositive.
+Then $f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)$ is semipositive.
 \end{lemma}
 \begin{proof}
-Reduce to the case where the sections are disjoint by blowing up.
+Let $b:\widetilde{S}/\to S$ be a blowup morphism such that the proper transforms $C'_i$ of the $C_i$ are pairwise disjoint, and are sections of $f\circ b$.
+By Lemma \ref{inductive_step_genus_0}, Lemma \ref{inductive_step_genus_1}, and Lemma \ref{inductive_step_genus_2}, $(f\circ b)_{*}\omega_{\widetilde{S}/C}^{\otimes m}$ is semipositive.
+
+The Grothendieck trace morphism
+$$
+\mathrm{Tr}_b : b_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow \omega_{S/C}^{\otimes m}
+$$
+for the blowup is injective, since $b$ is birational, and is an isomorphism away
+from $D$ \cite[Prop.\ 5.77]{KM}. Tensoring with $\mathcal{O}_{S}\left(\sum a_iC_i\right)$ and applying the projection formula yields an injection
+$$
+\mathrm{Tr}'_b : b_*\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_ib^{*}C_i\right)\right)
+\longrightarrow \omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right).
+$$
+Therefore, we have an injection
+$$
+\mathrm{Tr}'':(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)
+\longrightarrow f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)
+$$
+after precomposing with the inclusions of $C'_i$ into $b^*C_i$ and applying $f_*$. 
+
+Because $b$ is a blowup of points on $S$, $\mathrm{Tr}''$ is generically an isomorphism. 
+We thus conclude that an invertible quotient of $\mathcal{L}$ of $f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)$ has a subsheaf that is a quotient of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$, and thus must have non-negative degree by the semipositivity of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$.
+This completes the proof.
+\end{proof}
+
+\begin{lemma}[cf.\ {\cite[Theorem 4.9]{Ko90}}]
+\label{kollar-theorem-4.9}
+Let $k$ be a field.
+Let $C$ be a proper connected smooth $k$-scheme of dimension $1$.
+Let $S$ be a semismooth surface.
+Let $f:S\to C$ be a surjective map whose general fiber is a stable curve.
+Let $D$ be a double curve on $S$.
+Assume $D$ consists of section of $f:S\to C$.
+Let $g:S'\to S$ be the normalization of $S$.
+Let $D'=g^{-1}(D)$.
+Assume each component of $D'$ is a section.
+Let $m\geq 2$ any integer.
+Then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive.
+\end{lemma}
+\begin{proof}
+By \ref{kollar_prop_4.7} we know that $(f\circ g)_*(\omega_{S'/C}^{\otimes m})$ is semipositive.
+Observe that $g^*\omega_{S/C}\cong \omega_{S'/C}(D')$.
+Now we consider the short exact sequence;
+$$0\to\mathcal{O}_{S}(-D)\to\mathcal{O}_S\to\mathcal{O}_D\to 0.$$
+We tensor the sequence with $\omega_{S/C}$ and obtain:
+$$0\to g_*(\omega_{S'/C})\to \omega_{S/C}\to \omega_{S/C}|D\cong \mathcal{O}_D\to 0.$$
+Now we tensor the sequence with $\omega_{S/C}^{\otimes (m-1)}$ and apply the projection formula, obtaining:
+$$0\to g_*\omega_{S'/C}^{\otimes m}((m-1)D')\to \omega_{S/C}^{\otimes m}\to \mathcal{O}_D\to 0.$$
+ Now we apply the functor $f_*$ to the sequence and use that $R^1(f\circ g)_*\omega_{S'/C}^{\otimes m}((m-1)D')=0$ for $m\geq 2$, obtaining the following sequence:
+ $$0\to (f\circ g)_*\omega_{S'/C}^{\otimes m}((m-1)D')\to f_*\omega_{S/C}^{\otimes m}\to f_*\mathcal{O}_D\to 0.$$
+ $f_*\mathcal{O}_D$ is isomorphic to the sum of copies of $\mathcal{O}_C$, therefore $f_*\omega_{S/C}^{\otimes m}$ is semipositive for all $k\geq 2$. 
 \end{proof}
 
 \section{Projectivity of $\overline{\mathcal{M}_g}$}
@@ -443,13 +525,13 @@ Reduce to the case where the sections are disjoint by blowing up.
 Let $\overline{\mathcal{M}_g}$ be the moduli space of stable curves of genus $g\geq 2$ over $\mathbb{Z}$. Then $\overline{\mathcal{M}_g}$ is projective over $\mathbb{Z}$.
 \end{lemma}
 \begin{proof}
-First we will show that there as an ample invertible sheaf as an algebraic space. Being a stable curve is an open condition. Hence, we can check locally for each stable curve $C$. Boundedness holds since $\omega_C^{\otimes 3}$ is very ample.
+First we will show that there as an ample invertible sheaf as an algebraic space. Being a stable curve is an open condition \cite[Tag 0E76]{stacks-project}. Hence, we can check locally for each stable curve $C$. Boundedness holds since $\omega_C^{\otimes 3}$ is very ample.
 
-Completeness and separatedness follow from the stable reduction theorem. [cf.\ {[8],[5]  of Kollar}] The automorphism group is finite and reduced since $H^0(\mathcal{T}_C)=0$. The relative dualizing sheaf provides a functorial polarization which is semipositive by \ref{kollar_thm_4.3}  Hence, $\overline{\mathcal{M}_g}$ is projective over any field.
+Completeness and separatedness follow from the stable reduction theorem.\cite[Tag 0E8C]{stacks-project} [cf.\ {[8],[5]  of Kollar}]  The automorphism group is finite and reduced since $H^0(\mathcal{T}_C)=0$.\cite[Tag 0E69]{stacks-project} The relative dualizing sheaf provides a functorial polarization which is semipositive by \ref{kollar_thm_4.3}  Hence, $\overline{\mathcal{M}_g}$ is projective over any field.
 
 The image of the three-canonical map is a curve of degree $6g-6$, thus it is cut out by equations of degree no higher than $6g-6$. Hence $\lambda_{18g-8}$ is ample where for any $m$ we set $\lambda_m=\det \pi_*(\omega^{\otimes m}_{\mathcal{C}\overline{\mathcal{M}_g}})$, where $\pi:\mathcal{C}\to \overline{\mathcal{M}_g}$ is the universal family for the moduli space. \todo{Explain why} The image of the three-canonical map is defined by quadratic equations, making $\lambda_6$ ample.
 
-To show projectivity over $\mathbb{Z}$ we use that $\mathbb{Q}$ inverible sheaves $\lambda_m$ exist over $\overline{\mathcal{M}_g}$. Hence, $\lambda_6$ relatively ample over $\mathbb{Z}$, making the moduli space $\overline{\mathcal{M}_g}$ projective over $\mathbb{Z}$.
+To show projectivity over $\mathbb{Z}$, we use that $\mathbb{Q}$-invertible sheaves $\lambda_m$ exist over $\overline{\mathcal{M}_g}$. Therefore, $\lambda_6$ is relatively ample over $\mathbb{Z}$, making the moduli space $\overline{\mathcal{M}_g}$ projective over $\mathbb{Z}$.
 \end{proof}
 
 
