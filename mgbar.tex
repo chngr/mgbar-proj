@@ -47,19 +47,19 @@ If $k \geq 2$, then $f_*\omega_{S/C}^{\otimes k}$ is semipositive for $k \geq 2$
 \label{lemma-stable-curves-semipositive-resolve}
 Let $k$ be a field.
 Let $C$ be a proper smooth $k$-scheme of dimension $1$.
-Let $\pi : S \to C$ be a flat morphism whose fibres are stable nodal and arithmetic
+Let $f : S \to C$ be a flat morphism whose fibres are stable nodal and arithmetic
 genus $g \geq 2$.
-Let $f : S' \to S$ is a resolution of the isolated singularities of $S$
-and let $\pi' : S' \to C$ be the composition $\pi' = \pi \circ f$.
-If $\pi'_*(\omega_{S'/C}^{\otimes m})$ is semipositive for $m \geq 2$, then
-$\pi_*(\omega_{S/C}^{\otimes m})$ is semipositive.
+Let $b : S' \to S$ is a resolution of the isolated singularities of $S$
+and let $f' : S' \to C$ be the composition $f' = f \circ b$.
+If $f'_*(\omega_{S'/C}^{\otimes m})$ is semipositive for $m \geq 2$, then
+$f_*(\omega_{S/C}^{\otimes m})$ is semipositive.
 \end{lemma}
 
 \begin{lemma}[cf.\ {\cite[Theorem 4.3]{Ko90}}]
 \label{lemma-stable-curves-semipositive}
 Let $k$ be a field.
 Let $C$ be a proper connected smooth $k$-scheme of dimension $1$.
-Let $\pi : S \to C$ be a family of stable curves,
+Let $f : S \to C$ be a family of stable curves,
 as defined in Lemma \ref{lemma-stable-curves}.
 Then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \geq 2$.
 \end{lemma}
@@ -98,6 +98,7 @@ This way we obtain a contradiction, since the quotient $g^*f_*\omega_{S/C}^{\oti
 
 
 \begin{definition}[cf.\ {\cite[Definition 4.1(i)]{Ko90}}]
+\label{definition-semismooth}
 Let $k$ be a field.
 Let $X$ be an algebraic variety over $k$.
 We say $X$ is {\it semismooth} if all of its closed points are analytically
@@ -111,15 +112,61 @@ In this case the singular locus is smooth, and we call it the {\it double
 divisor} of $X$.
 \end{definition}
 
-\begin{theorem}[cf.\ {\cite[Theorem 4.3]{Ko90}}]
-\label{theorem-kollar-theorem-4.3}
+\begin{situation}
+\label{situation-kollar-theorem-4.3}
 Let $k$ be a field.
 Let $S$ be a complete Gorenstein integral $k$-scheme of dimension $2$ that is
 semismooth.
-Let $C$ be a complete connected smooth $k$-scheme of dimension $1$.
-Let $f : S \to C$ be a surjective map onto $C$.
-If the general fiber of $f$ has only nodes as singularities, %all do
-then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \ge 2$. 
+Let $C$ be a complete connected regular $k$-scheme of dimension $1$.
+Let $f : S \to C$ be a surjective map onto $C$, such that the general fiber of
+$f$ has only nodes as singularities.
+\end{situation}
+
+\begin{lemma}
+\label{lemma-base-change-okay}
+Consider Situation \ref{situation-kollar-theorem-4.3}.
+Let $C'$ be a complete connected smooth $k$-scheme of dimension $1$, and
+consider the cartesian square
+$$
+\xymatrix{
+S' \ar[d]_{f'}\ar[r]^{g'} & S\ar[d]^f\\
+C' \ar[r]^g & C
+}
+$$
+where $g: C' \to C$ is surjective.
+If for some $m$, the sheaf $f'_*(\omega_{S'/C'}^{\otimes m})$ is semipositive,
+then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive.
+\end{lemma}
+\begin{proof}
+Suppose $f_*(\omega_{S/C}^{\otimes m})$ is not semipositive, i.e., there
+exists a quotient
+$$f_*(\omega_{S/C}^{\otimes m}) \longrightarrow L$$
+where $L$ is an invertible sheaf of negative degree.
+Pulling back to $C'$, we then obtain a quotient
+$$g^*f_*(\omega_{S/C}^{\otimes m}) \longrightarrow g^*L$$
+of $g^*f_*(\omega_{S/C}^{\otimes m})$ that has negative degree on $C'$.
+Since $f$ is flat \cite[\href{http://stacks.math.columbia.edu/tag/00R4}{Tag
+00R4}]{stacks-project}, we can apply flat base change
+\cite[\href{http://stacks.math.columbia.edu/tag/02KH}{Tag 02KH}]{stacks-project}
+to obtain
+$$
+g^*f_*(\omega_{S/C}^{\otimes m})
+\simeq f'_*g'^*(\omega_{S/C}^{\otimes m})
+\simeq f'_*(\omega_{S'/C'}^{\otimes m})
+$$
+where the second isomorphism is
+by the compatibility of the relative dualizing sheaf with pullbacks
+\cite[\href{http://stacks.math.columbia.edu/tag/0E4P}{Tag
+0E4P}]{stacks-project}.
+We therefore obtain a negative quotient $g^*L$ of $f'_*(\omega_{S'/C'}^{\otimes
+m})$, which contradicts the assumption that $f'_*(\omega_{S'/C'}^{\otimes m})$
+was semipositive.
+\end{proof}
+
+\begin{theorem}[cf.\ {\cite[Theorem 4.3]{Ko90}}]
+\label{theorem-kollar-theorem-4.3}
+In Situation \ref{situation-kollar-theorem-4.3}, 
+the sheaf $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \ge 2$. 
 \end{theorem}
 
 
@@ -135,7 +182,7 @@ then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \ge 2$.
 Let $k$ be a field.
 Let $C$ be a proper smooth $k$-scheme of dimension 1.
 Let $S$ be a proper smooth $k$-scheme of dimension 2.
-Let $\pi:S\to C$ be a family of stable nodal curves whose fibers have arithmetic genus $g$.
+Let $f:S\to C$ be a family of stable nodal curves whose fibers have arithmetic genus $g$.
 Let $C_1,\ldots,C_n$ be a set of pairwise distinct sections of $f$.
 Let $m\ge2$ be an integer.
 Let $a_1,\ldots,a_n$ be non-negative integers such that $a_i\le m$ for each $i$.
@@ -144,62 +191,128 @@ Let $a_1,\ldots,a_n$ be non-negative integers such that $a_i\le m$ for each $i$.
 \begin{lemma}\label{base_case_genus_0}
 Suppose we are in Situation \ref{kollar_prop_4.7} where $g=0$ and the sections $C_i$ are pairwise disjoint.
 Assume that $\sum a_i\le 2k-1$.
-Then $f_{*}(\omega_{S/C}^{k}(\sum a_iC_i))=0$. 
+Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))=0$. 
 \end{lemma}
+\begin{proof}
+Immediate from the fact that the sheaf $\omega_{S/C}^{\otimes m}(\sum a_iC_i)$ has negative degree on each fiber of $f$.
+\end{proof}
 
+\begin{lemma}\label{base_case_genus_1}
+Suppose we are in Situation \ref{kollar_prop_4.7} where $g=1$ and the sections $C_i$ are pairwise disjoint.
+Then $f_{*}(\omega_{S/C}^{\otimes m})$ is a semipositive locally free sheaf. 
+\end{lemma}
+\begin{proof}
+\todo{still don't understand what kollar is doing here}
+\end{proof}
 
 \begin{lemma}\label{inductive_step_genus_0}
 Suppose we are in Situation \ref{kollar_prop_4.7} where $g=0$ and the sections $C_i$ are pairwise disjoint.
-Then $f_{*}(\omega_{S/C}^{k}(\sum a_iC_i))$ is semipositive.
-\end{lemma}
-
-\begin{lemma}\label{inductive_step_genus_1}
-Suppose we are in Situation \ref{kollar_prop_4.7} where $g=1$ and the sections $C_i$ are pairwise disjoint.
-Then $f_{*}(\omega_{S/C}^{k}(\sum a_iC_i))$ is semipositive.
-\end{lemma}
-
-\begin{lemma}\label{inductive_step_genus_2}
-Suppose we are in Situation \ref{kollar_prop_4.7} where $g=2$ and the sections $C_i$ are pairwise disjoint.
-Then $f_{*}(\omega_{S/C}^{k}(\sum a_iC_i))$ is semipositive.
+Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a semipositive locally free sheaf.
 \end{lemma}
 \begin{proof}
-We proceed by induction on $\sum a_i$. 
-The base case where all of the $a_i$ are equal to zero is \todo{insert ref to kollar 4.5}.
-Assume the claim is proven for $D_{j-1}=\sum a_iC_i$; we will prove it for $D_{j}=D_{j-1}+C_t$.
-By \todo{insert ref to our version of kollar 4.6}, $\omega_{S/C}\cdot C_t\ge0$.
+This proof is nearly identical to that in genus 1 and genus at least 2.
+
+We proceed by induction on $\sum a_i$.
+By the Hodge Index Theorem, we may assume that among $C_1,\ldots,C_n$, $C_1$ is the only section with positive self-intersection.
+The base cases where $a_i\le 2m-1$ is Lemma \ref{base_case_genus_0}.
+
+Assume the claim is proven for $D_{j-1}=\sum a_iC_i$ where $\sum a_i\ge 2m-1$; we will prove it for $D_{j}=D_{j-1}+C_t$.
+Because $a_{1}\le m$, we may assume $C_1\neq C_t$.
+By the adjunction formula, $\omega_{S/C}(C_t)|_{C_t}\cong\mathcal{O}_{C_t}$, so $\omega_{S/C}\cdot C_t=-C_t^2\ge0$, as $C_t\neq C_1$.
 
 Consider the exact sequence
-\begin{equation*}\label{exact_seq_of_section_twisted}
+\begin{equation*}\label{exact_seq_of_section_twisted_genus_0}
 0\to\omega_{S/C}^{\otimes m}(D_{j-1})\to\omega_{S/C}^{\otimes m}(D_j)\to \omega_{S/C}^{\otimes m}(D_j)|_{C_t}\to0
 \end{equation*}
-obtained by tensoring the closed subscheme exact sequence for $C_t$ with $\omega_{S/C}^{\otimes m}$.
+obtained by tensoring the closed subscheme exact sequence for $C_t$ with $\omega_{S/C}^{\otimes m}(D_j)$.
 
 Then, $\omega_{S/C}^{\otimes m}(D_j)|_{C_t}\cong \omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$, because the $C_i$ are pairwise disjoint.
 Because $a_{t}+1\le k$ by assumption, this invertible sheaf has non-negative degree.
 
 We now claim that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))=0$.
-Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 2, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
+Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 1, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
+
+Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_0}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the semipositive locally free sheaf $f_{*}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is semipositive by \todo{ref to semipositivity section}.
+Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$ of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on $C_t$.
+\end{proof}
+
+\begin{lemma}\label{inductive_step_genus_1}
+Suppose we are in Situation \ref{kollar_prop_4.7} are pairwise disjoint.
+Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a semipositive locally free sheaf.
+\end{lemma}
+\begin{proof}
+This proof is nearly identical to that in genus 0 and genus at least 2.
+
+We proceed by induction on $\sum a_i$. 
+The base case where all of the $a_i$ are equal to zero is Lemma \ref{base_case_genus_1}.
+
+Assume the claim is proven for $D_{j-1}=\sum a_iC_i$; we will prove it for $D_{j}=D_{j-1}+C_t$.
+By \todo{THIS DOESN'T WORK!}, $\omega_{S/C}\cdot C_t\ge0$.
+
+Consider the exact sequence
+\begin{equation}\label{exact_seq_of_section_twisted_genus_1}
+0\to\omega_{S/C}^{\otimes m}(D_{j-1})\to\omega_{S/C}^{\otimes m}(D_j)\to \omega_{S/C}^{\otimes m}(D_j)|_{C_t}\to0
+\end{equation}
+obtained by tensoring the closed subscheme exact sequence for $C_t$ with $\omega_{S/C}^{\otimes m}(D_j)$.
+
+Then, $\omega_{S/C}^{\otimes m}(D_j)|_{C_t}\cong \omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$, because the $C_i$ are pairwise disjoint.
+Because $a_{t}+1\le k$ by assumption, this invertible sheaf has non-negative degree.
+
+We now claim that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))=0$, unless $D_{j-1}=0$.
+Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 1, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
+On the other hand, when $D_{j-1}=0$, Cohomology and Base Change shows that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))$ is an invertible sheaf.
 
 
-Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted}) expresses $f_{*}(\omega_{S/C}^{k}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the semipositive locally free sheaf $f_{(}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is semipositive by \todo{ref to semipositivity section}.
+Thus, if $D_{j-1}\neq0$, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_1}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the semipositive locally free sheaf $f_{*}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is semipositive by \todo{ref to semipositivity section}.
 Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$ of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on $C_t$.
 
-
-
+If $D_{j-1}=0$, the situation is similar; we obtain the exact sequence
+$$
+0\to f_{*}(\omega_{S/C}^{\otimes m})\to f_{*}((\omega_{S/C}^{\otimes m})(C_t))\to f_{*}((\omega_{S/C}^{\otimes m})(C_t))|_{C_t}\to R^{1}f_{*}(\omega_{S/C}^{\otimes m})\to0
+$$
+because $R^{1}f_{*}\omega_{S/C}^{\otimes m}(C_t)=0$. 
+The rightmost map is a surjection of invertible sheaves, hence an isomorphism.
+Therefore the leftmost map is an isomorphism as well, and we obtain the desired conclusion once again.
 \end{proof}
 
 
 
+\begin{lemma}\label{inductive_step_genus_2}
+Suppose we are in Situation \ref{kollar_prop_4.7} are pairwise disjoint.
+Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a semipositive locally free sheaf.
+\end{lemma}
+\begin{proof}
+This proof is nearly identical to that in genus 0 and genus 1.
 
-\begin{situation}\label{kollar_prop_4.7}
-Let $k$ be a field.
-Let $C$ be a proper smooth $k$-scheme of dimension 1.
-Let $S$ be a proper smooth $k$-scheme of dimension 2.
-Let $\pi:S\to C$ be a family of stable nodal curves whose fibers have arithmetic genus $g$.
-Let $C_1,\ldots,C_n$ be a set of pairwise distinct sections of $f$.
-Let $m\ge2$ be an integer.
+We proceed by induction on $\sum a_i$. 
+The base case where all of the $a_i$ are equal to zero is Lemma \todo{insert ref to kollar 4.5}.
 
-\end{situation}
+Assume the claim is proven for $D_{j-1}=\sum a_iC_i$; we will prove it for $D_{j}=D_{j-1}+C_t$.
+By \todo{insert ref to our version of kollar 4.6}, $\omega_{S/C}\cdot C_t\ge0$.
+
+Consider the exact sequence
+\begin{equation*}\label{exact_seq_of_section_twisted_genus_2}
+0\to\omega_{S/C}^{\otimes m}(D_{j-1})\to\omega_{S/C}^{\otimes m}(D_j)\to \omega_{S/C}^{\otimes m}(D_j)|_{C_t}\to0
+\end{equation*}
+obtained by tensoring the closed subscheme exact sequence for $C_t$ with $\omega_{S/C}^{\otimes m}(D_j)$.
+
+Then, $\omega_{S/C}^{\otimes m}(D_j)|_{C_t}\cong \omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$, because the $C_i$ are pairwise disjoint.
+Because $a_{t}+1\le k$ by assumption, this invertible sheaf has non-negative degree.
+
+We now claim that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))=0$.
+Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 1, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
+
+Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_2}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the semipositive locally free sheaf $f_{(}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is semipositive by \todo{ref to semipositivity section}.
+Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$ of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on $C_t$.
+\end{proof}
+
+\begin{lemma}
+Suppose we are in Situation \ref{kollar_prop_4.7}.
+Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is semipositive.
+\end{lemma}
+\begin{proof}
+Reduce to the case where the sections are disjoint by blowing up.
+\end{proof}
 
 
 \bibliographystyle{unsrt}
