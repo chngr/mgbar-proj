@@ -239,7 +239,8 @@ $f'_*(\omega_{S'/C'}^{\otimes m})$ was semipositive.
 
 \begin{theorem}[cf.\ {\cite[Theorem 4.3]{Ko90}}]
 \label{theorem-kollar-theorem-4.3}
-In Situation \ref{situation-kollar-theorem-4.3}, 
+In Situation \ref{situation-kollar-theorem-4.3}, suppose moreover that the
+generic fiber of $f$ is a stable curve. Then,
 the sheaf $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \ge 2$. 
 \end{theorem}
 \begin{proof}
@@ -261,6 +262,11 @@ the cokernel of $\mathrm{Tr}_b$ pushes forward to a semipositive bundle.}
 Now after repeating finitely many blowups of double curves not dominating $C$,
 all remaining double curves will dominate $C$.
 
+We now claim that we may assume $S$ has no pinch points. If there are pinch
+points, then blowing them up gives a new surface birational to $S$ that only has
+double crossing points; the argument of the previous paragraph shows we may
+reduce to this case.
+
 We now claim that we may assume that every double curve $D$ in $S$ is a
 section of $f : S \to C$.
 If it is not, then consider the base change by $g : D \to C$:
@@ -276,11 +282,15 @@ a now a section of $f'$.
 Repeating finitely many base changes, we can ensure that every double curve is a
 section of $f : S \to C$.
 
-Now let $\nu : S' \to S$ be the normalization of $S$, and let $D'$ be the
-preimage of the double curve $D$.
-After base changes as in the previous paragraph, we may assume that every
-component of $D'$ is also a section.
-\todo{I don't know how these base changes affect normality.}
+We now claim that if $\nu : S' \to S$ is the normalization of $S$, then the
+preimage $D'$ of the double curve $D$ still consists of sections.
+Since the double curve only consists of double crossing points, the
+normalization (analyticall) locally splits up the double curve into two separate
+curves on two different irreducible components.
+These two curves will still be sections.
+
+We have therefore reduced the statement to the situation of \cite[Proposition
+4.9]{Ko90}.\todo{Where is this proved?}
 %We are now at the top of p. 255
 \end{proof}
 
