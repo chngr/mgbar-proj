@@ -172,148 +172,188 @@ that $(\mathbf{P} \setminus D)/G \simeq X$.
 \begin{lemma}
 \label{lemma-positive-self-intersection}
 Let $X$ be a normal projective variety over a field $k$.
-Let $\mathcal{E}$ be a semipositive locally free sheaf on $X$ of rank $m$.
+Let $\mathcal{E}$ be a semipositive locally free sheaf on $X$ of rank $n$.
 Set $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and set
-$n = \binom{m + d}{d}$ be the rank.
-Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $k$.
+$N = \binom{n + d}{d}$ be the rank.
+Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $q$.
 Assume that the map
 $$
-  u : X \to [\mathrm{Gr}(n,k)/G]
+  u : X \to [\mathrm{Gr}(N,q)/G]
 $$
 constructed in Lemma \ref{lemma-grassman-quotient-stack-map}
-is quasi-finite on a nonempty open subset of $X$.
+is generically quasi-finite.
 Then $(\det(\mathcal{Q})^{\dim(Y)}) > 0$.
 \end{lemma}
 
 \begin{proof}
-Consider the given surjection $\mathcal{F} \to \mathcal{Q}$ of locally free
-$\mathcal{O}_X$-modules over $X$.
-Taking $k$\textsuperscript{th} exterior powers, we obtain a surjection
+Let $\mathbf{P} = \mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$.
+Let $D \subset \mathbf{P}$ be the closed subscheme given by part (1) of
+Lemma \ref{lemma-grassman-quotient-stack-map}.
+Then there is a fibre product diagram\todo{Why, exactly, is this a fibre product
+diagram? Also, the $u$ is off.}
 $$
-  \bigwedge\nolimits^k \mathcal{F} \to \det(\mathcal{Q})
+\xymatrix{
+  \mathbf{P} \setminus D \ar[r] \ar[d] & \mathrm{Gr}(N,q) \ar[d] \\
+  X \ar[r]^u & [\mathrm{Gr}(N,q)/\mathrm{PGL}_m]
+}
 $$
-from $\bigwedge^k\mathcal{F}$ to the invertible module $\det(\mathcal{Q})$.
-Thus we obtain a morphism
-$$
-  u : X \to \mathbf{P}\big(\bigwedge\nolimits^k \mathcal{F}\big)
-$$
-such that
-$u^*\mathcal{O}_{\mathbf{P}(\bigwedge^k\mathcal{F})}(1) = \det(\mathcal{Q})$.
+Since $u$ is generically quasi-finite, the map
+$\mathbf{P} \setminus D \to \mathrm{Gr}(n,q)$ is generically quasi-finite.
 
-Let $\mathbf{P} = \mathbf{P}((\mathcal{F}^\vee)^{\oplus n})$ be the projective
-bundle associated with $(\mathcal{F}^\vee)^{\oplus n}$ and write
-$\pi : \mathbf{P} \to X$ for the projection.
-Using the projection formula, Lemma \ref{lemma-projection-formula},
-\begin{align*}
-H^0(\mathbf{P}, \pi^*\mathcal{F}(1))
-  & \cong
-H^0(X, \pi_*(\pi^*\mathcal{F} \otimes_{\mathcal{O}_{\mathbf{P}}}
-  \mathcal{O}_{\mathbf{P}}(1))) \\
-  & \cong
-H^0(X,\mathcal{F} \otimes_{\mathcal{O}_X} \pi_*\mathcal{O}_{\mathbf{P}}(1)) \\
-  & \cong
-H^0(X,\mathcal{F} \otimes (\mathcal{F}^\vee)^{\oplus n}) \\
-  & \cong
-H^0(X,\mathrm{End}(\mathcal{F})^{\oplus n}).
-\end{align*}
-The $n$ canonical sections of $H^0(X,\mathrm{End}(\mathcal{F})^{\oplus n})$
-give $n$ sections of
-$H^0(\mathbf{P}, \pi^*\mathcal{F}(1))$ and hence
-a morphism
+As in Lemma \ref{lemma-grassman-quotient-stack-map},\todo{Maybe factor
+  this statement out?}
+the morphism $\mathbf{P} \setminus D \to \mathrm{Gr}(N,q)$ is defined by
+the morphism of locally free sheaves
 $$
-  B : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to \pi^*\mathcal{F}(1)
+  U : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to \pi^*\mathcal{F}(d)
+                                          \to \pi^*\mathcal{Q}(d).
 $$
-of sheaves over $\mathbf{P}$.
-Let $D \subset \mathbf{P}$ be the support of the cokernel of $B$.
-Composing $B$ with the pullback of the given surjection
-$\mathcal{F} \to \mathcal{Q}$, we obtain a morphism
+Here, the map $\mathcal{O}_{\mathbf{P}}^{\oplus N} \to \pi^*\mathcal{F}$ is
+an isomorphism away from $D$ and thus $U$ is surjective away from $D$.
+Taking $q$\textsuperscript{th} exterior powers, we obtain a morphism
 $$
-  U : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to
-        \pi^*\mathcal{F}(1) \to
-        \pi^*\mathcal{Q}(1).
-$$
-By construction, this morphism is surjective away from $D$, since $B$ is surjective away from $D$, and $\pi^*\mathcal{F}(1)\to\pi^*\mathcal{Q}(1)$ remains surjective.
-
-
-Taking $k$\textsuperscript{th} exterior powers of this morphism, we obtain a
-morphism
-$$
-  \bigwedge^k U : \mathcal{O}_{\mathbf{P}}^{\oplus \binom{n}{k}} \to
-    \pi^*\big(\bigwedge\nolimits^k \mathcal{F}\big)(k) \to
-    \pi^*\det(\mathcal{Q})(k)
+  \bigwedge^q U : \mathcal{O}_{\mathbf{P}}^{\oplus \binom{N}{q}} \to
+    \pi^*\det(\mathcal{Q})(qd)
 $$
 which is surjective away from $D$.
+Thus the image of $\bigwedge^q U$ is of the form
+$\pi^*\det(\mathcal{Q})(qd) \otimes \mathcal{I}$ for some ideal sheaf
+$\mathcal{I} \subset \mathcal{O}_{\mathbf{P}}$.
 
-Choose a $G$-orbit closure $P$ in $\mathbf{P}$ and write $i : P \to \mathbf{P}$
-for the inclusion.\todo{Is it really important that we take closure of the
-  projective fibres rather than the entire orbit?}
-Write $\overline{\pi} : P \to X$ for the restriction of $\pi$ to $P$.
-Pulling back $B$ via $i$, we obtain a map
+Let $g : \mathbf{P}' \to \mathbf{P}$ be the blow up of $\mathbf{P}$ along the
+sheaf $\mathcal{I}$.
+Then the rational map from $\mathbf{P}$ to $\mathrm{Gr}(N,q)$ defined above
+resolves to a morphism
 $$
-  \overline{B} : \mathcal{O}_P^{\oplus n} \to \overline{\pi}^* \mathcal{F}(1)
+  u' : \mathbf{P}' \to \mathrm{Gr}(N,q)
 $$
-of sheaves of $\mathcal{O}_P$-modules over $P$.
-Composing $\overline{B}$ with the pullback of the given surjection
-$\mathcal{F} \to \mathcal{Q}$, we obtain a map
-$$
-  \overline{U} : \mathcal{O}_P^{\oplus n} \to
-                  \overline{\pi}^*\mathcal{F}(1) \to
-                  \overline{\pi}^*\mathcal{Q}(1).
-$$
-Being the composition of $\overline{B}$ with a surjection, $\overline{U}$ is
-surjective away from $P \cap D$.
-
-By construction, $\overline{B}$ is surjective away from $P\cap D$, so $\overline{U}$ is also surjective away from $P\cap D$. Hence we expressed $\pi^*(\det\mathcal{Q})(k)$ as the quotient of a trivial bundle of rank ${n\choose k}$. This gives a rational map:
-
-$$u:P\dashrightarrow Gr(n,k)\subset \mathbf{P}^{{n\choose k}},$$
-
-which is a morphism on $P-D$.
-
-By construction, this map is obtained by lifting the classifying map $X\to [Gr(n,k)/PGL(m)]$ to
-$$u':P-D\to Gr(n,k),$$
-and composing $u'$ with the $Pl\ddot{u}cker$ embedding $Gr(n,k)\to \mathbf{P}^{{n\choose k}}$.
-\todo{u is quasifinite on open subset of orbit P}
-
-The map $u$ need not be a morphism since the image of $\overline{U}$ need not be locally free.
-To remedy this we blow up the ideal sheaf of the image of $\overline{U}$\todo{explain better}, obtaining a new scheme $P'$, together with a birational morphism $g:P'\to P$.
-Now $u$ extends to a morphism $u':P'\to \mathbf{P}^{{n\choose k}}$. If $E$ is the exceptional divisor of the blow-up (in particular, $E$ is effective), we get
-$$g^*(\overline{\pi}^*(\det\mathcal{Q})(k))\cong u'^*\mathcal{O}_{Gr}(1)\otimes\mathcal{O}_{P'}(E).$$
-
-Let $H$ be a ample divisor on $Y$. Since $u'$ is generically finite and $\mathcal{O}_{Gr}(1)$ is big, the pullback $u'^*  \mathcal{O}_{Gr}(1)$ is big on $\mathbf{P}'$. \todo{Explain why pullback of big is big} Thus, by Kollar's definition of big, there is a natural number $m>>0$ such that we have a nontrivial section of $u'^*\mathcal{O}_{Gr}(m)\otimes g^*p^*H^{-1}$ i.e. there's a nontrivial morphism
-
-\begin{align*}
-{O}_{\mathbf{P}'}\to & u'^*\mathcal{O}_{Gr}(m)\otimes g^*(p^*H^{-1})=g^*(p^*(\det Q)^{\otimes m}\otimes p^*H^{-1}\otimes \mathcal{O}_{\mathbf{P}}(km))\otimes \mathcal{O}_{\mathbf{P}'}(-mE)\\&\to g^*(p^*(\det Q)^{\otimes m}\otimes p^*H^{-1}\otimes \mathcal{O}_{\mathbf{P}}(km))
-\end{align*}
-
-Then when we pushforward to $Y$ we get $$\mathcal{O}_Y\to p_*g_*\mathcal{O}_{\mathbf{P}'}\to (\det Q)^{\otimes m}\otimes H^{-1}\otimes p_*\mathcal{O}_{\mathbf{P}}(km)$$ \todo{Explain why the composite is nonzero}.
-
-After rearanging we get $$H\otimes (p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}\stackrel{\tau}\to (\det Q)^{\otimes m}$$
-
-If $m$ is sufficiently large, then the natural map $$\pi_*\mathcal{O}_{\mathbb{P}}(mk)\to p_*\mathcal{O}_{\mathbf{P}}(mk)$$ is surjective and so the dual is injective $$p_*\mathcal{O}_{\mathbf{P}}(mk)^*\hookrightarrow \pi_*\mathcal{O}_{\mathbb{P}}(mk)^*$$ Thus, $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}$ is a $G$-subbundle  of $(\pi_*\mathcal{O}_{\mathbb{P}}(km))^*=(Sym^{km}(\sum W^*))^*$, which is semipositive by \todo{Add reference}. Hence, $(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee}$  itself is semipostive.
-
-If we blow up the image sheaf of $\tau$, then we get a birational map $s:Y'\to Y$ within the commuative diagram
-
-$$\xymatrix{
-&\mathbb{P}((p_*\mathcal{O}_{\mathbf{P}}(km)^{\vee})) \ar[d]^{\cong}\\
-Y'  \ar[r]|-{v'} \ar[ru]^{\tilde{v}'} \ar[d]^s &\mathbb{P}(H\otimes (p_*\mathcal{O}_{\mathbf{P}}(km)^{\vee})) \\
-Y \ar@{.>}[ru]^v &
-}$$
-
 such that
+$$
+  g^*\pi^*\det(\mathcal{Q})(qd) \cong
+    u'^*\mathcal{O}_{\mathrm{Gr}(N,q)}(1)
+      \otimes_{\mathcal{O}_{\mathbf{P}'}}
+    \mathcal{O}_{\mathbf{P}'}(E)
+$$
+where $E$ is the exceptional divisor of $g : \mathbf{P}' \to \mathbf{P}$.
 
-$$s^*(\det Q)^{\otimes m}\cong \mathcal{O}_Y(F)\otimes \tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee})}(1)\otimes s^*H$$  Here $F$ is the exceptional divisor of the blow up.
-
-By \todo{add reference} $\tilde{v}^*\mathcal{O}_{\mathbb{P}(p_*\mathcal{O}_{\mathbf{P}}(km))^{\vee})}(1)$ is nef.
-
-So we get
-$$s^*\det(Q)^*=s^*H\otimes \mathcal{O}_{Y'}\otimes \mathcal{O}_{Y'}(F)$$
-
-Then computing the $t=\dim Y$-fold self-intersection we get
-
+Since $u$ is generically quasi-finite and $g$ is birational,
+$u'$ is generically quasi-finite.
+Hence, by ...\todo{Prove this or reference this somewhere.}
+$u'^*\mathcal{O}_{\mathrm{Gr}(N,q)}(1)$ is big\todo{Define big somewhere}
+on $\mathbf{P}'$.
+Fix an ample invertible sheaf $\mathcal{L}$ on $Y$.
+Then by ...\todo{Using properties of big. I guess this depends on what the definition
+  is and then what the characterizations are.}, there is some $m \geq 0$
+such that
+$\mathcal{O}_{\mathrm{Gr}(N,q)}(m)
+  \otimes_{\mathcal{O}_{\mathbf{P}'}} g^*\pi^*\mathcal{L}^{-1}$
+has a nonzero section.
+But
 \begin{align*}
-c_1(\det(Q)) & =c_1(s^*\det(Q)^{\otimes m})=(s^*\det(Q)^{\otimes m})^{(t)}\\ & =(H+N+F)^{(t)}=H^{(t)}+\sum\limits_{i=1}^{t} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)
+  \mathcal{O}_{\mathrm{Gr}(N,q)}(m)
+  = \big(g^*\pi^*\det(\mathcal{Q})(qd) \otimes_{\mathcal{O}_{\mathbf{P}'}}
+    \mathcal{O}_{\mathbf{P}'}(-E)\big)^{\otimes m}.
 \end{align*}
- Here $H$ is the pullback of an ample invertible sheaf, $N$ is nef, and $F$ is effective. Then $H+N+F$ is nef because $\det(Q)^{\otimes m}$ is nef using that $Q$ is a quotient of a semipositive sheaf.  Similarly, $N+F$ is effective because it's a sum of effective and nef. Combing we get that the sum $\sum\limits_{i=1}^{(t)} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)$ is at least 0. Additionally, $H^{(t)}>0$ is positive as $H$ is a pullback of an ample sheaf. Overall, the total sum $H^{(t)}+\sum\limits_{i=1}^{(t)} H^{(t-i)}(H+N+F)^{(i-1)}(N+F)$ is positive.
+Thus we obtain a nonzero morphism of sheaves
+$$
+\mathcal{O}_{\mathbf{P}'} \to
+    \big(g^*\pi^*\det(\mathcal{Q})(qd) \otimes_{\mathcal{O}_{\mathbf{P}'}}
+      \otimes_{\mathcal{O}_{\mathbf{P}'}}
+    \mathcal{O}_{\mathbf{P}'}(-E)\big)^{\otimes m}
+      \otimes_{\mathcal{O}_{\mathbf{P}'}}
+    g^*\pi^*\mathcal{L}^{-1}
+$$
+for all $m \geq 0$ large.
+Since $E$ is effective, we can compose this morphism with the natural
+inclusion $\mathcal{O}_{\mathbf{P}'}(-E) \to \mathcal{O}_{\mathbf{P}'}$
+to obtain a nonzero morphism
+$$
+\mathcal{O}_{\mathbf{P}'} \to
+    g^*\big(\pi^*\det(\mathcal{Q})^{\otimes m}(mqd)
+      \otimes_{\mathcal{O}_{\mathbf{P}}}
+    \pi^*\mathcal{L}^{-1}\big).
+$$
+Pushing this forward to $X$ and applying the projection formula, we obtain
+a nonzero morphism
+$$
+\mathcal{O}_X \to
+  \det(\mathcal{Q})^{\otimes m}
+    \otimes_{\mathcal{O}_X}
+  \pi_*\mathcal{O}_{\mathbf{P}}(mqd)
+    \otimes_{\mathcal{O}_X}
+  \mathcal{L}^{-1}.
+$$
+Since each term on the right is locally free, this is equivalent to a nonzero
+morphism
+$$
+\tau :
+  (p_*\mathcal{O}_{\mathbf{P}}(mqd))^\vee \otimes_{\mathcal{O}_X} \mathcal{L}
+    \to \det(\mathcal{Q})^{\otimes m}.
+$$
+As before, there exists an ideal sheaf $\mathcal{J} \subseteq \mathcal{O}_X$
+such that the image of $\tau$ is the subsheaf
+$\mathcal{J} \otimes_{\mathcal{O}_X} \det(\mathcal{Q})^{\otimes m}$ of
+$\det(\mathcal{Q})^{\otimes m}$.
+Let $s : X' \to X$ be the blow up of $X$ along $\mathcal{J}$.
+Set
+$P = \mathbf{P}((\pi_*\mathcal{O}_{\mathbf{P}}(mqd))^\vee
+        \otimes_{\mathcal{O}_X} \mathcal{L})$.
+Then $\tau$ gives rise to a morphism
+$v : X' \to P$
+such that
+$$
+v^*\mathcal{O}_P(1) = s^*\det(\mathcal{Q})^{\otimes m}
+                        \otimes_{\mathcal{O}_{X'}} \mathcal{O}_{X'}(-F)
+$$
+for the exceptional divisor $F$ of the blow up $s : X' \to X$.
+Set $P' = \mathbf{P}((\pi_*\mathcal{O}_{\mathbf{P}}(mqd))^\vee)$.
+Then there exists a canonical isomorphism\todo{Find a reference for this.}
+$P \to P'$.
+Let $v' : X' \to P'$ be the composition of $v$ with this isomorphism.
+Then
+$
+\mathcal{L} \otimes_{\mathcal{O}_{X'}} v'^* \mathcal{O}_{P'}(1)
+  = v^* \mathcal{O}_P
+$, so
+$$
+  s^*\det(\mathcal{Q})^{\otimes m}
+    = s^*\mathcal{L}
+        \otimes_{\mathcal{O}_{X'}} v'^* \mathcal{O}_{P'}(1)
+        \otimes_{\mathcal{O}_{X'}} \mathcal{O}_{X'}(F).
+$$
+
+We now compute the top self-intersection of $\det(\mathcal{Q})^{\otimes m}$.
+Since $s : X' \to X$ is birational, by~\cite[\href{http://stacks.math.columbia.edu/tag/0BET}{Tag 0BET}]{stacks-project},
+$$
+  ((\det(\mathcal{Q})^{\otimes m})^{\dim(X)})
+    = ((s^*\det(\mathcal{Q})^{\otimes m})^{\dim(X')}).
+$$
+Write
+$\mathcal{L}'
+  = v'^*\mathcal{O}_{P'}(1) \otimes_{\mathcal{O}_{X'}} \mathcal{O}_{X'}(F)$.
+By~\cite[\href{http://stacks.math.columbia.edu/tag/0BER}{Tag 0BER}]{stacks-project},
+we further have
+$$
+  ((\det(\mathcal{Q})^{\otimes m})^{\dim(X)})
+    = (s^*\mathcal{L}^{\dim(X)})
+      + \sum\nolimits_{i = 1}^{\dim(X)}
+          (s^*\mathcal{L}^{\dim(X) - i} (s^*\det(\mathcal{Q})^{\otimes m})^{i - 1} \mathcal{L}').
+$$
+Since $(\pi_*\mathcal{O}_{\mathbf{P}}(mqd))^\vee$ is semipositive by
+...\todo{Reference back to the semipostivity stuff!},
+$\mathcal{O}_{P'}(1)$ is nef and hence its $v'$ pullback to $X'$ is nef.
+As $F$ is effective, $\mathcal{L}'$ is nef.
+Since $\mathcal{L}$ is ample, $s^*\mathcal{L}$ is nef, so
+$s^*\det(\mathcal{Q})^{\otimes m}$ is nef.
+All this shows that the second term in the sum above is nonnegative.
+Applying~\cite[\href{http://stacks.math.columbia.edu/tag/0BET}{Tag 0BET}]{stacks-project}
+again,
+$$
+  (s^*\mathcal{L}^{\dim(X)}) = (\mathcal{L}^{\dim(X)}) > 0
+$$
+since $\mathcal{L}$ is ample on $X$.
+Thus $((\det(\mathcal{Q})^{\otimes m})^{\dim(X)}) > 0$, so by additivity of
+numerical intersections again, $(\det(\mathcal{Q})^{\dim(X)}) > 0$.
 \end{proof}
 
 \begin{lemma}
