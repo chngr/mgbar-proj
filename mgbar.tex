@@ -139,36 +139,7 @@ Then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \geq 2$.
 \end{lemma}
 
 
-\begin{lemma}[cf.\ {\cite[Theorem 4.6]{Ko90}}]
-\label{lemma-stable-curves-semipositive}
-Let $k$ be a field.
-Let $C$ be a proper connected smooth $k$-scheme of dimension $1$.
-Let $f : S \to C$ be a family of stable curves,
-as defined in Lemma \ref{lemma-stable-curves}.
-Let $C_t$ be a section of $f$.
-Then $\omega_{S/c}\cdot C_t\geq 0$.
-\end{lemma}
 
-\begin{proof}
-Let $i:C_t\hookrightarrow S$ be the inclusion map, and $g=f\circ i:C_t\to C$ be the corresponding isomorphism.
-Consider the short exact sequence:
-$$0\to \mathcal{O}_S(-C_t)\to\mathcal{O}_S\to i_*\mathcal{O}_{C_t}\to 0.$$
-Tensoring with $\omega_{S/C}^{\otimes m}$, we obtain:
-$$0\to \omega_{S/C}^{\otimes m}(-C_t)\to \omega_{S/C}^{\otimes m}\to i_*\mathcal{O}_{C_t}\otimes\omega_{S/C}^{\otimes m}\to 0.$$
-Applying the functor $f_*$ to the sequence, we get a map
-$$f_*\omega_{S/C}^{\otimes m}\to f_*(i_*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to R^1f_*(\omega_{S/C}^{\otimes m}(-C_t)).$$
-For $k\gg 0$, using cohomology and base change we obtain $R^1f_*(\omega_{S/C}^{\otimes m}(-C_t))=0$, so we have a surjection:
-$$f_*\omega_{S/C}^{\otimes m}\to f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
-Applying the functor $g^*$ to the above sequence, we obtain:
-$$g^*f_*\omega_{S/C}^{\otimes m}\to g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
-We now claim that the term on the right is $i^*\omega_{S/C}^{\otimes m}$, since
-\begin{align}
-i^*\omega_{S/C}^{\otimes m}& =g^*g_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
-& =g^*f_*i_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
-&=g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m}).\nonumber
-\end{align}
-This way we obtain a contradiction, since the quotient $g^*f_*\omega_{S/C}^{\otimes m}\to i^*\omega_{S/C}^{\otimes m}\to 0$ contradicts semipositivity. 
-\end{proof}
 
 
 \begin{definition}[cf.\ {\cite[Definition 4.1(i)]{Ko90}}]
@@ -332,6 +303,31 @@ Let $m\ge2$ be an integer.
 Let $a_1,\ldots,a_n$ be non-negative integers such that $a_i\le m$ for each $i$.
 \end{situation}
 
+\begin{lemma}[cf.\ {\cite[Corollary 4.6]{Ko90}}]\label{intersection_with_section}
+Suppose we are in Situation \label{kollar_prop_4.7} where $g\ge2$. Then, $\omega_{S/C}\cdot C_t\ge0$ for any $t$.
+\end{lemma}
+
+\begin{proof}
+Let $i:C_t\hookrightarrow S$ be the inclusion map, and $g=f\circ i$.
+Consider the short exact sequence:
+$$0\to \mathcal{O}_S(-C_t)\to\mathcal{O}_S\to i_*\mathcal{O}_{C_t}\to 0.$$
+Tensoring with $\omega_{S/C}^{\otimes m}$, we obtain:
+$$0\to \omega_{S/C}^{\otimes m}(-C_t)\to \omega_{S/C}^{\otimes m}\to i_*\mathcal{O}_{C_t}\otimes\omega_{S/C}^{\otimes m}\to 0.$$
+Applying the functor $f_*$ to the sequence, we get a map
+$$f_*\omega_{S/C}^{\otimes m}\to f_*(i_*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to R^1f_*(\omega_{S/C}^{\otimes m}(-C_t)).$$
+For $k\gg 0$, using cohomology and base change we obtain $R^1f_*(\omega_{S/C}^{\otimes m}(-C_t))=0$, so we have a surjection:
+$$f_*\omega_{S/C}^{\otimes m}\to f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
+Applying the functor $g^*$ to the above sequence, we obtain:
+$$g^*f_*\omega_{S/C}^{\otimes m}\to g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
+We now claim that the term on the right is $i^*\omega_{S/C}^{\otimes m}$, since
+\begin{align}
+i^*\omega_{S/C}^{\otimes m}& =g^*g_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
+& =g^*f_*i_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
+&=g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m}).\nonumber
+\end{align}
+This way we obtain a contradiction, since the quotient $g^*f_*\omega_{S/C}^{\otimes m}\to i^*\omega_{S/C}^{\otimes m}\to 0$ contradicts semipositivity. 
+\end{proof}
+
 \begin{lemma}\label{base_case_genus_0}
 Suppose we are in Situation \ref{kollar_prop_4.7} where $g=0$ and the sections $C_i$ are pairwise disjoint.
 Assume that $\sum a_i\le 2k-1$.
@@ -404,7 +400,7 @@ Because $a_{t}+1\le k$ by assumption, this invertible sheaf has non-negative deg
 
 We now claim that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))=0$, unless $D_{j-1}=0$.
 Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 1, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
-On the other hand, when $D_{j-1}=0$, Cohomology and Base Change shows that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))$ is an invertible sheaf.
+On the other hand, when $D_{j-1}=0$, Grauert's Theorem shows that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))$ is an invertible sheaf.
 
 
 Thus, if $D_{j-1}\neq0$, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_1}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the semipositive locally free sheaf $f_{*}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is semipositive by \todo{ref to semipositivity section}.
@@ -432,7 +428,7 @@ We proceed by induction on $\sum a_i$.
 The base case where all of the $a_i$ are equal to zero is Lemma \todo{insert ref to kollar 4.5}.
 
 Assume the claim is proven for $D_{j-1}=\sum a_iC_i$; we will prove it for $D_{j}=D_{j-1}+C_t$.
-By \todo{insert ref to our version of kollar 4.6}, $\omega_{S/C}\cdot C_t\ge0$.
+By Lemma \ref{intersection_with_section}, $\omega_{S/C}\cdot C_t\ge0$.
 
 Consider the exact sequence
 \begin{equation*}\label{exact_seq_of_section_twisted_genus_2}
