@@ -1,191 +1,37 @@
 \input{preamble}
-
-
-\newcommand{\todo}[1]{\footnote{\textbf{TODO.} #1}}
+\input{tools}
 \begin{document}
 \title{Ampleness Criteria}
 \maketitle
 
-\section{Ampleness for schemes}
-
-\begin{definition}[{\cite[\href{http://stacks.math.columbia.edu/tag/01PS}{Tag 01PS}]{stacks-project}}]
-\label{definition-ample}
-Let $X$ be a scheme.
-Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
-We say $\mathcal{L}$ is {\it ample} if
-\begin{enumerate}
-\item $X$ is quasi-compact, and
-\item for every $x \in X$ there exists an $n \geq 1$
-and $s \in \Gamma(X, \mathcal{L}^{\otimes n})$ such
-that $x \in X_s$ and $X_s$ is affine.
-\end{enumerate}
-\end{definition}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/01PT}{Tag 01PT}]{stacks-project}}]
-\label{lemma-ample-power-ample}
-Let $X$ be a scheme. Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
-Let $n \geq 1$. Then $\mathcal{L}$ is ample if and only if
-$\mathcal{L}^{\otimes n}$ is ample.
-\end{lemma}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0B5U}{Tag 0B5U}]{stacks-project}}]
-\label{lemma-vanshing-gives-ample}
-Let $R$ be a Noetherian ring. Let $f : X \to \Spec(R)$ be a proper morphism.
-Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
-The following are equivalent
-\begin{enumerate}
-\item $\mathcal{L}$ is ample on $X$ (this is equivalent to many other
-things, see
-Properties, Proposition \ref{properties-proposition-characterize-ample} and
-Morphisms, Lemma
-\ref{morphisms-lemma-finite-type-over-affine-ample-very-ample}),
-\item for every coherent $\mathcal{O}_X$-module $\mathcal{F}$ there exists
-an $n_0 \geq 0$ such that
-$H^p(X, \mathcal{F} \otimes \mathcal{L}^{\otimes n}) = 0$ for all $n \geq n_0$
-and $p > 0$, and
-\item for every quasi-coherent sheaf of ideals
-$\mathcal{I} \subset \mathcal{O}_X$, there exists an $n \geq 1$
-such that $H^1(X, \mathcal{I} \otimes \mathcal{L}^{\otimes n}) = 0$.
-\end{enumerate}
-\end{lemma}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0B5V}{Tag 0B5V}]{stacks-project}}]
-\label{lemma-surjective-finite-morphism-ample}
-Let $R$ be a Noetherian ring. Let $f : Y \to X$ be a morphism of
-schemes proper over $R$. Let $\mathcal{L}$ be an
-invertible $\mathcal{O}_X$-module. Assume $f$ is finite and surjective.
-Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
-\end{lemma}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/09MS}{Tag 09MS}]{stacks-project}}]
-\label{lemma-ample-on-reduction}
-Let $i : Z \to X$ be a closed immersion of Noetherian schemes
-inducing a homeomorphism of underlying topological spaces.
-Let $\mathcal{L}$ be an invertible sheaf on $X$.
-Then $i^*\mathcal{L}$ is ample on $Z$, if and only if
-$\mathcal{L}$ is ample on $X$.
-\end{lemma}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0B5X}{Tag 0B5X}]{stacks-project}}]
-\label{lemma-ample-curve}
-Let $k$ be a field. Let $X$ be a proper curve over $k$.
-Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
-Then $\mathcal{L}$ is ample if and only if $\deg(\mathcal{L}) > 0$.
-\end{lemma}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0892}{Tag 0892}]{stacks-project}}]
-\label{lemma-pullback-ample-tensor-relatively-ample}
-Let $f : X \to Y$ be a morphism of schemes, $\mathcal{M}$
-an invertible $\mathcal{O}_Y$-module, and $\mathcal{L}$ an
-invertible $\mathcal{O}_X$-module.
-\begin{enumerate}
-\item If $\mathcal{L}$ is $f$-ample and $\mathcal{M}$
-is ample, then $\mathcal{L} \otimes f^*\mathcal{M}^{\otimes a}$ is ample
-for $a \gg 0$.
-\item If $\mathcal{M}$ is ample
-and $f$ quasi-affine, then $f^*\mathcal{M}$ is ample.
-\end{enumerate}
-\end{lemma}
-
-\section{Numerical intersection theory for schemes}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0BEV}{Tag 0BEV}]{stacks-project}}]
-\label{lemma-ample-positive}
-Let $k$ be a field. Let $X$ be proper over $k$. Let $Z \subset X$ be
-a closed subscheme of dimension $d$. If $\mathcal{L}_1, \ldots, \mathcal{L}_d$
-are ample, then $(\mathcal{L}_1 \cdots \mathcal{L}_d \cdot Z)$ is positive.
-\end{lemma}
-
-\section{Meromorphic functions}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/02OZ}{Tag 02OZ}]{stacks-project}}]
-\label{lemma-regular-meromorphic-section-exists}
-Let $X$ be a scheme.
-Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
-In each of the following cases $\mathcal{L}$ has a regular meromorphic
-section:
-\begin{enumerate}
-\item $X$ is integral,
-\item $X$ is reduced and any quasi-compact open has a finite
-number of irreducible components, and
-\item $X$ is locally Noetherian and has no embedded points.
-\end{enumerate}
-\end{lemma}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/02P0}{Tag 02P0}]{stacks-project}}]
-\label{lemma-regular-meromorphic-ideal-denominators}
-Let $X$ be a scheme.
-Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
-Let $s$ be a regular meromorphic section of $\mathcal{L}$.
-Let us denote $\mathcal{I} \subset \mathcal{O}_X$ the
-sheaf of ideals defined by the rule
-$$
-\mathcal{I}(V)
-=
-\{f \in \mathcal{O}_X(V) \mid fs \in \mathcal{L}(V)\}.
-$$
-The formula makes sense since
-$\mathcal{L}(V) \subset \mathcal{K}_X(\mathcal{L})(V)$.
-Then $\mathcal{I}$ is a quasi-coherent sheaf of ideals and
-we have injective maps
-$$
-1 : \mathcal{I} \longrightarrow \mathcal{O}_X,
-\quad
-s : \mathcal{I} \longrightarrow \mathcal{L}
-$$
-whose cokernels are supported on closed nowhere dense subsets of $X$.
-\end{lemma}
-
-\section{Finite morphisms}
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/02OG}{Tag 02OG}]{stacks-project}}]
-\label{lemma-characterize-finite}
-(For a more general version see
-More on Morphisms, Lemma \ref{more-morphisms-lemma-characterize-finite}).
-Let $f : X \to S$ be a morphism of schemes.
-Assume $S$ is locally Noetherian.
-The following are equivalent
-\begin{enumerate}
-\item $f$ is finite, and
-\item $f$ is proper with finite fibres.
-\end{enumerate}
-\end{lemma}
-
 \section{Nakai--Moishezon}
-In this section, we work out some ampleness criteria for schemes over
-algebraically closed fields.
+In this section, we prove an ampleness criterion for invertible sheaves on
+schemes over a field using intersection theory.
+The next result can be seen as a converse to~\citeSP{0BEV}.
 
 \begin{theorem}[Nakai--Moishezon Criterion]
 \label{theorem-nakai-moishezon}
 Let $X$ be a proper scheme over an algebraically closed field $k$.
 Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
-Then the following are equivalent:
-\begin{enumerate}
-  \item $\mathcal{L}$ is ample.
-  \item For every closed integral subscheme $Y$ of $X$,
-    $(\mathcal{L}^{\dim(Y)} \cdot Y) > 0$.
-\end{enumerate}
+Assume that for every closed integral subscheme $Y$ of $X$,
+$(\mathcal{L}^{\dim(Y)} \cdot Y) > 0$.
+Then $\mathcal{L}$ is ample.
 \end{theorem}
 
 \begin{proof}
-Assume (1) holds.
-Then (2) follows from Lemma~\ref{lemma-ample-positive}.
-
-Assume (2) holds.
-Using Lemma~\ref{lemma-surjective-finite-morphism-ample} and
-Lemma~\ref{lemma-ample-on-reduction}, we reduce to the case $X$ is integral.
+Using~\citeSP{0B5V} and~\citeSP{09MS}, we reduce to the case $X$ is integral.
 We proceed by induction on $\dim(X)$.
 When $\dim(X) = 1$, our assumption says that $\deg(\mathcal{L}) > 0$ and hence
-$\mathcal{L}$ is ample by Lemma~\ref{lemma-ample-curve}.
+$\mathcal{L}$ is ample by~\citeSP{0B5X}.
 
 Now suppose $\dim(X) > 1$ and that the theorem is true for all proper schemes
 of lower dimension.
-Since $X$ is integral, $\mathcal{L}$ has a regular meromorphic section by
-Lemma~\ref{lemma-regular-meromorphic-section-exists}.
+Since $X$ is integral, $\mathcal{L}$ has a regular meromorphic section
+by~\citeSP{02OZ}.
 Let $\mathcal{I}_1$ be the sheaf of denominators of $\mathcal{L}$ and set
 $\mathcal{I}_2 = \mathcal{I}_1 \otimes \mathcal{L}$.
 Let $Y_j$ be the closed subschemes defined by $\mathcal{I}_j$ with $j = 1,2$.
-By Lemma~\ref{lemma-regular-meromorphic-ideal-denominators},
-$\dim(Y_j) < \dim(X)$.
+By~\citeSP{02P0}, $\dim(Y_j) < \dim(X)$.
 Then, for all $m \geq 0$, we the following commutative diagram with exact rows:
 $$
 \xymatrix{
@@ -202,7 +48,7 @@ $$
 }
 $$
 By induction, $\mathcal{L}\rvert_{Y_j}$ is ample on $Y_j$ for $j = 1,2$.
-Hence by Lemma~\ref{lemma-vanshing-gives-ample}, there is some $m_0 \geq 0$
+Hence by~\citeSP{0B5U}, there is some $m_0 \geq 0$
 such that for all $m \geq m_0$,
 $H^i(Y_j,\mathcal{L}^{\otimes m}\rvert_{Y_j}) = 0$ for all $i > 0$.
 Thus, taking the long exact sequence in cohomology of the sequences above,
@@ -231,7 +77,7 @@ as $m \to \infty$. Thus,
 $h^0(X,\mathcal{L}^{\otimes m}) - h^1(X,\mathcal{L}^{\otimes m}) \to \infty$
 as $m \to \infty$; in particular,
 $h^0(X,\mathcal{L}^{\otimes m}) \to \infty$ as $m \to \infty$.
-By Lemma \ref{lemma-ample-power-ample}, we may replace $\mathcal{L}$ by
+By Lemma~\citeSP{01PS}, we may replace $\mathcal{L}$ by
 $\mathcal{L}^{\otimes m}$ to assume $\mathcal{L} = \mathcal{O}_X(D)$ for some
 effective Cartier divisor $D$.
 
@@ -242,7 +88,7 @@ $$
 \longrightarrow \mathcal{O}_D(mD) \longrightarrow 0.
 $$
 Since $\mathcal{O}_D(mD)$ is ample by the inductive hypothesis,
-Serre vanishing (Lemma \ref{lemma-vanshing-gives-ample}) implies
+Serre vanishing~\citeSP{0B5U} implies
 $H^1(D,\mathcal{O}_D(mD)) = 0$ for $m \gg 0$, hence the maps
 $$
 \rho_m : H^1(X,\mathcal{O}_X((m -1)D)) \longrightarrow H^1(X,\mathcal{O}_X(mD))
@@ -311,13 +157,12 @@ $$
 which is a contradiction, since $(\mathcal{L}^{\dim X - 1} \cdot C) > 0$ by (2),
 whereas $\mathcal{O}_C$ has constant Euler characteristic. Thus, $f$ is
 quasi-finite; since it is proper by the fact that both $X$ and $\mathbf{P}^n_k$
-are proper, we moreover have that $f$ is finite by
-Lemma~\ref{lemma-characterize-finite}.
+are proper, we moreover have that $f$ is finite by~\citeSP{02OG}.
 Since the pullback of an ample invertible sheaf via a quasi-finite morphism is
-ample by Lemma~\ref{lemma-pullback-ample-tensor-relatively-ample} and finite
+ample by~\citeSP{0892} and finite
 morphisms are quasi-finite by definition,
 $\mathcal{O}_X(mD)$ is ample for $m \gg 0$.
-Hence $\mathcal{O}_X(D)$ is ample by Lemma \ref{lemma-ample-power-ample}.
+Hence $\mathcal{O}_X(D)$ is ample by~\citeSP{01PS}.
 \end{proof}
 
 \bibliographystyle{unsrt}
