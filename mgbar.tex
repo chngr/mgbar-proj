@@ -65,6 +65,7 @@ Then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \geq 2$.
 \end{lemma}
 
 \begin{definition}[cf.\ {\cite[Definition 4.1(i)]{Ko90}}]
+\label{definition-semismooth}
 Let $k$ be a field.
 Let $X$ be an algebraic variety over $k$.
 We say $X$ is {\it semismooth} if all of its closed points are analytically
@@ -78,15 +79,49 @@ In this case the singular locus is smooth, and we call it the {\it double
 divisor} of $X$.
 \end{definition}
 
-\begin{theorem}[cf.\ {\cite[Theorem 4.3]{Ko90}}]
-\label{theorem-kollar-theorem-4.3}
+\begin{situation}
+\label{situation-kollar-theorem-4.3}
 Let $k$ be a field.
 Let $S$ be a complete Gorenstein integral $k$-scheme of dimension $2$ that is
 semismooth.
-Let $C$ be a complete connected smooth $k$-scheme of dimension $1$.
-Let $f : S \to C$ be a surjective map onto $C$.
-If the general fiber of $f$ has only nodes as singularities, %all do
-then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \ge 2$. 
+Let $C$ be a complete connected regular $k$-scheme of dimension $1$.
+Let $f : S \to C$ be a surjective map onto $C$, such that the general fiber of
+$f$ has only nodes as singularities.
+\end{situation}
+
+\begin{lemma}
+\label{lemma-base-change-okay}
+Consider Situation \ref{situation-kollar-theorem-4.3}.
+Let $C'$ be a complete connected smooth $k$-scheme of dimension $1$, and
+consider the cartesian square
+$$
+\xymatrix{
+S' \ar[d]_{f'}\ar[r]^{g'} & S\ar[d]^f\\
+C' \ar[r]^g & C
+}
+$$
+where $g: C' \to C$ is surjective.
+If for some $m$, the sheaf $f'_*(\omega_{S'/C'}^{\otimes m})$ is semipositive,
+then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive.
+\end{lemma}
+\begin{proof}
+Suppose $f_*(\omega_{S/C}^{\otimes m})$ is not semipositive, i.e., there
+exists a quotient
+$$f_*(\omega_{S/C}^{\otimes m}) \longrightarrow L$$
+where $L$ is an invertible sheaf of negative degree.
+Pulling back to $C'$, we then obtain a quotient
+$$g^*f_*(\omega_{S/C}^{\otimes m}) \longrightarrow g^*L$$
+of $g^*f_*(\omega_{S/C}^{\otimes m})$ that has negative degree on $C'$.
+Since $f$ is flat \cite[\href{http://stacks.math.columbia.edu/tag/00R4}{Tag
+00R4}]{stacks-project}, we can apply flat base change
+\cite[\href{http://stacks.math.columbia.edu/tag/02KH}{Tag 02KH}]{stacks-project}
+to obtain
+\end{proof}
+
+\begin{theorem}[cf.\ {\cite[Theorem 4.3]{Ko90}}]
+\label{theorem-kollar-theorem-4.3}
+In Situation \ref{situation-kollar-theorem-4.3}, 
+the sheaf $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \ge 2$. 
 \end{theorem}
 
 
