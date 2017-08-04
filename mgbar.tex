@@ -64,6 +64,39 @@ as defined in Lemma \ref{lemma-stable-curves}.
 Then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \geq 2$.
 \end{lemma}
 
+
+\begin{lemma}[cf.\ {\cite[Theorem 4.6]{Ko90}}]
+\label{lemma-stable-curves-semipositive}
+Let $k$ be a field.
+Let $C$ be a proper connected smooth $k$-scheme of dimension $1$.
+Let $f : S \to C$ be a family of stable curves,
+as defined in Lemma \ref{lemma-stable-curves}.
+Let $C_t$ be a section of $f$.
+Then $\omega_{S/c}\cdot C_t\geq 0$.
+\end{lemma}
+
+\begin{proof}
+Let $i:C_t\hookrightarrow S$ be the inclusion map, and $g=f\circ i:C_t\to C$ be the corresponding isomorphism.
+Consider the short exact sequence:
+$$0\to \mathcal{O}_S(-C_t)\to\mathcal{O}_S\to i_*\mathcal{O}_{C_t}\to 0.$$
+Tensoring with $\omega_{S/C}^{\otimes m}$, we obtain:
+$$0\to \omega_{S/C}^{\otimes m}(-C_t)\to \omega_{S/C}^{\otimes m}\to i_*\mathcal{O}_{C_t}\otimes\omega_{S/C}^{\otimes m}\to 0.$$
+Applying the functor $f_*$ to the sequence, we get a map
+$$f_*\omega_{S/C}^{\otimes m}\to f_*(i_*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to R^1f_*(\omega_{S/C}^{\otimes m}(-C_t)).$$
+For $k\gg 0$, using cohomology and base change we obtain $R^1f_*(\omega_{S/C}^{\otimes m}(-C_t))=0$, so we have a surjection:
+$$f_*\omega_{S/C}^{\otimes m}\to f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
+Applying the functor $g^*$ to the above sequence, we obtain:
+$$g^*f_*\omega_{S/C}^{\otimes m}\to g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
+We now claim that the term on the right is $i^*\omega_{S/C}^{\otimes m}$, since
+\begin{align}
+i^*\omega_{S/C}^{\otimes m}& =g^*g_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
+& =g^*f_*i_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
+&=g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m}).\nonumber
+\end{align}
+This way we obtain a contradiction, since the quotient $g^*f_*\omega_{S/C}^{\otimes m}\to i^*\omega_{S/C}^{\otimes m}\to 0$ contradicts semipositivity. 
+\end{proof}
+
+
 \begin{definition}[cf.\ {\cite[Definition 4.1(i)]{Ko90}}]
 \label{definition-semismooth}
 Let $k$ be a field.
@@ -273,8 +306,6 @@ Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_2}) expresses
 Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$ of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on $C_t$.
 \end{proof}
 
-
-
 \begin{lemma}
 Suppose we are in Situation \ref{kollar_prop_4.7}.
 Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is semipositive.
@@ -282,6 +313,7 @@ Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is semipositive.
 \begin{proof}
 Reduce to the case where the sections are disjoint by blowing up.
 \end{proof}
+
 
 \bibliographystyle{unsrt}
 \bibliography{references}
