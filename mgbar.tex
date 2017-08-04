@@ -254,11 +254,35 @@ $$
 \mathrm{Tr}_b : b_*(\omega_{\widetilde{S}/C}^{\otimes m})
 \longrightarrow \omega_{S/C}^{\otimes m}
 $$
-for the blowup is injective, since $b$ is birational \cite[Prop.\ 5.77]{KM}.
-Pushing forward $\mathrm{Tr}_b$ to the curve $C$, we then have that
-$f_*(\omega_{S/C}^{\otimes m})$ is semipositive.\todo{The point should be that
-the cokernel of $\mathrm{Tr}_b$ pushes forward to a semipositive bundle.}
-Now after repeating finitely many blowups of double curves not dominating $C$,
+for the blowup is injective, since $b$ is birational, and is an isomorphism away
+from $D$ \cite[Prop.\ 5.77]{KM}.
+We threfore have a short exact sequence
+$$
+0 \longrightarrow b_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow \omega_{S/C}^{\otimes m} \longrightarrow \mathcal{Q}
+\longrightarrow 0,
+$$
+where $\mathcal{Q}$ is supported in $D$.
+Pushing this forward $\mathrm{Tr}_b$ to the curve $C$, we then have the
+left-exact sequence
+$$
+0 \longrightarrow (f \circ b)_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow f_*(\omega_{S/C}^{\otimes m}) \longrightarrow f_*\mathcal{Q}.
+$$
+Since $D$ is contained in a fiber over $C$, the sheaf $f_*\mathcal{Q}$ is a
+skyscraper sheaf supported at a point on $C$.
+We can therefore replace $f_*\mathcal{Q}$ with the subsheaf $\mathcal{Q}'$
+making the sequence
+$$
+0 \longrightarrow (f \circ b)_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow f_*(\omega_{S/C}^{\otimes m}) \longrightarrow \mathcal{Q}'
+\longrightarrow 0
+$$
+exact.
+Since $\mathcal{Q}'$ is a skyscraper sheaf, it has positive degree on $C$.
+Thus, assuming $(f \circ b)_*(\omega_{\widetilde{S}/C}^{\otimes m})$ is
+semipositive, we have that $f_*(\omega_{S/C}^{\otimes m})$ is also.
+After repeating finitely many blowups of double curves not dominating $C$,
 all remaining double curves will dominate $C$.
 
 We now claim that we may assume that every double curve $D$ in $S$ is a
@@ -272,7 +296,14 @@ D \ar[r]^g & C
 $$
 It suffices to show the statement of the Theorem for the morphism $f'$ by Lemma
 \ref{lemma-base-change-okay}, and the inverse image of $D$ in $S \times_C D$ is
-a now a section of $f'$.
+a now a section of $f'$ by using the cartesianness of the square:
+$$
+\xymatrix{
+D\ar@{=}@/_/[ddr]\ar@{^{(}->}@/^/[drr]\ar@{-->}[dr]\\
+& S \times_C D \ar[r]^{g'}\ar[d]_{f'} & S \ar[d]^f\\
+& D \ar[r]^g & C
+}
+$$
 Repeating finitely many base changes, we can ensure that every double curve is a
 section of $f : S \to C$.
 
