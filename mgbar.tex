@@ -227,7 +227,7 @@ $$
 $$
 for the blowup is injective, since $b$ is birational, and is an isomorphism away
 from $D$ \cite[Prop.\ 5.77]{KM}.
-We threfore have a short exact sequence
+We therefore have a short exact sequence
 $$
 0 \longrightarrow b_*(\omega_{\widetilde{S}/C}^{\otimes m})
 \longrightarrow \omega_{S/C}^{\otimes m} \longrightarrow \mathcal{Q}
@@ -448,10 +448,33 @@ Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\o
 
 \begin{lemma}
 Suppose we are in Situation \ref{kollar_prop_4.7}.
-Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is semipositive.
+Then $f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)$ is semipositive.
 \end{lemma}
 \begin{proof}
-Reduce to the case where the sections are disjoint by blowing up.
+Let $b:\widetilde{S}/\to S$ be a blowup morphism such that the proper transforms $C'_i$ of the $C_i$ are pairwise disjoint, and are sections of $f\circ b$.
+By Lemma \ref{inductive_step_genus_0}, Lemma \ref{inductive_step_genus_1}, and Lemma \ref{inductive_step_genus_2}, $(f\circ b)_{*}\omega_{\widetilde{S}/C}^{\otimes m}$ is semipositive.
+
+The Grothendieck trace morphism
+$$
+\mathrm{Tr}_b : b_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow \omega_{S/C}^{\otimes m}
+$$
+for the blowup is injective, since $b$ is birational, and is an isomorphism away
+from $D$ \cite[Prop.\ 5.77]{KM}. Tensoring with $\mathcal{O}_{S}\left(\sum a_iC_i\right)$ and applying the projection formula yields an injection
+$$
+\mathrm{Tr}'_b : b_*\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_ib^{*}C_i\right)\right)
+\longrightarrow \omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right).
+$$
+Therefore, we have an injection
+$$
+\mathrm{Tr}'':(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)
+\longrightarrow f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)
+$$
+after precomposing with the inclusions of $C'_i$ into $b^*C_i$ and applying $f_*$. 
+
+Because $b$ is a blowup of points on $S$, $\mathrm{Tr}''$ is generically an isomorphism. 
+We thus conclude that an invertible quotient of $\mathcal{L}$ of $f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)$ has a subsheaf that is a quotient of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$, and thus must have non-negative degree by the semipositivity of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$.
+This completes the proof.
 \end{proof}
 
 
