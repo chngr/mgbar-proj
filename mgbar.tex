@@ -179,11 +179,13 @@ Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a semipositive locally fr
 \begin{proof}
 This proof is nearly identical to that in genus 1 and genus at least 2.
 
-We proceed by induction on $\sum a_i$. 
+We proceed by induction on $\sum a_i$.
+By the Hodge Index Theorem, we may assume that among $C_1,\ldots,C_n$, $C_1$ is the only section with positive self-intersection.
 The base cases where $a_i\le 2m-1$ is Lemma \ref{base_case_genus_0}.
 
 Assume the claim is proven for $D_{j-1}=\sum a_iC_i$ where $\sum a_i\ge 2m-1$; we will prove it for $D_{j}=D_{j-1}+C_t$.
-By \todo{insert ref to our version of kollar 4.6}, $\omega_{S/C}\cdot C_t\ge0$.
+Because $a_{1}\le m$, we may assume $C_1\neq C_t$.
+By the adjunction formula, $\omega_{S/C}(C_t)|_{C_t}\cong\mathcal{O}_{C_t}$, so $\omega_{S/C}\cdot C_t=-C_t^2\ge0$, as $C_t\neq C_1$.
 
 Consider the exact sequence
 \begin{equation*}\label{exact_seq_of_section_twisted_genus_0}
@@ -212,7 +214,7 @@ We proceed by induction on $\sum a_i$.
 The base case where all of the $a_i$ are equal to zero is Lemma \ref{base_case_genus_1}.
 
 Assume the claim is proven for $D_{j-1}=\sum a_iC_i$; we will prove it for $D_{j}=D_{j-1}+C_t$.
-By \todo{insert ref to our version of kollar 4.6}, $\omega_{S/C}\cdot C_t\ge0$.
+By \todo{THIS DOESN'T WORK!}, $\omega_{S/C}\cdot C_t\ge0$.
 
 Consider the exact sequence
 \begin{equation}\label{exact_seq_of_section_twisted_genus_1}
