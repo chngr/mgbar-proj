@@ -359,28 +359,20 @@ numerical intersections again, $(\det(\mathcal{Q})^{\dim(X)}) > 0$.
 \begin{lemma}
 Let $k$ be a field.
 Let $X$ be a proper algebraic space over $k$.
-Let $V$ be a semipositive vector bundle with structure group $G$.
-Set $W = \mathrm{Sym}^d(V)$ for some $d \geq 1$ and let $n$ be the rank.
-Let $Q$ be a quotient vector bundle of $W$ of rank $k$.
+Let $\mathcal{E}$ be a locally free sheaf of rank $n$ on $X$.
+Set $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and
+let $N = \binom{n + d}{d}$ be the rank.
+Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $q$.
 Assume that the map
 $$
-u : X \to [\mathrm{Gr}(n,k)/G]
+u : X \to [\mathrm{Gr}(N,q)/\mathrm{PGL}_n]
 $$
-is quasi-finite.
-Then $\det(Q)$ is ample.\todo{Rework this in terms of locally free sheaves?}
+constructed in Lemma \ref{lemma-grassman-quotient-stack-map}
+is generically quasi-finite.
+Then $\det(\mathcal{Q})$ is ample.
 \end{lemma}
 
 \begin{proof}
-First we reduce to the case $X$ is normal.
-Since $X$ is proper over a field, Lemma \ref{lemma-ubiquity-nagata} shows $X$
-is a Nagata algebraic space.
-By Lemma \ref{lemma-nagata-normalization}, the normalization
-$\nu : X^\nu \to X$ is a finite morphism.
-Since $\det(Q)$ is ample if and only if $\nu^*\det(Q)$ is ample by
-Lemma ...\todo{Get this lemma from \texttt{ampleness-spaces.tex}.}, we may
-assume $X$ is normal.
-
-So assume $X$ is normal.
 By the Nakai--Moishezon Criterion for spaces\todo{Reference this somehow.},
 we must show that $\det(Q)$ has positive top intersection with
 every irreducible subspace $Z \subset X$.
@@ -394,16 +386,16 @@ $$
     = (\det(i^*Q)^{\dim(Z)})
     = (\det(g^*i^*Q)^{\dim(Z')})
 $$
-so we need to show that the top self-intersection of $\det(g^*i^*Q)$ on $Z'$
-is positive.
-But now $g^*i^*V$ is semipositive by ...\todo{Reference.},
-$g^*i^*W \cong \mathrm{Sym}^d(g^*i^*V)$\todo{Obvious?}, and $g^*i^*Q$ is a
-quotient bundle of $g^*i^*W$ of rank $k$ on $Z'$.
-Also, the map $u \circ i \circ g : Z' \to [\mathrm{Gr}(W,k)/G]$ is quasi-finite
-on the dense open on which $g$ is an isomorphism.
+so we need to show that the top self-intersection of $\det(g^*i^*\mathcal{Q})$
+on $Z'$ is positive.
+But now $g^*i^*\mathcal{E}$ is semipositive by ...\todo{Reference.},
+$g^*i^*\mathcal{F} \cong \mathrm{Sym}^d(g^*i^*\mathcal{E})$,
+and $g^*i^*\mathcal{Q}$ is a quotient bundle of $g^*i^*\mathcal{F}$ of rank $q$
+on $Z'$.
+Also, the map $u \circ i \circ g : Z' \to [\mathrm{Gr}(N,q)/\mathrm{PGL}_n]$
+is quasi-finite on the dense open on which $g$ is an isomorphism.
 Thus Lemma~\ref{lemma-positive-self-intersection},
-$(\det(g^*i^*Q)^{\dim(Z')}) > 0$ and we are done.\todo{Do we normalize $Z'$ or
-  $X$, actually? Does $X$ normal imply $Z'$ normal? That doesn't seem right...}
+$(\det(g^*i^*\mathcal{Q})^{\dim(Z')}) > 0$ and we are done.
 \end{proof}
 
 \bibliographystyle{unsrt}
