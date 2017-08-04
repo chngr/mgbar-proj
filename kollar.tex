@@ -6,164 +6,95 @@
 \title{Koll\'ar's Argument}
 \maketitle
 
-\section{Related Results}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/01E6}{Tag 01E6}]{stacks-project}}]
-\label{lemma-projection-formula}
-Let $f : X \to Y$ be a morphism of ringed spaces.
-Let $\mathcal{F}$ be an $\mathcal{O}_X$-module.
-Let $\mathcal{E}$ be an $\mathcal{O}_Y$-module.
-Assume $\mathcal{E}$ is finite locally free on $Y$, see
-Modules, Definition \ref{modules-definition-locally-free}.
-Then there exist isomorphisms
-$$
-\mathcal{E} \otimes_{\mathcal{O}_Y} R^qf_*\mathcal{F}
-\longrightarrow
-R^qf_*(f^*\mathcal{E} \otimes_{\mathcal{O}_X} \mathcal{F})
-$$
-for all $q \geq 0$. In fact there exists an isomorphism
-$$
-\mathcal{E} \otimes_{\mathcal{O}_Y} Rf_*\mathcal{F}
-\longrightarrow
-Rf_*(f^*\mathcal{E} \otimes_{\mathcal{O}_X} \mathcal{F})
-$$
-in $D^{+}(Y)$ functorial in $\mathcal{F}$.
-\end{lemma}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0BAV}{Tag 0BAV}]{stacks-project}}]
-\label{lemma-ubiquity-nagata}
-The following types of algebraic spaces are Nagata.
-\begin{enumerate}
-\item Any algebraic space locally of finite type over a Nagata scheme.
-\item Any algebraic space locally of finite type over a field.
-\item Any algebraic space locally of finite type over a
-Noetherian complete local ring.
-\item Any algebraic space locally of finite type over $\mathbf{Z}$.
-\item Any algebraic space locally of finite type over a Dedekind ring of
-characteristic zero.
-\item And so on.
-\end{enumerate}
-\end{lemma}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/0BB5}{Tag 0BB5}]{stacks-project}}]
-\label{lemma-nagata-normalization}
-Let $S$ be a scheme. Let $X$ be a Nagata algebraic space over $S$.
-The normalization $\nu : X^\nu \to X$ is a finite morphism.
-\end{lemma}
-
-\begin{lemma}[{\cite[\href{http://stacks.math.columbia.edu/tag/089I}{Tag 089I}]{stacks-project}}]
-\label{lemma-weak-chow}
-Let $A$ be a ring. Let $X$ be an algebraic space over $\Spec(A)$
-whose structure morphism $X \to \Spec(A)$ is separated of finite type.
-Then there exists a proper surjective morphism $X' \to X$
-where $X'$ is a scheme which is H-quasi-projective over $\Spec(A)$.
-\end{lemma}
-
-\begin{lemma}[Chow's lemma][{\cite[\href{http://stacks.math.columbia.edu/tag/088U}{Tag 088U}]{stacks-project}}]
-\label{lemma-chow-noetherian-separated}
-\begin{reference}
-\cite[IV Theorem 3.1]{Kn}
-\end{reference}
-Let $S$ be a scheme. Let $f : X \to Y$ be a morphism of algebraic spaces
-over $S$. Assume $f$ separated of finite type, and $Y$ separated and
-Noetherian. Then there exists a commutative diagram
-$$
-\xymatrix{
-X \ar[rd] & X' \ar[l] \ar[d] \ar[r] & \mathbf{P}^n_Y \ar[ld] \\
-& Y
-}
-$$
-where $X' \to X$ is a $U$-admissible blowup for some dense open
-$U \subset X$ and the morphism $X' \to \mathbf{P}^n_Y$ is an immersion.
-\end{lemma}
-
-\section{Positivity Lemma}
+\section{Ampleness Lemma}
 
 \begin{lemma}
 \label{lemma-grassman-quotient-stack-map}
 Let $X$ be a scheme over a field $k$, and let $\mathcal{E}$ be a%semipositive
-locally free sheaf on $X$ of rank $m$.
-Let $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and let $n$
-be the rank of $\mathcal{F}$.
-Let $q\colon \mathcal{F} \to \mathcal{Q}$ be a locally free quotient of rank $k$.
+locally free sheaf on $X$ of rank $n$.
+Let $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and
+let $N = \binom{n + d}{d}$ be the rank.
+Let $on \mathcal{F} \to \mathcal{Q}$ be a locally free quotient of rank $q$.
 Let $G = \mathrm{PGL}_m$ be the projective general linear group over $k$.
 Then,
 \begin{enumerate}
 \item There exists a closed subscheme $D \subset
-\mathbf{P}((\mathcal{E}^\vee)^{\oplus m})$ such that
+\mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$ such that
 $$
-\mathbf{P}((\mathcal{E}^\vee)^{\oplus m}) \setminus D \longrightarrow X
+\mathbf{P}((\mathcal{E}^\vee)^{\oplus n}) \setminus D \longrightarrow X
 $$
 is a principal $G$-bundle.
-\item There is a $G$-action on $\mathrm{Gr}(n,k)$, and
+\item There is a $G$-action on $\mathrm{Gr}(N,q)$, and
 a $G$-equivariant map
 $$
-\mathbf{P}((\mathcal{E}^\vee)^{\oplus m}) \setminus D \longrightarrow
-\mathrm{Gr}(n,k).
+\mathbf{P}((\mathcal{E}^\vee)^{\oplus n}) \setminus D \longrightarrow
+\mathrm{Gr}(N,q).
 $$
 \item There exists a map of stacks
 $$
-X \longrightarrow [\mathrm{Gr}(n,k)/G].
+X \longrightarrow [\mathrm{Gr}(N,q)/G].
 $$
 \end{enumerate}
 \end{lemma}
 \begin{proof}
 We first prove (1).
-Let $\mathbf{P} = \mathbf{P}( (\mathcal{E}^\vee)^{\oplus m})$ be the projective
-bundle of matrices whose columns belong to $\mathcal{E}$, and write $\pi :
-\mathbf{P} \to X$ for the projection.
-Using the projection formula (Lemma \ref{lemma-projection-formula}),
+Let $\mathbf{P} = \mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$ be the projective
+bundle of matrices whose columns belong to $\mathcal{E}$, and write
+$\pi : \mathbf{P} \to X$ for the projection.
+Using the projection formula~\cite[\href{http://stacks.math.columbia.edu/tag/01E6}{Tag 01E6}]{stacks-project},
 \begin{align*}
 H^0(\mathbf{P}, \pi^*\mathcal{E}(1))
 & \cong H^0(X, \pi_*(\pi^*\mathcal{E} \otimes_{\mathcal{O}_{\mathbf{P}}}
 \mathcal{O}_{\mathbf{P}}(1)))\\
 & \cong H^0(X,\mathcal{E} \otimes_{\mathcal{O}_X}
 \pi_*\mathcal{O}_{\mathbf{P}}(1))\\
-& \cong H^0(X,\mathcal{E} \otimes (\mathcal{E}^\vee)^{\oplus m})\\
-& \cong H^0(X,\mathrm{End}(\mathcal{E})^{\oplus m})
+& \cong H^0(X,\mathcal{E} \otimes (\mathcal{E}^\vee)^{\oplus n})\\
+& \cong H^0(X,\mathrm{End}(\mathcal{E})^{\oplus n})
 \end{align*}
-has $m$ sections, corresponding to the identity on each summand.
+has $n$ sections, corresponding to the identity on each summand.
 We therefore have an evaluation morphism
 $$
-B : \mathcal{O}_{\mathbf{P}}^{\oplus m} \longrightarrow \pi^*\mathcal{E}(1).
+B : \mathcal{O}_{\mathbf{P}}^{\oplus n} \longrightarrow \pi^*\mathcal{E}(1).
 $$
 Taking determinants, this gives a map
 $$
-\det B : \mathcal{O}_{\mathbf{P}} \longrightarrow \det(\pi^*\mathcal{E}) (m).
+\det B : \mathcal{O}_{\mathbf{P}} \longrightarrow \det(\pi^*\mathcal{E})(n).
 $$
-Let $\mathcal{I} \otimes \det(\pi^*\mathcal{E}) (m)$ be the image of $\det B$,
+Let $\mathcal{I} \otimes \det(\pi^*\mathcal{E}) (n)$ be the image of $\det B$,
 and let $D$ be the subscheme of $\mathbf{P}$ defined by $\mathcal{I}$.
 Then, $D$ defines the locus for which $\det B$ vanishes, which is the locus of
-$\mathbf{P}$ where the corresponding matrices are not invertible. We therefore
-see that $\mathbf{P} \setminus D$ corresponds to those matrices that are
-invertible, i.e., are elements of $\mathrm{PGL}_m$. This turns $\mathbf{P}
-\setminus D$ into a principal $\mathrm{PGL}_m$-bundle over $X$.
+$\mathbf{P}$ where the corresponding matrices are not invertible.
+We therefore see that $\mathbf{P} \setminus D$ corresponds to those matrices
+that are invertible, i.e., are elements of $\mathrm{PGL}_n$.
+This turns $\mathbf{P} \setminus D$ into a principal $\mathrm{PGL}_n$-bundle
+over $X$.
 
-For (2), note that $\mathrm{PGL}_m$ acts on $\mathrm{Gr}(n,k)$ via
+For (2), note that $\mathrm{PGL}_n$ acts on $\mathrm{Gr}(N,q)$ via
 $$
-\mathrm{GL}_m \longrightarrow (\mathrm{GL}_m)^{\times d} \longrightarrow
-\mathrm{Aut}(\mathrm{Sym}^d (k^{\oplus m})),
+  \mathrm{GL}_n \longrightarrow
+  (\mathrm{GL}_n)^{\times d} \longrightarrow
+  \mathrm{Aut}(\mathrm{Sym}^d (k^{\oplus n})),
 $$
 which descends to their quotients by $k^*$; note that
-$\mathrm{Aut}(\mathrm{Sym}^d (k^{\oplus m}))/k^*$ is a subgroup of the
-automorphism group of the Grassmannian $\mathrm{Gr}(n,k)$.
+$\mathrm{Aut}(\mathrm{Sym}^d (k^{\oplus n}))/k^*$ is a subgroup of the
+automorphism group of the Grassmannian $\mathrm{Gr}(N,q)$.
 To show the morphism claimed exists, we fist consider what happens when we
 apply $\mathrm{Sym}^d$ to $B$, giving a morphism
 $$
-  \mathrm{Sym}^d(B) : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to
+  \mathrm{Sym}^d(B) : \mathcal{O}_{\mathbf{P}}^{\oplus N} \to
     \pi^*\mathrm{Sym}^d(\mathcal{E})(d) = \pi^*\mathcal{F}(d).
 $$
 Composing this will the given surjection $\mathcal{F} \to \mathcal{Q}$, we
 obtain a morphism
 $$
-  U : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to
+  U : \mathcal{O}_{\mathbf{P}}^{\oplus N} \to
         \pi^*\mathcal{F}(d) \to
         \pi^*\mathcal{Q}(d)
 $$
 which is surjective away from $D$.
 By the universal property of the Grassmannian, we obtain a morphism
-$\mathbf{P} \setminus D \to \mathrm{Gr}(n,k)$. It is $G$-equivariant by tracing
-the definitions.
+$\mathbf{P} \setminus D \to \mathrm{Gr}(N,q)$.
+It is $G$-equivariant by tracing the definitions.
 
 For (3), this follows from general properties of quotient stacks, plus the fact
 that $(\mathbf{P} \setminus D)/G \simeq X$.
@@ -359,51 +290,44 @@ numerical intersections again, $(\det(\mathcal{Q})^{\dim(X)}) > 0$.
 \begin{lemma}
 Let $k$ be a field.
 Let $X$ be a proper algebraic space over $k$.
-Let $V$ be a semipositive vector bundle with structure group $G$.
-Set $W = \mathrm{Sym}^d(V)$ for some $d \geq 1$ and let $n$ be the rank.
-Let $Q$ be a quotient vector bundle of $W$ of rank $k$.
+Let $\mathcal{E}$ be a locally free sheaf of rank $n$ on $X$.
+Set $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and
+let $N = \binom{n + d}{d}$ be the rank.
+Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $q$.
 Assume that the map
 $$
-u : X \to [\mathrm{Gr}(n,k)/G]
+u : X \to [\mathrm{Gr}(N,q)/\mathrm{PGL}_n]
 $$
-is quasi-finite.
-Then $\det(Q)$ is ample.\todo{Rework this in terms of locally free sheaves?}
+constructed in Lemma \ref{lemma-grassman-quotient-stack-map}
+is generically quasi-finite.
+Then $\det(\mathcal{Q})$ is ample.
 \end{lemma}
 
 \begin{proof}
-First we reduce to the case $X$ is normal.
-Since $X$ is proper over a field, Lemma \ref{lemma-ubiquity-nagata} shows $X$
-is a Nagata algebraic space.
-By Lemma \ref{lemma-nagata-normalization}, the normalization
-$\nu : X^\nu \to X$ is a finite morphism.
-Since $\det(Q)$ is ample if and only if $\nu^*\det(Q)$ is ample by
-Lemma ...\todo{Get this lemma from \texttt{ampleness-spaces.tex}.}, we may
-assume $X$ is normal.
-
-So assume $X$ is normal.
 By the Nakai--Moishezon Criterion for spaces\todo{Reference this somehow.},
 we must show that $\det(Q)$ has positive top intersection with
 every irreducible subspace $Z \subset X$.
 So let $Z \subset X$ be any irreducible subspace and write $i : Z \to X$ for
 the inclusion.
-By Lemma \ref{lemma-chow-noetherian-separated}, there is a projective
-scheme $Z'$ and a proper birational morphism $g : Z' \to Z$.
+By~\cite[\href{http://stacks.math.columbia.edu/tag/088U}{Tag 088U}]{stacks-project},
+there is a projective scheme $Z'$ and a proper birational morphism
+$g : Z' \to Z$.
 Now
 $$
   (\det(Q)^{\dim(Z)} \cdot Z)
     = (\det(i^*Q)^{\dim(Z)})
     = (\det(g^*i^*Q)^{\dim(Z')})
 $$
-so we need to show that the top self-intersection of $\det(g^*i^*Q)$ on $Z'$
-is positive.
-But now $g^*i^*V$ is semipositive by ...\todo{Reference.},
-$g^*i^*W \cong \mathrm{Sym}^d(g^*i^*V)$\todo{Obvious?}, and $g^*i^*Q$ is a
-quotient bundle of $g^*i^*W$ of rank $k$ on $Z'$.
-Also, the map $u \circ i \circ g : Z' \to [\mathrm{Gr}(W,k)/G]$ is quasi-finite
-on the dense open on which $g$ is an isomorphism.
+so we need to show that the top self-intersection of $\det(g^*i^*\mathcal{Q})$
+on $Z'$ is positive.
+But now $g^*i^*\mathcal{E}$ is semipositive by ...\todo{Reference.},
+$g^*i^*\mathcal{F} \cong \mathrm{Sym}^d(g^*i^*\mathcal{E})$,
+and $g^*i^*\mathcal{Q}$ is a quotient bundle of $g^*i^*\mathcal{F}$ of rank $q$
+on $Z'$.
+Also, the map $u \circ i \circ g : Z' \to [\mathrm{Gr}(N,q)/\mathrm{PGL}_n]$
+is quasi-finite on the dense open on which $g$ is an isomorphism.
 Thus Lemma~\ref{lemma-positive-self-intersection},
-$(\det(g^*i^*Q)^{\dim(Z')}) > 0$ and we are done.\todo{Do we normalize $Z'$ or
-  $X$, actually? Does $X$ normal imply $Z'$ normal? That doesn't seem right...}
+$(\det(g^*i^*\mathcal{Q})^{\dim(Z')}) > 0$ and we are done.
 \end{proof}
 
 \bibliographystyle{unsrt}
