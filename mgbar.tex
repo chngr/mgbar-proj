@@ -82,9 +82,9 @@ divisor} of $X$.
 \begin{situation}
 \label{situation-kollar-theorem-4.3}
 Let $k$ be a field.
-Let $S$ be a complete Gorenstein integral $k$-scheme of dimension $2$ that is
+Let $S$ be a complete Gorenstein reduced $k$-scheme of dimension $2$ that is
 semismooth.
-Let $C$ be a complete connected regular $k$-scheme of dimension $1$.
+Let $C$ be a complete integral smooth $k$-scheme of dimension $1$.
 Let $f : S \to C$ be a surjective map onto $C$, such that the general fiber of
 $f$ has only nodes as singularities.
 \end{situation}
@@ -92,7 +92,7 @@ $f$ has only nodes as singularities.
 \begin{lemma}
 \label{lemma-base-change-okay}
 Consider Situation \ref{situation-kollar-theorem-4.3}.
-Let $C'$ be a complete connected smooth $k$-scheme of dimension $1$, and
+Let $C'$ be a complete integral smooth $k$-scheme of dimension $1$, and
 consider the cartesian square
 $$
 \xymatrix{
@@ -107,10 +107,10 @@ then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive.
 \begin{proof}
 Suppose $f_*(\omega_{S/C}^{\otimes m})$ is not semipositive, i.e., there
 exists a quotient
-$$f_*(\omega_{S/C}^{\otimes m}) \longrightarrow L$$
-where $L$ is an invertible sheaf of negative degree.
+$$f_*(\omega_{S/C}^{\otimes m}) \longrightarrow \mathcal{L}$$
+where $\mathcal{L}$ is an invertible sheaf of negative degree.
 Pulling back to $C'$, we then obtain a quotient
-$$g^*f_*(\omega_{S/C}^{\otimes m}) \longrightarrow g^*L$$
+$$g^*f_*(\omega_{S/C}^{\otimes m}) \longrightarrow g^*\mathcal{L}$$
 of $g^*f_*(\omega_{S/C}^{\otimes m})$ that has negative degree on $C'$.
 Since $f$ is flat \cite[\href{http://stacks.math.columbia.edu/tag/00R4}{Tag
 00R4}]{stacks-project}, we can apply flat base change
@@ -125,9 +125,9 @@ where the second isomorphism is
 by the compatibility of the relative dualizing sheaf with pullbacks
 \cite[\href{http://stacks.math.columbia.edu/tag/0E4P}{Tag
 0E4P}]{stacks-project}.
-We therefore obtain a negative quotient $g^*L$ of $f'_*(\omega_{S'/C'}^{\otimes
-m})$, which contradicts the assumption that $f'_*(\omega_{S'/C'}^{\otimes m})$
-was semipositive.
+We therefore obtain a negative quotient $g^*\mathcal{L}$ of
+$f'_*(\omega_{S'/C'}^{\otimes m})$, which contradicts the assumption that
+$f'_*(\omega_{S'/C'}^{\otimes m})$ was semipositive.
 \end{proof}
 
 \begin{theorem}[cf.\ {\cite[Theorem 4.3]{Ko90}}]
@@ -135,8 +135,24 @@ was semipositive.
 In Situation \ref{situation-kollar-theorem-4.3}, 
 the sheaf $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \ge 2$. 
 \end{theorem}
-
-
+\begin{proof}
+We first claim that we may assume that every double curve in $S$ dominates $C$.
+Suppose that a double curve $D$ maps to a point in $C$.
+Then, by the semismoothness condition\todo{I think.}, $D$ must be the
+intersection of two
+irreducible components in $S$, and blowing up $D$ gives a map $b :
+\widetilde{S} \to S$ that separates the two irreducible components.
+There is a natural short exact sequence\todo{Why?}
+$$0 \longrightarrow b_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow \omega_{S/C}^{\otimes m} \longrightarrow
+\mathcal{K} \longrightarrow 0,$$
+where the support of $\mathcal{K}$ is in $D$. Pushing forward, we have a
+semipositive bundle $\mathcal{K}$, hence $f_*(\omega_{S/C}^{\otimes m})$ is the
+extension of semipositive bundles, hence semipositive.
+\par We now claim that we may assume that every double curve $D$ in $S$ is a
+section of $f : S \to C$.
+If it is not, then we can base change by 
+\end{proof}
 
 
 
