@@ -230,7 +230,7 @@ Tensoring with $\omega_{S/C}^{\otimes m}$, we obtain:
 $$0\to \omega_{S/C}^{\otimes m}(-C_t)\to \omega_{S/C}^{\otimes m}\to i_*\mathcal{O}_{C_t}\otimes\omega_{S/C}^{\otimes m}\to 0.$$
 Applying the functor $f_*$ to the sequence, we get a map
 $$f_*\omega_{S/C}^{\otimes m}\to f_*(i_*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to R^1f_*(\omega_{S/C}^{\otimes m}(-C_t)).$$
-For $k\gg 0$, using cohomology and base change we obtain $R^1f_*(\omega_{S/C}^{\otimes m}(-C_t))=0$, so we have a surjection:
+For $m\gg 0$, using cohomology and base change we obtain $R^1f_*(\omega_{S/C}^{\otimes m}(-C_t))=0$, so we have a surjection:
 $$f_*\omega_{S/C}^{\otimes m}\to f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
 Applying the functor $g^*$ to the above sequence, we obtain:
 $$g^*f_*\omega_{S/C}^{\otimes m}\to g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
@@ -376,7 +376,14 @@ D \ar[r]^g & C
 $$
 It suffices to show the statement of the Theorem for the morphism $f'$ by Lemma
 \ref{lemma-base-change-okay}, and the inverse image of $D$ in $S \times_C D$ is
-a now a section of $f'$.
+now a section of $f'$ by using the cartesianness of the square:
+$$
+\xymatrix{
+D\ar@{=}@/_/[ddr]\ar@{^{(}->}@/^/[drr]\ar@{-->}[dr]\\
+& S \times_C D \ar[r]^{g'}\ar[d]_{f'} & S \ar[d]^f\\
+& D \ar[r]^g & C
+}
+$$
 Repeating finitely many base changes, we can ensure that every double curve is a
 section of $f : S \to C$.
 
@@ -387,8 +394,8 @@ normalization (analyticall) locally splits up the double curve into two separate
 curves on two different irreducible components.
 These two curves will still be sections.
 
-We have therefore reduced the statement to the situation of \cite[Proposition
-4.9]{Ko90}.\todo{Where is this proved?}
+We have therefore reduced the statement to the situation of Lemma
+\ref{kollar-theorem-4.9}.
 %We are now at the top of p. 255
 \end{proof}
 
@@ -562,6 +569,34 @@ We thus conclude that an invertible quotient of $\mathcal{L}$ of $f_{*}\left(\om
 This completes the proof.
 \end{proof}
 
+\begin{lemma}[cf.\ {\cite[Theorem 4.9]{Ko90}}]
+\label{kollar-theorem-4.9}
+Let $k$ be a field.
+Let $C$ be a proper connected smooth $k$-scheme of dimension $1$.
+Let $S$ be a semismooth surface.
+Let $f:S\to C$ be a surjective map whose general fiber is a stable curve.
+Let $D$ be a double curve on $S$.
+Assume $D$ consists of section of $f:S\to C$.
+Let $g:S'\to S$ be the normalization of $S$.
+Let $D'=g^{-1}(D)$.
+Assume each component of $D'$ is a section.
+Let $m\geq 2$ any integer.
+Then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive.
+\end{lemma}
+\begin{proof}
+By \ref{kollar_prop_4.7} we know that $(f\circ g)_*(\omega_{S'/C}^{\otimes m})$ is semipositive.
+Observe that $g^*\omega_{S/C}\cong \omega_{S'/C}(D')$.
+Now we consider the short exact sequence;
+$$0\to\mathcal{O}_{S}(-D)\to\mathcal{O}_S\to\mathcal{O}_D\to 0.$$
+We tensor the sequence with $\omega_{S/C}$ and obtain:
+$$0\to g_*(\omega_{S'/C})\to \omega_{S/C}\to \omega_{S/C}|D\cong \mathcal{O}_D\to 0.$$
+Now we tensor the sequence with $\omega_{S/C}^{\otimes (m-1)}$ and apply the projection formula, obtaining:
+$$0\to g_*\omega_{S'/C}^{\otimes m}((m-1)D')\to \omega_{S/C}^{\otimes m}\to \mathcal{O}_D\to 0.$$
+ Now we apply the functor $f_*$ to the sequence and use that $R^1(f\circ g)_*\omega_{S'/C}^{\otimes m}((m-1)D')=0$ for $m\geq 2$, obtaining the following sequence:
+ $$0\to (f\circ g)_*\omega_{S'/C}^{\otimes m}((m-1)D')\to f_*\omega_{S/C}^{\otimes m}\to f_*\mathcal{O}_D\to 0.$$
+ $f_*\mathcal{O}_D$ is isomorphic to the sum of copies of $\mathcal{O}_C$, therefore $f_*\omega_{S/C}^{\otimes m}$ is semipositive for all $k\geq 2$. 
+\end{proof}
+
 \section{Projectivity of $\overline{\mathcal{M}_g}$}
 
 \begin{lemma}
@@ -569,14 +604,18 @@ Let $g\ge 2$ be a positive integer.
 Then $\overline{M_g}$ is a projective scheme over $\Spec \mathbb{Z}$.
 \end{lemma}
 \begin{proof}
-\todo{this needs to be rewritten, citing many lemmas with reductions etc.}
-First we will show that there as an ample invertible sheaf as an algebraic space. Being a stable curve is an open condition. Hence, we can check locally for each stable curve $C$. Boundedness holds since $\omega_C^{\otimes 3}$ is very ample.
 
-Completeness and separatedness follow from the stable reduction theorem. [cf.\ {[8],[5]  of Kollar}] The automorphism group is finite and reduced since $H^0(\mathcal{T}_C)=0$. The relative dualizing sheaf provides a functorial polarization which is semipositive by \ref{kollar_thm_4.3}  Hence, $\overline{\mathcal{M}_g}$ is projective over any field.
+\todo{this needs to be rewritten, citing many lemmas with reductions etc.}
+
+First we will show that there as an ample invertible sheaf as an algebraic space. Being a stable curve is an open condition \cite[Tag 0E76]{stacks-project}. Hence, we can check locally for each stable curve $C$. Boundedness holds since $\omega_C^{\otimes 3}$ is very ample.
+
+%i don't think kollar means what the stacks project does for open condition -- the openness in his sense is vacuous for us. -CL
+
+Completeness and separatedness follow from the stable reduction theorem.\cite[Tag 0E8C]{stacks-project} [cf.\ {[8],[5]  of Kollar}]  The automorphism group is finite and reduced since $H^0(\mathcal{T}_C)=0$.\cite[Tag 0E69]{stacks-project} The relative dualizing sheaf provides a functorial polarization which is semipositive by \ref{kollar_thm_4.3}  Hence, $\overline{\mathcal{M}_g}$ is projective over any field.
 
 The image of the three-canonical map is a curve of degree $6g-6$, thus it is cut out by equations of degree no higher than $6g-6$. Hence $\lambda_{18g-8}$ is ample where for any $m$ we set $\lambda_m=\det \pi_*(\omega^{\otimes m}_{\mathcal{C}\overline{\mathcal{M}_g}})$, where $\pi:\mathcal{C}\to \overline{\mathcal{M}_g}$ is the universal family for the moduli space. \todo{Explain why} The image of the three-canonical map is defined by quadratic equations, making $\lambda_6$ ample.
 
-To show projectivity over $\mathbb{Z}$ we use that $\mathbb{Q}$ inverible sheaves $\lambda_m$ exist over $\overline{\mathcal{M}_g}$. Hence, $\lambda_6$ relatively ample over $\mathbb{Z}$, making the moduli space $\overline{\mathcal{M}_g}$ projective over $\mathbb{Z}$.
+To show projectivity over $\mathbb{Z}$, we use that $\mathbb{Q}$-invertible sheaves $\lambda_m$ exist over $\overline{\mathcal{M}_g}$. Therefore, $\lambda_6$ is relatively ample over $\mathbb{Z}$, making the moduli space $\overline{\mathcal{M}_g}$ projective over $\mathbb{Z}$.
 \end{proof}
 
 
