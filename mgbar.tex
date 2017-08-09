@@ -45,7 +45,8 @@ Let $m\ge2$ be an integer.
 \end{situation}
 
 \begin{lemma}\label{pushforward_invertible}
-Suppose we are in Situation \ref{kollar_prop_4.5}. Then, $f_*\omega_{S/C}^{\otimes m}$ is an invertible sheaf on $C$.
+Suppose we are in Situation \ref{kollar_prop_4.5}.
+Then, $f_*\omega_{S/C}^{\otimes m}$ is an invertible sheaf on $C$.
 \end{lemma}
 
 \begin{proof}
@@ -64,21 +65,21 @@ Then, we have $H^1(\omega_X^{\otimes m}\otimes\mathcal{L})=0$ if $\mathrm{char}(
 \end{lemma}
 \begin{proof}
 Let $D\subset S$ be an effective divisor such that $\mathcal{L}\cong\mathcal{O}_S(D)$.
-Then we get an exact sequence 
+Then we get an exact sequence
 $$
 0\to \omega_S^{\otimes m}\to \omega^{\otimes m}_S\otimes \mathcal{L}\to (\omega_S^{\otimes m}\otimes \mathcal{L})|_D\to 0.
-$$ 
-From the long exact sequence for cohomology we get 
+$$
+From the long exact sequence for cohomology we get
 $$
 H^1(S,\omega_S^{\otimes m})\to H^1(S,\omega_S^{\otimes m}\otimes \mathcal{L})\to H^1(S,(\omega_S^{\otimes m}\otimes \mathcal{L})|_D)
 $$
 
-By assumption, $D^2=0$, so 
+By assumption, $D^2=0$, so
 $$
 (mK_S+D)|_D=(mK_S+mD)|_D=mK_D,
-$$ 
-where the last equality follows from the adjunction formula. 
-Then for $m\geq 2$ we get 
+$$
+where the last equality follows from the adjunction formula.
+Then for $m\geq 2$ we get
 $$
 H^1(S,(\omega_S^{\otimes m}\otimes \mathcal{L})|_D)\cong H^1(D,\omega_D^{\otimes m})\cong H^0(D,\omega_D^{\otimes(1-m)})^\vee=0
 $$
@@ -101,23 +102,23 @@ Then, $f_*\omega_{S/C}^{\otimes m}$ is semipositive for $m \geq 2$.
 \begin{proof}
 First, observe that $S$ is of general type. \todo{why?}
 
-Suppose there exists a surjection of invertible sheaves 
+Suppose there exists a surjection of invertible sheaves
 $$f_*(\omega^{\otimes m}_{S/C})\to \mathcal{M}^{-1},$$
-where $\mathcal{M}$ an invertible sheaf and $\deg \mathcal{M}=d<0$. 
+where $\mathcal{M}$ an invertible sheaf and $\deg \mathcal{M}=d<0$.
 Let $F_S:S\to S$ and $F_C:C\to C$ denote the absolute Frobenius morphisms
 By functoriality for the relative dualizing sheaf,
 $$
 F_C^*f_*(\omega^{\otimes m}_{S/C})\cong f_*F_S^*(\omega^{\otimes m}_{S/C})=f_*(\omega^{\otimes m}_{S/C})
-$$ 
+$$
 Thus, $f_*(\omega^{\otimes m}_{S/C})$ has the quotient invertible sheaf $F^*\mathcal{M}^{-1}$ with $\deg F^*\mathcal{M}^{-1}=dp$, and we can replace $\mathcal{M}$ with $F^{*}\mathcal{M}^{-1}$. Hence, we can assume that $\deg \mathcal{M}=d>>0$, and assume that $\mathcal{M}\cong \omega_{C}^{\otimes m}\otimes \mathcal{L}$ where $\mathcal{L}$ is very ample.
 
 We therefore have a surjection of sheaves
 $$\omega_C^{\otimes m}\otimes \mathcal{L} \otimes f_*(\omega^m_{S/C})\to\mathcal{O}_C\to 0$$
-which yields the surjection 
+which yields the surjection
 $$H^1(C, \omega^{\otimes m}_C\otimes \mathcal{L}\otimes f_*(\omega^{\otimes m}_{S/C}))\to H^1(\mathcal{O}_C)\to 0$$
 after applying the long exact sequence for cohomology, as $C$ has dimension 1.
 
-By Serre Duality, we have 
+By Serre Duality, we have
 $$\dim_k H^1(\mathcal{O}_C)\cong \dim_k H^0(\omega_C)=g.$$
 Therefore, $$\dim_k H^1(C, \omega^{\otimes m}_C\otimes \mathcal{L}\otimes f_*(\omega^{\otimes m}_{S/C}))\geq g$$
 
@@ -131,14 +132,14 @@ whose only non-zero entries on the $E_2$-page are $(p,q)=(0,0),(0,1),(1,0),(1,1)
 %$H^0(C, f_*\mathcal{F})$ \quad \quad $H^0(C,R^1f_\mathcal{F})$
 %\end{center}
 
-Hence, we have the short exact sequence 
+Hence, we have the short exact sequence
 $$0\to H^1(C, f_*\mathcal{F})\to H^1(S, \mathcal{F})\to H^0(C, R^1f_*\mathcal{F})\to 0$$
 
 By the projection formula,
 $$
 f_*\mathcal{F}\cong\mathcal{L}\otimes f_*(\omega^{\otimes m}_{S/C})\otimes \omega^m_C
 $$
-Thus, $\dim_k H^1(C,f_{*}\mathcal{F})\ge g$, from which we conclude 
+Thus, $\dim_k H^1(C,f_{*}\mathcal{F})\ge g$, from which we conclude
 $$
 \dim_k H^1(S,\mathcal{F})=\dim_kH^{1}(S,\omega_{S}^{\otimes m}\otimes f^{*}\mathcal{L})\ge g\ge2.
 $$
@@ -154,19 +155,30 @@ Then, $f_*\omega_{S/C}^{\otimes m}$ is semipositive for $m \geq 2$.
 \end{lemma}
 
 \begin{proof}
-We will reduce to the case in which $S$ is minimal, then apply Lemma \ref{4.5_minimal_base_genus_2_char_p}.
+We will reduce to the case in which $S$ is minimal, then apply Lemma
+\ref{4.5_minimal_base_genus_2_char_p}.
 
-Suppose that $S$ contains a $(-1)$-curve $C'$. 
-Then, if $C'$ is not contained in a fiber of $f$, then $f|_{C'}:C'\to C$ is a dominant morphism from a curve of genus 0 to a curve of genus 2, which is a contradiction.
+Suppose that $S$ contains a $(-1)$-curve $C'$.
+Then, if $C'$ is not contained in a fiber of $f$, then $f|_{C'}:C'\to C$ is a
+dominant morphism from a curve of genus 0 to a curve of genus 2, which is a
+contradiction.
 Thus, all $(-1)$-curves of $S$ are contained in fibers of $f$.
-Thus, we have a $k$-smooth minimal model $S_{min}$ along with $k$-morphisms $b:S\to S_{min}$ and $f':S_{min}\to C$ such that $f=f'\circ b$.
+Thus, we have a $k$-smooth minimal model $S_{min}$ along with $k$-morphisms
+$b:S\to S_{min}$ and $f':S_{min}\to C$ such that $f=f'\circ b$.
 
-The morphism $f'$ satisfies the hypotheses of Lemma \ref{4.5_minimal_base_genus_2_char_p}, so $f'_*(\omega_{S_{min}/C}^{\otimes m})$ is semipositive.
+The morphism $f'$ satisfies the hypotheses of Lemma
+\ref{4.5_minimal_base_genus_2_char_p}, so
+$f'_*(\omega_{S_{min}/C}^{\otimes m})$ is semipositive.
 Then
 \begin{align*}
-f_*(\omega^{\otimes m}_{S/C}) & \cong f'_*b_*(\omega^{\otimes m}_{S/C})\cong f'_*b_*(\omega^{\otimes m}_{S/S_{min}}\otimes b^*\omega^{\otimes m}_{S_{min}/C})\\ & \cong f'_*(b_*\omega^{\otimes m}_{S/S_{min}}\otimes \omega^{\otimes m}_{S_{min}/C})\cong f'_*\omega^{\otimes m}_{S_{min}/C}
+  f_*(\omega^{\otimes m}_{S/C})
+    & \cong f'_*b_*(\omega^{\otimes m}_{S/C})
+      \cong f'_*b_*(\omega^{\otimes m}_{S/S_{min}}\otimes b^*\omega^{\otimes m}_{S_{min}/C})\\
+    & \cong f'_*(b_*\omega^{\otimes m}_{S/S_{min}}\otimes \omega^{\otimes m}_{S_{min}/C})
+      \cong f'_*\omega^{\otimes m}_{S_{min}/C}
 \end{align*}
-because $b_*\omega^{\otimes m}_{S/S_{min}}\cong\mathcal{O}_{S_{min}}$. \todo{this is probably in the stacks project somewhere, find ref} The conclusion follows.
+because $b_*\omega^{\otimes m}_{S/S_{min}}\cong\mathcal{O}_{S_{min}}$.\todo{this is probably in the stacks project somewhere, find ref}
+The conclusion follows.
 \end{proof}
 
 
@@ -178,8 +190,10 @@ Then, $f_*\omega_{S/C}^{\otimes m}$ is semipositive for $m \geq 2$.
 \end{lemma}
 
 \begin{proof}
-\todo{get rid of the beginning of this and cite \label{base_change_okay} instead -- that needs to be moved up}
-We will reduce to the case in which the genus of $C$ is at least 2, then apply Lemma \ref{4.5_minimal_base_genus_2_char_p}.
+\todo{get rid of the beginning of this and cite \label{base_change_okay}
+  instead -- that needs to be moved up}
+We will reduce to the case in which the genus of $C$ is at least 2, then apply
+Lemma \ref{4.5_minimal_base_genus_2_char_p}.
 
 Because $f$ is generically smooth, there exists a connected, smooth proper $k$-scheme $C'$ of dimension 1 and a generically \'{e}tale $k$- morphism $f:C'\to C$ branched only at points of $C$ above which the fiber of $f$ is smooth\todo{add ref}. We then have a fiber diagram
 $$
@@ -190,7 +204,7 @@ C   &C' \ar[l]^{\pi}
 $$
 and $f':S'\to C'$ satisfies the hypotheses of Lemma \ref{4.5_minimal_base_genus_2_char_p}, so $f'_*(\omega_{S'/C'})$ is semipositive.
 
-By Cohomology and Base Change and compatibility for relative dualizing sheaves, we have 
+By Cohomology and Base Change and compatibility for relative dualizing sheaves, we have
 $$
 \pi^*(f_*(\omega_{S/C}))\cong f'_*\pi'^*(\omega_{S/C})\cong f'_*(\omega_{S'/C'}).
 $$
@@ -562,9 +576,9 @@ $$
 \mathrm{Tr}'':(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)
 \longrightarrow f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)
 $$
-after precomposing with the inclusions of $C'_i$ into $b^*C_i$ and applying $f_*$. 
+after precomposing with the inclusions of $C'_i$ into $b^*C_i$ and applying $f_*$.
 
-Because $b$ is a blowup of points on $S$, $\mathrm{Tr}''$ is generically an isomorphism. 
+Because $b$ is a blowup of points on $S$, $\mathrm{Tr}''$ is generically an isomorphism.
 We thus conclude that an invertible quotient of $\mathcal{L}$ of $f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)$ has a subsheaf that is a quotient of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$, and thus must have non-negative degree by the semipositivity of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$.
 This completes the proof.
 \end{proof}
@@ -594,22 +608,83 @@ Now we tensor the sequence with $\omega_{S/C}^{\otimes (m-1)}$ and apply the pro
 $$0\to g_*\omega_{S'/C}^{\otimes m}((m-1)D')\to \omega_{S/C}^{\otimes m}\to \mathcal{O}_D\to 0.$$
  Now we apply the functor $f_*$ to the sequence and use that $R^1(f\circ g)_*\omega_{S'/C}^{\otimes m}((m-1)D')=0$ for $m\geq 2$, obtaining the following sequence:
  $$0\to (f\circ g)_*\omega_{S'/C}^{\otimes m}((m-1)D')\to f_*\omega_{S/C}^{\otimes m}\to f_*\mathcal{O}_D\to 0.$$
- $f_*\mathcal{O}_D$ is isomorphic to the sum of copies of $\mathcal{O}_C$, therefore $f_*\omega_{S/C}^{\otimes m}$ is semipositive for all $k\geq 2$. 
+ $f_*\mathcal{O}_D$ is isomorphic to the sum of copies of $\mathcal{O}_C$, therefore $f_*\omega_{S/C}^{\otimes m}$ is semipositive for all $k\geq 2$.
 \end{proof}
 
 \section{Projectivity of $\overline{\mathcal{M}_g}$}
+In this section, we show that the moduli stack $\overline{\mathcal{M}}_g$ of
+stable curves of genus $g \geq 2$, as introduced in~\citeSP{0E77}, has a
+projective coarse moduli space $\overline{M}_g$.
+We specialize the ampleness criterion of~\cite[Theorem 2.6]{ko90} to the case
+at hand in Lemma~\ref{lemma-mgbar-proj-field} to show that $\overline{M}_g$
+is projective over any field $k$.
+This is then used to show $\overline{M}_g$ is projective over $\mathbf{Z}$
+in Theorem~\ref{theorem-mgbar-proj}.
 
 \begin{lemma}
-Let $g\ge 2$ be a positive integer.
-Then $\overline{M_g}$ is a projective scheme over $\Spec \mathbb{Z}$.
+\label{lemma-mgbar-hodge-bundle}
+Let $\overline{\mathcal{M}}_g$ be the stack of stable curves of genus $g \geq 2$.
+Then for each $m \geq 2$, there exists an invertible sheaf $\lambda_m$ on
+$\overline{\mathcal{M}}_g$ such that for every family of curves $f : X \to S$
+with classifying map $g : S \to \overline{\mathcal{M}_g}$,
+$g^*\lambda_m = \det(f_*\omega_{X/S})$.
+\end{lemma}
+
+\begin{proof}
+...\todo{Prove this at some point.}
+\end{proof}
+
+\begin{lemma}
+\label{lemma-family-with-all-curves}
+Let $k$ be a field.
+Let $g \geq 2$ and let $\overline{M}_g$ be the coarse moduli space of stable
+curves of genus $g$.
+Then there exists a family of stable curves $f : X \to S$ such that
+$S$ a finite type scheme over $k$ equipped with a finite surjective map
+$p : S \to \overline{M}_g$ such that for every
+$s \in S(\overline k)$, the point $p(s) \in \overline{M}_g(\overline k)$ is
+the moduli point corresponding to the stable curve
+$f_s : X \times_S \Spec(\overline k) \to \Spec(\kappa(s))$
+\end{lemma}
+
+\begin{proof}
+  ...\todo{Prove this. Compare with~\cite[Proposition 2.7]{ko90}.}
+\end{proof}
+
+\begin{lemma}
+\label{lemma-mgbar-proj-field}
+Let $k$ be a field.
+Let $\overline{\mathcal{M}}_g$ be the stack of stable curves of genus $g \geq 2$
+and let $\overline{M}_g$ be the corresponding coarse moduli space.
+Then $\overline{M}_g$ is projective over $k$.
+\end{lemma}
+
+\begin{proof}
+We show that the invertible sheaf $\lambda_m$ on $\overline{\mathcal{M}}_g$
+constructed in Lemma~\ref{lemma-mgbar-hodge-bundle} descends to an ample
+invertible sheaf $\lambda_m^{\otimes N}$ on $\overline{M}_g$ for $N$
+sufficiently divisible\todo{Make sense of this at some point and find a
+  reference for what this means.}.
+\end{proof}
+
+
+\begin{lemma}
+\label{theorem-mbgar-proj}
+Let $\overline{\mathcal{M}_g}$ be the moduli space of stable curves of genus
+$g\geq 2$ over $\mathbb{Z}$. Then $\overline{\mathcal{M}_g}$ is projective over
+$\mathbb{Z}$.
 \end{lemma}
 \begin{proof}
 
 \todo{this needs to be rewritten, citing many lemmas with reductions etc.}
 
-First we will show that there as an ample invertible sheaf as an algebraic space. Being a stable curve is an open condition \cite[Tag 0E76]{stacks-project}. Hence, we can check locally for each stable curve $C$. Boundedness holds since $\omega_C^{\otimes 3}$ is very ample.
+First we will show that there as an ample invertible sheaf as an algebraic
+space. Being a stable curve is an open condition \citeSP{0E76}.
+Hence, we can check locally for each stable curve $C$.
+Boundedness holds since $\omega_C^{\otimes 3}$ is very ample.
 
-%i don't think kollar means what the stacks project does for open condition -- the openness in his sense is vacuous for us. -CL
+% i don't think kollar means what the stacks project does for open condition --
+% the openness in his sense is vacuous for us. -CL
 
 Completeness and separatedness follow from the stable reduction theorem.\cite[Tag 0E8C]{stacks-project} [cf.\ {[8],[5]  of Kollar}]  The automorphism group is finite and reduced since $H^0(\mathcal{T}_C)=0$.\cite[Tag 0E69]{stacks-project} The relative dualizing sheaf provides a functorial polarization which is semipositive by \ref{kollar_thm_4.3}  Hence, $\overline{\mathcal{M}_g}$ is projective over any field.
 
@@ -617,7 +692,6 @@ The image of the three-canonical map is a curve of degree $6g-6$, thus it is cut
 
 To show projectivity over $\mathbb{Z}$, we use that $\mathbb{Q}$-invertible sheaves $\lambda_m$ exist over $\overline{\mathcal{M}_g}$. Therefore, $\lambda_6$ is relatively ample over $\mathbb{Z}$, making the moduli space $\overline{\mathcal{M}_g}$ projective over $\mathbb{Z}$.
 \end{proof}
-
 
 \bibliographystyle{unsrt}
 \bibliography{references}
