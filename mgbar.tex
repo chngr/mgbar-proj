@@ -898,29 +898,28 @@ of~\cite[Lemmas 3.9 and 3.13]{ko90}.
 
 \begin{lemma}
 \label{lemma-grassman-quotient-stack-map}
-Let $X$ be a scheme over a field $k$, and let $\mathcal{E}$ be a%semipositive
-locally free sheaf on $X$ of rank $n$.
+Let $X$ be a scheme over a field $k$.
+Let $\mathcal{E}$ be a locally free sheaf on $X$ of rank $n$.
 Let $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and
 let $N = \binom{n + d}{d}$ be the rank.
-Let $on \mathcal{F} \to \mathcal{Q}$ be a locally free quotient of rank $q$.
-Let $G = \mathrm{PGL}_m$ be the projective general linear group over $k$.
-Then,
+Let $\mathcal{F} \to \mathcal{Q}$ be a locally free quotient of rank $q$.
+Then the following hold:
 \begin{enumerate}
-\item There exists a closed subscheme $D \subset
-\mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$ such that
+\item There exists a closed subscheme
+  $D \subset \mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$ such that
 $$
 \mathbf{P}((\mathcal{E}^\vee)^{\oplus n}) \setminus D \longrightarrow X
 $$
-is a principal $G$-bundle.
-\item There is a $G$-action on $\mathrm{Gr}(N,q)$, and
-a $G$-equivariant map
+is a principal $\mathrm{PGL}_n$-bundle.
+\item There is a $\mathrm{PGL}_n$-action on $\mathrm{Gr}(N,q)$, and
+a $\mathrm{PGL}_n$-equivariant map
 $$
 \mathbf{P}((\mathcal{E}^\vee)^{\oplus n}) \setminus D \longrightarrow
 \mathrm{Gr}(N,q).
 $$
 \item There exists a map of stacks
 $$
-X \longrightarrow [\mathrm{Gr}(N,q)/G].
+X \longrightarrow [\mathrm{Gr}(N,q)/\mathrm{PGL}_n].
 $$
 \end{enumerate}
 \end{lemma}
@@ -932,12 +931,12 @@ $\pi : \mathbf{P} \to X$ for the projection.
 Using the projection formula~\citeSP{01E6},
 \begin{align*}
 H^0(\mathbf{P}, \pi^*\mathcal{E}(1))
-& \cong H^0(X, \pi_*(\pi^*\mathcal{E} \otimes_{\mathcal{O}_{\mathbf{P}}}
-\mathcal{O}_{\mathbf{P}}(1)))\\
-& \cong H^0(X,\mathcal{E} \otimes_{\mathcal{O}_X}
-\pi_*\mathcal{O}_{\mathbf{P}}(1))\\
-& \cong H^0(X,\mathcal{E} \otimes (\mathcal{E}^\vee)^{\oplus n})\\
-& \cong H^0(X,\mathrm{End}(\mathcal{E})^{\oplus n})
+  & \cong H^0(X, \pi_*(\pi^*\mathcal{E} \otimes_{\mathcal{O}_{\mathbf{P}}}
+      \mathcal{O}_{\mathbf{P}}(1))) \\
+  & \cong H^0(X,\mathcal{E} \otimes_{\mathcal{O}_X}
+      \pi_*\mathcal{O}_{\mathbf{P}}(1)) \\
+  & \cong H^0(X,\mathcal{E} \otimes (\mathcal{E}^\vee)^{\oplus n}) \\
+  & \cong H^0(X,\mathrm{End}(\mathcal{E})^{\oplus n})
 \end{align*}
 has $n$ sections, corresponding to the identity on each summand.
 We therefore have an evaluation morphism
@@ -946,7 +945,7 @@ B : \mathcal{O}_{\mathbf{P}}^{\oplus n} \longrightarrow \pi^*\mathcal{E}(1).
 $$
 Taking determinants, this gives a map
 $$
-\det B : \mathcal{O}_{\mathbf{P}} \longrightarrow \det(\pi^*\mathcal{E})(n).
+\det(B) : \mathcal{O}_{\mathbf{P}} \longrightarrow \det(\pi^*\mathcal{E})(n).
 $$
 Let $\mathcal{I} \otimes \det(\pi^*\mathcal{E}) (n)$ be the image of $\det B$,
 and let $D$ be the subscheme of $\mathbf{P}$ defined by $\mathcal{I}$.
@@ -985,7 +984,7 @@ $\mathbf{P} \setminus D \to \mathrm{Gr}(N,q)$.
 It is $G$-equivariant by tracing the definitions.
 
 For (3), this follows from general properties of quotient stacks, plus the fact
-that $(\mathbf{P} \setminus D)/G \simeq X$.
+that $(\mathbf{P} \setminus D)/\mathrm{PGL}_n \simeq X$.
 \end{proof}
 
 \begin{lemma}
@@ -1174,9 +1173,10 @@ numerical intersections again, $(\det(\mathcal{Q})^{\dim(X)}) > 0$.
 \end{proof}
 
 \begin{lemma}
+\label{lemma-ampleness-of-semipos-quotients}
 Let $k$ be a field.
 Let $X$ be a proper algebraic space over $k$.
-Let $\mathcal{E}$ be a locally free sheaf of rank $n$ on $X$.
+Let $\mathcal{E}$ be a semipositive locally free sheaf of rank $n$ on $X$.
 Set $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and
 let $N = \binom{n + d}{d}$ be the rank.
 Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $q$.
@@ -1517,10 +1517,10 @@ $f'_*(\omega_{S'/C'}^{\otimes m})$ was semipositive.
 Compare the following with~\cite[Theorem 4.3]{ko90}.
 
 \begin{theorem}
-\label{theorem-kollar-theorem-4.3}
+\label{theorem-rel-dualizing-semipositive}
 In Situation \ref{situation-kollar-theorem-4.3}, suppose moreover that the
-generic fiber of $f$ is a stable curve. Then,
-the sheaf $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \ge 2$.
+generic fiber of $f$ is a stable curve.
+Then the sheaf $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \geq 2$.
 \end{theorem}
 \begin{proof}
 We first claim that we may assume that every double curve in $S$ dominates $C$.
@@ -1828,11 +1828,14 @@ We specialize the ampleness criterion of~\cite[Theorem 2.6]{ko90} to the case
 at hand in Lemma~\ref{lemma-mgbar-proj-field} to show that $\overline{M}_g$
 is projective over any field $k$.
 This is then used to show $\overline{M}_g$ is projective over $\mathbf{Z}$
-in Theorem~\ref{theorem-mgbar-proj}.
+in Theorem~\ref{theorem-mgbar-proj}.\todo{Remark that there exist a coarse
+  moduli space, say, via Keel--Mori, or else by checking Artin's axioms
+  directly from the results of Deligne--Mumford.}
 
 \begin{lemma}
 \label{lemma-mgbar-hodge-bundle}
-Let $\overline{\mathcal{M}}_g$ be the stack of stable curves of genus $g \geq 2$.
+Let $\overline{\mathcal{M}}_g$ be the stack of stable curves of genus $g \geq
+2$ over $\Spec(\mathbf{Z})$.
 Then for each $m \geq 2$, there exists an invertible sheaf $\lambda_m$ on
 $\overline{\mathcal{M}}_g$ such that for every family of curves $f : X \to S$
 with classifying map $g : S \to \overline{\mathcal{M}_g}$,
@@ -1840,7 +1843,8 @@ $g^*\lambda_m = \det(f_*\omega_{X/S})$.
 \end{lemma}
 
 \begin{proof}
-...\todo{Prove this at some point.}
+...\todo{Prove this at some point. Perhaps~\cite[\S13.2]{acmg} will be useful.
+  Note that I really need for this to be integral.}
 \end{proof}
 
 \begin{lemma}
@@ -1862,16 +1866,65 @@ better.}
 \end{proof}
 
 \begin{lemma}
+\label{lemma-ample-determinant-of-rel-canonical}
+Let $k$ be a field.
+Let $g \geq 2$ and let $f : X \to S$ be a family of stable curves of genus $g$
+such that $S$ is quasi-compact\todo{Is this really necessary?}.
+Then $\det(f_*\omega_{X/S})$ is ample on $S$.
+\end{lemma}
+
+\begin{proof}
+We will apply Lemma~\ref{lemma-ampleness-of-semipos-quotients} to the
+multiplication map
+$$
+\mu : \mathrm{Sym}^d(f_*(\omega_{X/S}^{\otimes m})) \to f_*(\omega_{X/S}^{\otimes md}),
+$$
+for some choice of $m$ and $d$.
+Specifically, choose positive integers $m$ and $d$ such that the following
+hold:
+\begin{enumerate}
+\item $\omega_{X/S}^{\otimes m}$ is $f$-very ample,
+\item $R^if_*(\omega_{X/S}^{\otimes m}) = 0$ for all $i > 0$,
+\item for every $s \in S$, the fibre $X_s = X \times_S \Spec(\kappa(s))$
+  embedded via $\omega_{X_s/\kappa(s)}^{\otimes m}$ is defined by equations
+  of degree at most $d$\todo{Make this hypothesis cleaner.}, and
+\item the multiplication map
+  $\mathrm{Sym}^d(f_*\omega_{X/S}^{\otimes m}) \to f_*\omega_{X/S}^{\otimes md}$
+  is surjective.
+\end{enumerate}
+Item (1) can be arranged for by the fact~\cite[Corollary of (1.2)]{dm} that
+$\omega_{X/S}$ is $f$-ample together with~\citeSP{01VU};
+(2) can be arranged, by~\citeSP{02O1}, after possibly taking a larger $m$;
+(3) can be arranged since pluricanonically embedded curves are defined
+by quadratic equations\todo{Check this and find a reference}; and
+(4) can be arranged by the arguments in the proof of~\citeSP{0C6T}.
+
+Now we set up our application of Lemma~\ref{lemma-ampleness-of-semipos-quotients}
+to the map $\mu$.
+Note that, by (4), $\mu$ is a quotient map.
+Moreover, by Lemma~\ref{theorem-rel-dualizing-semipositive},
+$f_*\omega_{X/S}^{\otimes md}$ is semipositive.\todo{Does this really apply
+  here? It seems like the semipositivity lemma only shows this for the base
+  scheme being a curve.}
+It remains to check that the classifying map
+$$
+u : S \to [\mathrm{Gr}(N,q)/\mathrm{PGL}_{2m(g - 1)}]
+$$
+is quasi-finite, where $N = \binom{2m(g - 1) + d}{d}$ and $q = 2md(g - 1)$.\todo{Complete this...}
+\end{proof}
+
+\begin{lemma}
 \label{lemma-mgbar-proj-field}
 Let $k$ be a field.
 Let $\overline{\mathcal{M}}_g$ be the stack of stable curves of genus $g \geq 2$
-and let $\overline{M}_g$ be the corresponding coarse moduli space.
+over $k$ and let $\overline{M}_g$ be its coarse moduli space.
 Then $\overline{M}_g$ is projective over $k$.
 \end{lemma}
 
 \begin{proof}
 We show that the invertible sheaf $\lambda_m$ on $\overline{\mathcal{M}}_g$
-constructed in Lemma~\ref{lemma-mgbar-hodge-bundle} descends to an ample
+obtained by base change of the invertible sheaf from
+Lemma~\ref{lemma-mgbar-hodge-bundle} descends to an ample
 invertible sheaf $\lambda_m^{\otimes N}$ on $\overline{M}_g$ for $N$
 sufficiently divisible\todo{Make sense of this at some point and find a
   reference for what this means.}.
@@ -1881,33 +1934,40 @@ a finite surjective map $p : S \to \overline{M}_g$ such that for every
 $s \in S(\overline k)$, $p(s) \in \overline{M}_g(\overline k)$ is
 the moduli point corresponding to the stable curve
 $f_s : X \times_S \Spec(\overline k) \to \Spec(\kappa(s))$.
-
+Now by Lemma~\ref{lemma-surjective-finite-morphism-ample},
+$\lambda_m^{\otimes N}$ is ample on $\overline{M}_g$ if and only if
+$p^*(\lambda_m^{\otimes N})$ is ample on $S$.
+Let $\lambda_m(f)$ denote the pullback under the classifying map
+$S \to \overline{\mathcal{M}}_g$ of the invertible sheaf $\lambda_m$ on the
+stack $\overline{\mathcal{M}}_g$.
+Then $p^*(\lambda_m^{\otimes N}) = \lambda_m(f)^{\otimes N}$.
+Hence by~\citeSP{01PT}, it suffices to show $\lambda_m(f)$ is ample on $S$.
+But recall from Lemma~\ref{lemma-mgbar-hodge-bundle} that
+$\lambda_m(f) = \det(f_*\omega_{X/S})$.
+Ampleness of $\lambda_m(f)$ on $S$ now follows from
+Lemma~\ref{lemma-ample-determinant-of-rel-canonical}.
 \end{proof}
 
 
-\begin{lemma}
-\label{theorem-mbgar-proj}
+\begin{theorem}
+\label{theorem-mgbar-proj}
 Let $\overline{\mathcal{M}_g}$ be the moduli space of stable curves of genus
-$g\geq 2$ over $\mathbb{Z}$. Then $\overline{\mathcal{M}_g}$ is projective over
-$\mathbb{Z}$.
-\end{lemma}
+$g \geq 2$ over $\mathbb{Z}$ and let $\overline{M}_g$ be its coarse moduli
+space.
+Then $\overline{M}_g$ is projective over $\mathbb{Z}$.
+\end{theorem}
+
 \begin{proof}
-
-\todo{this needs to be rewritten, citing many lemmas with reductions etc.}
-
-First we will show that there as an ample invertible sheaf as an algebraic
-space. Being a stable curve is an open condition \citeSP{0E76}.
-Hence, we can check locally for each stable curve $C$.
-Boundedness holds since $\omega_C^{\otimes 3}$ is very ample.
-
-% i don't think kollar means what the stacks project does for open condition --
-% the openness in his sense is vacuous for us. -CL
-
-Completeness and separatedness follow from the stable reduction theorem.\cite[Tag 0E8C]{stacks-project} [cf.\ {[8],[5]  of Kollar}]  The automorphism group is finite and reduced since $H^0(\mathcal{T}_C)=0$.\cite[Tag 0E69]{stacks-project} The relative dualizing sheaf provides a functorial polarization which is semipositive by \ref{kollar_thm_4.3}  Hence, $\overline{\mathcal{M}_g}$ is projective over any field.
-
-The image of the three-canonical map is a curve of degree $6g-6$, thus it is cut out by equations of degree no higher than $6g-6$. Hence $\lambda_{18g-8}$ is ample where for any $m$ we set $\lambda_m=\det \pi_*(\omega^{\otimes m}_{\mathcal{C}\overline{\mathcal{M}_g}})$, where $\pi:\mathcal{C}\to \overline{\mathcal{M}_g}$ is the universal family for the moduli space. \todo{Explain why} The image of the three-canonical map is defined by quadratic equations, making $\lambda_6$ ample.
-
-To show projectivity over $\mathbb{Z}$, we use that $\mathbb{Q}$-invertible sheaves $\lambda_m$ exist over $\overline{\mathcal{M}_g}$. Therefore, $\lambda_6$ is relatively ample over $\mathbb{Z}$, making the moduli space $\overline{\mathcal{M}_g}$ projective over $\mathbb{Z}$.
+We show that the invertible sheaf $\lambda_m$, with $m \geq 3$ on
+$\overline{M}_g$ constructed in Lemma~\ref{lemma-mgbar-hodge-bundle} is
+relatively ample on $\overline{M}_g/\Spec(\mathbf{Z})$.
+We already know from Lemma~\ref{lemma-mgbar-proj-field} that the base
+change of $\lambda_m$ to $\overline{M}_g/\Spec(k)$ is relatively ample therein.
+In particular, this means that $\lambda_m$ restricted to each fibre of
+$\overline{M}_g \to \Spec(\mathbf{Z})$ is relatively ample.
+Since $\overline{M}_g \to \Spec(\mathbf{Z})$ is proper by ...\todo{Find a
+  reference for this.},~\citeSP{0D2N} applies to show $\lambda_m$ is proper
+on all of $\overline{M}_g/\Spec(\mathbf{Z})$, as desired.
 \end{proof}
 
 \bibliographystyle{amsplain}
