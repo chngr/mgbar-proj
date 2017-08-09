@@ -4,21 +4,27 @@
 \title{Ampleness Criteria}
 \maketitle
 
-\section{Nakai--Moishezon}
+\section{Nakai--Moishezon for schemes}
 In this section, we prove an ampleness criterion for invertible sheaves on
 schemes over a field using intersection theory.
 The next result can be seen as a converse to~\citeSP{0BEV}.
 
-\begin{theorem}[Nakai--Moishezon Criterion]
-\label{theorem-nakai-moishezon}
+\begin{lemma}[Nakai--Moishezon Criterion]
+\label{schemes-lemma-nakai-moishezon}
 Let $X$ be a proper scheme over an algebraically closed field $k$.
 Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
-Assume that for every closed integral subscheme $Y$ of $X$,
+Then $\mathcal{L}$ is ample on $X$ if and only if
+for every integral closed subscheme $Y$ of $X$,
 $(\mathcal{L}^{\dim(Y)} \cdot Y) > 0$.
-Then $\mathcal{L}$ is ample.
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
+If $\mathcal{L}$ is ample on $X$, then the positivity of the intersection
+number on integral closed subschemes follows from~\citeSP{0BEV}.
+
+Conversely, assume that for every integral closed subscheme $Y$ of $X$,
+$(\mathcal{L}^{\dim(Y)} \cdot Y) > 0$.
+We show that $\mathcal{L}$ is ample.
 Using~\citeSP{0B5V} and~\citeSP{09MS}, we reduce to the case $X$ is integral.
 We proceed by induction on $\dim(X)$.
 When $\dim(X) = 1$, our assumption says that $\deg(\mathcal{L}) > 0$ and hence
@@ -165,7 +171,219 @@ $\mathcal{O}_X(mD)$ is ample for $m \gg 0$.
 Hence $\mathcal{O}_X(D)$ is ample by~\citeSP{01PS}.
 \end{proof}
 
-\bibliographystyle{unsrt}
+\section{Numerical intersection theory for spaces}
+For the proof of the Nakai--Moishezon critera for algebraic spaces, we will
+need to enhance~\citeSP{0DN0} and~\citeSP{0DN3} with generalizations of results
+from~\citeSP{0BEI} and~\citeSP{0BEL}.
+
+To begin, we require a generalization of~\citeSP{0BEK}.
+
+\begin{lemma}
+\label{lemma-euler-characteristic-morphism}
+Let $k$ be a field.
+Let $f : Y \to X$ be a morphism of proper algebraic spaces over $k$.
+Let $\mathcal{G}$ be a coherent $\mathcal{O}_Y$-module.
+Then
+$$
+\chi(Y, \mathcal{G}) = \sum (-1)^i \chi(X, R^if_*\mathcal{G})
+$$
+\end{lemma}
+
+\begin{proof}
+The formula makes sense: the sheaves $R^if_*\mathcal{G}$ are coherent
+and only a finite number of them are nonzero, see~\citeSP{08AR}
+and~\citeSP{073G}.
+By the Leray spectral sequence~\citeSP{0732} there is a spectral sequence with
+$$
+E_2^{p, q} = H^p(X, R^qf_*\mathcal{G})
+$$
+converging to $H^{p + q}(Y, \mathcal{G})$.
+By finiteness of cohomology on $X$ we see that only a finite number of
+$E_2^{p, q}$ are nonzero and each $E_2^{p, q}$ is a finite dimensional vector
+space.
+It follows that the same is true for $E_r^{p, q}$ for $r \geq 2$ and that
+$$
+\sum (-1)^{p + q} \dim_k E_r^{p, q}
+$$
+is independent of $r$.
+Since for $r$ large enough we have $E_r^{p, q} = E_\infty^{p, q}$ and since
+convergence means there is a filtration on $H^n(Y, \mathcal{G})$ whose graded
+pieces are $E_\infty^{p, q}$ with $p + 1 = n$ (this is the meaning of
+convergence of the spectral sequence), we conclude.
+\end{proof}
+
+This is a generalization of~\citeSP{0BET} to algebraic spaces.
+
+\begin{lemma}
+\label{lemma-intersection-number-and-pullback}
+Let $k$ be a field.
+Let $f : Y \to X$ be a morphism of proper algebraic spaces over $k$.
+Let $Z \subset Y$ be an integral closed subspace of dimension $d$ and let
+$\mathcal{L}_1, \ldots, \mathcal{L}_d$ be invertible $\mathcal{O}_X$-modules.
+Then
+$$
+(f^*\mathcal{L}_1 \cdots f^*\mathcal{L}_d \cdot Z) =
+\deg(f|_Z : Z \to f(Z)) (\mathcal{L}_1 \cdots \mathcal{L}_d \cdot f(Z))
+$$
+where $\deg(Z \to f(Z))$ is as in
+{\it \cite[\href{http://stacks.math.columbia.edu/tag/0AD6}{Tag 0AD6}]{stacks-project}}
+or $0$ if $\dim(f(Z)) < d$.\todo{Prove this.}
+\end{lemma}
+%\begin{proof}
+%The left hand side is computed using the coefficient of $n_1 \ldots n_d$
+%in the function
+%$$
+%\chi(Y, \mathcal{O}_Z \otimes f^*\mathcal{L}_1^{\otimes n_1} \otimes
+%\ldots \otimes f^*\mathcal{L}_d^{\otimes n_d}) =
+%\sum (-1)^i
+%\chi(X, R^if_*\mathcal{O}_Z \otimes
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d})
+%$$
+%The equality follows from Lemma \ref{lemma-euler-characteristic-morphism}
+%and the projection formula
+%\cite[\href{http://stacks.math.columbia.edu/tag/0944}{Tag 0944}]{stacks-project}.
+%If $f(Z)$ has dimension $< d$, then the right hand side
+%is a polynomial of total degree $<d$ by
+%Lemma \ref{lemma-numerical-polynomial-from-euler}
+%and the result is true. Assume $\dim(f(Z)) = d$. Let
+%$\xi \in \lvert f(Z) \rvert$ be the generic point. By
+%dimension theory
+%the generic point of $Z$ is the unique point of $Z$ mapping to $\xi$.
+%Then $f : Z \to f(Z)$ is finite over a nonempty open of $f(Z)$, see
+%Morphisms, Lemma \ref{morphisms-lemma-generically-finite}.
+%Thus $\deg(f : Z \to f(Z))$ is defined and in fact it is equal
+%to the length of the stalk of $f_*\mathcal{O}_Z$ at $\xi$
+%over $\mathcal{O}_{X, \xi}$. Moreover, the stalk of
+%$R^if_*\mathcal{O}_X$ at $\xi$ is zero for $i > 0$ because
+%we just saw that $f|_Z$ is finite in a neighbourhood of $\xi$
+%(so that Cohomology of Schemes, Lemma
+%\ref{coherent-lemma-finite-pushforward-coherent} gives the vanishing).
+%Thus the terms $\chi(X, R^if_*\mathcal{O}_Z \otimes
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d})$ with $i > 0$ have total
+%degree $< d$ and
+%$$
+%\chi(X, f_*\mathcal{O}_Z \otimes
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d})
+%=
+%\deg(f : Z \to f(Z)) \chi(f(Z),
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d}|_{f(Z)})
+%$$
+%modulo a polynomial of total degree $< d$ by
+%Lemma \ref{lemma-numerical-polynomial-leading-term}.
+%The desired result follows.
+%\end{proof}
+
+\section{Nakai--Moishezon Criterion}
+
+\begin{lemma}
+\label{lemma-surjective-finite-morphism-ample}
+Let $R$ be a Noetherian ring.
+Let $X$ and $Y$ be algebraic spaces over $R$.
+Let $f : Y \to X$ be a proper morphism of algebraic spaces over $R$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Assume $f$ is finite and surjective.
+Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
+\end{lemma}
+
+\begin{proof}
+Suppose that $\mathcal{L}$ is ample.
+Then $X \to \Spec(R)$ is representable and hence $X$ is a scheme.
+But $f : Y \to X$ is finite and hence affine, so,
+by~\citeSP{03WG}, $f$ is representable.
+Therefore $Y$ is a scheme.
+Then $f^*\mathcal{L}$ is ample by the schemes case,~\citeSP{0B5V}.
+
+\medskip\noindent
+Assume that $f^*\mathcal{L}$ is ample.
+Let $P$ be the following property on coherent $\mathcal{O}_X$-modules
+$\mathcal{F}$:
+there exists an $n_0$ such that $H^p(X, \mathcal{F} \otimes
+\mathcal{L}^{\otimes n}) = 0$ for all $n \geq n_0$ and $p > 0$.
+We will prove that $P$ holds for any coherent $\mathcal{O}_X$-module
+$\mathcal{F}$, which suffices to prove that $\mathcal{L}$ is ample.
+We are going to apply~\citeSP{07UT}.
+Thus we have to verify (1), (2) and (3) of that lemma for $P$.
+Property (1) follows from the long exact cohomology sequence associated
+to a short exact sequence of sheaves and the fact that tensoring with
+an invertible sheaf is an exact functor.
+Property (2) follows since $H^p(X, -)$ is an additive functor.
+To see (3) let $Z \subset X$ be reduced closed subspace with $|Z|$
+irreducible.
+Form the fibre product diagram
+$$
+\xymatrix{
+  W \ar[r]_{i'} \ar[d]_{f'} & Y \ar[d]^{f} \\
+  Z \ar[r]^{i} & X.
+}
+$$
+Let $\mathcal{G} = f'_*\mathcal{O}_W$.
+Since $f'$ is surjective, part (3)(a) of~\citeSP{07UT} holds.
+For part (3)(b), let $\mathcal{I} \subset \mathcal{O}_Z$ be a nonzero sheaf
+of ideals.
+Let $\mathcal{G}' = \mathcal{I}\mathcal{G}$.
+We have
+$$
+\mathcal{I} \mathcal{G} = f'_*(\mathcal{I}')
+$$
+where $\mathcal{I}' = \Im((f')^*\mathcal{I} \to \mathcal{O}_W)$.
+This is true because $f'$ is a (representable) affine morphism of
+algebraic spaces and hence the result can be checked on an \'etale
+covering of $Z$ by a scheme in which case the result is~\citeSP{01YP}.
+Finally, $f'$ is affine, hence $R^pf'_*\mathcal{I}' = 0$ for all $p > 0$
+by~\citeSP{073H}.
+Hence
+\begin{align*}
+H^p(X, \mathcal{G}' \otimes_{\mathcal{O}_X} \mathcal{L}^{\otimes n})
+  & = H^p(X, i_*f_*'\mathcal{I}' \otimes_{\mathcal{O}_X} \mathcal{L}^{\otimes n}) \\
+  & = H^p(X, f_*(i'_*\mathcal{I}' \otimes_{\mathcal{O}_Y} f^*\mathcal{L}^{\otimes n})) \\
+  & = H^p(Y, i'_*\mathcal{I}' \otimes_{\mathcal{O}_Y} f^*\mathcal{L}^{\otimes n}) = 0
+\end{align*}
+since $f^*\mathcal{L}$ is ample.
+This verifies (3)(c) of~\citeSP{07UT} as desired.
+\end{proof}
+
+\begin{lemma}[Nakai--Moishezon Criterion for algebraic spaces]
+\label{spaces-lemma-nakai-moishezon}
+Let $k$ be a field.
+Let $X$ be a proper algebraic space over $k$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Then $\mathcal{L}$ is ample on $X$ with respect to $k$ if and only if
+for every integral closed subspace $Y$ of $X$,
+$(\mathcal{L}^{\dim(Y)} \cdot Y) > 0$.
+\end{lemma}
+\begin{proof}
+  Assume that $\mathcal{L}$ is ample on $X$ with respect to $k$. 
+  Then $X$ is a scheme, and $\mathcal{L}$ is ample on $X/k$ in the
+  scheme-theoretic sense by~\citeSP{0D32}.
+  Now~\citeSP{0BEV} implies the positivity of interesction numbers.
+
+  Suppose that for every integral closed subspace $Y$ of $X$,
+  $(\mathcal{L}^{\dim(Y)} \cdot Y) > 0$.
+  We show that $\mathcal{L}$ is ample on $X$ with respect to $k$.
+  By~\citeSP{09YC}, there is a finite surjective map $p : X' \to X$ from a
+  scheme $X'$.
+  By Lemma~\ref{lemma-surjective-finite-morphism-ample}, $\mathcal{L}$ is
+  ample if and only if $p^*\mathcal{L}$ is ample. 
+  Thus, by the Nakai--Moishezon criterion for schemes
+  (Lemma~\ref{schemes-lemma-nakai-moishezon}),
+  it suffices to show that for every integral closed subscheme $Y'$ in $X'$, we
+  have $(p^*\mathcal{L}^{\dim(Y')} \cdot Y') > 0$.
+  Let $Y$ be the image of $Y'$ in $Y$;
+  by Lemma~\ref{lemma-intersection-number-and-pullback}, we then have
+  $$
+  ( (p^*\mathcal{L})^{\dim Y'} \cdot Y') = \deg(p\rvert_{Y'} : Y' \to
+  Y)(\mathcal{L}^{\dim Y'} \cdot Y).
+  $$
+  Note $\dim Y' = \dim Y$ since $p\rvert_{Y'} : Y' \to Y$ is finite surjective.
+  Since $(\mathcal{L}^{\dim Y} \cdot Y) > 0$ by (2), we therefore see that
+  $( (p^*\mathcal{L})^{\dim Y'} \cdot Y') > 0$.
+\end{proof}
+
+\bibliographystyle{plain}
 \bibliography{references}
 
 \end{document}
