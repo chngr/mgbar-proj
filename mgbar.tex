@@ -2158,24 +2158,27 @@ Specifically, choose positive integers $m$ and $d$ such that the following
 hold:
 \begin{enumerate}
 \item $\omega_{X/S}^{\otimes m}$ is $f$-very ample,
-\item $R^if_*(\omega_{X/S}^{\otimes m}) = 0$ for all $i > 0$,
-\item for every $s \in S$, the fibre $X_s = X \times_S \Spec(\kappa(s))$
-  embedded via $\omega_{X_s/\kappa(s)}^{\otimes m}$ is defined by equations
-  of degree at most $d$\todo{Make this hypothesis cleaner.}, and
+\item $R^if_*(\omega_{X/S}^{\otimes m}) = 0$ for all $i > 0$ and the
+  map $f_*(\omega_{X/S}^{\otimes m})_s \to H^0(X_s,\omega_{X/\kappa(s)})$ is
+  an isomorphism for every $s \in S$,
 \item the multiplication map
   $\mathrm{Sym}^d(f_*\omega_{X/S}^{\otimes m}) \to f_*\omega_{X/S}^{\otimes md}$
-  is surjective.
+  is surjective, and
+\item for every $s \in S$, the fibre $X_s = X \times_S \Spec(\kappa(s))$
+  embedded via $\omega_{X_s/\kappa(s)}^{\otimes m}$ is defined by equations
+  of degree at most $d$\todo{Make this hypothesis cleaner.}.
 \end{enumerate}
 Item (1) can be arranged for by the fact~\cite[Corollary of (1.2)]{dm} that
 $\omega_{X/S}$ is $f$-ample together with~\citeSP{01VU};
-(2) can be arranged, by~\citeSP{02O1}, after possibly taking a larger $m$;
-(3) can be arranged since pluricanonically embedded curves are defined
-by quadratic equations\todo{Check this and find a reference}; and
-(4) can be arranged by the arguments in the proof of~\citeSP{0C6T}.
+(2) can be arranged, by~\citeSP{0D2M} and quasi-compactness of $S$, after
+possibly taking a larger $m$;
+(3) can be arranged by the arguments in the proof of~\citeSP{0C6T}; and
+(4) can be arranged since pluricanonically embedded curves are defined
+by quadratic equations\todo{Check this and find a reference}.
 
 Now we set up our application of Lemma~\ref{lemma-ampleness-of-semipos-quotients}
 to the map $\mu$.
-Note that, by (4), $\mu$ is a quotient map.
+Note that, by (3), $\mu$ is a quotient map.
 Moreover, by Lemma~\ref{theorem-rel-dualizing-nef},
 $f_*\omega_{X/S}^{\otimes md}$ is nef.\todo{Does this really apply
   here? It seems like the nefness lemma only shows this for the base
@@ -2192,8 +2195,56 @@ where $n = 2m(g-1)$, $N = \binom{2m(g - 1) + d}{d}$ and $q = 2md(g - 1)$.
 It suffices to check that the fibre $S_x$ of $u$ is a finite set for every
 geometric point
 $x : \Spec(\overline k) \to [\mathbf{G}(q,N)/\mathrm{PGL}_n]$.
-By the construction of the classifying map in
+By~\citeSP{04UV}, $x$ corresponds to a diagram
+$$
+\xymatrix{
+  P \ar[d] \ar[r]_\varphi & \mathbf{G}(q,N) \ar[d] \\
+  \Spec(\overline k) \ar[r] & \Spec(k)
+}
+$$
+where $P \to \Spec(\overline k)$ is a $\mathrm{PGL}_n$-torsor,
+$\varphi : P \to \mathbf{G}(q,N)$ is a $\mathrm{PGL}_n$-equivariant morphism of
+$\Spec(k)$-schemes.
+The morphism $\varphi$ to the Grassmannian\todo{Grassmannians in the Stacks project
+parameterize subs, so need to change $q$ to $N-q$ is most places...},
+by construction~\citeSP{089U}, corresponds to an isomorphism class of
+surjections
+$$
+\mu_x : \mathcal{O}_P^{\oplus N} \to \mathcal{Q}
+$$
+where $\mathcal{Q}$ is a locally free $\mathcal{O}_P$-module of rank $q$.
+Thus, by construction of the classifying map from
 Lemma~\ref{lemma-grassman-quotient-stack-map},
+the points $s : \Spec(\overline k) \to S$ in the fibre $S_x$ are those
+where the multiplication map
+$$
+\mu_s :
+  \mathrm{Sym}^d(f_*(\omega_{X/S}^{\otimes m}))_s \to
+  f_*(\omega_{X/S}^{\otimes md})_s
+$$
+is isomorphic to $\mu_x$.
+By assumption (2), $\mu_s$ can be identified as the multiplication map
+$$
+\mu_s :
+  \mathrm{Sym}^d(H^0(X_s,\omega_{X_s/\overline{k}}^{\otimes m})) \to
+  H^0(X_s,\omega_{X_s/\overline{k}}^{\otimes md}).
+$$
+Now, up to the action of $\mathrm{PGL}_n$, we may identify
+$$
+\mathrm{Sym}^d(H^0(X_s,\omega_{X_s/\overline k}^{\otimes m}))
+  = \mathrm{Sym}^d(H^0(\mathbf{P}_{\overline k}^{n - 1},
+      \mathcal{O}_{\mathrm{P}^{n-1}_{\mathoverline{k}}}(1)))
+$$
+via the embedding of $X_s$ by $\omega_{X_s/\overline k}^{\otimes m}$.
+Thus the isomorphism class of $\mu_s$ is determined by the subspace of
+degree $d$ equations defining $X_s$ in $\mathbf{P}_{\overline k}$.
+By assumption (4), each fibre $X_s$ is determined up to isomorphism
+by such equations.
+Thus all members of the family $X \times_S S_x \to S_x$ are isomorphic.
+It remains to remark that $S \to \overline{\mathcal{M}}_g$ is finite and
+hence, for every stable curve $C$, there are at most finitely many $s \in S$
+such that $X_s$ is isomorphic to $C$.
+Thus $S_x$ is finite, completing the proof that $u$ is quasi-finite.
 \end{proof}
 
 \begin{lemma}
