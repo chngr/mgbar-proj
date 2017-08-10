@@ -553,7 +553,7 @@ many points.
 \end{proof}
 
 
-\begin{lemma}\label{no_negative_quotient_on_curve_p}
+\begin{lemma}\label{lemma-no-neg-quot-curves-p}
 Let $k$ be a field of characteristic $p > 0$.
 Let $C$ be a smooth, proper, and connected $k$-scheme of dimension 1.
 Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be nef vector bundles of
@@ -614,7 +614,7 @@ However, as $(F^{t})^*V_i$ is nef for each $i$, this contradicts
 \eqref{degree_of_quotient_not_too_small}, so hence $\mathcal{N}$ cannot exist.
 \end{proof}
 
-\begin{lemma}\label{no_negative_quotient_on_curve}
+\begin{lemma}\label{lemma-no-neg-quot-curves}
 Let $k$ be a field.
 Let $C$ be a smooth, proper, and connected $k$-scheme of dimension 1.
 Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be nef vector bundles of
@@ -625,7 +625,7 @@ Then $\rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is a nef vector bundle.
 \end{lemma}
 \begin{proof}
 If the characteristic of $k$ is positive, this is Lemma
-\ref{no_negative_quotient_on_curve_p}.
+\ref{lemma-no-neg-quot-curves-p}.
 If the characteristic of $k$ is zero, after possibly enlarging $k$, we may find
 an integral and finite type $\mathbb{Z}$-algebra $A$ over which $C$,
 $\mathcal{V}_1,\ldots,\mathcal{V}_n$, and $\rho$ are all defined, and such that
@@ -633,7 +633,7 @@ we have a smooth morphism of schemes $\pi : \mathcal{C} \to \Spec(A)$.
 By Lemma \ref{semipos_locus_open}, we may replace $\Spec(A)$ with an open
 subset so that each $\mathcal{V}_i$ is nef when restricted to any
 fiber of $\pi$.
-By Lemma~\ref{no_negative_quotient_on_curve_p},
+By Lemma~\ref{lemma-no-neg-quot-curves-p},
 $\mathcal{W} = \rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is nef when
 restricted to any fiber of $\pi$ above a point of $\Spec(A)$ with residue field
 of positive characteristic.
@@ -649,19 +649,17 @@ Some additional details may be necessary.\todo{Does this even work??}
 \label{lemma-nonneg-rep-nef}
 Let $k$ be a field.
 Let $X$ be a proper scheme over $k$.
-Let $\mathcal{E}_1,\ldots,\mathcal{E}_n$ be nef coherent locally free sheaves
-on $X$ of ranks $r_1,\ldots,r_n$.
-Let $\rho : \prod \mathrm{GL}_{r_i} \to \mathrm{GL}_m$ be a nef
+Let $\mathcal{E}_1,\ldots,\mathcal{E}_s$ be nef coherent locally free sheaves
+on $X$ of ranks $r_1,\ldots,r_s$.
+Let $\rho : \prod_t \mathrm{GL}_{r_t} \to \mathrm{GL}_n$ be a nonnegative
 representation.
 Let $\mathcal{E} = \rho(\mathcal{E}_1,\ldots,\mathcal{E}_n)$.
 Then $\mathcal{E}$ is nef on $X$.
 \end{lemma}
 
 \begin{proof}
-Immediate from Lemma \ref{no_negative_quotient_on_curve} and the definition of
-nefness.
+Immediate from Lemma \ref{lemma-no-neg-quot-curves}.
 \end{proof}
-
 
 %\begin{lemma}\label{semipos_of_symd_curve_charp}
 %Let $C$ be a smooth curve over a field of characteristic $p>0$. Let $V$ be a nef vector bundle on $C$. Then, for any positive integer $d$, $Sym^dV$ is a nef vector bundle.
@@ -699,6 +697,19 @@ nefness.
 %If the characteristic of the ground field is positive, this is Lemma \ref{semipos_of_symd_curve_charp}. Suppose that the characteristic of the ground field is zero.
 %\end{proof}
 
+\begin{lemma}
+\label{lemma-wedge-vb-nef}
+Let $k$ be a field.
+Let $X$ be a proper scheme over $k$.
+Let $\mathcal{E}$ be a nef coherent locally free sheaf on $X$.
+Then for every $r \geq 0$, $\bigwedge^r(\mathcal{E})$ is nef on $X$.
+\end{lemma}
+
+\begin{proof}
+This is Lemma~\ref{lemma-nonneg-rep-nef} applied to the nef
+representation $\bigwedge^r$, see Lemma~\ref{lemma-wedge-nonneg-rep}.
+\end{proof}
+
 \begin{lemma}\label{lemma-sym-vb-nef}
 Let $k$ be a field.
 Let $X$ be a proper scheme over $k$.
@@ -708,17 +719,8 @@ Then for every $d \geq 0$, $\mathrm{Sym}^d(\mathcal{E})$ is nef on $X$.
 
 \begin{proof}
 This is Lemma~\ref{lemma-nonneg-rep-nef} applied to the nef
-representation $\mathrm{Sym}^d$, see Lemma
-\ref{semipos_rep_examples}(\ref{sym_and_wedge_semipos}).
+representation $\mathrm{Sym}^d$, see Lemma~\ref{lemma-sym-nonneg-rep}.
 \end{proof}
-
-\begin{lemma}
-\label{lemma-wedge-vb-nef}
-Let $k$ be a field.
-Let $X$ be a proper scheme over $k$.
-Let $\mathcal{E}$ be a nef coherent locally free sheaf on $X$.
-Then for every $r \geq 0$, $\bigwedge^r(\mathcal{E})$ is nef on $X$.
-\end{lemma}
 
 
 \begin{lemma}
@@ -731,9 +733,11 @@ $\mathrm{Sym}^d(\mathcal{E}^\vee)^\vee$ is nef on $X$.
 \end{lemma}
 
 \begin{proof}
-This is Lemma \ref{lemma-}
+This is Lemma~\ref{lemma-nonneg-rep-nef} applied to the nef
+representation $(-)^\vee \circ \mathrm{Sym}^d \circ (-)^\vee$,
+see Lemma~\ref{lemma-sym-nonneg-rep} and
+Lemma~\ref{lemma-star-rho-star-nonnegrep}.
 \end{proof}
-
 
 \begin{lemma}
 Let $k$ be a field.
@@ -757,6 +761,11 @@ $\sigma$ is a nef representation, so by Lemma
 \ref{apply_rho_still_semipos}, $\mathcal{V}$ is a nef locally free
 sheaf.
 \end{proof}
+
+\section{Nef locally free sheaves on spaces}
+\label{section-nef-bundles-spaces}
+In this section, we generalize the discussion of Section~\ref{section-nef-bundles}
+to algebraic spaces.\todo{Port over results.}
 
 \section{Nakai--Moishezon for schemes}
 In this section, we prove an ampleness criterion for invertible sheaves on
@@ -1401,8 +1410,9 @@ $$
       + \sum\nolimits_{i = 1}^{\dim(X)}
           (s^*\mathcal{L}^{\dim(X) - i} (s^*\det(\mathcal{Q})^{\otimes m})^{i - 1} \mathcal{L}').
 $$
-Since $(\pi_*\mathcal{O}_{\mathbf{P}}(mqd))^\vee$ is nef by
-...\todo{Reference back to the semipostivity stuff!},
+Since $(\pi_*\mathcal{O}_{\mathbf{P}}(mqd))^\vee$\todo{Explain why this is of
+  the required form.} is nef by
+Lemma~\ref{lemma-star-sym-star-nef},
 $\mathcal{O}_{P'}(1)$ is nef and hence its $v'$ pullback to $X'$ is nef.
 As $F$ is effective, $\mathcal{L}'$ is nef.
 Since $\mathcal{L}$ is ample, $s^*\mathcal{L}$ is nef, so
@@ -1451,7 +1461,7 @@ $$
 $$
 so we need to show that the top self-intersection of $\det(g^*i^*\mathcal{Q})$
 on $Z'$ is positive.
-But now $g^*i^*\mathcal{E}$ is nef by ...\todo{Reference.},
+But now $g^*i^*\mathcal{E}$ is nef by Lemma~\ref{lemma-nef-pullback-nef-spaces},
 $g^*i^*\mathcal{F} \cong \mathrm{Sym}^d(g^*i^*\mathcal{E})$,
 and $g^*i^*\mathcal{Q}$ is a quotient bundle of $g^*i^*\mathcal{F}$ of rank $q$
 on $Z'$.
@@ -1910,7 +1920,11 @@ Because $a_{t}+1\le k$ by assumption, this invertible sheaf has non-negative deg
 We now claim that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))=0$.
 Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 1, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
 
-Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_0}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the nef locally free sheaf $f_{*}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is nef by \todo{ref to nefness section}.
+Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_0})
+expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the
+positive degree invertible sheaf
+$f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the nef locally free sheaf
+$f_{*}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is nef by Lemma~\ref{lemma-nef-ext-nef}.
 Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$ of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on $C_t$.
 \end{proof}
 
@@ -1924,8 +1938,10 @@ This proof is nearly identical to that in genus 0 and genus at least 2.
 We proceed by induction on $\sum a_i$.
 The base case where all of the $a_i$ are equal to zero is Lemma \ref{base_case_genus_1}.
 
-Assume the claim is proven for $D_{j-1}=\sum a_iC_i$; we will prove it for $D_{j}=D_{j-1}+C_t$.
-By Bombieri-Mumford\todo{add reference} $\omega_{S/C}$ is nef so in particular, $\omega_{S/C}\cdot C_t\ge0$.
+Assume the claim is proven for $D_{j-1}=\sum a_iC_i$; we will prove it for
+$D_{j}=D_{j-1}+C_t$.
+By Bombieri-Mumford\todo{add reference} $\omega_{S/C}$ is nef so in particular,
+$\omega_{S/C}\cdot C_t\ge0$.
 
 Consider the exact sequence
 \begin{equation}\label{exact_seq_of_section_twisted_genus_1}
@@ -1941,12 +1957,20 @@ Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimensi
 On the other hand, when $D_{j-1}=0$, Cohomology and Base Change shows that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))$ is an invertible sheaf.
 
 
-Thus, if $D_{j-1}\neq0$, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_1}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the nef locally free sheaf $f_{*}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is nef by \todo{ref to nefness section}.
-Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$ of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on $C_t$.
+Thus, if $D_{j-1}\neq0$, applying $f_{*}$ to
+(\ref{exact_seq_of_section_twisted_genus_1}) expresses
+$f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive
+degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the
+nef locally free sheaf $f_*\omega_{S/C}^{\otimes m}(D_{j-1})$, which is nef
+by Lemma~\ref{lemma-nef-ext-nec}
+Here we have used the fact that $C_t$ is a section, hence
+$f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$
+of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on
+$C_t$.
 
 If $D_{j-1}=0$, the situation is similar; we obtain the exact sequence
 $$
-0\to f_{*}(\omega_{S/C}^{\otimes m})\to f_{*}((\omega_{S/C}^{\otimes m})(C_t))\to f_{*}((\omega_{S/C}^{\otimes m})(C_t))|_{C_t}\to R^{1}f_{*}(\omega_{S/C}^{\otimes m})\to0
+0 \to f_{*}(\omega_{S/C}^{\otimes m})\to f_{*}((\omega_{S/C}^{\otimes m})(C_t))\to f_{*}((\omega_{S/C}^{\otimes m})(C_t))|_{C_t}\to R^{1}f_{*}(\omega_{S/C}^{\otimes m})\to0
 $$
 because $R^{1}f_{*}\omega_{S/C}^{\otimes m}(C_t)=0$.
 The rightmost map is a surjection of invertible sheaves, hence an isomorphism.
@@ -1980,7 +2004,12 @@ Because $a_{t}+1\le k$ by assumption, this invertible sheaf has non-negative deg
 We now claim that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))=0$.
 Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 1, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
 
-Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_2}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the nef locally free sheaf $f_{(}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is nef by \todo{ref to nefness section}.
+Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_2})
+expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the
+positive degree invertible sheaf
+$f_*\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the nef locally free sheaf
+$f_*(\omega_{S/C}^{\otimes m}(D_{j-1})$, which is nef by
+Lemma~\ref{lemma-nef-ext-nef}.
 Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$ of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on $C_t$.
 \end{proof}
 
