@@ -5,6 +5,65 @@
 \maketitle
 \tableofcontents
 
+\section{Introduction}
+\label{section-introduction}
+Here, we shall collect some definitions and results that we will use without
+proof in this document.\todo{Write a legitimate introduction. What is this
+  document about; what does it aim to do; how did it come about. Add some
+  references.}
+For material on positivity, we largely follow~\cite{lazI,lazII}.
+
+\begin{definition}
+\label{definition-nef-invertible-sheaf}
+Let $X$ be a proper scheme over a field $k$.
+An invertible $\mathcal{O}_X$-module is said to be \emph{numerically effective}
+or \emph{nef} if $(\mathcal{L} \cdot C) \geq 0$ for every irreducible closed
+subscheme $C \subset X$ of dimension $1$.
+\end{definition}
+
+\begin{lemma}
+\label{lemma-nef-pullback-nef}
+\begin{reference}
+\cite[Example 1.4.4(i)]{lazI}
+\end{reference}
+Let $f : Y \to X$ be a morphism of proper schemes over $k$.
+If $\mathcal{L}$ is a nef invertible sheaf on $X$,
+then $f^*\mathcal{L}$ is a nef invertible sheaf on $Y$.
+\end{lemma}
+
+\begin{lemma}
+\label{lemma-nef-proper-surjective-nef}
+\begin{reference}
+\cite[Example 1.4.4(ii)]{lazI}
+\end{reference}
+Let $f : Y \to X$ be a surjective proper morphism of schemes over $k$.
+Assume $X$ is proper over $k$.
+Let $\mathcal{L}$ be an invertible sheaf on $X$.
+Then $\mathcal{L}$ is nef on $X$ if and only if $f^*\mathcal{L}$ is nef on $Y$.
+\end{lemma}
+
+\begin{lemma}
+\label{lemma-degree-of-nef-on-curve}
+Let $X$ be a proper scheme of dimension $1$ over a field $k$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+If $\mathcal{L}$ is nef, then $\deg(\mathcal{L}) \geq 0$.
+\end{lemma}
+
+\begin{proof}
+In the case $X$ is irreducible, then the conclusion follows from~\citeSP{0BEY}
+and the definitions.
+
+In general, let $C_1,\ldots,C_t$ be the irreducible components of $X$, viewed
+as subschemes of $X$ with the reduced induced subscheme structure.
+By~\citeSP{0AYW},
+$$
+\deg(\mathcal{L}) = \sum\nolimits_i m_i\deg(\mathcal{L}|_{C_i})
+$$
+for some positive integers $m_i$.
+The irreducible case gives $\deg(\mathcal{L}|_{C_i}) \geq 0$, and thus
+$\deg(\mathcal{L}) \geq 0$.
+\end{proof}
+
 \section{Nefness for representations}
 In this and the following section, we develop the basic properties
 of nefness, largely following the exposition of~\cite[Section 3]{ko90}.
@@ -216,63 +275,115 @@ we see that $\rho(V_1,\ldots,V_n)$ splits as the direct sum of the line bundles
 $\bigoplus_t \bigotimes_{i,j} \mathcal{L}_{ij}^{a_{ij,t}}$.
 \end{proof}
 
-\section{Nefness for locally free sheaves}
+\section{Nef locally free sheaves}
+\label{section-nef-bundles}
+
+In this section, we define and study basic properties of nef
+bundles.
+
+\begin{lemma}
+\label{lemma-nef-bundle-equivalences}
+Let $X$ be a proper scheme over a field $k$.
+Let $\mathcal{E}$ be a coherent locally free sheaf on $X$.
+Then the following are equivalent:
+\begin{enumerate}
+\item $\mathcal{O}_{\mathbf{P}(\mathcal{E})}(1)$ is nef on
+  $\mathbf{P}(\mathcal{E})$; and
+\item for every $k$-morphism $f : C \to X$ from a proper $k$-scheme $C$
+of dimension $1$, and for every surjection $f^*\mathcal{E} \to \mathcal{L}$
+of locally free $\mathcal{O}_C$-modules with $\mathrm{rank}(\mathcal{L}) = 1$,
+we have $\deg_C(\mathcal{L}) \geq 0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $\pi : \mathbf{P}(\mathcal{E}) \to X$ be the projection map from the
+projective bundle $\mathbf{P}(\mathcal{E})$ down to $X$.
+Assume (1) holds and let $f : C \to X$ be a morphism of $k$-schemes, with
+1 dimensional $C$ which is smooth and proper over $k$, and let $\mathcal{L}$
+be an invertible quotient of $f^*\mathcal{E}$ over $C$.
+Applying $\mathrm{Sym}^*$ to the surjection $f^*\mathcal{E} \to \mathcal{L}$,
+\citeSP{01O9} gives a morphism $r : C \to \mathbf{P}(\mathcal{E})$ such that
+$\mathcal{L} \cong r^*\mathcal{O}_{\mathbf{P}(\mathcal{E})}(1)$.
+Since both $C$ and $\mathbf{P}(\mathcal(E))$ are proper over $k$,~\citeSP{01W6}
+shows $r$ is proper.
+Thus by Lemma~\ref{lemma-nef-proper-pullback-nef}, $\mathcal{L}$ is nef.
+Lemma~\ref{lemma-degree-of-nef-on-curve} now gives $\deg_C(\mathcal{L}) \geq 0$.
+
+Assume (2) and let $g : C \hookrightarrow \mathbf{P}(\mathcal{E})$ be
+any irreducible closed subscheme of dimension $1$.
+Let $\mathcal{L} = g^*\mathcal{O}_{\mathbf{P}(\mathcal{E})}(1)$ and note
+that it is nef by Lemma~\ref{lemma-nef-proper-pullback-nef}.
+Set $f = \pi \circ g: C \to X$ to be the closed immersion of $C$ into the
+projective bundle followed by the projection morphism.
+By the universal property of relative Proj, the morphism $g$ gives rise
+to a surjection $f^*\mathcal{E} \to \mathcal{L}$.
+Now~\citeSP{0BEY} together with our hypothesis gives
+$$
+(\mathcal{O}_{\mathbf{P}(\mathcal{E})}(1) \cdot C) = \deg_C(\mathcal{L}) \geq 0.
+$$
+Therefore $\mathcal{O}_{\mathbf{P}(\mathcal{E})}(1)$ is nef.
+\end{proof}
 
 \begin{definition}
-\label{definition-semipos-bundle}
+\label{definition-nef-bundle}
 Let $k$ be a field.
-Let $X$ be a $k$-scheme.
-Let $V$ be a locally free sheaf of finite rank on $X$.
-We say that $V$ is \textit{nef} if for every map from a proper and
-smooth $k$-scheme of dimension 1 $C$, invertible sheaf $\mathcal{L}$ on $C$,
-$k$-morphism $f : C \to X$, and surjection $f^*V \to \mathcal{L}$, we have
-$\deg_C(\mathcal{L}) \geq 0$.
+Let $X$ be a proper scheme over $k$.
+A coherent locally free sheaf $\mathcal{E}$ on $X$ is said to be \textit{nef}
+if the equivalent conditions of Lemma~\ref{lemma-nef-bundle-equivalences} are
+satisfied.
 \end{definition}
 
 \begin{lemma}
-Quotients and extensions of nef vector bundles are nef.
+\label{lemma-nef-bundle-quotient-nef}
+Let $k$ be a field.
+Let $X$ be a proper scheme over $k$.
+Let $\varphi : \mathcal{E} \to \mathcal{F}$ be a surjection of locally free
+sheaves on $X$.
+If $\mathcal{E}$ is nef, then $\mathcal{F}$ is nef.
 \end{lemma}
 
 \begin{proof}
-Immediate from the right-exactness of pullback, details omitted.
+Let $f : C \to X$ be a morphism of schemes over $k$ from a proper $k$-scheme
+$C$ of dimension $1$ and let $f^*\mathcal{F} \to \mathcal{L}$ be an invertible
+quotient.
+Since $f^*$ is right exact, $f^*\varphi$ induces a surjection
+$f^*\mathcal{E} \to \mathcal{L}$.
+Since $\mathcal{E}$ is nef, $\deg_C(\mathcal{L}) \geq 0$.
+This shows $\mathcal{F}$ is nef.
 \end{proof}
 
 \begin{lemma}
-\label{pullback-of-semipos}
-Let $V$ be a nef vector bundle on a scheme $X$.
-For any morphism $g : Y \to X$, the pullback $f^*V$ is nef vector bundle
-on $Y$.
+\label{lemma-nef-bundle-extension-nef}
+Let $k$ be a field.
+Let $X$ be a proper scheme over $k$.
+Let
+$$
+0 \to \mathcal{E}' \to \mathcal{E} \to \mathcal{E}'' \to 0
+$$
+be a short exact sequence of coherent locally free sheaves on $X$.
+If $\mathcal{E}'$ and $\mathcal{E}''$ are both nef, then $\mathcal{E}$ is nef.
 \end{lemma}
 
 \begin{proof}
-Consider any morphism $f:C\to Y$, as in
-Definition~\ref{definition-semipos-bundle}.
-Then, as $f^*(g^*V)=(g\circ f)^*V$ and $V$ is nef, any quotient
-invertible sheaf of $g^*(f^*V)$ has non-negative degree.
-Hence, $f^*V$ is nef.
+...\todo{Prove this!}
 \end{proof}
 
-\begin{lemma}\label{semipos=nef}
-Let $X$ be a scheme.
-Let $\mathcal{V}$ be a locally free sheaf on $X$.
-Then, $\mathcal{V}$ is nef if and only if
-$\mathcal{O}_{\mathbb{P}_X(V)}(1)$ is nef on $\mathbb{P}_X(V)$.
+\begin{lemma}
+\label{lemma-nef-pullback-nef-vb}
+Let $k$ be a field.
+Let $f : Y \to X$ be a morphism of proper schemes over $k$.
+If $\mathcal{E}$ is a nef coherent locally free sheaf on $X$, then
+$f^*\mathcal{E}$ is a nef coherent locally free sheaf on $Y$.
 \end{lemma}
 
 \begin{proof}
-Let $\pi : \mathbb{P}_X(V) \to V$ be the projection map.
-Assume $\mathcal{O}_{\mathbb{P}_X(V)}(1)$ is nef.
-Let $f:C\to X$ be a morphism as in Definition~\ref{definition-semipos-bundle}.
-Let $\mathcal{L}$ be an invertible quotient of $f^*V$ on $C$.
-Then, $\deg \mathcal{O}_{\mathbb{P}L}(1)=\deg L\ge0$, so $V$ is nef.
-
-For the other direction, consider a $k$-morphism $g:C\to\mathbb{P}_X(V)$, where
-$C$ is a smooth proper $k$-scheme of dimension 1.
-By the universal property of relative Proj, $\mathcal{O}_{\mathbb{P}V}(1)|_C$
-is a quotient of $\pi^*V|_C$.
-By Lemma \ref{pullback-of-semipos}, $\pi^*V$ is nef, so
-$\deg\mathcal{O}_{\mathbb{P}V}(1)|_C\geq 0$.
-It follows that $\mathcal{O}_{\mathrm{Proj} V}(1)$ is nef.
+Let $g : C \to Y$ be a morphism of schemes over $k$ from a proper $k$-scheme
+$C$ of dimension $1$ and let $g^*(f^*\mathcal{E}) \to \mathcal{L}$ be an
+invertible quotient.
+Since $g^*(f^*\mathcal{E}) = (f \circ g)^*\mathcal{E}$ and $\mathcal{E}$ is
+nef, $\deg_C(\mathcal{L}) \geq 0$.
+Thus $f^*\mathcal{E}$ is nef.
 \end{proof}
 
 \begin{lemma}\label{semipos_locus_open}
