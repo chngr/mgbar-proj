@@ -1165,15 +1165,15 @@ $$
 \mathbf{P}((\mathcal{E}^\vee)^{\oplus n}) \setminus D \longrightarrow X
 $$
 is a principal $\mathrm{PGL}_n$-bundle.
-\item There is a $\mathrm{PGL}_n$-action on $\mathrm{Gr}(N,q)$, and
+\item There is a $\mathrm{PGL}_n$-action on $\mathbf{G}(q,N)$, and
 a $\mathrm{PGL}_n$-equivariant map
 $$
 \mathbf{P}((\mathcal{E}^\vee)^{\oplus n}) \setminus D \longrightarrow
-\mathrm{Gr}(N,q).
+\mathbf{G}(q,N).
 $$
 \item There exists a map of stacks
 $$
-X \longrightarrow [\mathrm{Gr}(N,q)/\mathrm{PGL}_n].
+X \longrightarrow [\mathbf{G}(q,N)/\mathrm{PGL}_n].
 $$
 \end{enumerate}
 \end{lemma}
@@ -1210,7 +1210,7 @@ that are invertible, i.e., are elements of $\mathrm{PGL}_n$.
 This turns $\mathbf{P} \setminus D$ into a principal $\mathrm{PGL}_n$-bundle
 over $X$.
 
-For (2), note that $\mathrm{PGL}_n$ acts on $\mathrm{Gr}(N,q)$ via
+For (2), note that $\mathrm{PGL}_n$ acts on $\mathbf{G}(q,N)$ via
 $$
   \mathrm{GL}_n \longrightarrow
   (\mathrm{GL}_n)^{\times d} \longrightarrow
@@ -1218,7 +1218,7 @@ $$
 $$
 which descends to their quotients by $k^*$; note that
 $\mathrm{Aut}(\mathrm{Sym}^d (k^{\oplus n}))/k^*$ is a subgroup of the
-automorphism group of the Grassmannian $\mathrm{Gr}(N,q)$.
+automorphism group of the Grassmannian $\mathbf{G}(q,N)$.
 To show the morphism claimed exists, we fist consider what happens when we
 apply $\mathrm{Sym}^d$ to $B$, giving a morphism
 $$
@@ -1234,7 +1234,7 @@ $$
 $$
 which is surjective away from $D$.
 By the universal property of the Grassmannian, we obtain a morphism
-$\mathbf{P} \setminus D \to \mathrm{Gr}(N,q)$.
+$\mathbf{P} \setminus D \to \mathbf{G}(q,N)$.
 It is $G$-equivariant by tracing the definitions.
 
 For (3), this follows from general properties of quotient stacks, plus the fact
@@ -1250,7 +1250,7 @@ $N = \binom{n + d}{d}$ be the rank.
 Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $q$.
 Assume that the map
 $$
-  u : X \to [\mathrm{Gr}(N,q)/G]
+  u : X \to [\mathbf{G}(q,N)/G]
 $$
 constructed in Lemma \ref{lemma-grassman-quotient-stack-map}
 is generically quasi-finite.
@@ -1265,16 +1265,16 @@ Then there is a fibre product diagram\todo{Why, exactly, is this a fibre product
 diagram? Also, the $u$ is off.}
 $$
 \xymatrix{
-  \mathbf{P} \setminus D \ar[r] \ar[d] & \mathrm{Gr}(N,q) \ar[d] \\
-  X \ar[r]^u & [\mathrm{Gr}(N,q)/\mathrm{PGL}_m]
+  \mathbf{P} \setminus D \ar[r] \ar[d] & \mathbf{G}(q,N) \ar[d] \\
+  X \ar[r]^u & [\mathbf{G}(q,N)/\mathrm{PGL}_m]
 }
 $$
 Since $u$ is generically quasi-finite, the map
-$\mathbf{P} \setminus D \to \mathrm{Gr}(n,q)$ is generically quasi-finite.
+$\mathbf{P} \setminus D \to \mathbf{G}(q,N)$ is generically quasi-finite.
 
 As in Lemma \ref{lemma-grassman-quotient-stack-map},\todo{Maybe factor
   this statement out?}
-the morphism $\mathbf{P} \setminus D \to \mathrm{Gr}(N,q)$ is defined by
+the morphism $\mathbf{P} \setminus D \to \mathbf{G}(q,N)$ is defined by
 the morphism of locally free sheaves
 $$
   U : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to \pi^*\mathcal{F}(d)
@@ -1294,15 +1294,15 @@ $\mathcal{I} \subset \mathcal{O}_{\mathbf{P}}$.
 
 Let $g : \mathbf{P}' \to \mathbf{P}$ be the blow up of $\mathbf{P}$ along the
 sheaf $\mathcal{I}$.
-Then the rational map from $\mathbf{P}$ to $\mathrm{Gr}(N,q)$ defined above
+Then the rational map from $\mathbf{P}$ to $\mathbf{G}(q,N)$ defined above
 resolves to a morphism
 $$
-  u' : \mathbf{P}' \to \mathrm{Gr}(N,q)
+  u' : \mathbf{P}' \to \mathbf{G}(q,N)
 $$
 such that
 $$
   g^*\pi^*\det(\mathcal{Q})(qd) \cong
-    u'^*\mathcal{O}_{\mathrm{Gr}(N,q)}(1)
+    u'^*\mathcal{O}_{\mathbf{G}(q,N)}(1)
       \otimes_{\mathcal{O}_{\mathbf{P}'}}
     \mathcal{O}_{\mathbf{P}'}(E)
 $$
@@ -1311,18 +1311,18 @@ where $E$ is the exceptional divisor of $g : \mathbf{P}' \to \mathbf{P}$.
 Since $u$ is generically quasi-finite and $g$ is birational,
 $u'$ is generically quasi-finite.
 Hence, by ...\todo{Prove this or reference this somewhere.}
-$u'^*\mathcal{O}_{\mathrm{Gr}(N,q)}(1)$ is big\todo{Define big somewhere}
+$u'^*\mathcal{O}_{\mathbf{G}(q,N)}(1)$ is big\todo{Define big somewhere}
 on $\mathbf{P}'$.
 Fix an ample invertible sheaf $\mathcal{L}$ on $Y$.
 Then by ...\todo{Using properties of big. I guess this depends on what the definition
   is and then what the characterizations are.}, there is some $m \geq 0$
 such that
-$\mathcal{O}_{\mathrm{Gr}(N,q)}(m)
+$\mathcal{O}_{\mathbf{G}(q,N)}(m)
   \otimes_{\mathcal{O}_{\mathbf{P}'}} g^*\pi^*\mathcal{L}^{-1}$
 has a nonzero section.
 But
 \begin{align*}
-  \mathcal{O}_{\mathrm{Gr}(N,q)}(m)
+  \mathcal{O}_{\mathbf{G}(q,N)}(m)
   = \big(g^*\pi^*\det(\mathcal{Q})(qd) \otimes_{\mathcal{O}_{\mathbf{P}'}}
     \mathcal{O}_{\mathbf{P}'}(-E)\big)^{\otimes m}.
 \end{align*}
@@ -1437,7 +1437,7 @@ let $N = \binom{n + d}{d}$ be the rank.
 Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $q$.
 Assume that the map
 $$
-u : X \to [\mathrm{Gr}(N,q)/\mathrm{PGL}_n]
+u : X \to [\mathbf{G}(q,N)/\mathrm{PGL}_n]
 $$
 constructed in Lemma \ref{lemma-grassman-quotient-stack-map}
 is generically quasi-finite.
@@ -1465,7 +1465,7 @@ But now $g^*i^*\mathcal{E}$ is nef by Lemma~\ref{lemma-nef-pullback-nef-spaces},
 $g^*i^*\mathcal{F} \cong \mathrm{Sym}^d(g^*i^*\mathcal{E})$,
 and $g^*i^*\mathcal{Q}$ is a quotient bundle of $g^*i^*\mathcal{F}$ of rank $q$
 on $Z'$.
-Also, the map $u \circ i \circ g : Z' \to [\mathrm{Gr}(N,q)/\mathrm{PGL}_n]$
+Also, the map $u \circ i \circ g : Z' \to [\mathbf{G}(q,N)/\mathrm{PGL}_n]$
 is quasi-finite on the dense open on which $g$ is an isomorphism.
 Thus Lemma~\ref{lemma-positive-self-intersection},
 $(\det(g^*i^*\mathcal{Q})^{\dim(Z')}) > 0$ and we are done.
@@ -2143,7 +2143,7 @@ better.}
 \label{lemma-ample-determinant-of-rel-canonical}
 Let $k$ be a field.
 Let $g \geq 2$ and let $f : X \to S$ be a family of stable curves of genus $g$
-such that $S$ is quasi-compact\todo{Is this really necessary?}.
+such that the classifying map $S \to \overline{\mathcal{M}}_g$ is finite.
 Then $\det(f_*\omega_{X/S})$ is ample on $S$.
 \end{lemma}
 
@@ -2179,12 +2179,21 @@ Note that, by (4), $\mu$ is a quotient map.
 Moreover, by Lemma~\ref{theorem-rel-dualizing-nef},
 $f_*\omega_{X/S}^{\otimes md}$ is nef.\todo{Does this really apply
   here? It seems like the nefness lemma only shows this for the base
-  scheme being a curve.}
+  scheme being a curve.
+  \textbf{08/10/17} Though it might be okay since nefness is really a condition
+  on curves.}
 It remains to check that the classifying map
 $$
-u : S \to [\mathrm{Gr}(N,q)/\mathrm{PGL}_{2m(g - 1)}]
+u : S \to [\mathbf{G}(q,N)/\mathrm{PGL}_n]
 $$
-is quasi-finite, where $N = \binom{2m(g - 1) + d}{d}$ and $q = 2md(g - 1)$.\todo{Complete this...}
+is quasi-finite\todo{I want the fibres of this map to be finite; is this really
+  the same as demanding that this is quasi-finite as a morphism of stacks?},
+where $n = 2m(g-1)$, $N = \binom{2m(g - 1) + d}{d}$ and $q = 2md(g - 1)$.
+It suffices to check that the fibre $S_x$ of $u$ is a finite set for every
+geometric point
+$x : \Spec(\overline k) \to [\mathbf{G}(q,N)/\mathrm{PGL}_n]$.
+By the construction of the classifying map in
+Lemma~\ref{lemma-grassman-quotient-stack-map},
 \end{proof}
 
 \begin{lemma}
