@@ -5,9 +5,9 @@
 \maketitle
 \tableofcontents
 
-\section{Semipositivity for representations}
+\section{Nefness for representations}
 In this and the following section, we develop the basic properties
-of semipositivity, largely following the exposition of~\cite[Section 3]{ko90}.
+of nefness, largely following the exposition of~\cite[Section 3]{ko90}.
 
 \begin{remark}
 We will work over a field throughout.
@@ -35,7 +35,7 @@ Let $k$ be a field.
 Let $V_1,\ldots,V_n,W$ be finite-dimensional vector spaces over $k$.
 Let $G = \prod_{i=1}^n = \mathrm{GL}(V_i)$.
 A representation $\rho:G \to \mathrm{GL}(W)$ is called
-\textit{semipositive} if it extends to a morphism of monoids
+\textit{nef} if it extends to a morphism of monoids
 $\overline{\rho} : \prod_i \mathrm{End}(V_i) \to \mathrm{End}(W)$.
 \end{definition}
 
@@ -48,29 +48,29 @@ integer.
 Then the natural representations
 $\mathrm{GL}(V) \to \mathrm{GL}(\mathrm{Sym}^dV)$ and
 $\mathrm{GL}(V) \to \mathrm{GL}(\Lambda^dV)$
-are semipositive.
+are nef.
 \item\label{subreps_and_quotients_semipos} Subrepresentations and quotients of
-  semipositive representations are semipositive.
-\item The direct sum of finitely many semipositive representations is
-  semipositive.
+  nef representations are nef.
+\item The direct sum of finitely many nef representations is
+  nef.
 \item
 Let $k$ be a field.
 Let $V_1,\ldots,V_n,W$ be finite-dimensional vector spaces over $k$.
 Let $\rho:\prod_{i=1}^{n}\mathrm{GL}(V_i)\rightarrow \mathrm{GL}(W)$ be a
-semipositive representation.
+nef representation.
 Let $T_V$ denote the antihomomorphism of monoids
 $\prod_i\mathrm{GL}(V_i^*)\to\prod\mathrm{GL}(V_i)$ taking a automorphism of
 $V_i$ to the its dual.
 Similarly, let $T_W$ denote the antihomomorphism of monoids
 $\mathrm{GL}(W)\to\mathrm{GL}(W^*)$.
-Then, $T_W\rho T_V$ is a semipositive representation.
+Then, $T_W\rho T_V$ is a nef representation.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
 \begin{enumerate}
 \item Omitted.
-\item Let $\rho:G\to \mathrm{GL}(W)$ be a semipositive representation and let
+\item Let $\rho:G\to \mathrm{GL}(W)$ be a nef representation and let
 $W'\subset W$ be a subrepresentation.
 We may easily reduce to the case $G=\mathrm{GL}(V)$.
 Then, $\rho$ extends to a morphism of monoids
@@ -91,7 +91,7 @@ $\mathrm{End}(V)\times W'$ maps to $W'$, so $\mathrm{End}(V)\times W'$ must as
 well, as desired. One should check that the resulting map on $W'$ is linear;
 details omitted.
 
-The case of quotients of semipositive representations is proved similarly.
+The case of quotients of nef representations is proved similarly.
 \item Omitted.
 \item Omitted.
 \end{enumerate}
@@ -149,7 +149,7 @@ $\mathrm{rank}(\mathcal{V}_i) = \mathrm{rank}(\mathcal{V}'_i) = r_i$.
 For each $i$, let $f_i : \mathcal{V}_i \to \mathcal{V}'_i$ be a morphism
 of sheaves.
 Let $\rho : \prod \mathrm{GL}_{r_i} \to \mathrm{GL}_m$ be a representation.
-If $\rho$ is semipositive, then there exists a morphism of sheaves
+If $\rho$ is nef, then there exists a morphism of sheaves
 $$
   \rho(f_1,\dots, f_n) :
     \rho(\mathcal{V}_1,\ldots,\mathcal{V}_n) \to
@@ -173,7 +173,7 @@ Let $X$ be a $k$-scheme.
 For $i = 1, 2, \ldots, n$, let $V_i = \bigoplus_j \mathcal{L}_{ij}$ be a
 locally free sheaf of rank $r_i$ that splits as a direct sum of line bundles
 $\mathcal{L}_{ij}$.
-Let $\rho : \prod_i \mathrm{GL}_{r_i} \to \mathrm{GL}_m$ be a semipositive
+Let $\rho : \prod_i \mathrm{GL}_{r_i} \to \mathrm{GL}_m$ be a nef
 representation.
 Then, $\rho(\mathcal{V}_1,\ldots,V_n)$ is a direct sum of line bundles of the
 form $\bigoplus_{i,j}\bigotimes\mathcal{L}_{ij}^{a_{ij}}$, where $a_{ij}\ge0$ for
@@ -216,21 +216,21 @@ we see that $\rho(V_1,\ldots,V_n)$ splits as the direct sum of the line bundles
 $\bigoplus_t \bigotimes_{i,j} \mathcal{L}_{ij}^{a_{ij,t}}$.
 \end{proof}
 
-\section{Semipositivity for locally free sheaves}
+\section{Nefness for locally free sheaves}
 
 \begin{definition}
 \label{definition-semipos-bundle}
 Let $k$ be a field.
 Let $X$ be a $k$-scheme.
 Let $V$ be a locally free sheaf of finite rank on $X$.
-We say that $V$ is \textit{semipositive} if for every map from a proper and
+We say that $V$ is \textit{nef} if for every map from a proper and
 smooth $k$-scheme of dimension 1 $C$, invertible sheaf $\mathcal{L}$ on $C$,
 $k$-morphism $f : C \to X$, and surjection $f^*V \to \mathcal{L}$, we have
 $\deg_C(\mathcal{L}) \geq 0$.
 \end{definition}
 
 \begin{lemma}
-Quotients and extensions of semipositive vector bundles are semipositive.
+Quotients and extensions of nef vector bundles are nef.
 \end{lemma}
 
 \begin{proof}
@@ -239,23 +239,23 @@ Immediate from the right-exactness of pullback, details omitted.
 
 \begin{lemma}
 \label{pullback-of-semipos}
-Let $V$ be a semipositive vector bundle on a scheme $X$.
-For any morphism $g : Y \to X$, the pullback $f^*V$ is semipositive vector bundle
+Let $V$ be a nef vector bundle on a scheme $X$.
+For any morphism $g : Y \to X$, the pullback $f^*V$ is nef vector bundle
 on $Y$.
 \end{lemma}
 
 \begin{proof}
 Consider any morphism $f:C\to Y$, as in
 Definition~\ref{definition-semipos-bundle}.
-Then, as $f^*(g^*V)=(g\circ f)^*V$ and $V$ is semipositive, any quotient
+Then, as $f^*(g^*V)=(g\circ f)^*V$ and $V$ is nef, any quotient
 invertible sheaf of $g^*(f^*V)$ has non-negative degree.
-Hence, $f^*V$ is semipositive.
+Hence, $f^*V$ is nef.
 \end{proof}
 
 \begin{lemma}\label{semipos=nef}
 Let $X$ be a scheme.
 Let $\mathcal{V}$ be a locally free sheaf on $X$.
-Then, $\mathcal{V}$ is semipositive if and only if
+Then, $\mathcal{V}$ is nef if and only if
 $\mathcal{O}_{\mathbb{P}_X(V)}(1)$ is nef on $\mathbb{P}_X(V)$.
 \end{lemma}
 
@@ -264,13 +264,13 @@ Let $\pi : \mathbb{P}_X(V) \to V$ be the projection map.
 Assume $\mathcal{O}_{\mathbb{P}_X(V)}(1)$ is nef.
 Let $f:C\to X$ be a morphism as in Definition~\ref{definition-semipos-bundle}.
 Let $\mathcal{L}$ be an invertible quotient of $f^*V$ on $C$.
-Then, $\deg \mathcal{O}_{\mathbb{P}L}(1)=\deg L\ge0$, so $V$ is semipositive.
+Then, $\deg \mathcal{O}_{\mathbb{P}L}(1)=\deg L\ge0$, so $V$ is nef.
 
 For the other direction, consider a $k$-morphism $g:C\to\mathbb{P}_X(V)$, where
 $C$ is a smooth proper $k$-scheme of dimension 1.
 By the universal property of relative Proj, $\mathcal{O}_{\mathbb{P}V}(1)|_C$
 is a quotient of $\pi^*V|_C$.
-By Lemma \ref{pullback-of-semipos}, $\pi^*V$ is semipositive, so
+By Lemma \ref{pullback-of-semipos}, $\pi^*V$ is nef, so
 $\deg\mathcal{O}_{\mathbb{P}V}(1)|_C\geq 0$.
 It follows that $\mathcal{O}_{\mathrm{Proj} V}(1)$ is nef.
 \end{proof}
@@ -280,13 +280,13 @@ Let $X$ and $Y$ be schemes.
 Let $f:Y\to X$ be a flat morphism of schemes.
 Let $\mathcal{V}$ be a locally free sheaf of finite rank on $Y$.
 Then, the set of points $x\in X$ such that the locally free sheaf
-$\mathcal{V}_x$ is semipositive on the fiber $Y_x$ is open.
+$\mathcal{V}_x$ is nef on the fiber $Y_x$ is open.
 \end{lemma}
 
 \begin{proof}
 Let $\pi:\mathbb{P}_Y(V)\to Y$ be the projection map.
 Given a point $x\in X$, by Lemma \ref{semipos=nef} the vector bundle
-$\mathcal{V}_x$ is semipositive if and only if
+$\mathcal{V}_x$ is nef if and only if
 $\mathcal{O}_{\mathbb{P}_Y(V)}(1)_x$ is nef.
 The compositve morphism $f\circ \pi$ is flat, because $\pi$ is flat.
 The claim now follows from the fact that nefness is an open condition in flat
@@ -339,11 +339,11 @@ many points.
 \begin{lemma}\label{no_negative_quotient_on_curve_p}
 Let $k$ be a field of characteristic $p > 0$.
 Let $C$ be a smooth, proper, and connected $k$-scheme of dimension 1.
-Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be semipositive vector bundles of
+Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be nef vector bundles of
 ranks $r_1,\ldots,r_n$ on $C$.
-Let $\rho : \prod \mathrm{GL}_{r_i}\to \mathrm{GL}_m$ be a semipositive
+Let $\rho : \prod \mathrm{GL}_{r_i}\to \mathrm{GL}_m$ be a nef
 representation.
-Then $\rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is a semipositive vector bundle.
+Then $\rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is a nef vector bundle.
 \end{lemma}
 \begin{proof}
 Let $g$ be the genus of $C$, and fix a line bundle $\mathcal{L}$ of degree at
@@ -391,18 +391,18 @@ Pulling back the surjection $\rho(V_1,\ldots,V_n) \to \mathcal{N}$ by $F^t$,
 we obtain a quotient line bundle of
 $\rho((F^t)^* V_1,\ldots,(F^t)^* V_n)$ of degree $dp^t < -N$ for sufficiently
 large $t$, by Lemma \ref{pullback_and_rho_commute}.
-However, as $(F^{t})^*V_i$ is semipositive for each $i$, this contradicts
+However, as $(F^{t})^*V_i$ is nef for each $i$, this contradicts
 \eqref{degree_of_quotient_not_too_small}, so hence $\mathcal{N}$ cannot exist.
 \end{proof}
 
 \begin{lemma}\label{no_negative_quotient_on_curve}
 Let $k$ be a field.
 Let $C$ be a smooth, proper, and connected $k$-scheme of dimension 1.
-Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be semipositive vector bundles of
+Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be nef vector bundles of
 ranks $r_1,\ldots,r_n$ on $C$.
-Let $\rho : \prod \mathrm{GL}_{r_i} \to \mathrm{GL}_m$ be a semipositive
+Let $\rho : \prod \mathrm{GL}_{r_i} \to \mathrm{GL}_m$ be a nef
 representation.
-Then $\rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is a semipositive vector bundle.
+Then $\rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is a nef vector bundle.
 \end{lemma}
 \begin{proof}
 If the characteristic of $k$ is positive, this is Lemma
@@ -412,15 +412,15 @@ an integral and finite type $\mathbb{Z}$-algebra $A$ over which $C$,
 $\mathcal{V}_1,\ldots,\mathcal{V}_n$, and $\rho$ are all defined, and such that
 we have a smooth morphism of schemes $\pi : \mathcal{C} \to \Spec(A)$.
 By Lemma \ref{semipos_locus_open}, we may replace $\Spec(A)$ with an open
-subset so that each $\mathcal{V}_i$ is semipositive when restricted to any
+subset so that each $\mathcal{V}_i$ is nef when restricted to any
 fiber of $\pi$.
-By Lemma \label{no_negative_quotient_on_curve_p},
-$\mathcal{W} = \rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is semipositive when
+By Lemma~\ref{no_negative_quotient_on_curve_p},
+$\mathcal{W} = \rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is nef when
 restricted to any fiber of $\pi$ above a point of $\Spec(A)$ with residue field
 of positive characteristic.
 This locus on $\Spec(A)$ is non-empty, so by another application of Lemma
 \ref{semipos_locus_open}, so
-$\mathcal{W} = \rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is semipositive when
+$\mathcal{W} = \rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is nef when
 restricted to the generic fiber, which is what was needed.
 Some additional details may be necessary.\todo{Does this even work??}
 \end{proof}
@@ -428,22 +428,22 @@ Some additional details may be necessary.\todo{Does this even work??}
 
 \begin{lemma}\label{apply_rho_still_semipos}
 Let $X$ be a scheme
-Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be semipositive vector bundles of
+Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be nef vector bundles of
 finite ranks $r_1,\ldots,r_n$ on $X$.
-Let $\rho:\prod_i \mathrm{GL}_{r_i} \to \mathrm{GL}_m$ be a semipositive
+Let $\rho:\prod_i \mathrm{GL}_{r_i} \to \mathrm{GL}_m$ be a nef
 representation.
 Let $W = \rho(V_1,\ldots,V_n)$.
-Then $W$ is a semipositive vector bundle.
+Then $W$ is a nef vector bundle.
 \end{lemma}
 
 \begin{proof}
 Immediate from Lemma \ref{no_negative_quotient_on_curve} and the definition of
-semipositivity.
+nefness.
 \end{proof}
 
 
 %\begin{lemma}\label{semipos_of_symd_curve_charp}
-%Let $C$ be a smooth curve over a field of characteristic $p>0$. Let $V$ be a semipositive vector bundle on $C$. Then, for any positive integer $d$, $Sym^dV$ is a semipositive vector bundle.
+%Let $C$ be a smooth curve over a field of characteristic $p>0$. Let $V$ be a nef vector bundle on $C$. Then, for any positive integer $d$, $Sym^dV$ is a nef vector bundle.
 %\end{lemma}
 %\begin{proof}
 %Let $g$ be the genus of $C$, and let $\mathcal{L}$ be a line bundle on $C$ of degree at least $2g$.
@@ -472,7 +472,7 @@ semipositivity.
 %
 %
 %\begin{lemma}\label{semipos_of_symd_curve_all_char}
-%Let $C$ be a smooth curve over a field of arbitrary characteristic. Let $V$ be a semipositive vector bundle on $C$. Then, for any positive integer $d$, $Sym^dV$ is a semipositive vector bundle.
+%Let $C$ be a smooth curve over a field of arbitrary characteristic. Let $V$ be a nef vector bundle on $C$. Then, for any positive integer $d$, $Sym^dV$ is a nef vector bundle.
 %\end{lemma}
 %\begin{proof}
 %If the characteristic of the ground field is positive, this is Lemma \ref{semipos_of_symd_curve_charp}. Suppose that the characteristic of the ground field is zero.
@@ -480,11 +480,11 @@ semipositivity.
 
 \begin{lemma}\label{symd_semipos}
 Let $k$ be a field.
-Let $X$ be a scheme and $\mathcal{V}$ a semipositive vector bundle on $X$.
-Then $\mathrm{Sym}^d\mathcal{V}$ is a semipositive vector bundle.
+Let $X$ be a scheme and $\mathcal{V}$ a nef vector bundle on $X$.
+Then $\mathrm{Sym}^d\mathcal{V}$ is a nef vector bundle.
 \end{lemma}
 \begin{proof}
-This is Lemma \ref{apply_rho_still_semipos} applied to the semipositive
+This is Lemma \ref{apply_rho_still_semipos} applied to the nef
 representation $\mathrm{Sym}^d$, see Lemma
 \ref{semipos_rep_examples}(\ref{sym_and_wedge_semipos}).
 \end{proof}
@@ -493,13 +493,13 @@ representation $\mathrm{Sym}^d$, see Lemma
 \begin{lemma}
 Let $k$ be a field.
 Let $X$ be a $k$-scheme.
-Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be semipositive vector bundles on $X$
+Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be nef vector bundles on $X$
 of ranks $r_1,\ldots,r_n$, respectively.
 Let $G = \prod_{i=1}^n \mathrm{GL}_{r_i}$.
-Let $\rho : G \to \mathrm{GL}_m$ be a semipositive representation.
+Let $\rho : G \to \mathrm{GL}_m$ be a nef representation.
 Let $\mathcal{W} = \rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$.
 Let $\mathcal{V} \subset \mathcal{W}$ be a $G$-invariant subsheaf of $\mathcal{W}$.
-Then $\mathcal{V}$ is semipositive.
+Then $\mathcal{V}$ is nef.
 \end{lemma}
 
 \begin{proof}
@@ -508,8 +508,8 @@ The $G$-invariant subspace $\mathcal{V}_x \subset \mathcal{W}_x$ defines a
 subrepresentation $\sigma$ of $\rho$, and we see that
 $\mathcal{V} = \sigma(\mathcal{V}_1,\ldots,\mathcal{V}_n)$.
 By Lemma \ref{semipos_rep_examples}(\ref{subreps_and_quotients_semipos}),
-$\sigma$ is a semipositive representation, so by Lemma
-\ref{apply_rho_still_semipos}, $\mathcal{V}$ is a semipositive locally free
+$\sigma$ is a nef representation, so by Lemma
+\ref{apply_rho_still_semipos}, $\mathcal{V}$ is a nef locally free
 sheaf.
 \end{proof}
 
@@ -990,7 +990,7 @@ that $(\mathbf{P} \setminus D)/\mathrm{PGL}_n \simeq X$.
 \begin{lemma}
 \label{lemma-positive-self-intersection}
 Let $X$ be a normal projective variety over a field $k$.
-Let $\mathcal{E}$ be a semipositive locally free sheaf on $X$ of rank $n$.
+Let $\mathcal{E}$ be a nef locally free sheaf on $X$ of rank $n$.
 Set $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and set
 $N = \binom{n + d}{d}$ be the rank.
 Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $q$.
@@ -1156,7 +1156,7 @@ $$
       + \sum\nolimits_{i = 1}^{\dim(X)}
           (s^*\mathcal{L}^{\dim(X) - i} (s^*\det(\mathcal{Q})^{\otimes m})^{i - 1} \mathcal{L}').
 $$
-Since $(\pi_*\mathcal{O}_{\mathbf{P}}(mqd))^\vee$ is semipositive by
+Since $(\pi_*\mathcal{O}_{\mathbf{P}}(mqd))^\vee$ is nef by
 ...\todo{Reference back to the semipostivity stuff!},
 $\mathcal{O}_{P'}(1)$ is nef and hence its $v'$ pullback to $X'$ is nef.
 As $F$ is effective, $\mathcal{L}'$ is nef.
@@ -1176,7 +1176,7 @@ numerical intersections again, $(\det(\mathcal{Q})^{\dim(X)}) > 0$.
 \label{lemma-ampleness-of-semipos-quotients}
 Let $k$ be a field.
 Let $X$ be a proper algebraic space over $k$.
-Let $\mathcal{E}$ be a semipositive locally free sheaf of rank $n$ on $X$.
+Let $\mathcal{E}$ be a nef locally free sheaf of rank $n$ on $X$.
 Set $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and
 let $N = \binom{n + d}{d}$ be the rank.
 Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $q$.
@@ -1206,7 +1206,7 @@ $$
 $$
 so we need to show that the top self-intersection of $\det(g^*i^*\mathcal{Q})$
 on $Z'$ is positive.
-But now $g^*i^*\mathcal{E}$ is semipositive by ...\todo{Reference.},
+But now $g^*i^*\mathcal{E}$ is nef by ...\todo{Reference.},
 $g^*i^*\mathcal{F} \cong \mathrm{Sym}^d(g^*i^*\mathcal{E})$,
 and $g^*i^*\mathcal{Q}$ is a quotient bundle of $g^*i^*\mathcal{F}$ of rank $q$
 on $Z'$.
@@ -1217,9 +1217,9 @@ $(\det(g^*i^*\mathcal{Q})^{\dim(Z')}) > 0$ and we are done.
 \end{proof}
 
 
-\section{Semipositivity Results}
-In this section, we prove a semipositivity result,
-Lemma \ref{lemma-stable-curves-semipositive}, for the pushforward of the
+\section{Nefness results}
+In this section, we prove a nefness result,
+Lemma \ref{lemma-stable-curves-nef}, for the pushforward of the
 relative dualizing sheaf of families of curves.
 
 \begin{situation}\label{kollar_prop_4.5}
@@ -1240,7 +1240,7 @@ Then, $f_*\omega_{S/C}^{\otimes m}$ is an invertible sheaf on $C$.
 Immediate from Grauert's Theorem and Riemann-Roch.
 \end{proof}
 
-%throughout, when we prove these things are semipositive maybe we need to keep referring to this lemma...
+%throughout, when we prove these things are nef maybe we need to keep referring to this lemma...
 
 \begin{lemma}\label{ekedahl_corollary}
 Let $S$ be a connected, proper smooth $k$-scheme of dimension 2.
@@ -1283,7 +1283,7 @@ Suppose we are in Situation \ref{kollar_prop_4.5}.
 Assume the characteristic of $k$ is equal to $p>0$.
 Assume that $S$ is minimal, i.e. it has no $(-1)$-curves.
 Assume that the genus of $C$ is at least 2.
-Then, $f_*\omega_{S/C}^{\otimes m}$ is semipositive for $m \geq 2$.
+Then, $f_*\omega_{S/C}^{\otimes m}$ is nef for $m \geq 2$.
 \end{lemma}
 
 \begin{proof}
@@ -1338,7 +1338,7 @@ However, the invertible sheaf $f^*\mathcal{L}$ is effective on $S$ because $\mat
 Suppose we are in Situation \ref{kollar_prop_4.5}.
 Assume the characteristic of $k$ is equal to $p>0$.
 Assume that the genus of $C$ is at least 2.
-Then, $f_*\omega_{S/C}^{\otimes m}$ is semipositive for $m \geq 2$.
+Then, $f_*\omega_{S/C}^{\otimes m}$ is nef for $m \geq 2$.
 \end{lemma}
 
 \begin{proof}
@@ -1355,7 +1355,7 @@ $b:S\to S_{min}$ and $f':S_{min}\to C$ such that $f=f'\circ b$.
 
 The morphism $f'$ satisfies the hypotheses of Lemma
 \ref{4.5_minimal_base_genus_2_char_p}, so
-$f'_*(\omega_{S_{min}/C}^{\otimes m})$ is semipositive.
+$f'_*(\omega_{S_{min}/C}^{\otimes m})$ is nef.
 Then
 \begin{align*}
   f_*(\omega^{\otimes m}_{S/C})
@@ -1373,11 +1373,11 @@ The conclusion follows.
 \begin{lemma}\label{4.5_char_p}
 Suppose we are in Situation \ref{kollar_prop_4.5}.
 Assume the characteristic of $k$ is equal to $p>0$.
-Then, $f_*\omega_{S/C}^{\otimes m}$ is semipositive for $m \geq 2$.
+Then, $f_*\omega_{S/C}^{\otimes m}$ is nef for $m \geq 2$.
 \end{lemma}
 
 \begin{proof}
-\todo{get rid of the beginning of this and cite \label{base_change_okay}
+\todo{get rid of the beginning of this and cite \ref{base_change_okay}
   instead -- that needs to be moved up}
 We will reduce to the case in which the genus of $C$ is at least 2, then apply
 Lemma \ref{4.5_minimal_base_genus_2_char_p}.
@@ -1389,13 +1389,13 @@ S \ar[d]^f  &S' \ar[d]^{f'} \ar[l]^{\pi'} \\
 C   &C' \ar[l]^{\pi}
 }
 $$
-and $f':S'\to C'$ satisfies the hypotheses of Lemma \ref{4.5_minimal_base_genus_2_char_p}, so $f'_*(\omega_{S'/C'})$ is semipositive.
+and $f':S'\to C'$ satisfies the hypotheses of Lemma \ref{4.5_minimal_base_genus_2_char_p}, so $f'_*(\omega_{S'/C'})$ is nef.
 
 By Cohomology and Base Change and compatibility for relative dualizing sheaves, we have
 $$
 \pi^*(f_*(\omega_{S/C}))\cong f'_*\pi'^*(\omega_{S/C})\cong f'_*(\omega_{S'/C'}).
 $$
-Now, the locally free sheaf $f_{*}(\omega_{S/C})$ becomes semipositive after pullback, and is therefore semipositive.
+Now, the locally free sheaf $f_{*}(\omega_{S/C})$ becomes nef after pullback, and is therefore nef.
 \end{proof}
 
 
@@ -1403,20 +1403,20 @@ Now, the locally free sheaf $f_{*}(\omega_{S/C})$ becomes semipositive after pul
 Compare the following with~\cite[Theorem 4.3]{ko90}.
 
 \begin{lemma}
-\label{lemma-stable-curves-semipositive}
+\label{lemma-stable-curves-nef}
 Suppose we are in situation Lemma \ref{kollar_prop_4.5}.
-Then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \geq 2$.
+Then $f_*(\omega_{S/C}^{\otimes m})$ is nef for $m \geq 2$.
 \end{lemma}
 
 \begin{proof}
-By Lemma \label{4.5_char_p}, we may assume that $k$ has characteristic 0.
+By Lemma~\ref{4.5_char_p}, we may assume that $k$ has characteristic 0.
 Spread out. \todo{add details}
 \end{proof}
 
 Compar the following with~\cite[Theorem 4.6]{ko90}.
 
 \begin{lemma}
-\label{lemma-stable-curves-semipositive}
+\label{lemma-stable-curves-nef}
 Let $k$ be a field.
 Let $C$ be a proper connected smooth $k$-scheme of dimension $1$.
 Let $f : S \to C$ be a family of stable curves,
@@ -1443,7 +1443,7 @@ i^*\omega_{S/C}^{\otimes m}& =g^*g_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
 & =g^*f_*i_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
 &=g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m}).\nonumber
 \end{align}
-This way we obtain a contradiction, since the quotient $g^*f_*\omega_{S/C}^{\otimes m}\to i^*\omega_{S/C}^{\otimes m}\to 0$ contradicts semipositivity.
+This way we obtain a contradiction, since the quotient $g^*f_*\omega_{S/C}^{\otimes m}\to i^*\omega_{S/C}^{\otimes m}\to 0$ contradicts nefness.
 \end{proof}
 
 We make the following definition, following~\cite[Definition 4.1(i)]{ko90}.
@@ -1485,11 +1485,11 @@ C' \ar[r]^g & C
 }
 $$
 where $g: C' \to C$ is surjective.
-If for some $m$, the sheaf $f'_*(\omega_{S'/C'}^{\otimes m})$ is semipositive,
-then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive.
+If for some $m$, the sheaf $f'_*(\omega_{S'/C'}^{\otimes m})$ is nef,
+then $f_*(\omega_{S/C}^{\otimes m})$ is nef.
 \end{lemma}
 \begin{proof}
-Suppose $f_*(\omega_{S/C}^{\otimes m})$ is not semipositive, i.e., there
+Suppose $f_*(\omega_{S/C}^{\otimes m})$ is not nef, i.e., there
 exists a quotient
 $$f_*(\omega_{S/C}^{\otimes m}) \longrightarrow \mathcal{L}$$
 where $\mathcal{L}$ is an invertible sheaf of negative degree.
@@ -1511,16 +1511,16 @@ by the compatibility of the relative dualizing sheaf with pullbacks
 0E4P}]{stacks-project}.
 We therefore obtain a negative quotient $g^*\mathcal{L}$ of
 $f'_*(\omega_{S'/C'}^{\otimes m})$, which contradicts the assumption that
-$f'_*(\omega_{S'/C'}^{\otimes m})$ was semipositive.
+$f'_*(\omega_{S'/C'}^{\otimes m})$ was nef.
 \end{proof}
 
 Compare the following with~\cite[Theorem 4.3]{ko90}.
 
 \begin{theorem}
-\label{theorem-rel-dualizing-semipositive}
+\label{theorem-rel-dualizing-nef}
 In Situation \ref{situation-kollar-theorem-4.3}, suppose moreover that the
 generic fiber of $f$ is a stable curve.
-Then the sheaf $f_*(\omega_{S/C}^{\otimes m})$ is semipositive for $m \geq 2$.
+Then the sheaf $f_*(\omega_{S/C}^{\otimes m})$ is nef for $m \geq 2$.
 \end{theorem}
 \begin{proof}
 We first claim that we may assume that every double curve in $S$ dominates $C$.
@@ -1528,7 +1528,7 @@ Suppose that a double curve $D$ maps to a point in $C$.
 Blowing up $D$ gives a map $b :
 \widetilde{S} \to S$.
 Suppose we know the sheaf $(b \circ f)_*(\omega_{\widetilde{S}/C}^{\otimes m})$
-is semipositive.
+is nef.
 The Grothendieck trace morphism
 $$
 \mathrm{Tr}_b : b_*(\omega_{\widetilde{S}/C}^{\otimes m})
@@ -1561,7 +1561,7 @@ $$
 exact.
 Since $\mathcal{Q}'$ is a skyscraper sheaf, it has positive degree on $C$.
 Thus, assuming $(f \circ b)_*(\omega_{\widetilde{S}/C}^{\otimes m})$ is
-semipositive, we have that $f_*(\omega_{S/C}^{\otimes m})$ is also.
+nef, we have that $f_*(\omega_{S/C}^{\otimes m})$ is also.
 After repeating finitely many blowups of double curves not dominating $C$,
 all remaining double curves will dominate $C$.
 
@@ -1605,7 +1605,7 @@ We have therefore reduced the statement to the situation of Lemma
 %We are now at the top of p. 255
 \end{proof}
 
-\section{Semipositivity after twisting by sections}
+\section{Nefness after twisting by sections}
 
 \begin{situation}\label{kollar_prop_4.7}
 Let $k$ be a field.
@@ -1628,19 +1628,19 @@ Immediate from the fact that the sheaf $\omega_{S/C}^{\otimes m}(\sum a_iC_i)$ h
 
 \begin{lemma}\label{base_case_genus_1}
 Suppose we are in Situation \ref{kollar_prop_4.7} where $g=1$ and the sections $C_i$ are pairwise disjoint.
-Then $f_{*}(\omega_{S/C}^{\otimes m})$ is a semipositive locally free sheaf.
+Then $f_{*}(\omega_{S/C}^{\otimes m})$ is a nef locally free sheaf.
 \end{lemma}
 \begin{proof}
 By Bombieri-Mumford \todo{add reference}, $\omega_{S/C}$ is nef.
 By Grauert's Theorem, $f_{*}\omega_{S/C}$ is locally free.
 Moreover, we can check fiberwise that $f^{*}f_{*}\omega_{S/C}\to\omega_{S/C}$ is a surjection, and hence and isomorphism of invertible sheaves.
-In particular, $f_{*}\omega_{S/C}$ must be an invertible sheaf of non-negative degree on $C$, hence semipositive.
+In particular, $f_{*}\omega_{S/C}$ must be an invertible sheaf of non-negative degree on $C$, hence nef.
 Details omitted.
 \end{proof}
 
 \begin{lemma}\label{inductive_step_genus_0}
 Suppose we are in Situation \ref{kollar_prop_4.7} where $g=0$ and the sections $C_i$ are pairwise disjoint.
-Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a semipositive locally free sheaf.
+Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a nef locally free sheaf.
 \end{lemma}
 \begin{proof}
 This proof is nearly identical to that in genus 1 and genus at least 2.
@@ -1665,13 +1665,13 @@ Because $a_{t}+1\le k$ by assumption, this invertible sheaf has non-negative deg
 We now claim that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))=0$.
 Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 1, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
 
-Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_0}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the semipositive locally free sheaf $f_{*}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is semipositive by \todo{ref to semipositivity section}.
+Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_0}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the nef locally free sheaf $f_{*}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is nef by \todo{ref to nefness section}.
 Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$ of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on $C_t$.
 \end{proof}
 
 \begin{lemma}\label{inductive_step_genus_1}
 Suppose we are in Situation \ref{kollar_prop_4.7} where $g=1$ and the $C_i$ are pairwise disjoint.
-Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a semipositive locally free sheaf.
+Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a nef locally free sheaf.
 \end{lemma}
 \begin{proof}
 This proof is nearly identical to that in genus 0 and genus at least 2.
@@ -1696,7 +1696,7 @@ Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimensi
 On the other hand, when $D_{j-1}=0$, Cohomology and Base Change shows that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))$ is an invertible sheaf.
 
 
-Thus, if $D_{j-1}\neq0$, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_1}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the semipositive locally free sheaf $f_{*}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is semipositive by \todo{ref to semipositivity section}.
+Thus, if $D_{j-1}\neq0$, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_1}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the nef locally free sheaf $f_{*}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is nef by \todo{ref to nefness section}.
 Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$ of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on $C_t$.
 
 If $D_{j-1}=0$, the situation is similar; we obtain the exact sequence
@@ -1712,7 +1712,7 @@ Therefore the leftmost map is an isomorphism as well, and we obtain the desired 
 
 \begin{lemma}\label{inductive_step_genus_2}
 Suppose we are in Situation \ref{kollar_prop_4.7} where $g\ge2$ and the sections $C_i$ are pairwise disjoint.
-Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a semipositive locally free sheaf.
+Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a nef locally free sheaf.
 \end{lemma}
 \begin{proof}
 This proof is nearly identical to that in genus 0 and genus 1.
@@ -1735,17 +1735,17 @@ Because $a_{t}+1\le k$ by assumption, this invertible sheaf has non-negative deg
 We now claim that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))=0$.
 Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 1, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
 
-Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_2}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the semipositive locally free sheaf $f_{(}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is semipositive by \todo{ref to semipositivity section}.
+Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_2}) expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the nef locally free sheaf $f_{(}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is nef by \todo{ref to nefness section}.
 Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$ of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on $C_t$.
 \end{proof}
 
 \begin{lemma}
 Suppose we are in Situation \ref{kollar_prop_4.7}.
-Then $f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)$ is semipositive.
+Then $f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)$ is nef.
 \end{lemma}
 \begin{proof}
 Let $b:\widetilde{S}/\to S$ be a blowup morphism such that the proper transforms $C'_i$ of the $C_i$ are pairwise disjoint, and are sections of $f\circ b$.
-By Lemma \ref{inductive_step_genus_0}, Lemma \ref{inductive_step_genus_1}, and Lemma \ref{inductive_step_genus_2}, $(f\circ b)_{*}\omega_{\widetilde{S}/C}^{\otimes m}$ is semipositive.
+By Lemma \ref{inductive_step_genus_0}, Lemma \ref{inductive_step_genus_1}, and Lemma \ref{inductive_step_genus_2}, $(f\circ b)_{*}\omega_{\widetilde{S}/C}^{\otimes m}$ is nef.
 
 The Grothendieck trace morphism
 $$
@@ -1768,7 +1768,7 @@ $$
 after precomposing with the inclusions of $C'_i$ into $b^*C_i$ and applying $f_*$.
 
 Because $b$ is a blowup of points on $S$, $\mathrm{Tr}''$ is generically an isomorphism.
-We thus conclude that an invertible quotient of $\mathcal{L}$ of $f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)$ has a subsheaf that is a quotient of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$, and thus must have non-negative degree by the semipositivity of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$.
+We thus conclude that an invertible quotient of $\mathcal{L}$ of $f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)$ has a subsheaf that is a quotient of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$, and thus must have non-negative degree by the nefness of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$.
 This completes the proof.
 \end{proof}
 
@@ -1786,11 +1786,11 @@ Let $g:S'\to S$ be the normalization of $S$.
 Let $D'=g^{-1}(D)$.
 Assume each component of $D'$ is a section.
 Let $m\geq 2$ any integer.
-Then $f_*(\omega_{S/C}^{\otimes m})$ is semipositive.
+Then $f_*(\omega_{S/C}^{\otimes m})$ is nef.
 \end{lemma}
 \begin{proof}
 By \ref{kollar_prop_4.7}\todo{This appears to be the wrong reference?}
-we know that $(f\circ g)_*(\omega_{S'/C}^{\otimes m})$ is semipositive.
+we know that $(f\circ g)_*(\omega_{S'/C}^{\otimes m})$ is nef.
 Observe that $g^*\omega_{S/C}\cong \omega_{S'/C}(D')$.
 Now we consider the short exact sequence;
 $$
@@ -1816,7 +1816,7 @@ $$
   0.
 $$
 The sheaf $f_*\mathcal{O}_D$ is isomorphic to the sum of copies of
-$\mathcal{O}_C$, therefore $f_*\omega_{S/C}^{\otimes m}$ is semipositive for
+$\mathcal{O}_C$, therefore $f_*\omega_{S/C}^{\otimes m}$ is nef for
 all $k\geq 2$.
 \end{proof}
 
@@ -1902,9 +1902,9 @@ by quadratic equations\todo{Check this and find a reference}; and
 Now we set up our application of Lemma~\ref{lemma-ampleness-of-semipos-quotients}
 to the map $\mu$.
 Note that, by (4), $\mu$ is a quotient map.
-Moreover, by Lemma~\ref{theorem-rel-dualizing-semipositive},
-$f_*\omega_{X/S}^{\otimes md}$ is semipositive.\todo{Does this really apply
-  here? It seems like the semipositivity lemma only shows this for the base
+Moreover, by Lemma~\ref{theorem-rel-dualizing-nef},
+$f_*\omega_{X/S}^{\otimes md}$ is nef.\todo{Does this really apply
+  here? It seems like the nefness lemma only shows this for the base
   scheme being a curve.}
 It remains to check that the classifying map
 $$
