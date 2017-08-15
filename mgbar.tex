@@ -1,7 +1,7 @@
 \input{preamble}
 \input{tools}
-\usepackage[inline]{showlabels}
-\linespread{1.1}
+
+\date{\today}
 \begin{document}
 \title{Projectivity of moduli of curves}
 \maketitle
@@ -9,10 +9,12 @@
 
 \section{Introduction}
 \label{section-introduction}
-Here, we shall collect some definitions and results that we will use without
-proof in this document.\todo{Write a legitimate introduction. What is this
+...\todo{Write a legitimate introduction. What is this
   document about; what does it aim to do; how did it come about. Add some
   references.}
+
+\section{Positivity of invertible sheaves}
+\label{section-positivity}
 For material on positivity, we largely follow~\cite{lazI,lazII}.
 
 \begin{definition}
@@ -33,6 +35,10 @@ If $\mathcal{L}$ is a nef invertible sheaf on $X$,
 then $f^*\mathcal{L}$ is a nef invertible sheaf on $Y$.
 \end{lemma}
 
+\begin{proof}
+...\todo{Prove this!}
+\end{proof}
+
 \begin{lemma}
 \label{lemma-nef-proper-surjective-nef}
 \begin{reference}
@@ -43,6 +49,10 @@ Assume $X$ is proper over $k$.
 Let $\mathcal{L}$ be an invertible sheaf on $X$.
 Then $\mathcal{L}$ is nef on $X$ if and only if $f^*\mathcal{L}$ is nef on $Y$.
 \end{lemma}
+
+\begin{proof}
+...\todo{Prove this!}
+\end{proof}
 
 \begin{lemma}
 \label{lemma-degree-of-nef-on-curve}
@@ -1151,37 +1161,50 @@ In this section, we formulate and prove the Ampleness Lemma
 of~\cite[Lemmas 3.9 and 3.13]{ko90}.
 
 \begin{lemma}
-\label{lemma-grassman-quotient-stack-map}
-Let $X$ be a scheme over a field $k$.
-Let $\mathcal{E}$ be a locally free sheaf on $X$ of rank $n$.
-Let $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and
-let $N = \binom{n + d}{d}$ be the rank.
-Let $\mathcal{F} \to \mathcal{Q}$ be a locally free quotient of rank $q$.
-Then the following hold:
-\begin{enumerate}
-\item There exists a closed subscheme
-  $D \subset \mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$ such that
+\label{lemma-pgl-bundle-from-loc-free}
+Let $k$ be a field.
+Let $X$ be a scheme over $k$.
+Let $\mathcal{E}$ be a locally free sheaf of rank $n$.
+Let $\mathbf{P} = \mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$.
+Let $\pi : \mathbf{P} \to X$ be the structure map.
+Then there exists a closed subscheme $D \subset \mathbf{P}$ such that the
+the restriction
 $$
-\mathbf{P}((\mathcal{E}^\vee)^{\oplus n}) \setminus D \longrightarrow X
+\pi : \mathbf{P} \setminus D \to X
 $$
-is a principal $\mathrm{PGL}_n$-bundle.
-\item There is a $\mathrm{PGL}_n$-action on $\mathbf{G}(q,N)$, and
-a $\mathrm{PGL}_n$-equivariant map
-$$
-\mathbf{P}((\mathcal{E}^\vee)^{\oplus n}) \setminus D \longrightarrow
-\mathbf{G}(q,N).
-$$
-\item There exists a map of stacks
-$$
-X \longrightarrow [\mathbf{G}(q,N)/\mathrm{PGL}_n].
-$$
-\end{enumerate}
+exhibits $\mathbf{P} \setminus D$ as a $\mathrm{PGL}_n$-torsor over $X$.
 \end{lemma}
+
 \begin{proof}
-We first prove (1).
-Let $\mathbf{P} = \mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$ be the projective
-bundle of matrices whose columns belong to $\mathcal{E}$, and write
-$\pi : \mathbf{P} \to X$ for the projection.
+First we should describe the $\mathrm{PGL}_n$ action on $\mathbf{P}$.
+Let $T$ be a scheme over $k$ and $x : T \to \mathbf{P}$ be a $T$-point.
+By~\citeSP{01NK}, this corresponds to a morphism $f : T \to X$ of $k$-schemes
+together with a surjection
+$$
+\varphi = (\varphi_1,\ldots,\varphi_n) :
+f^*(\mathcal{E}^\vee)^{\oplus n} \to \mathcal{L},
+$$
+where $\mathcal{L}$ an invertible sheaf on $T$.
+Let $g \in \mathrm{PGL}_n(T)$ and pick a representative matrix
+$(g_{ij}) \in \mathrm{GL}_n(T)$ for $g$.
+Consider the morphism
+$$
+g \cdot \varphi =
+\big(\sum\nolimits_j g_{1j}\varphi_j,\ldots,\sum\nolimits_j g_{nj}\varphi_j\big)
+: f^*(\mathcal{E}^\vee)^{\oplus n} \to \mathcal{L}
+$$
+of $\mathcal{O}_T$-modules.
+Since $\varphi$ is surjective and $(g_{ij})$ is invertible, $g \cdot \varphi$
+is surjective.
+Therefore $g \cdot \varphi$ defines a $T$-point of $\mathbf{P}$.
+This is $g \cdot x$.
+Note that $g \cdot x$ is independent of the representative $(g_{ij})$ of $g$
+as a different representative of $g$ differs by an element of $\mathbf{G}_m(T)$
+and the resulting morphism differs by an automorphism of $\mathcal{L}$, so the
+resulting $T$-point of $\mathbf{P}$ will be the same.
+
+Write $\mathbf{P} = \mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$ and let
+$\pi : \mathbf{P} \to X$ be the structure morphism.
 Using the projection formula~\citeSP{01E6},
 \begin{align*}
 H^0(\mathbf{P}, \pi^*\mathcal{E}(1))
@@ -1210,6 +1233,38 @@ that are invertible, i.e., are elements of $\mathrm{PGL}_n$.
 This turns $\mathbf{P} \setminus D$ into a principal $\mathrm{PGL}_n$-bundle
 over $X$.
 
+
+\end{proof}
+
+\begin{lemma}
+\label{lemma-grassman-quotient-stack-map}
+Let $X$ be a scheme over a field $k$.
+Let $\mathcal{E}$ be a locally free sheaf on $X$ of rank $n$.
+Let $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and
+let $N = \binom{n + d}{d}$ be the rank.
+Let $\mathcal{F} \to \mathcal{Q}$ be a locally free quotient of rank $q$.
+Then the following hold:
+\begin{enumerate}
+\item There exists a closed subscheme
+  $D \subset \mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$ such that
+$$
+\mathbf{P}((\mathcal{E}^\vee)^{\oplus n}) \setminus D \longrightarrow X
+$$
+is a principal $\mathrm{PGL}_n$-bundle.
+\item There is a $\mathrm{PGL}_n$-action on $\mathbf{G}(q,N)$, and
+a $\mathrm{PGL}_n$-equivariant map
+$$
+\mathbf{P}((\mathcal{E}^\vee)^{\oplus n}) \setminus D \longrightarrow
+\mathbf{G}(q,N).
+$$
+\item There exists a map of stacks
+$$
+X \longrightarrow [\mathbf{G}(q,N)/\mathrm{PGL}_n].
+$$
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+We first prove (1).
 For (2), note that $\mathrm{PGL}_n$ acts on $\mathbf{G}(q,N)$ via
 $$
   \mathrm{GL}_n \longrightarrow
@@ -2096,15 +2151,38 @@ all $k\geq 2$.
 
 \section{Projectivity of $\overline{\mathcal{M}_g}$}
 In this section, we show that the moduli stack $\overline{\mathcal{M}}_g$ of
-stable curves of genus $g \geq 2$, as introduced in~\citeSP{0E77}, has a
-projective coarse moduli space $\overline{M}_g$.
-We specialize the ampleness criterion of~\cite[Theorem 2.6]{ko90} to the case
-at hand in Lemma~\ref{lemma-mgbar-proj-field} to show that $\overline{M}_g$
-is projective over any field $k$.
+stable curves of genus $g \geq 2$ is projective over $\Spec(\mathbf{Z})$ in the
+sense that it admits a coarse moduli space which is projective over
+$\Spec(\mathbf{Z})$.
+This is done by, first, specializing the ampleness criterion
+of~\cite[Theorem 2.6]{ko90} to the case at hand in
+Lemma~\ref{lemma-mgbar-proj-field} to show that $\overline{M}_g$ is projective
+over any field $k$.
 This is then used to show $\overline{M}_g$ is projective over $\mathbf{Z}$
-in Theorem~\ref{theorem-mgbar-proj}.\todo{Remark that there exist a coarse
-  moduli space, say, via Keel--Mori, or else by checking Artin's axioms
-  directly from the results of Deligne--Mumford.}
+in Theorem~\ref{theorem-mgbar-proj}.
+
+\begin{lemma}
+\label{lemma-coarse-mgbar}
+The stacks $\overline{\mathcal{M}}$ and $\overline{\mathcal{M}}_g$
+defined in~\citeSP{0E77} admit uniform categorical moduli spaces
+$f : \overline{\mathcal{M}} \to \overline{M}$ and
+$f_g : \overline{\mathcal{M}}_g \to \overline{M}_g$ such that $f$ and $f_g$
+are separated, quasi-compact, and universal homeomorphisms.
+\end{lemma}
+
+\begin{proof}
+The stacks of stable curves have finite inertia by~\citeSP{0E7A}
+and~\citeSP{0DSW}.
+The existence of $f$ and $f_g$ now follows from by~\citeSP{0DUT}.
+\end{proof}
+
+\begin{definition}
+\label{definition-deligne-mumford-coarse}
+The algebraic space $\overline{M}$ from Lemma~\ref{lemma-coarse-mgbar} is
+called the \emph{coarse moduli space of curves}.
+Similarly, for $g \geq 2$, the algebraic space $\overline{M}_g$ is called the
+\emph{coarse moduli space of curves of genus $g$}.
+\end{definition}
 
 \begin{lemma}
 \label{lemma-mgbar-hodge-bundle}
@@ -2180,11 +2258,7 @@ Now we set up our application of Lemma~\ref{lemma-ampleness-of-semipos-quotients
 to the map $\mu$.
 Note that, by (3), $\mu$ is a quotient map.
 Moreover, by Lemma~\ref{theorem-rel-dualizing-nef},
-$f_*\omega_{X/S}^{\otimes md}$ is nef.\todo{Does this really apply
-  here? It seems like the nefness lemma only shows this for the base
-  scheme being a curve.
-  \textbf{08/10/17} Though it might be okay since nefness is really a condition
-  on curves.}
+$f_*\omega_{X/S}^{\otimes md}$ is nef.
 It remains to check that the classifying map
 $$
 u : S \to [\mathbf{G}(q,N)/\mathrm{PGL}_n]
@@ -2233,7 +2307,7 @@ Now, up to the action of $\mathrm{PGL}_n$, we may identify
 $$
 \mathrm{Sym}^d(H^0(X_s,\omega_{X_s/\overline k}^{\otimes m}))
   = \mathrm{Sym}^d(H^0(\mathbf{P}_{\overline k}^{n - 1},
-      \mathcal{O}_{\mathrm{P}^{n-1}_{\mathoverline{k}}}(1)))
+      \mathcal{O}_{\mathrm{P}^{n-1}_{\overline{k}}}(1)))
 $$
 via the embedding of $X_s$ by $\omega_{X_s/\overline k}^{\otimes m}$.
 Thus the isomorphism class of $\mu_s$ is determined by the subspace of
@@ -2299,9 +2373,11 @@ We already know from Lemma~\ref{lemma-mgbar-proj-field} that the base
 change of $\lambda_m$ to $\overline{M}_g/\Spec(k)$ is relatively ample therein.
 In particular, this means that $\lambda_m$ restricted to each fibre of
 $\overline{M}_g \to \Spec(\mathbf{Z})$ is relatively ample.
-Since $\overline{M}_g \to \Spec(\mathbf{Z})$ is proper by ...\todo{Find a
-  reference for this.},~\citeSP{0D2N} applies to show $\lambda_m$ is proper
-on all of $\overline{M}_g/\Spec(\mathbf{Z})$, as desired.
+Since $\overline{\mathcal{M}}_g \to \Spec(\mathbf{Z})$ is proper
+by~\citeSP{0E9C},~\citeSP{0DUZ} shows $\overline{M}_g \to \Spec(\mathbf{Z})$ is
+proper.
+Hence~\citeSP{0D2N} applies to show $\lambda_m$ is ampld on all of
+$\overline{M}_g/\Spec(\mathbf{Z})$, as desired.
 \end{proof}
 
 \bibliographystyle{amsplain}
