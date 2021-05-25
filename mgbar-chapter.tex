@@ -1,0 +1,2440 @@
+\alphafootnotes
+\author[Cheng, Lian, Murayama]{
+  Raymond Cheng \\
+  Columbia University \and
+  Carl Lian \\
+  Humboldt-Universität \and
+  Takumi Murayama\\
+  Princeton University
+}
+
+\chapter[Projectivity of Moduli of Curves]{Projectivity of Moduli of Curves}
+
+\contributor{Raymond Cheng,
+  \affiliation{Department of Mathematics, Columbia University, 2990~Broadway, New York, NY~10027, United States}}
+
+\contributor{Carl Lian,
+  \affiliation{Institut für Mathematik, Humboldt-Universität zu Berlin Rudower Chaussee 25, Raum 1.412 12489 Berlin}}
+
+\contributor{Takumi Murayama,
+  \affiliation{Department of Mathematics, Princeton University, Princeton, NJ 08544-1000, USA}}
+
+\arabicfootnotes
+
+\chapterabstract{\ldots}
+
+\section{Introduction}
+\label{section-introduction}
+
+\noindent
+In this article, we exposit a proof, due to Koll\'ar in~\cite{ko90}, of the fact
+that the moduli stack $\overline{\mathcal{M}}_g$ of stable curves of genus
+$g \geq 2$ admits a coarse moduli space $\overline{M}_g$ which is projective
+over $\mathbf{Z}$.
+In particular, this means that the coarse moduli space $\overline{M}_g$, which
+is \emph{a priori} but an algebraic space, is actually a projective scheme
+over $\mathbf{Z}$.
+Together with the work of Deligne--Mumford~\cite{dm}, the moduli space
+$\overline{M}_g$ is actually an irreducible smooth projective scheme over
+$\mathbf{Z}$.
+
+\medskip
+\noindent
+Koll\'ar's method differs from other existing proofs of projectivity of
+$\overline{M}_g$ in two main ways: First, the technique is independent of the
+powerful, though bulky, methods of Geometric Invariant Theory, on which
+the proofs of~\cite{mumford_stability, gieseker_lectures, cornalba_projectivity}
+are reliant on. Second, Koll\'ar's criterion does not require one to directly
+check that a line bundle on the moduli space is ample, in contrast to the
+approach of Knudsen--Mumford~\cite{km-projectivity-I, knudsen-II, knudsen-III};
+rather, one only needs to show that some vector bundle on the moduli space
+is nef.
+Since nefness is a condition that only depends on curves in the space,
+concretely, this condition can be checked in moduli situations by considering
+families over a $1$-dimensional base.
+Thus, the positivity input in this proof amounts to studying positivity of
+the pushfoward of relative canonical sheaves on families of stable curves
+over a $1$-dimensional base.\todo{Write a legitimate introduction. What is this
+  document about; what does it aim to do; how did it come about. Add some
+  references.}
+
+\section{Positivity of invertible sheaves}
+\label{section-positivity}
+For material on positivity, we largely follow~\cite{lazI,lazII}.
+
+\begin{definition}
+\label{definition-nef-invertible-sheaf}
+Let $X$ be a proper scheme over a field $k$.
+An invertible $\mathcal{O}_X$-module is said to be \emph{numerically effective}
+or \emph{nef} if $(\mathcal{L} \cdot C) \geq 0$ for every irreducible closed
+subscheme $C \subset X$ of dimension $1$.
+\end{definition}
+
+\begin{lemma}
+\label{lemma-nef-pullback-nef}
+% REFERENCE: \cite[Example 1.4.4(i)]{lazI}
+Let $f : Y \to X$ be a morphism of proper schemes over $k$.
+If $\mathcal{L}$ is a nef invertible sheaf on $X$,
+then $f^*\mathcal{L}$ is a nef invertible sheaf on $Y$.
+\end{lemma}
+
+\begin{proof}
+...\todo{Prove this!}
+\end{proof}
+
+\begin{lemma}
+\label{lemma-nef-proper-surjective-nef}
+% REFERENCE: \cite[Example 1.4.4(ii)]{lazI}
+Let $f : Y \to X$ be a surjective proper morphism of schemes over $k$.
+Assume $X$ is proper over $k$.
+Let $\mathcal{L}$ be an invertible sheaf on $X$.
+Then $\mathcal{L}$ is nef on $X$ if and only if $f^*\mathcal{L}$ is nef on $Y$.
+\end{lemma}
+
+\begin{proof}
+...\todo{Prove this!}
+\end{proof}
+
+\begin{lemma}
+\label{lemma-degree-of-nef-on-curve}
+Let $X$ be a proper scheme of dimension $1$ over a field $k$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+If $\mathcal{L}$ is nef, then $\deg(\mathcal{L}) \geq 0$.
+\end{lemma}
+
+\begin{proof}
+In the case $X$ is irreducible, then the conclusion follows from~\citeSP{0BEY}
+and the definitions.
+
+In general, let $C_1,\ldots,C_t$ be the irreducible components of $X$, viewed
+as subschemes of $X$ with the reduced induced subscheme structure.
+By~\citeSP{0AYW},
+$$
+\deg(\mathcal{L}) = \sum\nolimits_i m_i\deg(\mathcal{L}|_{C_i})
+$$
+for some positive integers $m_i$.
+The irreducible case gives $\deg(\mathcal{L}|_{C_i}) \geq 0$, and thus
+$\deg(\mathcal{L}) \geq 0$.
+\end{proof}
+
+\begin{definition}
+Let $k$ be a field.
+Let $X$ be a proper scheme over $k$.
+An invertible sheaf $\mathcal{L}$ on $X$ is said to be \emph{big}
+if...\todo{Fill in the definition and show a few characterizations.}.
+\end{definition}
+
+\section{Tensor sheaves}
+\label{section-tensor-sheaves}
+Linear algebra constructions give many constructions to combine locally free
+sheaves.
+These constructions can be unified by viewing each as coming from a
+representation of a product of general linear groups, and then the composite
+sheaf can be described by applying the representation to the transition
+functions of the constituent sheaves.
+
+\begin{definition}
+\label{definition-tensor-sheaf}
+Let $k$ be a field.
+Let $X$ be a scheme over $k$.
+Let $\mathcal{E}_1,\ldots,\mathcal{E}_s$ be locally free sheaves of finite
+ranks $r_1,\ldots,r_s$ on $X$.
+Let $\rho : \prod_t \mathrm{GL}_{r_t} \to \mathrm{GL}_n$ be a homomorphism of
+group schemes over $k$.
+Then $\rho(\mathcal{E}_1,\ldots,\mathcal{E}_s) = \mathcal{E}$ is the
+locally free sheaf of finite rank $n$ on $X$ constructed as follows:
+Let $X = \bigcup_i U_i$ be an open cover over which each of
+$\mathcal{E}_1,\ldots,\mathcal{E}_s$ is trivial and suppose $\mathcal{E}_t$ is
+given by \v{C}ech cocycles $\{(U_j,\varphi_{t,ij})\}$.
+Then $\mathcal{E}$ is the locally free sheaf given by the \v{C}ech cocycle
+$\{(U_i,\rho(\varphi_{1,ij},\ldots,\varphi_{s,ij}))\}$.
+\end{definition}
+
+Following the terminology of~\cite[p.76]{hartshorne_ample_vb}, we may refer to
+coherent locally free sheaves of the form
+$\rho(\mathcal{E}_1,\ldots,\mathcal{E}_s)$ as \emph{tensor sheaves}.
+We generally refer to this procedure as applying \emph{tensor operations}
+to locally free sheaves.
+
+\begin{remark}
+\label{remark-tensor-sheaf-other-groups}
+The construction in Definition~\ref{definition-tensor-sheaf} can be described
+more generally for any homomorphism $\rho : G \to H$ of group schemes
+and any $G$-torsor $\mathcal{E}$.
+\end{remark}
+
+\begin{remark}
+\label{remark-tensor-sheaf-via-H1}
+The construction in Definition~\ref{definition-tensor-sheaf} and its
+generalization in Remark~\ref{remark-tensor-sheaf-other-groups} can be described
+more abstractly.
+Let $X$ be a scheme.
+Let $\rho : G \to H$ be a homomorphism of group schemes
+and write $\rho^* : H^1(X,G) \to H^1(X,H)$ be the induced map on first
+cohomology sets.
+Let $\mathcal{E}$ be a $G$-torsor over $X$.
+By~\citeSP{02FQ}, $\mathcal{E}$ corresponds to a class $[\mathcal{E}] \in H^1(X,G)$.
+Invoking, once again, the correspondence between torsors and classes in $H^1$,
+$\rho^*([\mathcal{E}]) \in H^1(X,H)$ gives rise to a $H$-torsor.
+This is $\rho(E)$.
+\end{remark}
+
+\begin{lemma}
+\label{lemma-pullback-tensor-sheaves}
+Let $k$ be a field.
+Let $f: X' \to X$ be a morphism of schemes over $k$..
+Let $\mathcal{E}_1,\ldots,\mathcal{E}_s$ be locally free sheaves of finite
+ranks $r_1,\ldots,r_s$ on $X$.
+Let $\rho : \prod_t \mathrm{GL}_{r_t} \to \mathrm{GL}_n$ be a homomorphism of
+group schemes over $k$.
+Then $\rho(f^*\mathcal{E}_1,\ldots,f^*\mathcal{E}_s)$ and
+$f^*\rho(\mathcal{E}_1,\ldots,\mathcal{E}_s)$ are canonically isomorphic as
+locally free $\mathcal{O}_{X'}$-modules.
+\end{lemma}
+
+\begin{proof}
+This is immediate from the description given in
+Remark~\ref{remark-tensor-sheaf-via-H1}.
+\end{proof}
+
+Certain tensor operations on sheaves preserve nonnegativity properties of
+locally free sheaves.
+We single one class of such tensor operations in the next definition.
+
+\begin{definition}
+\label{definition-nonneg-rep}
+Let $k$ be a field.
+Let $V_1,\ldots,V_s,V$ be finite dimensional vector spaces over $k$.
+A homomorphism $\rho : \prod_t \mathrm{GL}(V_t) \to \mathrm{GL}(V)$ of group
+schemes over $k$ is called \textit{nonnegative} if it extends to a homomorphism
+$\tilde{\rho} : \prod_t \mathrm{End}(V_t) \to \mathrm{End}(V)$ of monoids
+over $k$.
+\end{definition}
+
+Roughly, a nonnegative representation is one where there are ``not too many
+$\det$s in the denominator.''
+The choice of terminology in Definition~\ref{definition-nonneg-rep} comes about
+as a generalization of \emph{positive representations} as defined
+in~\cite[p.76]{hartshorne_ample_vb}.
+A positive representation, as defined in Hartshorne's paper, is a nonnegative
+representation.
+
+\begin{lemma}
+\label{lemma-sums-nonneg-rep}
+Let $k$ be a field.
+Let $V_1,\ldots,V_s$ be finite dimensional vector spaces over $k$.
+Then the natural homomorphism
+$\rho : \prod_t \mathrm{GL}(V_t) \to \mathrm{GL}(V_1 \oplus \cdots \oplus V_s)$
+is nonnegative.
+\end{lemma}
+
+\begin{proof}
+Omitted.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-tensor-nonneg-rep}
+Let $k$ be a field.
+Let $V_1,\ldots,V_s$ be finite dimensional vector spaces over $k$.
+Then the natural homomorphism
+$\rho : \prod_t \mathrm{GL}(V_t) \to \mathrm{GL}(V_1 \otimes_k \cdots \otimes_k V_s)$
+is nonnegative.
+\end{lemma}
+
+\begin{proof}
+Omitted.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-subreps-nonneg-rep}
+Let $k$ be a field.
+Let $V_1,\ldots,V_s,V$ be finite dimensional vector spaces over $k$.
+Let $\rho : \prod_t \mathrm{GL}(V_t) \to \mathrm{GL}(V)$ be a homomorphism of
+group schemes over $k$
+Assume $\rho$ is a nonnegative representation.
+Suppose $V' \subset V$ is an invariant subspace, defining a subrepresentation
+$\rho' : \prod_t \mathrm{GL}(V_t) \to \mathrm{GL}(V')$.
+Then $\rho'$ is a nonnegative representation.
+\end{lemma}
+
+\begin{proof}
+Let $\rho:G\to \mathrm{GL}(W)$ be a nef representation and let
+$W'\subset W$ be a subrepresentation.
+We may easily reduce to the case $G=\mathrm{GL}(V)$.
+Then, $\rho$ extends to a morphism of monoids
+$\overline{\rho}:\mathrm{End}(V)\to \mathrm{End}(W)$.
+The representation $\rho$ also gives a morphism of schemes
+$\phi:\mathrm{GL}(V)\times W\to W$, where $W$ has been given the obvious scheme
+structure.
+Similarly, $\overline{\rho}$ gives rise to an extension
+$\overline{\phi}:\mathrm{End}(V)\times W\to W$.
+
+The fact that $W'\subset W$ is a subrepresentation is equivalent to the fact
+that the image of $\phi$ when restricted to the closed subscheme
+$\mathrm{GL}(V)\times W'$ is $W'$.
+It is sufficient to prove the same statement for the closed subscheme
+$\mathrm{End}(V)\times W'$ of $\mathrm{End}(V)\times W$.
+However, by assumption the dense open subscheme $\mathrm{GL}(V)\times W'$ of
+$\mathrm{End}(V)\times W'$ maps to $W'$, so $\mathrm{End}(V)\times W'$ must as
+well, as desired. One should check that the resulting map on $W'$ is linear;
+details omitted.\todo{Edit this to match notation.}
+\end{proof}
+
+\begin{lemma}
+\label{lemma-quotient-nonneg-rep}
+Let $k$ be a field.
+Let $V_1,\ldots,V_s,V$ be finite dimensional vector spaces over $k$.
+Let $\rho : \prod_t \mathrm{GL}(V_t) \to \mathrm{GL}(V)$ be a homomorphism of
+group schemes over $k$
+Assume $\rho$ is a nonnegative representation.
+Suppose $V \to V''$ is a quotient of $V$ such that $\rho$ descends to a
+representation $\rho'' : \prod_t \mathrm{GL}(V_t) \to \mathrm{GL}(V'')$.
+Then $\rho''$ is a nonnegative representation.
+\end{lemma}
+
+\begin{proof}
+Omitted.\todo{Maybe comment that the proof is basically the same as the subrep case.}
+\end{proof}
+
+\begin{lemma}
+\label{lemma-star-rho-star-nonneg-rep}
+Let $k$ be a field.
+Let $V_1,\ldots,V_s,V$ be finite dimensional vector spaces over $k$.
+Let $\rho : \prod_t \mathrm{GL}(V_t) \to \mathrm{GL}(V)$ be a homomorphism
+of group schemes over $k$.
+Let $\sigma : \prod_t \mathrm{GL}(V_t^\vee) \to \prod_t \mathrm{GL}(V_t)$ be
+the antihomomorphism of monoids taking an automorphism of $V_t^\vee$ to its dual.
+Let $\tau : \mathrm{GL}(V) \to \mathrm{GL}(V^\vee)$ denote the antihomomorphism
+of monoids taking an automorphism of $V$ to its dual.
+If $\rho$ is a nonnegative representation, then
+$$
+  \tau \circ \rho \circ \sigma : \prod \mathrm{GL}(V_t^\vee) \to \mathrm{GL}(V)
+$$
+is a nonnegative representation.
+\end{lemma}
+
+\begin{proof}
+...\todo{Draw the required diagram.}
+\end{proof}
+
+\begin{lemma}
+\label{lemma-wedge-nonneg-rep}
+Let $k$ be a field.
+Let $V$ be finite dimensional vector spaces over $k$.
+Then, for every $r \geq 0$, the natural homomorphism
+$\rho : \mathrm{GL}(V) \to \mathrm{GL}(\bigwedge^r V)$
+is nonnegative.
+\end{lemma}
+
+\begin{proof}
+This follows from
+Lemma~\ref{lemma-sums-nonneg-rep},
+Lemma~\ref{lemma-tensor-nonneg-rep}, and
+Lemma~\ref{lemma-quotient-nonneg-rep}.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-sym-nonneg-rep}
+Let $k$ be a field.
+Let $V$ be finite dimensional vector spaces over $k$.
+Then, for every $d \geq 0$, the natural homomorphism
+$\rho : \mathrm{GL}(V) \to \mathrm{GL}(\mathrm{Sym}^d(V))$
+is nonnegative.
+\end{lemma}
+
+\begin{proof}
+This follows from
+Lemma~\ref{lemma-sums-nonneg-rep},
+Lemma~\ref{lemma-tensor-nonneg-rep}, and
+Lemma~\ref{lemma-quotient-nonneg-rep}.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-nonneg-tensor-morphisms}
+Let $k$ be a field.
+Let $X$ be a scheme over $k$.
+Let
+$\mathcal{E}_1,\ldots,\mathcal{E}_s,\mathcal{E}'_1,\ldots,\mathcal{E}'_s$
+be locally free sheaves of finite rank on $X$.
+Assume that for each $t = 1,\ldots,s$,
+$r_t = \mathrm{rank}(\mathcal{E}_t) = \mathrm{rank}(\mathcal{E}'_t)$.
+For each $t = 1,\ldots,s$, let $f_t : \mathcal{E}_i \to \mathcal{E}'_i$ be a
+morphism of $\mathcal{O}_X$-modules.
+Let $\rho : \prod \mathrm{GL}_{r_t} \to \mathrm{GL}_n$ be a representation.
+If $\rho$ is nef, then the $f_1,\ldots,f_s$ induce a morphism
+$$
+  \rho(f_1,\ldots,f_s) :
+    \rho(\mathcal{E}_1,\ldots,\mathcal{E}_s) \to
+    \rho(\mathcal{E}'_1,\dots,\mathcal{E}'_s)
+$$
+of $\mathcal{O}_X$-modules.
+\end{lemma}
+
+\begin{proof}
+Choose an open cover $X = \bigcup_i U_i$ over which all the locally free
+sheaves are trivial and fix a trivialization of each sheaf.
+With respect to this open cover, each morphism $f_t$ can be locally described
+by a $r_t \times r_t$ matrix.
+Since $\rho$ is nonnegative, there exists an extension
+$\tilde\rho : \prod \mathrm{Mat}_{r_t} \to \mathrm{Mat}_n$.
+The matrices $\tilde\rho(f_1,\ldots,f_t)$ locally define the morphism of
+$\mathcal{O}_X$-modules in the statement.
+Details omitted.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-tensor-of-split-bundle}
+Let $k$ be a field.
+Let $X$ be a $k$-scheme.
+For $i = 1, 2, \ldots, n$, let $V_i = \bigoplus_j \mathcal{L}_{ij}$ be a
+locally free sheaf of rank $r_i$ that splits as a direct sum of line bundles
+$\mathcal{L}_{ij}$.
+Let $\rho : \prod_i \mathrm{GL}_{r_i} \to \mathrm{GL}_m$ be a nef
+representation.
+Then, $\rho(\mathcal{V}_1,\ldots,V_n)$ is a direct sum of line bundles of the
+form $\bigoplus_{i,j}\bigotimes\mathcal{L}_{ij}^{a_{ij}}$, where $a_{ij}\ge0$ for
+each $i,j$.\todo{Edit this to be consistent with this section.}
+\end{lemma}
+
+\begin{proof}
+For each $i$, we have a diagonal embedding
+$\psi_i : \prod_{j = 1}^{r_i}\mathrm{GL}_1 \to \mathrm{GL}_{r_i}$.
+Taking the product over $i$ and post-composing with $\rho$ yields a map
+$$
+  \psi : \prod_{i = 1}^n \prod_{j = 1}^{r_i} \mathrm{GL}_1 \to \mathrm{GL}_m,
+$$
+which factors through a maximal torus
+$\prod_{k = 1}^m \mathrm{GL}_1 \subset \mathrm{GL}_m$,
+as in the following diagram:
+$$
+\xymatrix{
+  \prod_{i = 1}^n \prod_{j = 1}^{r_i} \mathrm{GL}_1 \ar[r]^\psi \ar[rd] &
+  \prod_{i = 1}^{n} \mathrm{GL}_{r_i} \ar[r]^\rho &
+  \mathrm{GL}_m \\
+    &
+  \prod_{k = 1}^m \mathrm{GL}_1 \ar[ru] \ar[d]^{\mathrm{pr}_t} \\
+    &
+  \mathrm{GL}_1
+}
+$$
+
+Now consider the projection on the $t$\textsuperscript{th} factor
+$\mathrm{pr}_t : \prod_{k = 1}^m \mathrm{GL}_1\to \mathrm{GL}_1$.
+The composition
+$\prod_{i = 1}^n \prod_{j = 1}^{r_i} \mathrm{GL}_1\to \mathrm{GL}_1$ is a
+character of the form $(z_{ij})_{i,j}\mapsto \prod z_{ij}^{a_{ij,t}}$.
+On a trivializing cover of $X$, the $z_{ij}$ correspond to the transition
+functions of $\mathcal{L}_{ij}$, hence $\prod z_{ij}^{a_{ij,t}}$ correspond to
+$\otimes\mathcal{L}_{ij}^{a_{ij,t}}$.
+
+Pulling back to $\prod_{k = 1}^m \mathrm{GL}_m$,
+we see that $\rho(V_1,\ldots,V_n)$ splits as the direct sum of the line bundles
+$\bigoplus_t \bigotimes_{i,j} \mathcal{L}_{ij}^{a_{ij,t}}$.
+\end{proof}
+
+\section{Nef locally free sheaves}
+\label{section-nef-bundles}
+
+In this section, we define and study basic properties of nef
+bundles.
+
+\begin{lemma}
+\label{lemma-nef-bundle-equivalences}
+Let $X$ be a proper scheme over a field $k$.
+Let $\mathcal{E}$ be a coherent locally free sheaf on $X$.
+Then the following are equivalent:
+\begin{enumerate}
+\item $\mathcal{O}_{\mathbf{P}(\mathcal{E})}(1)$ is nef on
+  $\mathbf{P}(\mathcal{E})$; and
+\item for every $k$-morphism $f : C \to X$ from a proper $k$-scheme $C$
+of dimension $1$, and for every surjection $f^*\mathcal{E} \to \mathcal{L}$
+of locally free $\mathcal{O}_C$-modules with $\mathrm{rank}(\mathcal{L}) = 1$,
+we have $\deg_C(\mathcal{L}) \geq 0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $\pi : \mathbf{P}(\mathcal{E}) \to X$ be the projection map from the
+projective bundle $\mathbf{P}(\mathcal{E})$ down to $X$.
+Assume (1) holds and let $f : C \to X$ be a morphism of $k$-schemes, with
+1 dimensional $C$ which is smooth and proper over $k$, and let $\mathcal{L}$
+be an invertible quotient of $f^*\mathcal{E}$ over $C$.
+Applying $\mathrm{Sym}^*$ to the surjection $f^*\mathcal{E} \to \mathcal{L}$,
+\citeSP{01O9} gives a morphism $r : C \to \mathbf{P}(\mathcal{E})$ such that
+$\mathcal{L} \cong r^*\mathcal{O}_{\mathbf{P}(\mathcal{E})}(1)$.
+Since both $C$ and $\mathbf{P}(\mathcal{E})$ are proper over $k$,~\citeSP{01W6}
+shows $r$ is proper.
+Thus by Lemma~\ref{lemma-nef-proper-pullback-nef}, $\mathcal{L}$ is nef.
+Lemma~\ref{lemma-degree-of-nef-on-curve} now gives $\deg_C(\mathcal{L}) \geq 0$.
+
+Assume (2) and let $g : C \hookrightarrow \mathbf{P}(\mathcal{E})$ be
+any irreducible closed subscheme of dimension $1$.
+Let $\mathcal{L} = g^*\mathcal{O}_{\mathbf{P}(\mathcal{E})}(1)$ and note
+that it is nef by Lemma~\ref{lemma-nef-proper-pullback-nef}.
+Set $f = \pi \circ g: C \to X$ to be the closed immersion of $C$ into the
+projective bundle followed by the projection morphism.
+By the universal property of relative Proj, the morphism $g$ gives rise
+to a surjection $f^*\mathcal{E} \to \mathcal{L}$.
+Now~\citeSP{0BEY} together with our hypothesis gives
+$$
+(\mathcal{O}_{\mathbf{P}(\mathcal{E})}(1) \cdot C) = \deg_C(\mathcal{L}) \geq 0.
+$$
+Therefore $\mathcal{O}_{\mathbf{P}(\mathcal{E})}(1)$ is nef.
+\end{proof}
+
+\begin{definition}
+\label{definition-nef-bundle}
+Let $k$ be a field.
+Let $X$ be a proper scheme over $k$.
+A coherent locally free sheaf $\mathcal{E}$ on $X$ is said to be \textit{nef}
+if the equivalent conditions of Lemma~\ref{lemma-nef-bundle-equivalences} are
+satisfied.
+\end{definition}
+
+\begin{lemma}
+\label{lemma-nef-bundle-quotient-nef}
+Let $k$ be a field.
+Let $X$ be a proper scheme over $k$.
+Let $\varphi : \mathcal{E} \to \mathcal{F}$ be a surjection of locally free
+sheaves on $X$.
+If $\mathcal{E}$ is nef, then $\mathcal{F}$ is nef.
+\end{lemma}
+
+\begin{proof}
+Let $f : C \to X$ be a morphism of schemes over $k$ from a proper $k$-scheme
+$C$ of dimension $1$ and let $f^*\mathcal{F} \to \mathcal{L}$ be an invertible
+quotient.
+Since $f^*$ is right exact, $f^*\varphi$ induces a surjection
+$f^*\mathcal{E} \to \mathcal{L}$.
+Since $\mathcal{E}$ is nef, $\deg_C(\mathcal{L}) \geq 0$.
+This shows $\mathcal{F}$ is nef.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-nef-bundle-extension-nef}
+Let $k$ be a field.
+Let $X$ be a proper scheme over $k$.
+Let
+$$
+0 \to \mathcal{E}' \to \mathcal{E} \to \mathcal{E}'' \to 0
+$$
+be a short exact sequence of coherent locally free sheaves on $X$.
+If $\mathcal{E}'$ and $\mathcal{E}''$ are both nef, then $\mathcal{E}$ is nef.
+\end{lemma}
+
+\begin{proof}
+...\todo{Prove this!}
+\end{proof}
+
+\begin{lemma}
+\label{lemma-nef-pullback-nef-vb}
+Let $k$ be a field.
+Let $f : Y \to X$ be a morphism of proper schemes over $k$.
+If $\mathcal{E}$ is a nef coherent locally free sheaf on $X$, then
+$f^*\mathcal{E}$ is a nef coherent locally free sheaf on $Y$.
+\end{lemma}
+
+\begin{proof}
+Let $g : C \to Y$ be a morphism of schemes over $k$ from a proper $k$-scheme
+$C$ of dimension $1$ and let $g^*(f^*\mathcal{E}) \to \mathcal{L}$ be an
+invertible quotient.
+Since $g^*(f^*\mathcal{E}) = (f \circ g)^*\mathcal{E}$ and $\mathcal{E}$ is
+nef, $\deg_C(\mathcal{L}) \geq 0$.
+Thus $f^*\mathcal{E}$ is nef.
+\end{proof}
+
+\begin{lemma}\label{semipos_locus_open}
+Let $X$ and $Y$ be schemes.
+Let $f:Y\to X$ be a flat morphism of schemes.
+Let $\mathcal{V}$ be a locally free sheaf of finite rank on $Y$.
+Then, the set of points $x\in X$ such that the locally free sheaf
+$\mathcal{V}_x$ is nef on the fiber $Y_x$ is open.
+\end{lemma}
+
+\begin{proof}
+Let $\pi:\mathbb{P}_Y(V)\to Y$ be the projection map.
+Given a point $x\in X$, by Lemma \ref{semipos=nef} the vector bundle
+$\mathcal{V}_x$ is nef if and only if
+$\mathcal{O}_{\mathbb{P}_Y(V)}(1)_x$ is nef.
+The compositve morphism $f\circ \pi$ is flat, because $\pi$ is flat.
+The claim now follows from the fact that nefness is an open condition in flat
+families.\todo{Find a reference for this.}
+\end{proof}
+
+\begin{lemma}\label{global_generation_of_twist_on_curve}
+Let $k$ be a field.
+Let $C$ be a smooth, proper, and connected $k$-scheme of of genus $g$.
+Let $\mathcal{E}$ be a vector bundle on $C$.
+Let $\mathcal{L}$ be a line bundle on $C$ of degree at least $2g$.
+Then, $\mathcal{E}\otimes\mathcal{L}$ is globally generated.
+\end{lemma}
+
+\begin{proof}
+By~\citeSP{0B57}, it suffices to assume that $k$ is algebraically closed.
+Let $x\in C$ be a closed point with ideal sheaf $\mathcal{O}(-x)$.
+We have a short exact sequence
+\begin{equation}
+  0 \to
+  \mathcal{E} \otimes \mathcal{L}(-x) \to
+  \mathcal{E} \otimes \mathcal{L} \to
+  \mathcal{E} \otimes \mathcal{L}\mid_x \to
+  0
+\end{equation}
+It suffices to show that $H^1(C,\mathcal{E}\otimes\mathcal{L}(-x)) = 0$.
+By Serre Duality\todo{Find a reference in the Stacks Project for this} and
+since $\mathcal{L}(-x)$ is locally free,
+$$
+H^1(C,\mathcal{E}\otimes\mathcal{L}(-x)) \cong
+  \Hom_{\mathcal{O}_C}(\mathcal{E} \otimes \mathcal{L}(-x),\omega_C)^\vee \cong
+  \Hom_{\mathcal{O}_C}(\mathcal{E},\omega_C\otimes\mathcal{L}^{-1}(x))^\vee.
+$$
+Consider a morphism $f : \mathcal{E} \to \omega_C \otimes \mathcal{L}^{-1}(x)$
+of $\mathcal{O}_C$-modules.
+Since $\mathcal{E}$ is locally free, the image of $f$ is a torsion-free
+subsheaf of $\omega_C \otimes \mathcal{L}^{-1}(x)$.\todo{Is this argument
+right? \emph{The target of such a nonzero map is a locally free sheaf of
+  negative degree, so the image subsheaf is torsion-free and hence locally free
+  sheaf of negative degree.
+  However, $\mathcal{E}$ has no negative line bundle quotients, so no such map
+  can exist.}
+I am not sure why the image is locally free?
+All I can see right now is that the image is locally free away from finitely
+many points.
+}
+\end{proof}
+
+
+\begin{lemma}\label{lemma-no-neg-quot-curves-p}
+Let $k$ be a field of characteristic $p > 0$.
+Let $C$ be a smooth, proper, and connected $k$-scheme of dimension 1.
+Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be nef vector bundles of
+ranks $r_1,\ldots,r_n$ on $C$.
+Let $\rho : \prod \mathrm{GL}_{r_i}\to \mathrm{GL}_m$ be a nef
+representation.
+Then $\rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is a nef vector bundle.
+\end{lemma}
+\begin{proof}
+Let $g$ be the genus of $C$, and fix a line bundle $\mathcal{L}$ of degree at
+least $2g$.
+By Lemma \ref{global_generation_of_twist_on_curve},
+$\mathcal{V}_i \otimes\mathcal{L}$ is generated by global sections for each
+$i$, so there exist maps
+$$
+  f_i : (\mathcal{L}^{-1})^{\oplus r_i} \to \mathcal{V}_i,
+$$
+which are surjective at a given closed point of $x \in C$, and hence
+generically surjective.
+
+Applying
+Lemma~\ref{lemma-pullback-tensor-sheaves},
+Lemma~\ref{lemma-tensor-of-split-bundle}, and
+Lemma \ref{lemma-nonneg-tensor-morphisms}, we get a generically surjective map
+$$
+  \rho(f_1,\ldots,f_n) :
+    \bigoplus_i \mathcal{L}^{-\otimes b_i} \to
+    \rho(\mathcal{V}_1,\ldots,\mathcal{V}_n),
+$$
+where the source is
+$\rho(\mathcal{L}^{-\otimes r_1},\ldots,\mathcal{L}^{-\otimes r_n})$.
+Thus the $b_i$ are positive integers depending on the ranks of the $V_i$ but
+not the $V_i$ themselves.
+In particular, there exists a positive integer $N$, independent of the
+$\mathcal{V}_i$, such that $\min\deg\mathcal{L}^{-b_i} = -N$.
+Moreover, $\rho(f_1,\ldots,f_n)$ is surjective at $x$ by the construction in
+Lemma \ref{lemma-nonneg-tensor-morphisms}, as the image of an $r$-tuple of invertible
+matrices is invertible under $\overline{\rho}$.
+
+Suppose $\mathcal{M}$ is an invertible quotient of $\rho(V_1,\ldots,V_n)$.
+By pre-composing with $\rho(f_1,\ldots,f_n)$, we obtain a nonzero map
+$$
+  \bigoplus_i \mathcal{L}^{-\otimes b_i} \to \mathcal{M}.
+$$
+Thus, we conclude that
+\begin{equation}\label{degree_of_quotient_not_too_small}
+  \deg(\mathcal{M}) \ge -N.
+\end{equation}
+
+Finally, suppose that $\rho(V_1,\ldots,V_n)$ has a line bundle quotient
+$\mathcal{N}$ of degree $d < 0$.
+Let $F : C \to C$ be the absolute Frobenius map on $C$.
+Pulling back the surjection $\rho(V_1,\ldots,V_n) \to \mathcal{N}$ by $F^t$,
+we obtain a quotient line bundle of
+$\rho((F^t)^* V_1,\ldots,(F^t)^* V_n)$ of degree $dp^t < -N$ for sufficiently
+large $t$, by Lemma \ref{lemma-pullback-tensor-sheaves}.
+However, as $(F^{t})^*V_i$ is nef for each $i$, this contradicts
+\eqref{degree_of_quotient_not_too_small}, so hence $\mathcal{N}$ cannot exist.
+\end{proof}
+
+\begin{lemma}\label{lemma-no-neg-quot-curves}
+Let $k$ be a field.
+Let $C$ be a smooth, proper, and connected $k$-scheme of dimension 1.
+Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be nef vector bundles of
+ranks $r_1,\ldots,r_n$ on $C$.
+Let $\rho : \prod \mathrm{GL}_{r_i} \to \mathrm{GL}_m$ be a nef
+representation.
+Then $\rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is a nef vector bundle.
+\end{lemma}
+\begin{proof}
+If the characteristic of $k$ is positive, this is Lemma
+\ref{lemma-no-neg-quot-curves-p}.
+If the characteristic of $k$ is zero, after possibly enlarging $k$, we may find
+an integral and finite type $\mathbb{Z}$-algebra $A$ over which $C$,
+$\mathcal{V}_1,\ldots,\mathcal{V}_n$, and $\rho$ are all defined, and such that
+we have a smooth morphism of schemes $\pi : \mathcal{C} \to \Spec(A)$.
+By Lemma \ref{semipos_locus_open}, we may replace $\Spec(A)$ with an open
+subset so that each $\mathcal{V}_i$ is nef when restricted to any
+fiber of $\pi$.
+By Lemma~\ref{lemma-no-neg-quot-curves-p},
+$\mathcal{W} = \rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is nef when
+restricted to any fiber of $\pi$ above a point of $\Spec(A)$ with residue field
+of positive characteristic.
+This locus on $\Spec(A)$ is non-empty, so by another application of Lemma
+\ref{semipos_locus_open}, so
+$\mathcal{W} = \rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$ is nef when
+restricted to the generic fiber, which is what was needed.
+Some additional details may be necessary.\todo{Does this even work??}
+\end{proof}
+
+
+\begin{lemma}
+\label{lemma-nonneg-rep-nef}
+Let $k$ be a field.
+Let $X$ be a proper scheme over $k$.
+Let $\mathcal{E}_1,\ldots,\mathcal{E}_s$ be nef coherent locally free sheaves
+on $X$ of ranks $r_1,\ldots,r_s$.
+Let $\rho : \prod_t \mathrm{GL}_{r_t} \to \mathrm{GL}_n$ be a nonnegative
+representation.
+Let $\mathcal{E} = \rho(\mathcal{E}_1,\ldots,\mathcal{E}_n)$.
+Then $\mathcal{E}$ is nef on $X$.
+\end{lemma}
+
+\begin{proof}
+Immediate from Lemma \ref{lemma-no-neg-quot-curves}.
+\end{proof}
+
+%\begin{lemma}\label{semipos_of_symd_curve_charp}
+%Let $C$ be a smooth curve over a field of characteristic $p>0$. Let $V$ be a nef vector bundle on $C$. Then, for any positive integer $d$, $Sym^dV$ is a nef vector bundle.
+%\end{lemma}
+%\begin{proof}
+%Let $g$ be the genus of $C$, and let $\mathcal{L}$ be a line bundle on $C$ of degree at least $2g$.
+%By Lemma \ref{global_generation_of_twist_on_curve}, $V\otimes\mathcal{L}^{-1}$ is globally generated, so there exists a generically surjective map
+%\begin{equation}
+%f:(\mathcal{L}^{-1})^{\oplus r_i}\to V
+%\end{equation}
+%coming from a collection of $r$ global sections generating the fiber at some closed point of $C$.
+%Applying $Sym^d$, we thus get a generically surjective map
+%\begin{equation}
+%Sym^df:(\mathcal{L}^{-\otimes d})^{\binom{d+r}{r}}\to Sym^{d}V
+%\end{equation}
+%
+%Suppose $\mathcal{M}$ is a line bundle quotient of $Sym^dV$. By pre-composing with $\rho(f_1,\ldots,f_n)$, we obtain a nonzero map
+%\begin{equation}
+%\bigoplus_{i}\mathcal{L}^{-\otimes d}\to\mathcal{M}.
+%\end{equation}
+%Thus, we conclude that
+%\begin{equation}\label{degree_of_quotient_not_too_small}
+%\deg\mathcal{M}\ge d\cdot\deg(\mathcal{L}).
+%\end{equation}
+%
+%Finally, suppose that $\rho(V_1,\ldots,V_n)$ has a line bundle quotient $\mathcal{N}$ of degree $e<0$. Let $F:C\to C$ be the absolute Frobenius map on $C$. Then, by pulling back the surjection $Sym^dV\to\mathcal{N}$ by $F^t$, where $t$ is a positive integer, we obtain a quotient line bundle of $(F^{t})^*Sym^dV\cong Sym^d(F^{*}V)$ of degree $dp^{t}<-N$ for sufficiently large $t$, which contradicts (\ref{degree_of_quotient_not_too_small}) due to Lemma \todo{pullback is still positive}.
+%
+%\end{proof}
+%
+%
+%\begin{lemma}\label{semipos_of_symd_curve_all_char}
+%Let $C$ be a smooth curve over a field of arbitrary characteristic. Let $V$ be a nef vector bundle on $C$. Then, for any positive integer $d$, $Sym^dV$ is a nef vector bundle.
+%\end{lemma}
+%\begin{proof}
+%If the characteristic of the ground field is positive, this is Lemma \ref{semipos_of_symd_curve_charp}. Suppose that the characteristic of the ground field is zero.
+%\end{proof}
+
+\begin{lemma}
+\label{lemma-wedge-vb-nef}
+Let $k$ be a field.
+Let $X$ be a proper scheme over $k$.
+Let $\mathcal{E}$ be a nef coherent locally free sheaf on $X$.
+Then for every $r \geq 0$, $\bigwedge^r(\mathcal{E})$ is nef on $X$.
+\end{lemma}
+
+\begin{proof}
+This is Lemma~\ref{lemma-nonneg-rep-nef} applied to the nef
+representation $\bigwedge^r$, see Lemma~\ref{lemma-wedge-nonneg-rep}.
+\end{proof}
+
+\begin{lemma}\label{lemma-sym-vb-nef}
+Let $k$ be a field.
+Let $X$ be a proper scheme over $k$.
+Let $\mathcal{E}$ a nef coherent locally free sheaf on $X$.
+Then for every $d \geq 0$, $\mathrm{Sym}^d(\mathcal{E})$ is nef on $X$.
+\end{lemma}
+
+\begin{proof}
+This is Lemma~\ref{lemma-nonneg-rep-nef} applied to the nef
+representation $\mathrm{Sym}^d$, see Lemma~\ref{lemma-sym-nonneg-rep}.
+\end{proof}
+
+
+\begin{lemma}
+\label{lemma-star-sym-star-nef}
+Let $k$ be a field.
+Let $X$ be a proper scheme over $k$.
+Let $\mathcal{E}$ be a nef coherent locally free sheaf on $X$.
+Then for every $d \geq 0$,
+$\mathrm{Sym}^d(\mathcal{E}^\vee)^\vee$ is nef on $X$.
+\end{lemma}
+
+\begin{proof}
+This is Lemma~\ref{lemma-nonneg-rep-nef} applied to the nef
+representation $(-)^\vee \circ \mathrm{Sym}^d \circ (-)^\vee$,
+see Lemma~\ref{lemma-sym-nonneg-rep} and
+Lemma~\ref{lemma-star-rho-star-nonnegrep}.
+\end{proof}
+
+\begin{lemma}
+Let $k$ be a field.
+Let $X$ be a $k$-scheme.
+Let $\mathcal{V}_1,\ldots,\mathcal{V}_n$ be nef vector bundles on $X$
+of ranks $r_1,\ldots,r_n$, respectively.
+Let $G = \prod_{i=1}^n \mathrm{GL}_{r_i}$.
+Let $\rho : G \to \mathrm{GL}_m$ be a nef representation.
+Let $\mathcal{W} = \rho(\mathcal{V}_1,\ldots,\mathcal{V}_n)$.
+Let $\mathcal{V} \subset \mathcal{W}$ be a $G$-invariant subsheaf of $\mathcal{W}$.
+Then $\mathcal{V}$ is nef.
+\end{lemma}
+
+\begin{proof}
+Let $x\in X$ be any point.
+The $G$-invariant subspace $\mathcal{V}_x \subset \mathcal{W}_x$ defines a
+subrepresentation $\sigma$ of $\rho$, and we see that
+$\mathcal{V} = \sigma(\mathcal{V}_1,\ldots,\mathcal{V}_n)$.
+By Lemma \ref{semipos_rep_examples}(\ref{subreps_and_quotients_semipos}),
+$\sigma$ is a nef representation, so by Lemma
+\ref{apply_rho_still_semipos}, $\mathcal{V}$ is a nef locally free
+sheaf.
+\end{proof}
+
+\section{Nef locally free sheaves on spaces}
+\label{section-nef-bundles-spaces}
+In this section, we generalize the discussion of Section~\ref{section-nef-bundles}
+to algebraic spaces.\todo{Port over results.}
+
+\section{Nakai--Moishezon for schemes}
+In this section, we prove an ampleness criterion for invertible sheaves on
+schemes over a field using intersection theory.
+The next result can be seen as a converse to~\citeSP{0BEV}.
+
+\begin{lemma}[Nakai--Moishezon Criterion]
+\label{schemes-lemma-nakai-moishezon}
+Let $X$ be a proper scheme over an algebraically closed field $k$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Then $\mathcal{L}$ is ample on $X$ if and only if
+for every integral closed subscheme $Y$ of $X$,
+$(\mathcal{L}^{\dim(Y)} \cdot Y) > 0$.
+\end{lemma}
+
+\begin{proof}
+If $\mathcal{L}$ is ample on $X$, then the positivity of the intersection
+number on integral closed subschemes follows from~\citeSP{0BEV}.
+
+Conversely, assume that for every integral closed subscheme $Y$ of $X$,
+$(\mathcal{L}^{\dim(Y)} \cdot Y) > 0$.
+We show that $\mathcal{L}$ is ample.
+Using~\citeSP{0B5V} and~\citeSP{09MS}, we reduce to the case $X$ is integral.
+We proceed by induction on $\dim(X)$.
+When $\dim(X) = 1$, our assumption says that $\deg(\mathcal{L}) > 0$ and hence
+$\mathcal{L}$ is ample by~\citeSP{0B5X}.
+
+Now suppose $\dim(X) > 1$ and that the theorem is true for all proper schemes
+of lower dimension.
+Since $X$ is integral, $\mathcal{L}$ has a regular meromorphic section
+by~\citeSP{02OZ}.
+Let $\mathcal{I}_1$ be the sheaf of denominators of $\mathcal{L}$ and set
+$\mathcal{I}_2 = \mathcal{I}_1 \otimes \mathcal{L}$.
+Let $Y_j$ be the closed subschemes defined by $\mathcal{I}_j$ with $j = 1,2$.
+By~\citeSP{02P0}, $\dim(Y_j) < \dim(X)$.
+Then, for all $m \geq 0$, we the following commutative diagram with exact rows:
+$$
+\xymatrix{
+  0 \ar[r]
+    & \mathcal{I}_1 \otimes \mathcal{L}^{\otimes m} \ar[r] \ar@{=}[d]
+    & \mathcal{L}^{\otimes m} \ar[r]
+    & \mathcal{L}^{\otimes m}\rvert_{Y_1} \ar[r]
+    & 0 \\
+  0 \ar[r]
+    & \mathcal{I}_2 \otimes \mathcal{L}^{\otimes (m-1)} \ar[r]
+    & \mathcal{L}^{\otimes (m-1)} \ar[r]
+    & \mathcal{L}^{\otimes (m-1)}\rvert_{Y_2} \ar[r]
+    & 0.
+}
+$$
+By induction, $\mathcal{L}\rvert_{Y_j}$ is ample on $Y_j$ for $j = 1,2$.
+Hence by~\citeSP{0B5U}, there is some $m_0 \geq 0$
+such that for all $m \geq m_0$,
+$H^i(Y_j,\mathcal{L}^{\otimes m}\rvert_{Y_j}) = 0$ for all $i > 0$.
+Thus, taking the long exact sequence in cohomology of the sequences above,
+for $i \geq 2$,
+$$
+  h^i(X,\mathcal{L}^{\otimes m})
+    = h^i(X,\mathcal{I}_1 \otimes \mathcal{L}^{\otimes m})
+    = h^i(X,\mathcal{I}_2 \otimes \mathcal{L}^{\otimes (m - 1)})
+    = h^i(X,\mathcal{L}^{\otimes (m-1)})
+$$
+for all $m > m_0$.
+Hence, for all $m > m_0$,
+$$
+N := \sum\nolimits_{i = 2}^{\dim(X)} (-1)^i\,h^i(X,\mathcal{L}^{\otimes m})
+$$
+is a constant.
+Now since $\chi(X,\mathcal{L}^{\otimes m})$ has leading coefficient
+$(\mathcal{L}^{\dim X} \cdot X)$, which is positive by assumption,
+we see that
+$$
+  \chi(X,\mathcal{L}^{\otimes m})
+    = h^0(X,\mathcal{L}^{\otimes m}) - h^1(X,\mathcal{L}^{\otimes m})
+      + N \to \infty
+$$
+as $m \to \infty$. Thus,
+$h^0(X,\mathcal{L}^{\otimes m}) - h^1(X,\mathcal{L}^{\otimes m}) \to \infty$
+as $m \to \infty$; in particular,
+$h^0(X,\mathcal{L}^{\otimes m}) \to \infty$ as $m \to \infty$.
+By Lemma~\citeSP{01PS}, we may replace $\mathcal{L}$ by
+$\mathcal{L}^{\otimes m}$ to assume $\mathcal{L} = \mathcal{O}_X(D)$ for some
+effective Cartier divisor $D$.
+
+We now claim that $\mathcal{L}^{\otimes m} = \mathcal{O}_X(mD)$ is generated by
+its global sections for $m \gg 0$. Consider the short exact sequence
+$$
+0 \longrightarrow \mathcal{O}_X((m-1)D) \longrightarrow \mathcal{O}_X(mD)
+\longrightarrow \mathcal{O}_D(mD) \longrightarrow 0.
+$$
+Since $\mathcal{O}_D(mD)$ is ample by the inductive hypothesis,
+Serre vanishing~\citeSP{0B5U} implies
+$H^1(D,\mathcal{O}_D(mD)) = 0$ for $m \gg 0$, hence the maps
+$$
+\rho_m : H^1(X,\mathcal{O}_X((m -1)D)) \longrightarrow H^1(X,\mathcal{O}_X(mD))
+$$
+arising from the long exact sequence on cohomology
+are surjective for all $m \gg 0$. Since the vector spaces
+$H^1(X,\mathcal{O}_X(mD))$ are all finite-dimensional, we have that for $m \gg
+0$, the sequence
+$$h^1(X,\mathcal{O}_X(mD)) \ge h^1(X,\mathcal{O}_X((m+1)D)) \ge \cdots$$
+is a nonincreasing sequence of nonnegative integers, and thus stabilizes for $m
+\gg 0$. The maps $\rho_m$ are therefore bijective for $m \gg 0$, hence
+\begin{equation}\label{eq:restriction-surjects}
+  H^0(X,\mathcal{O}_X(mD)) \longrightarrow H^0(D,\mathcal{O}_D(mD))
+\end{equation}
+is surjective for $m \gg 0$. We can now show $\mathcal{O}_X(mD)$ is generated by
+global sections. If $x \in X \setminus D$, then a global section in
+$H^0(X,\mathcal{O}_X(mD))$ defining $mD$ generates $(\mathcal{O}_X(mD))_x$,
+since $\mathcal{O}_X(mD)$ restricted to $X \setminus D$ is trivial.
+Otherwise, suppose $x \in D$. By inductive hypothesis, since $\mathcal{O}_D(D)$
+is ample, the invertible sheaf $\mathcal{O}_D(mD)$ is generated by global
+sections for all $m \gg 0$, i.e., the morphism
+$$
+H^0(D,\mathcal{O}_D(mD)) \otimes_k \mathcal{O}_D \longrightarrow
+\mathcal{O}_D(mD)
+$$
+is surjective. Thus, in the commutative diagram
+$$
+\xymatrix{
+  H^0(X,\mathcal{O}_X(mD)) \otimes_k \mathcal{O}_X/\mathfrak{m}_x
+  \ar[r]\ar@{->>}[d] & \mathcal{O}_X(mD) \otimes_{\mathcal{O}_X}
+  \mathcal{O}_X/\mathfrak{m}_x \ar[d]^\simeq\\
+  H^0(D,\mathcal{O}_D(mD)) \otimes_k \mathcal{O}_D/\mathfrak{m}_x \ar@{->>}[r] &
+  \mathcal{O}_D(mD) \otimes_{\mathcal{O}_D} \mathcal{O}_D/\mathfrak{m}_x
+}
+$$
+the bottom arrow is surjective. By \eqref{eq:restriction-surjects}, the left
+arrow is surjective. The commutativity of the diagram implies the top row is
+surjective, hence
+$$
+H^0(X,\mathcal{O}_X(mD)) \otimes_k \mathcal{O}_{X,x} \longrightarrow
+(\mathcal{O}_X(mD))_x
+$$
+is surjective by Nakayama's lemma, i.e., $\mathcal{O}_X(mD)$ is generated by
+global sections.
+
+We therefore see that $\mathcal{O}_X(mD)$ induces a morphism $f : X \to
+\mathbf{P}^n_k$ such that $f^*\mathcal{O}_{\mathbf{P}^n}(1) =
+\mathcal{O}_X(mD)$ for $m \gg 0$. As $X$ is proper, $f$ is proper.
+We now claim that for all $y \in \mathbf{P}^n_k$, the fiber $X_y$ has finitely
+many points. If not, we have a commutative diagram
+$$
+\xymatrix{
+  X \ar[r]^f & \mathbf{P}^n_k\\
+  X_y \ar@{^{(}->}[u] \ar[r] & \Spec(k(y)) \ar@{^{(}->}[u]\\
+  C \ar@{^{(}->}[u]\ar[ur]_\pi
+}
+$$
+where the top square is cartesian, and $C$ is a complete curve in $X_y$. By
+commutativity of the diagram, we see that
+$$
+  \mathcal{L}\rvert_C =
+    (f^*\mathcal{O}_{\mathbf{P}^n}(1))\rvert_C \simeq
+    \pi^*\mathcal{O}_{\Spec(k(y))} =
+    \mathcal{O}_C,
+$$
+which is a contradiction, since $(\mathcal{L}^{\dim X - 1} \cdot C) > 0$ by (2),
+whereas $\mathcal{O}_C$ has constant Euler characteristic. Thus, $f$ is
+quasi-finite; since it is proper by the fact that both $X$ and $\mathbf{P}^n_k$
+are proper, we moreover have that $f$ is finite by~\citeSP{02OG}.
+Since the pullback of an ample invertible sheaf via a quasi-finite morphism is
+ample by~\citeSP{0892} and finite
+morphisms are quasi-finite by definition,
+$\mathcal{O}_X(mD)$ is ample for $m \gg 0$.
+Hence $\mathcal{O}_X(D)$ is ample by~\citeSP{01PS}.
+\end{proof}
+
+\section{Numerical intersection theory for spaces}
+For the proof of the Nakai--Moishezon critera for algebraic spaces, we will
+need to enhance~\citeSP{0DN0} and~\citeSP{0DN3} with generalizations of results
+from~\citeSP{0BEI} and~\citeSP{0BEL}.
+
+To begin, we require a generalization of~\citeSP{0BEK}.
+
+\begin{lemma}
+\label{lemma-euler-characteristic-morphism}
+Let $k$ be a field.
+Let $f : Y \to X$ be a morphism of proper algebraic spaces over $k$.
+Let $\mathcal{G}$ be a coherent $\mathcal{O}_Y$-module.
+Then
+$$
+\chi(Y, \mathcal{G}) = \sum (-1)^i \chi(X, R^if_*\mathcal{G})
+$$
+\end{lemma}
+
+\begin{proof}
+The formula makes sense: the sheaves $R^if_*\mathcal{G}$ are coherent
+and only a finite number of them are nonzero, see~\citeSP{08AR}
+and~\citeSP{073G}.
+By the Leray spectral sequence~\citeSP{0732} there is a spectral sequence with
+$$
+E_2^{p, q} = H^p(X, R^qf_*\mathcal{G})
+$$
+converging to $H^{p + q}(Y, \mathcal{G})$.
+By finiteness of cohomology on $X$ we see that only a finite number of
+$E_2^{p, q}$ are nonzero and each $E_2^{p, q}$ is a finite dimensional vector
+space.
+It follows that the same is true for $E_r^{p, q}$ for $r \geq 2$ and that
+$$
+\sum (-1)^{p + q} \dim_k E_r^{p, q}
+$$
+is independent of $r$.
+Since for $r$ large enough we have $E_r^{p, q} = E_\infty^{p, q}$ and since
+convergence means there is a filtration on $H^n(Y, \mathcal{G})$ whose graded
+pieces are $E_\infty^{p, q}$ with $p + 1 = n$ (this is the meaning of
+convergence of the spectral sequence), we conclude.
+\end{proof}
+
+This is a generalization of~\citeSP{0BET} to algebraic spaces.
+
+\begin{lemma}
+\label{lemma-intersection-number-and-pullback}
+Let $k$ be a field.
+Let $f : Y \to X$ be a morphism of proper algebraic spaces over $k$.
+Let $Z \subset Y$ be an integral closed subspace of dimension $d$ and let
+$\mathcal{L}_1, \ldots, \mathcal{L}_d$ be invertible $\mathcal{O}_X$-modules.
+Then
+$$
+(f^*\mathcal{L}_1 \cdots f^*\mathcal{L}_d \cdot Z) =
+\deg(f|_Z : Z \to f(Z)) (\mathcal{L}_1 \cdots \mathcal{L}_d \cdot f(Z))
+$$
+where $\deg(Z \to f(Z))$ is as in
+{\it \cite[\href{http://stacks.math.columbia.edu/tag/0AD6}{Tag 0AD6}]{stacks-project}}
+or $0$ if $\dim(f(Z)) < d$.\todo{Prove this.}
+\end{lemma}
+%\begin{proof}
+%The left hand side is computed using the coefficient of $n_1 \ldots n_d$
+%in the function
+%$$
+%\chi(Y, \mathcal{O}_Z \otimes f^*\mathcal{L}_1^{\otimes n_1} \otimes
+%\ldots \otimes f^*\mathcal{L}_d^{\otimes n_d}) =
+%\sum (-1)^i
+%\chi(X, R^if_*\mathcal{O}_Z \otimes
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d})
+%$$
+%The equality follows from Lemma \ref{lemma-euler-characteristic-morphism}
+%and the projection formula
+%\cite[\href{http://stacks.math.columbia.edu/tag/0944}{Tag 0944}]{stacks-project}.
+%If $f(Z)$ has dimension $< d$, then the right hand side
+%is a polynomial of total degree $<d$ by
+%Lemma \ref{lemma-numerical-polynomial-from-euler}
+%and the result is true. Assume $\dim(f(Z)) = d$. Let
+%$\xi \in \lvert f(Z) \rvert$ be the generic point. By
+%dimension theory
+%the generic point of $Z$ is the unique point of $Z$ mapping to $\xi$.
+%Then $f : Z \to f(Z)$ is finite over a nonempty open of $f(Z)$, see
+%Morphisms, Lemma \ref{morphisms-lemma-generically-finite}.
+%Thus $\deg(f : Z \to f(Z))$ is defined and in fact it is equal
+%to the length of the stalk of $f_*\mathcal{O}_Z$ at $\xi$
+%over $\mathcal{O}_{X, \xi}$. Moreover, the stalk of
+%$R^if_*\mathcal{O}_X$ at $\xi$ is zero for $i > 0$ because
+%we just saw that $f|_Z$ is finite in a neighbourhood of $\xi$
+%(so that Cohomology of Schemes, Lemma
+%\ref{coherent-lemma-finite-pushforward-coherent} gives the vanishing).
+%Thus the terms $\chi(X, R^if_*\mathcal{O}_Z \otimes
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d})$ with $i > 0$ have total
+%degree $< d$ and
+%$$
+%\chi(X, f_*\mathcal{O}_Z \otimes
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d})
+%=
+%\deg(f : Z \to f(Z)) \chi(f(Z),
+%\mathcal{L}_1^{\otimes n_1} \otimes \ldots \otimes
+%\mathcal{L}_d^{\otimes n_d}|_{f(Z)})
+%$$
+%modulo a polynomial of total degree $< d$ by
+%Lemma \ref{lemma-numerical-polynomial-leading-term}.
+%The desired result follows.
+%\end{proof}
+
+\section{Nakai--Moishezon for spaces}
+
+\begin{lemma}
+\label{lemma-surjective-finite-morphism-ample}
+Let $R$ be a Noetherian ring.
+Let $X$ and $Y$ be algebraic spaces over $R$.
+Let $f : Y \to X$ be a proper morphism of algebraic spaces over $R$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Assume $f$ is finite and surjective.
+Then $\mathcal{L}$ is ample if and only if $f^*\mathcal{L}$ is ample.
+\end{lemma}
+
+\begin{proof}
+Suppose that $\mathcal{L}$ is ample.
+Then $X \to \Spec(R)$ is representable and hence $X$ is a scheme.
+But $f : Y \to X$ is finite and hence affine, so,
+by~\citeSP{03WG}, $f$ is representable.
+Therefore $Y$ is a scheme.
+Then $f^*\mathcal{L}$ is ample by the schemes case,~\citeSP{0B5V}.
+
+\medskip\noindent
+Assume that $f^*\mathcal{L}$ is ample.
+Let $P$ be the following property on coherent $\mathcal{O}_X$-modules
+$\mathcal{F}$:
+there exists an $n_0$ such that $H^p(X, \mathcal{F} \otimes
+\mathcal{L}^{\otimes n}) = 0$ for all $n \geq n_0$ and $p > 0$.
+We will prove that $P$ holds for any coherent $\mathcal{O}_X$-module
+$\mathcal{F}$, which suffices to prove that $\mathcal{L}$ is ample.
+We are going to apply~\citeSP{07UT}.
+Thus we have to verify (1), (2) and (3) of that lemma for $P$.
+Property (1) follows from the long exact cohomology sequence associated
+to a short exact sequence of sheaves and the fact that tensoring with
+an invertible sheaf is an exact functor.
+Property (2) follows since $H^p(X, -)$ is an additive functor.
+To see (3) let $Z \subset X$ be reduced closed subspace with $|Z|$
+irreducible.
+Form the fibre product diagram
+$$
+\xymatrix{
+  W \ar[r]_{i'} \ar[d]_{f'} & Y \ar[d]^{f} \\
+  Z \ar[r]^{i} & X.
+}
+$$
+Let $\mathcal{G} = f'_*\mathcal{O}_W$.
+Since $f'$ is surjective, part (3)(a) of~\citeSP{07UT} holds.
+For part (3)(b), let $\mathcal{I} \subset \mathcal{O}_Z$ be a nonzero sheaf
+of ideals.
+Let $\mathcal{G}' = \mathcal{I}\mathcal{G}$.
+We have
+$$
+\mathcal{I} \mathcal{G} = f'_*(\mathcal{I}')
+$$
+where $\mathcal{I}' = \Im((f')^*\mathcal{I} \to \mathcal{O}_W)$.
+This is true because $f'$ is a (representable) affine morphism of
+algebraic spaces and hence the result can be checked on an \'etale
+covering of $Z$ by a scheme in which case the result is~\citeSP{01YP}.
+Finally, $f'$ is affine, hence $R^pf'_*\mathcal{I}' = 0$ for all $p > 0$
+by~\citeSP{073H}.
+Hence
+\begin{align*}
+H^p(X, \mathcal{G}' \otimes_{\mathcal{O}_X} \mathcal{L}^{\otimes n})
+  & = H^p(X, i_*f_*'\mathcal{I}' \otimes_{\mathcal{O}_X} \mathcal{L}^{\otimes n}) \\
+  & = H^p(X, f_*(i'_*\mathcal{I}' \otimes_{\mathcal{O}_Y} f^*\mathcal{L}^{\otimes n})) \\
+  & = H^p(Y, i'_*\mathcal{I}' \otimes_{\mathcal{O}_Y} f^*\mathcal{L}^{\otimes n}) = 0
+\end{align*}
+since $f^*\mathcal{L}$ is ample.
+This verifies (3)(c) of~\citeSP{07UT} as desired.
+\end{proof}
+
+\begin{lemma}[Nakai--Moishezon Criterion for algebraic spaces]
+\label{spaces-lemma-nakai-moishezon}
+Let $k$ be a field.
+Let $X$ be a proper algebraic space over $k$.
+Let $\mathcal{L}$ be an invertible $\mathcal{O}_X$-module.
+Then $\mathcal{L}$ is ample on $X$ with respect to $k$ if and only if
+for every integral closed subspace $Y$ of $X$,
+$(\mathcal{L}^{\dim(Y)} \cdot Y) > 0$.
+\end{lemma}
+\begin{proof}
+  Assume that $\mathcal{L}$ is ample on $X$ with respect to $k$.
+  Then $X$ is a scheme, and $\mathcal{L}$ is ample on $X/k$ in the
+  scheme-theoretic sense by~\citeSP{0D32}.
+  Now~\citeSP{0BEV} implies the positivity of interesction numbers.
+
+  Suppose that for every integral closed subspace $Y$ of $X$,
+  $(\mathcal{L}^{\dim(Y)} \cdot Y) > 0$.
+  We show that $\mathcal{L}$ is ample on $X$ with respect to $k$.
+  By~\citeSP{09YC}, there is a finite surjective map $p : X' \to X$ from a
+  scheme $X'$.
+  By Lemma~\ref{lemma-surjective-finite-morphism-ample}, $\mathcal{L}$ is
+  ample if and only if $p^*\mathcal{L}$ is ample.
+  Thus, by the Nakai--Moishezon criterion for schemes
+  (Lemma~\ref{schemes-lemma-nakai-moishezon}),
+  it suffices to show that for every integral closed subscheme $Y'$ in $X'$, we
+  have $(p^*\mathcal{L}^{\dim(Y')} \cdot Y') > 0$.
+  Let $Y$ be the image of $Y'$ in $Y$;
+  by Lemma~\ref{lemma-intersection-number-and-pullback}, we then have
+  $$
+  ( (p^*\mathcal{L})^{\dim Y'} \cdot Y') = \deg(p\rvert_{Y'} : Y' \to
+  Y)(\mathcal{L}^{\dim Y'} \cdot Y).
+  $$
+  Note $\dim Y' = \dim Y$ since $p\rvert_{Y'} : Y' \to Y$ is finite surjective.
+  Since $(\mathcal{L}^{\dim Y} \cdot Y) > 0$ by (2), we therefore see that
+  $( (p^*\mathcal{L})^{\dim Y'} \cdot Y') > 0$.
+\end{proof}
+
+\section{Ampleness Lemma}
+In this section, we formulate and prove the Ampleness Lemma
+of~\cite[Lemmas 3.9 and 3.13]{ko90}.
+
+\begin{lemma}
+\label{lemma-pgl-bundle-from-loc-free}
+Let $k$ be a field.
+Let $X$ be a scheme over $k$.
+Let $\mathcal{E}$ be a locally free sheaf of rank $n$.
+Let $\mathbf{P} = \mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$.
+Let $\pi : \mathbf{P} \to X$ be the structure map.
+Then there exists a closed subscheme $D \subset \mathbf{P}$ such that the
+the restriction
+$$
+\pi : \mathbf{P} \setminus D \to X
+$$
+exhibits $\mathbf{P} \setminus D$ as a $\mathrm{PGL}_n$-torsor over $X$.
+\end{lemma}
+
+\begin{proof}
+First we should describe the $\mathrm{PGL}_n$ action on $\mathbf{P}$.
+Let $T$ be a scheme over $k$ and $x : T \to \mathbf{P}$ be a $T$-point.
+By~\citeSP{01NK}, this corresponds to a morphism $f : T \to X$ of $k$-schemes
+together with a surjection
+$$
+\varphi = (\varphi_1,\ldots,\varphi_n) :
+f^*(\mathcal{E}^\vee)^{\oplus n} \to \mathcal{L},
+$$
+where $\mathcal{L}$ an invertible sheaf on $T$.
+Let $g \in \mathrm{PGL}_n(T)$ and pick a representative matrix
+$(g_{ij}) \in \mathrm{GL}_n(T)$ for $g$.
+Consider the morphism
+$$
+g \cdot \varphi =
+\big(\sum\nolimits_j g_{1j}\varphi_j,\ldots,\sum\nolimits_j g_{nj}\varphi_j\big)
+: f^*(\mathcal{E}^\vee)^{\oplus n} \to \mathcal{L}
+$$
+of $\mathcal{O}_T$-modules.
+Since $\varphi$ is surjective and $(g_{ij})$ is invertible, $g \cdot \varphi$
+is surjective.
+Therefore $g \cdot \varphi$ defines a $T$-point of $\mathbf{P}$.
+This is $g \cdot x$.
+Note that $g \cdot x$ is independent of the representative $(g_{ij})$ of $g$
+as a different representative of $g$ differs by an element of $\mathbf{G}_m(T)$
+and the resulting morphism differs by an automorphism of $\mathcal{L}$, so the
+resulting $T$-point of $\mathbf{P}$ will be the same.
+
+Write $\mathbf{P} = \mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$ and let
+$\pi : \mathbf{P} \to X$ be the structure morphism.
+Using the projection formula~\citeSP{01E6},
+\begin{align*}
+H^0(\mathbf{P}, \pi^*\mathcal{E}(1))
+  & \cong H^0(X, \pi_*(\pi^*\mathcal{E} \otimes_{\mathcal{O}_{\mathbf{P}}}
+      \mathcal{O}_{\mathbf{P}}(1))) \\
+  & \cong H^0(X,\mathcal{E} \otimes_{\mathcal{O}_X}
+      \pi_*\mathcal{O}_{\mathbf{P}}(1)) \\
+  & \cong H^0(X,\mathcal{E} \otimes (\mathcal{E}^\vee)^{\oplus n}) \\
+  & \cong H^0(X,\mathrm{End}(\mathcal{E})^{\oplus n})
+\end{align*}
+has $n$ sections, corresponding to the identity on each summand.
+We therefore have an evaluation morphism
+$$
+B : \mathcal{O}_{\mathbf{P}}^{\oplus n} \longrightarrow \pi^*\mathcal{E}(1).
+$$
+Taking determinants, this gives a map
+$$
+\det(B) : \mathcal{O}_{\mathbf{P}} \longrightarrow \det(\pi^*\mathcal{E})(n).
+$$
+Let $\mathcal{I} \otimes \det(\pi^*\mathcal{E}) (n)$ be the image of $\det B$,
+and let $D$ be the subscheme of $\mathbf{P}$ defined by $\mathcal{I}$.
+Then, $D$ defines the locus for which $\det B$ vanishes, which is the locus of
+$\mathbf{P}$ where the corresponding matrices are not invertible.
+We therefore see that $\mathbf{P} \setminus D$ corresponds to those matrices
+that are invertible, i.e., are elements of $\mathrm{PGL}_n$.
+This turns $\mathbf{P} \setminus D$ into a principal $\mathrm{PGL}_n$-bundle
+over $X$.
+
+
+\end{proof}
+
+\begin{lemma}
+\label{lemma-grassman-quotient-stack-map}
+Let $X$ be a scheme over a field $k$.
+Let $\mathcal{E}$ be a locally free sheaf on $X$ of rank $n$.
+Let $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and
+let $N = \binom{n + d}{d}$ be the rank.
+Let $\mathcal{F} \to \mathcal{Q}$ be a locally free quotient of rank $q$.
+Then the following hold:
+\begin{enumerate}
+\item There exists a closed subscheme
+  $D \subset \mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$ such that
+$$
+\mathbf{P}((\mathcal{E}^\vee)^{\oplus n}) \setminus D \longrightarrow X
+$$
+is a principal $\mathrm{PGL}_n$-bundle.
+\item There is a $\mathrm{PGL}_n$-action on $\mathbf{G}(q,N)$, and
+a $\mathrm{PGL}_n$-equivariant map
+$$
+\mathbf{P}((\mathcal{E}^\vee)^{\oplus n}) \setminus D \longrightarrow
+\mathbf{G}(q,N).
+$$
+\item There exists a map of stacks
+$$
+X \longrightarrow [\mathbf{G}(q,N)/\mathrm{PGL}_n].
+$$
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+We first prove (1).
+For (2), note that $\mathrm{PGL}_n$ acts on $\mathbf{G}(q,N)$ via
+$$
+  \mathrm{GL}_n \longrightarrow
+  (\mathrm{GL}_n)^{\times d} \longrightarrow
+  \mathrm{Aut}(\mathrm{Sym}^d (k^{\oplus n})),
+$$
+which descends to their quotients by $k^*$; note that
+$\mathrm{Aut}(\mathrm{Sym}^d (k^{\oplus n}))/k^*$ is a subgroup of the
+automorphism group of the Grassmannian $\mathbf{G}(q,N)$.
+To show the morphism claimed exists, we fist consider what happens when we
+apply $\mathrm{Sym}^d$ to $B$, giving a morphism
+$$
+  \mathrm{Sym}^d(B) : \mathcal{O}_{\mathbf{P}}^{\oplus N} \to
+    \pi^*\mathrm{Sym}^d(\mathcal{E})(d) = \pi^*\mathcal{F}(d).
+$$
+Composing this will the given surjection $\mathcal{F} \to \mathcal{Q}$, we
+obtain a morphism
+$$
+  U : \mathcal{O}_{\mathbf{P}}^{\oplus N} \to
+        \pi^*\mathcal{F}(d) \to
+        \pi^*\mathcal{Q}(d)
+$$
+which is surjective away from $D$.
+By the universal property of the Grassmannian, we obtain a morphism
+$\mathbf{P} \setminus D \to \mathbf{G}(q,N)$.
+It is $G$-equivariant by tracing the definitions.
+
+For (3), this follows from general properties of quotient stacks, plus the fact
+that $(\mathbf{P} \setminus D)/\mathrm{PGL}_n \simeq X$.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-positive-self-intersection}
+Let $X$ be a normal projective variety over a field $k$.
+Let $\mathcal{E}$ be a nef locally free sheaf on $X$ of rank $n$.
+Set $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and set
+$N = \binom{n + d}{d}$ be the rank.
+Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $q$.
+Assume that the map
+$$
+  u : X \to [\mathbf{G}(q,N)/G]
+$$
+constructed in Lemma \ref{lemma-grassman-quotient-stack-map}
+is generically quasi-finite.
+Then $(\det(\mathcal{Q})^{\dim(Y)}) > 0$.
+\end{lemma}
+
+\begin{proof}
+Let $\mathbf{P} = \mathbf{P}((\mathcal{E}^\vee)^{\oplus n})$.
+Let $D \subset \mathbf{P}$ be the closed subscheme given by part (1) of
+Lemma \ref{lemma-grassman-quotient-stack-map}.
+Then there is a fibre product diagram\todo{Why, exactly, is this a fibre product
+diagram? Also, the $u$ is off.}
+$$
+\xymatrix{
+  \mathbf{P} \setminus D \ar[r] \ar[d] & \mathbf{G}(q,N) \ar[d] \\
+  X \ar[r]^u & [\mathbf{G}(q,N)/\mathrm{PGL}_m]
+}
+$$
+Since $u$ is generically quasi-finite, the map
+$\mathbf{P} \setminus D \to \mathbf{G}(q,N)$ is generically quasi-finite.
+
+As in Lemma \ref{lemma-grassman-quotient-stack-map},\todo{Maybe factor
+  this statement out?}
+the morphism $\mathbf{P} \setminus D \to \mathbf{G}(q,N)$ is defined by
+the morphism of locally free sheaves
+$$
+  U : \mathcal{O}_{\mathbf{P}}^{\oplus n} \to \pi^*\mathcal{F}(d)
+                                          \to \pi^*\mathcal{Q}(d).
+$$
+Here, the map $\mathcal{O}_{\mathbf{P}}^{\oplus N} \to \pi^*\mathcal{F}$ is
+an isomorphism away from $D$ and thus $U$ is surjective away from $D$.
+Taking $q$\textsuperscript{th} exterior powers, we obtain a morphism
+$$
+  \bigwedge^q U : \mathcal{O}_{\mathbf{P}}^{\oplus \binom{N}{q}} \to
+    \pi^*\det(\mathcal{Q})(qd)
+$$
+which is surjective away from $D$.
+Thus the image of $\bigwedge^q U$ is of the form
+$\pi^*\det(\mathcal{Q})(qd) \otimes \mathcal{I}$ for some ideal sheaf
+$\mathcal{I} \subset \mathcal{O}_{\mathbf{P}}$.
+
+Let $g : \mathbf{P}' \to \mathbf{P}$ be the blow up of $\mathbf{P}$ along the
+sheaf $\mathcal{I}$.
+Then the rational map from $\mathbf{P}$ to $\mathbf{G}(q,N)$ defined above
+resolves to a morphism
+$$
+  u' : \mathbf{P}' \to \mathbf{G}(q,N)
+$$
+such that
+$$
+  g^*\pi^*\det(\mathcal{Q})(qd) \cong
+    u'^*\mathcal{O}_{\mathbf{G}(q,N)}(1)
+      \otimes_{\mathcal{O}_{\mathbf{P}'}}
+    \mathcal{O}_{\mathbf{P}'}(E)
+$$
+where $E$ is the exceptional divisor of $g : \mathbf{P}' \to \mathbf{P}$.
+
+Since $u$ is generically quasi-finite and $g$ is birational,
+$u'$ is generically quasi-finite.
+Hence, by ...\todo{Prove this or reference this somewhere.}
+$u'^*\mathcal{O}_{\mathbf{G}(q,N)}(1)$ is big\todo{Define big somewhere}
+on $\mathbf{P}'$.
+Fix an ample invertible sheaf $\mathcal{L}$ on $Y$.
+Then by ...\todo{Using properties of big. I guess this depends on what the definition
+  is and then what the characterizations are.}, there is some $m \geq 0$
+such that
+$\mathcal{O}_{\mathbf{G}(q,N)}(m)
+  \otimes_{\mathcal{O}_{\mathbf{P}'}} g^*\pi^*\mathcal{L}^{-1}$
+has a nonzero section.
+But
+\begin{align*}
+  \mathcal{O}_{\mathbf{G}(q,N)}(m)
+  = \big(g^*\pi^*\det(\mathcal{Q})(qd) \otimes_{\mathcal{O}_{\mathbf{P}'}}
+    \mathcal{O}_{\mathbf{P}'}(-E)\big)^{\otimes m}.
+\end{align*}
+Thus we obtain a nonzero morphism of sheaves
+$$
+\mathcal{O}_{\mathbf{P}'} \to
+    \big(g^*\pi^*\det(\mathcal{Q})(qd) \otimes_{\mathcal{O}_{\mathbf{P}'}}
+      \otimes_{\mathcal{O}_{\mathbf{P}'}}
+    \mathcal{O}_{\mathbf{P}'}(-E)\big)^{\otimes m}
+      \otimes_{\mathcal{O}_{\mathbf{P}'}}
+    g^*\pi^*\mathcal{L}^{-1}
+$$
+for all $m \geq 0$ large.
+Since $E$ is effective, we can compose this morphism with the natural
+inclusion $\mathcal{O}_{\mathbf{P}'}(-E) \to \mathcal{O}_{\mathbf{P}'}$
+to obtain a nonzero morphism
+$$
+\mathcal{O}_{\mathbf{P}'} \to
+    g^*\big(\pi^*\det(\mathcal{Q})^{\otimes m}(mqd)
+      \otimes_{\mathcal{O}_{\mathbf{P}}}
+    \pi^*\mathcal{L}^{-1}\big).
+$$
+Pushing this forward to $X$ and applying the projection formula, we obtain
+a nonzero morphism
+$$
+\mathcal{O}_X \to
+  \det(\mathcal{Q})^{\otimes m}
+    \otimes_{\mathcal{O}_X}
+  \pi_*\mathcal{O}_{\mathbf{P}}(mqd)
+    \otimes_{\mathcal{O}_X}
+  \mathcal{L}^{-1}.
+$$
+Since each term on the right is locally free, this is equivalent to a nonzero
+morphism
+$$
+\tau :
+  (p_*\mathcal{O}_{\mathbf{P}}(mqd))^\vee \otimes_{\mathcal{O}_X} \mathcal{L}
+    \to \det(\mathcal{Q})^{\otimes m}.
+$$
+As before, there exists an ideal sheaf $\mathcal{J} \subseteq \mathcal{O}_X$
+such that the image of $\tau$ is the subsheaf
+$\mathcal{J} \otimes_{\mathcal{O}_X} \det(\mathcal{Q})^{\otimes m}$ of
+$\det(\mathcal{Q})^{\otimes m}$.
+Let $s : X' \to X$ be the blow up of $X$ along $\mathcal{J}$.
+Set
+$P = \mathbf{P}((\pi_*\mathcal{O}_{\mathbf{P}}(mqd))^\vee
+        \otimes_{\mathcal{O}_X} \mathcal{L})$.
+Then $\tau$ gives rise to a morphism
+$v : X' \to P$
+such that
+$$
+v^*\mathcal{O}_P(1) = s^*\det(\mathcal{Q})^{\otimes m}
+                        \otimes_{\mathcal{O}_{X'}} \mathcal{O}_{X'}(-F)
+$$
+for the exceptional divisor $F$ of the blow up $s : X' \to X$.
+Set $P' = \mathbf{P}((\pi_*\mathcal{O}_{\mathbf{P}}(mqd))^\vee)$.
+Then there exists a canonical isomorphism\todo{Find a reference for this.}
+$P \to P'$.
+Let $v' : X' \to P'$ be the composition of $v$ with this isomorphism.
+Then
+$
+\mathcal{L} \otimes_{\mathcal{O}_{X'}} v'^* \mathcal{O}_{P'}(1)
+  = v^* \mathcal{O}_P
+$, so
+$$
+  s^*\det(\mathcal{Q})^{\otimes m}
+    = s^*\mathcal{L}
+        \otimes_{\mathcal{O}_{X'}} v'^* \mathcal{O}_{P'}(1)
+        \otimes_{\mathcal{O}_{X'}} \mathcal{O}_{X'}(F).
+$$
+
+We now compute the top self-intersection of $\det(\mathcal{Q})^{\otimes m}$.
+Since $s : X' \to X$ is birational, by~\citeSP{0BET},
+$$
+  ((\det(\mathcal{Q})^{\otimes m})^{\dim(X)})
+    = ((s^*\det(\mathcal{Q})^{\otimes m})^{\dim(X')}).
+$$
+Write
+$\mathcal{L}'
+  = v'^*\mathcal{O}_{P'}(1) \otimes_{\mathcal{O}_{X'}} \mathcal{O}_{X'}(F)$.
+By~\citeSP{0BER} we further have
+$$
+  ((\det(\mathcal{Q})^{\otimes m})^{\dim(X)})
+    = (s^*\mathcal{L}^{\dim(X)})
+      + \sum\nolimits_{i = 1}^{\dim(X)}
+          (s^*\mathcal{L}^{\dim(X) - i} (s^*\det(\mathcal{Q})^{\otimes m})^{i - 1} \mathcal{L}').
+$$
+Since $(\pi_*\mathcal{O}_{\mathbf{P}}(mqd))^\vee$\todo{Explain why this is of
+  the required form.} is nef by
+Lemma~\ref{lemma-star-sym-star-nef},
+$\mathcal{O}_{P'}(1)$ is nef and hence its $v'$ pullback to $X'$ is nef.
+As $F$ is effective, $\mathcal{L}'$ is nef.
+Since $\mathcal{L}$ is ample, $s^*\mathcal{L}$ is nef, so
+$s^*\det(\mathcal{Q})^{\otimes m}$ is nef.
+All this shows that the second term in the sum above is nonnegative.
+Applying~\citeSP{0BET} again,
+$$
+  (s^*\mathcal{L}^{\dim(X)}) = (\mathcal{L}^{\dim(X)}) > 0
+$$
+since $\mathcal{L}$ is ample on $X$.
+Thus $((\det(\mathcal{Q})^{\otimes m})^{\dim(X)}) > 0$, so by additivity of
+numerical intersections again, $(\det(\mathcal{Q})^{\dim(X)}) > 0$.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-ampleness-of-semipos-quotients}
+Let $k$ be a field.
+Let $X$ be a proper algebraic space over $k$.
+Let $\mathcal{E}$ be a nef locally free sheaf of rank $n$ on $X$.
+Set $\mathcal{F} = \mathrm{Sym}^d(\mathcal{E})$ for some $d \geq 1$ and
+let $N = \binom{n + d}{d}$ be the rank.
+Let $\mathcal{Q}$ be a locally free quotient of $\mathcal{F}$ of rank $q$.
+Assume that the map
+$$
+u : X \to [\mathbf{G}(q,N)/\mathrm{PGL}_n]
+$$
+constructed in Lemma \ref{lemma-grassman-quotient-stack-map}
+is generically quasi-finite.
+Then $\det(\mathcal{Q})$ is ample.
+\end{lemma}
+
+\begin{proof}
+By the Nakai--Moishezon Criterion for spaces,
+Lemma~\ref{spaces-lemma-nakai-moishezon},
+we must show that $\det(Q)$ has positive top intersection with every
+irreducible subspace $Z \subset X$.
+So let $Z \subset X$ be any irreducible subspace and write $i : Z \to X$ for
+the inclusion.
+By~\citeSP{088U} there is a projective scheme $Z'$ and a proper birational
+morphism $g : Z' \to Z$.
+Now
+$$
+  (\det(Q)^{\dim(Z)} \cdot Z)
+    = (\det(i^*Q)^{\dim(Z)})
+    = (\det(g^*i^*Q)^{\dim(Z')})
+$$
+so we need to show that the top self-intersection of $\det(g^*i^*\mathcal{Q})$
+on $Z'$ is positive.
+But now $g^*i^*\mathcal{E}$ is nef by Lemma~\ref{lemma-nef-pullback-nef-spaces},
+$g^*i^*\mathcal{F} \cong \mathrm{Sym}^d(g^*i^*\mathcal{E})$,
+and $g^*i^*\mathcal{Q}$ is a quotient bundle of $g^*i^*\mathcal{F}$ of rank $q$
+on $Z'$.
+Also, the map $u \circ i \circ g : Z' \to [\mathbf{G}(q,N)/\mathrm{PGL}_n]$
+is quasi-finite on the dense open on which $g$ is an isomorphism.
+Thus Lemma~\ref{lemma-positive-self-intersection},
+$(\det(g^*i^*\mathcal{Q})^{\dim(Z')}) > 0$ and we are done.
+\end{proof}
+
+
+\section{Nefness results}
+In this section, we prove a nefness result,
+Lemma \ref{lemma-stable-curves-nef}, for the pushforward of the
+relative dualizing sheaf of families of curves.
+
+\begin{situation}\label{kollar_prop_4.5}
+Let $k$ be a field.
+Let $C$ be a connected, proper smooth $k$-scheme of dimension 1.
+Let $S$ be a connected, proper smooth $k$-scheme of dimension 2.
+Let $f:S\to C$ be a surjective morphism of $k$-schemes.
+Assume that the general fiber of $f$ is smooth (over its residue field) of genus at least 2.
+Let $m\ge2$ be an integer.
+\end{situation}
+
+\begin{lemma}\label{pushforward_invertible}
+Suppose we are in Situation \ref{kollar_prop_4.5}.
+Then, $f_*\omega_{S/C}^{\otimes m}$ is an invertible sheaf on $C$.
+\end{lemma}
+
+\begin{proof}
+Immediate from Grauert's Theorem and Riemann-Roch.
+\end{proof}
+
+%throughout, when we prove these things are nef maybe we need to keep referring to this lemma...
+
+\begin{lemma}\label{ekedahl_corollary}
+Let $S$ be a connected, proper smooth $k$-scheme of dimension 2.
+Assume that $S$ is a surface of general type.
+Let $m\ge2$ be an integer.
+Let $\mathcal{L}$ be an invertible sheaf on $S$ that is effective.
+Assume that $\mathcal{L}^2=0$.
+Then, we have $H^1(\omega_X^{\otimes m}\otimes\mathcal{L})=0$ if $\mathrm{char}(k)\neq2$ and  $H^1(\omega_X^{\otimes m}\otimes\mathcal{L})=0\leq 1$ if $\mathrm{char}(k)=2$.
+\end{lemma}
+\begin{proof}
+Let $D\subset S$ be an effective divisor such that $\mathcal{L}\cong\mathcal{O}_S(D)$.
+Then we get an exact sequence
+$$
+0\to \omega_S^{\otimes m}\to \omega^{\otimes m}_S\otimes \mathcal{L}\to (\omega_S^{\otimes m}\otimes \mathcal{L})|_D\to 0.
+$$
+From the long exact sequence for cohomology we get
+$$
+H^1(S,\omega_S^{\otimes m})\to H^1(S,\omega_S^{\otimes m}\otimes \mathcal{L})\to H^1(S,(\omega_S^{\otimes m}\otimes \mathcal{L})|_D)
+$$
+
+By assumption, $D^2=0$, so
+$$
+(mK_S+D)|_D=(mK_S+mD)|_D=mK_D,
+$$
+where the last equality follows from the adjunction formula.
+Then for $m\geq 2$ we get
+$$
+H^1(S,(\omega_S^{\otimes m}\otimes \mathcal{L})|_D)\cong H^1(D,\omega_D^{\otimes m})\cong H^0(D,\omega_D^{\otimes(1-m)})^\vee=0
+$$
+by Serre Duality.
+
+Therefore, the result follows from the analogous result of Ekedahl \todo{add ref}for $H^{1}(S,\omega_S^{\otimes m})$.
+\end{proof}
+
+
+
+
+\begin{lemma}\label{4.5_minimal_base_genus_2_char_p}
+Suppose we are in Situation \ref{kollar_prop_4.5}.
+Assume the characteristic of $k$ is equal to $p>0$.
+Assume that $S$ is minimal, i.e. it has no $(-1)$-curves.
+Assume that the genus of $C$ is at least 2.
+Then, $f_*\omega_{S/C}^{\otimes m}$ is nef for $m \geq 2$.
+\end{lemma}
+
+\begin{proof}
+First, observe that $S$ is of general type. \todo{why?}
+
+Suppose there exists a surjection of invertible sheaves
+$$f_*(\omega^{\otimes m}_{S/C})\to \mathcal{M}^{-1},$$
+where $\mathcal{M}$ an invertible sheaf and $\deg \mathcal{M}=d<0$.
+Let $F_S:S\to S$ and $F_C:C\to C$ denote the absolute Frobenius morphisms
+By functoriality for the relative dualizing sheaf,
+$$
+F_C^*f_*(\omega^{\otimes m}_{S/C})\cong f_*F_S^*(\omega^{\otimes m}_{S/C})=f_*(\omega^{\otimes m}_{S/C})
+$$
+Thus, $f_*(\omega^{\otimes m}_{S/C})$ has the quotient invertible sheaf $F^*\mathcal{M}^{-1}$ with $\deg F^*\mathcal{M}^{-1}=dp$, and we can replace $\mathcal{M}$ with $F^{*}\mathcal{M}^{-1}$. Hence, we can assume that $\deg \mathcal{M}=d>>0$, and assume that $\mathcal{M}\cong \omega_{C}^{\otimes m}\otimes \mathcal{L}$ where $\mathcal{L}$ is very ample.
+
+We therefore have a surjection of sheaves
+$$\omega_C^{\otimes m}\otimes \mathcal{L} \otimes f_*(\omega^m_{S/C})\to\mathcal{O}_C\to 0$$
+which yields the surjection
+$$H^1(C, \omega^{\otimes m}_C\otimes \mathcal{L}\otimes f_*(\omega^{\otimes m}_{S/C}))\to H^1(\mathcal{O}_C)\to 0$$
+after applying the long exact sequence for cohomology, as $C$ has dimension 1.
+
+By Serre Duality, we have
+$$\dim_k H^1(\mathcal{O}_C)\cong \dim_k H^0(\omega_C)=g.$$
+Therefore, $$\dim_k H^1(C, \omega^{\otimes m}_C\otimes \mathcal{L}\otimes f_*(\omega^{\otimes m}_{S/C}))\geq g$$
+
+Let $\mathcal{F}=f^*(\omega^{\otimes m}_C\otimes \mathcal{L})\otimes \omega^{\otimes m}_{S/C}\cong \omega_{S}^{\otimes m}\otimes f^{*}\mathcal{L}$ by \todo{add ref}. We have the Leray Spectral Sequence
+$$E_2^{p,q} \quad H^p(C, R^qf_*\mathcal{F})\implies H^{p-q}(S,\mathcal{F}),$$
+whose only non-zero entries on the $E_2$-page are $(p,q)=(0,0),(0,1),(1,0),(1,1)$, and thus degenerates on the $E_2$ page.
+
+%The only nonzero entries on the $E_2$ page are:
+%\begin{center}
+%$H^1(C, f_*\mathcal{F})$\quad  \quad $H^1(C, R^1f_*\mathcal{F})$\\
+%$H^0(C, f_*\mathcal{F})$ \quad \quad $H^0(C,R^1f_\mathcal{F})$
+%\end{center}
+
+Hence, we have the short exact sequence
+$$0\to H^1(C, f_*\mathcal{F})\to H^1(S, \mathcal{F})\to H^0(C, R^1f_*\mathcal{F})\to 0$$
+
+By the projection formula,
+$$
+f_*\mathcal{F}\cong\mathcal{L}\otimes f_*(\omega^{\otimes m}_{S/C})\otimes \omega^m_C
+$$
+Thus, $\dim_k H^1(C,f_{*}\mathcal{F})\ge g$, from which we conclude
+$$
+\dim_k H^1(S,\mathcal{F})=\dim_kH^{1}(S,\omega_{S}^{\otimes m}\otimes f^{*}\mathcal{L})\ge g\ge2.
+$$
+
+However, the invertible sheaf $f^*\mathcal{L}$ is effective on $S$ because $\mathcal{L}$ is very ample on $C$, and has self-intersection zero because it is a union of fibers, so this contradicts Lemma \ref{ekedahl_corollary}.
+\end{proof}
+
+\begin{lemma}\label{4.5_base_genus_2_char_p}
+Suppose we are in Situation \ref{kollar_prop_4.5}.
+Assume the characteristic of $k$ is equal to $p>0$.
+Assume that the genus of $C$ is at least 2.
+Then, $f_*\omega_{S/C}^{\otimes m}$ is nef for $m \geq 2$.
+\end{lemma}
+
+\begin{proof}
+We will reduce to the case in which $S$ is minimal, then apply Lemma
+\ref{4.5_minimal_base_genus_2_char_p}.
+
+Suppose that $S$ contains a $(-1)$-curve $C'$.
+Then, if $C'$ is not contained in a fiber of $f$, then $f|_{C'}:C'\to C$ is a
+dominant morphism from a curve of genus 0 to a curve of genus 2, which is a
+contradiction.
+Thus, all $(-1)$-curves of $S$ are contained in fibers of $f$.
+Thus, we have a $k$-smooth minimal model $S_{min}$ along with $k$-morphisms
+$b:S\to S_{min}$ and $f':S_{min}\to C$ such that $f=f'\circ b$.
+
+The morphism $f'$ satisfies the hypotheses of Lemma
+\ref{4.5_minimal_base_genus_2_char_p}, so
+$f'_*(\omega_{S_{min}/C}^{\otimes m})$ is nef.
+Then
+\begin{align*}
+  f_*(\omega^{\otimes m}_{S/C})
+    & \cong f'_*b_*(\omega^{\otimes m}_{S/C})
+      \cong f'_*b_*(\omega^{\otimes m}_{S/S_{min}}\otimes b^*\omega^{\otimes m}_{S_{min}/C})\\
+    & \cong f'_*(b_*\omega^{\otimes m}_{S/S_{min}}\otimes \omega^{\otimes m}_{S_{min}/C})
+      \cong f'_*\omega^{\otimes m}_{S_{min}/C}
+\end{align*}
+because $b_*\omega^{\otimes m}_{S/S_{min}}\cong\mathcal{O}_{S_{min}}$.\todo{this is probably in the stacks project somewhere, find ref}
+The conclusion follows.
+\end{proof}
+
+
+
+\begin{lemma}\label{4.5_char_p}
+Suppose we are in Situation \ref{kollar_prop_4.5}.
+Assume the characteristic of $k$ is equal to $p>0$.
+Then, $f_*\omega_{S/C}^{\otimes m}$ is nef for $m \geq 2$.
+\end{lemma}
+
+\begin{proof}
+\todo{get rid of the beginning of this and cite \ref{base_change_okay}
+  instead -- that needs to be moved up}
+We will reduce to the case in which the genus of $C$ is at least 2, then apply
+Lemma \ref{4.5_minimal_base_genus_2_char_p}.
+
+Because $f$ is generically smooth, there exists a connected, smooth proper $k$-scheme $C'$ of dimension 1 and a generically \'{e}tale $k$- morphism $f:C'\to C$ branched only at points of $C$ above which the fiber of $f$ is smooth\todo{add ref}. We then have a fiber diagram
+$$
+\xymatrix{
+S \ar[d]^f  &S' \ar[d]^{f'} \ar[l]^{\pi'} \\
+C   &C' \ar[l]^{\pi}
+}
+$$
+and $f':S'\to C'$ satisfies the hypotheses of Lemma \ref{4.5_minimal_base_genus_2_char_p}, so $f'_*(\omega_{S'/C'})$ is nef.
+
+By Cohomology and Base Change and compatibility for relative dualizing sheaves, we have
+$$
+\pi^*(f_*(\omega_{S/C}))\cong f'_*\pi'^*(\omega_{S/C})\cong f'_*(\omega_{S'/C'}).
+$$
+Now, the locally free sheaf $f_{*}(\omega_{S/C})$ becomes nef after pullback, and is therefore nef.
+\end{proof}
+
+
+
+Compare the following with~\cite[Theorem 4.3]{ko90}.
+
+\begin{lemma}
+\label{lemma-stable-curves-nef}
+Suppose we are in situation Lemma \ref{kollar_prop_4.5}.
+Then $f_*(\omega_{S/C}^{\otimes m})$ is nef for $m \geq 2$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{4.5_char_p}, we may assume that $k$ has characteristic 0.
+Spread out. \todo{add details}
+\end{proof}
+
+Compar the following with~\cite[Theorem 4.6]{ko90}.
+
+\begin{lemma}
+\label{lemma-stable-curves-nef}
+Let $k$ be a field.
+Let $C$ be a proper connected smooth $k$-scheme of dimension $1$.
+Let $f : S \to C$ be a family of stable curves,
+as defined in Lemma \ref{lemma-stable-curves}.
+Let $C_t$ be a section of $f$.
+Then $\omega_{S/C}\cdot C_t\geq 0$.
+\end{lemma}
+
+\begin{proof}
+Let $i:C_t\hookrightarrow S$ be the inclusion map, and $g=f\circ i:C_t\to C$ be the corresponding isomorphism.
+Consider the short exact sequence:
+$$0\to \mathcal{O}_S(-C_t)\to\mathcal{O}_S\to i_*\mathcal{O}_{C_t}\to 0.$$
+Tensoring with $\omega_{S/C}^{\otimes m}$, we obtain:
+$$0\to \omega_{S/C}^{\otimes m}(-C_t)\to \omega_{S/C}^{\otimes m}\to i_*\mathcal{O}_{C_t}\otimes\omega_{S/C}^{\otimes m}\to 0.$$
+Applying the functor $f_*$ to the sequence, we get a map
+$$f_*\omega_{S/C}^{\otimes m}\to f_*(i_*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to R^1f_*(\omega_{S/C}^{\otimes m}(-C_t)).$$
+For $m\gg 0$, using cohomology and base change we obtain $R^1f_*(\omega_{S/C}^{\otimes m}(-C_t))=0$, so we have a surjection:
+$$f_*\omega_{S/C}^{\otimes m}\to f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
+Applying the functor $g^*$ to the above sequence, we obtain:
+$$g^*f_*\omega_{S/C}^{\otimes m}\to g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m})\to 0.$$
+We now claim that the term on the right is $i^*\omega_{S/C}^{\otimes m}$, since
+\begin{align}
+i^*\omega_{S/C}^{\otimes m}& =g^*g_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
+& =g^*f_*i_*(i^*\omega_{S/C}^{\otimes m})\nonumber\\
+&=g^*f_*(i^*\mathcal{O}_{C_t}\otimes \omega_{S/C}^{\otimes m}).\nonumber
+\end{align}
+This way we obtain a contradiction, since the quotient $g^*f_*\omega_{S/C}^{\otimes m}\to i^*\omega_{S/C}^{\otimes m}\to 0$ contradicts nefness.
+\end{proof}
+
+We make the following definition, following~\cite[Definition 4.1(i)]{ko90}.
+
+\begin{definition}
+\label{definition-semismooth}
+Let $k$ be a field.
+Let $X$ be an algebraic variety over $k$.
+We say $X$ is \textit{semismooth} if all of its closed points are analytically
+isomorphic to one of the following:
+\begin{enumerate}
+\item a smooth point;
+\item a double crossing point $\{x_1x_2 = 0\} \subset \mathbf{A}^n$; or
+\item a pinch point $\{x_1^2 - x_2^2x_3 = 0\} \subset \mathbf{A}^n$.
+\end{enumerate}
+In this case the singular locus is smooth, and we call it the {\it double
+divisor} of $X$.
+\end{definition}
+
+\begin{situation}
+\label{situation-kollar-theorem-4.3}
+Let $k$ be a field.
+Let $S$ be a complete Gorenstein reduced $k$-scheme of dimension $2$ that is
+semismooth.
+Let $C$ be a complete integral smooth $k$-scheme of dimension $1$.
+Let $f : S \to C$ be a surjective map onto $C$, such that the general fiber of
+$f$ has only nodes as singularities.
+\end{situation}
+
+\begin{lemma}
+\label{lemma-base-change-okay}
+Consider Situation \ref{situation-kollar-theorem-4.3}.
+Let $C'$ be a complete integral smooth $k$-scheme of dimension $1$, and
+consider the cartesian square
+$$
+\xymatrix{
+S' \ar[d]_{f'}\ar[r]^{g'} & S\ar[d]^f\\
+C' \ar[r]^g & C
+}
+$$
+where $g: C' \to C$ is surjective.
+If for some $m$, the sheaf $f'_*(\omega_{S'/C'}^{\otimes m})$ is nef,
+then $f_*(\omega_{S/C}^{\otimes m})$ is nef.
+\end{lemma}
+\begin{proof}
+Suppose $f_*(\omega_{S/C}^{\otimes m})$ is not nef, i.e., there
+exists a quotient
+$$f_*(\omega_{S/C}^{\otimes m}) \longrightarrow \mathcal{L}$$
+where $\mathcal{L}$ is an invertible sheaf of negative degree.
+Pulling back to $C'$, we then obtain a quotient
+$$g^*f_*(\omega_{S/C}^{\otimes m}) \longrightarrow g^*\mathcal{L}$$
+of $g^*f_*(\omega_{S/C}^{\otimes m})$ that has negative degree on $C'$.
+Since $f$ is flat \cite[\href{http://stacks.math.columbia.edu/tag/00R4}{Tag
+00R4}]{stacks-project}, we can apply flat base change
+\cite[\href{http://stacks.math.columbia.edu/tag/02KH}{Tag 02KH}]{stacks-project}
+to obtain
+$$
+g^*f_*(\omega_{S/C}^{\otimes m})
+\simeq f'_*g'^*(\omega_{S/C}^{\otimes m})
+\simeq f'_*(\omega_{S'/C'}^{\otimes m})
+$$
+where the second isomorphism is
+by the compatibility of the relative dualizing sheaf with pullbacks
+\cite[\href{http://stacks.math.columbia.edu/tag/0E4P}{Tag
+0E4P}]{stacks-project}.
+We therefore obtain a negative quotient $g^*\mathcal{L}$ of
+$f'_*(\omega_{S'/C'}^{\otimes m})$, which contradicts the assumption that
+$f'_*(\omega_{S'/C'}^{\otimes m})$ was nef.
+\end{proof}
+
+Compare the following with~\cite[Theorem 4.3]{ko90}.
+
+\begin{theorem}
+\label{theorem-rel-dualizing-nef}
+In Situation \ref{situation-kollar-theorem-4.3}, suppose moreover that the
+generic fiber of $f$ is a stable curve.
+Then the sheaf $f_*(\omega_{S/C}^{\otimes m})$ is nef for $m \geq 2$.
+\end{theorem}
+\begin{proof}
+We first claim that we may assume that every double curve in $S$ dominates $C$.
+Suppose that a double curve $D$ maps to a point in $C$.
+Blowing up $D$ gives a map $b :
+\widetilde{S} \to S$.
+Suppose we know the sheaf $(b \circ f)_*(\omega_{\widetilde{S}/C}^{\otimes m})$
+is nef.
+The Grothendieck trace morphism
+$$
+\mathrm{Tr}_b : b_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow \omega_{S/C}^{\otimes m}
+$$
+for the blowup is injective, since $b$ is birational, and is an isomorphism away
+from $D$ \cite[Prop.\ 5.77]{km}.
+We therefore have a short exact sequence
+$$
+0 \longrightarrow b_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow \omega_{S/C}^{\otimes m} \longrightarrow \mathcal{Q}
+\longrightarrow 0,
+$$
+where $\mathcal{Q}$ is supported in $D$.
+Pushing this forward $\mathrm{Tr}_b$ to the curve $C$, we then have the
+left-exact sequence
+$$
+0 \longrightarrow (f \circ b)_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow f_*(\omega_{S/C}^{\otimes m}) \longrightarrow f_*\mathcal{Q}.
+$$
+Since $D$ is contained in a fiber over $C$, the sheaf $f_*\mathcal{Q}$ is a
+skyscraper sheaf supported at a point on $C$.
+We can therefore replace $f_*\mathcal{Q}$ with the subsheaf $\mathcal{Q}'$
+making the sequence
+$$
+0 \longrightarrow (f \circ b)_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow f_*(\omega_{S/C}^{\otimes m}) \longrightarrow \mathcal{Q}'
+\longrightarrow 0
+$$
+exact.
+Since $\mathcal{Q}'$ is a skyscraper sheaf, it has positive degree on $C$.
+Thus, assuming $(f \circ b)_*(\omega_{\widetilde{S}/C}^{\otimes m})$ is
+nef, we have that $f_*(\omega_{S/C}^{\otimes m})$ is also.
+After repeating finitely many blowups of double curves not dominating $C$,
+all remaining double curves will dominate $C$.
+
+We now claim that we may assume $S$ has no pinch points. If there are pinch
+points, then blowing them up gives a new surface birational to $S$ that only has
+double crossing points; the argument of the previous paragraph shows we may
+reduce to this case, since pinch points are isolated (as in, there cannot be a
+curve that consists wholely of pinch points).
+
+We now claim that we may assume that every double curve $D$ in $S$ is a
+section of $f : S \to C$.
+If it is not, then consider the base change by $g : D \to C$:
+$$
+\xymatrix{
+S \times_C D \ar[r]^{g'}\ar[d]_{f'} & S \ar[d]^f\\
+D \ar[r]^g & C
+}
+$$
+It suffices to show the statement of the Theorem for the morphism $f'$ by Lemma
+\ref{lemma-base-change-okay}, and the inverse image of $D$ in $S \times_C D$ is
+now a section of $f'$ by using the cartesianness of the square:
+$$
+\xymatrix{
+D\ar@{=}@/_/[ddr]\ar@{^{(}->}@/^/[drr]\ar@{-->}[dr]\\
+& S \times_C D \ar[r]^{g'}\ar[d]_{f'} & S \ar[d]^f\\
+& D \ar[r]^g & C
+}
+$$
+Repeating finitely many base changes, we can ensure that every double curve is a
+section of $f : S \to C$.
+
+We now claim that if $\nu : S' \to S$ is the normalization of $S$, then the
+preimage $D'$ of the double curve $D$ still consists of sections.
+Since the double curve only consists of double crossing points, the
+normalization (analyticall) locally splits up the double curve into two separate
+curves on two different irreducible components.
+These two curves will still be sections.
+
+We have therefore reduced the statement to the situation of Lemma
+\ref{kollar-theorem-4.9}.
+%We are now at the top of p. 255
+\end{proof}
+
+\section{Nefness after twisting by sections}
+
+\begin{situation}\label{kollar_prop_4.7}
+Let $k$ be a field.
+Let $C$ be a connected, proper smooth $k$-scheme of dimension 1.
+Let $S$ be a proper smooth $k$-scheme of dimension 2.
+Let $f:S\to C$ be a family of stable nodal curves whose fibers have arithmetic genus $g$.
+Let $C_1,\ldots,C_n$ be a set of pairwise distinct sections of $f$.
+Let $m\ge2$ be an integer.
+Let $a_1,\ldots,a_n$ be non-negative integers such that $a_i\le m$ for each $i$.
+\end{situation}
+
+\begin{lemma}\label{base_case_genus_0}
+Suppose we are in Situation \ref{kollar_prop_4.7} where $g=0$ and the sections $C_i$ are pairwise disjoint.
+Assume that $\sum a_i\le 2k-1$.
+Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))=0$.
+\end{lemma}
+\begin{proof}
+Immediate from the fact that the sheaf $\omega_{S/C}^{\otimes m}(\sum a_iC_i)$ has negative degree on each fiber of $f$.
+\end{proof}
+
+\begin{lemma}\label{base_case_genus_1}
+Suppose we are in Situation \ref{kollar_prop_4.7} where $g=1$ and the sections $C_i$ are pairwise disjoint.
+Then $f_{*}(\omega_{S/C}^{\otimes m})$ is a nef locally free sheaf.
+\end{lemma}
+\begin{proof}
+By Bombieri-Mumford \todo{add reference}, $\omega_{S/C}$ is nef.
+By Grauert's Theorem, $f_{*}\omega_{S/C}$ is locally free.
+Moreover, we can check fiberwise that $f^{*}f_{*}\omega_{S/C}\to\omega_{S/C}$ is a surjection, and hence and isomorphism of invertible sheaves.
+In particular, $f_{*}\omega_{S/C}$ must be an invertible sheaf of non-negative degree on $C$, hence nef.
+Details omitted.
+\end{proof}
+
+\begin{lemma}\label{inductive_step_genus_0}
+Suppose we are in Situation \ref{kollar_prop_4.7} where $g=0$ and the sections $C_i$ are pairwise disjoint.
+Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a nef locally free sheaf.
+\end{lemma}
+\begin{proof}
+This proof is nearly identical to that in genus 1 and genus at least 2.
+
+We proceed by induction on $\sum a_i$.
+By the Hodge Index Theorem, we may assume that among $C_1,\ldots,C_n$, $C_1$ is the only section with positive self-intersection.
+The base cases where $a_i\le 2m-1$ is Lemma \ref{base_case_genus_0}.
+
+Assume the claim is proven for $D_{j-1}=\sum a_iC_i$ where $\sum a_i\ge 2m-1$; we will prove it for $D_{j}=D_{j-1}+C_t$.
+Because $a_{1}\le m$, we may assume $C_1\neq C_t$.
+By the adjunction formula, $\omega_{S/C}(C_t)|_{C_t}\cong\mathcal{O}_{C_t}$, so $\omega_{S/C}\cdot C_t=-C_t^2\ge0$, as $C_t\neq C_1$.
+
+Consider the exact sequence
+\begin{equation*}\label{exact_seq_of_section_twisted_genus_0}
+0\to\omega_{S/C}^{\otimes m}(D_{j-1})\to\omega_{S/C}^{\otimes m}(D_j)\to \omega_{S/C}^{\otimes m}(D_j)|_{C_t}\to0
+\end{equation*}
+obtained by tensoring the closed subscheme exact sequence for $C_t$ with $\omega_{S/C}^{\otimes m}(D_j)$.
+
+Then, $\omega_{S/C}^{\otimes m}(D_j)|_{C_t}\cong \omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$, because the $C_i$ are pairwise disjoint.
+Because $a_{t}+1\le k$ by assumption, this invertible sheaf has non-negative degree.
+
+We now claim that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))=0$.
+Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 1, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
+
+Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_0})
+expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the
+positive degree invertible sheaf
+$f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the nef locally free sheaf
+$f_{*}\omega_{S/C}^{\otimes m}(D_{j-1})$, which is nef by Lemma~\ref{lemma-nef-ext-nef}.
+Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$ of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on $C_t$.
+\end{proof}
+
+\begin{lemma}\label{inductive_step_genus_1}
+Suppose we are in Situation \ref{kollar_prop_4.7} where $g=1$ and the $C_i$ are pairwise disjoint.
+Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a nef locally free sheaf.
+\end{lemma}
+\begin{proof}
+This proof is nearly identical to that in genus 0 and genus at least 2.
+
+We proceed by induction on $\sum a_i$.
+The base case where all of the $a_i$ are equal to zero is Lemma \ref{base_case_genus_1}.
+
+Assume the claim is proven for $D_{j-1}=\sum a_iC_i$; we will prove it for
+$D_{j}=D_{j-1}+C_t$.
+By Bombieri-Mumford\todo{add reference} $\omega_{S/C}$ is nef so in particular,
+$\omega_{S/C}\cdot C_t\ge0$.
+
+Consider the exact sequence
+\begin{equation}\label{exact_seq_of_section_twisted_genus_1}
+0\to\omega_{S/C}^{\otimes m}(D_{j-1})\to\omega_{S/C}^{\otimes m}(D_j)\to \omega_{S/C}^{\otimes m}(D_j)|_{C_t}\to0
+\end{equation}
+obtained by tensoring the closed subscheme exact sequence for $C_t$ with $\omega_{S/C}^{\otimes m}(D_j)$.
+
+Then, $\omega_{S/C}^{\otimes m}(D_j)|_{C_t}\cong \omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$, because the $C_i$ are pairwise disjoint.
+Because $a_{t}+1\le k$ by assumption, this invertible sheaf has non-negative degree.
+
+We now claim that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))=0$, unless $D_{j-1}=0$.
+Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 1, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
+On the other hand, when $D_{j-1}=0$, Cohomology and Base Change shows that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))$ is an invertible sheaf.
+
+
+Thus, if $D_{j-1}\neq0$, applying $f_{*}$ to
+(\ref{exact_seq_of_section_twisted_genus_1}) expresses
+$f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the positive
+degree invertible sheaf $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the
+nef locally free sheaf $f_*\omega_{S/C}^{\otimes m}(D_{j-1})$, which is nef
+by Lemma~\ref{lemma-nef-ext-nec}
+Here we have used the fact that $C_t$ is a section, hence
+$f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$
+of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on
+$C_t$.
+
+If $D_{j-1}=0$, the situation is similar; we obtain the exact sequence
+$$
+0 \to f_{*}(\omega_{S/C}^{\otimes m})\to f_{*}((\omega_{S/C}^{\otimes m})(C_t))\to f_{*}((\omega_{S/C}^{\otimes m})(C_t))|_{C_t}\to R^{1}f_{*}(\omega_{S/C}^{\otimes m})\to0
+$$
+because $R^{1}f_{*}\omega_{S/C}^{\otimes m}(C_t)=0$.
+The rightmost map is a surjection of invertible sheaves, hence an isomorphism.
+Therefore the leftmost map is an isomorphism as well, and we obtain the desired conclusion once again.
+\end{proof}
+
+
+
+\begin{lemma}\label{inductive_step_genus_2}
+Suppose we are in Situation \ref{kollar_prop_4.7} where $g\ge2$ and the sections $C_i$ are pairwise disjoint.
+Then $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ is a nef locally free sheaf.
+\end{lemma}
+\begin{proof}
+This proof is nearly identical to that in genus 0 and genus 1.
+
+We proceed by induction on $\sum a_i$.
+The base case where all of the $a_i$ are equal to zero is Lemma \todo{insert ref to kollar 4.5}.
+
+Assume the claim is proven for $D_{j-1}=\sum a_iC_i$; we will prove it for $D_{j}=D_{j-1}+C_t$.
+By \todo{insert ref to our version of kollar 4.6}, $\omega_{S/C}\cdot C_t\ge0$.
+
+Consider the exact sequence
+\begin{equation*}\label{exact_seq_of_section_twisted_genus_2}
+0\to\omega_{S/C}^{\otimes m}(D_{j-1})\to\omega_{S/C}^{\otimes m}(D_j)\to \omega_{S/C}^{\otimes m}(D_j)|_{C_t}\to0
+\end{equation*}
+obtained by tensoring the closed subscheme exact sequence for $C_t$ with $\omega_{S/C}^{\otimes m}(D_j)$.
+
+Then, $\omega_{S/C}^{\otimes m}(D_j)|_{C_t}\cong \omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$, because the $C_i$ are pairwise disjoint.
+Because $a_{t}+1\le k$ by assumption, this invertible sheaf has non-negative degree.
+
+We now claim that $R^{1}f_{*}\omega_{S/C}^{\otimes m}(D_{j-1}))=0$.
+Indeed, by Cohomology and Base Change and the fact that $f$ has relative dimension 1, it suffices to note that $H^{1}(S_x,\omega_{S_x/\kappa(x)}^{\otimes m}(D_{j-1}\cdot S_x))=0$ for each fiber $S_x$ of $f$, which is clear by Serre Duality and degree considerations.
+
+Thus, applying $f_{*}$ to (\ref{exact_seq_of_section_twisted_genus_2})
+expresses $f_{*}(\omega_{S/C}^{\otimes m}(\sum a_iC_i))$ as an extension of the
+positive degree invertible sheaf
+$f_*\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ by the nef locally free sheaf
+$f_*(\omega_{S/C}^{\otimes m}(D_{j-1})$, which is nef by
+Lemma~\ref{lemma-nef-ext-nef}.
+Here we have used the fact that $C_t$ is a section, hence $f_{*}\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ is an invertible sheaf on $C$ of the same degree as that of $\omega_{S/C}^{\otimes (k-a_{t}-1)}|_{C_t}$ on $C_t$.
+\end{proof}
+
+\begin{lemma}
+Suppose we are in Situation \ref{kollar_prop_4.7}.
+Then $f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)$ is nef.
+\end{lemma}
+\begin{proof}
+Let $b:\widetilde{S}/\to S$ be a blowup morphism such that the proper transforms $C'_i$ of the $C_i$ are pairwise disjoint, and are sections of $f\circ b$.
+By Lemma \ref{inductive_step_genus_0}, Lemma \ref{inductive_step_genus_1}, and Lemma \ref{inductive_step_genus_2}, $(f\circ b)_{*}\omega_{\widetilde{S}/C}^{\otimes m}$ is nef.
+
+The Grothendieck trace morphism
+$$
+\mathrm{Tr}_b : b_*(\omega_{\widetilde{S}/C}^{\otimes m})
+\longrightarrow \omega_{S/C}^{\otimes m}
+$$
+for the blowup is injective, since $b$ is birational, and is an isomorphism away
+from $D$ \cite[Prop.\ 5.77]{km}.
+Tensoring with $\mathcal{O}_{S}\left(\sum a_iC_i\right)$ and applying the
+projection formula yields an injection
+$$
+\mathrm{Tr}'_b : b_*\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_ib^{*}C_i\right)\right)
+\longrightarrow \omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right).
+$$
+Therefore, we have an injection
+$$
+\mathrm{Tr}'':(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)
+\longrightarrow f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)
+$$
+after precomposing with the inclusions of $C'_i$ into $b^*C_i$ and applying $f_*$.
+
+Because $b$ is a blowup of points on $S$, $\mathrm{Tr}''$ is generically an isomorphism.
+We thus conclude that an invertible quotient of $\mathcal{L}$ of $f_{*}\left(\omega_{S/C}^{\otimes m}\left(\sum a_iC_i\right)\right)$ has a subsheaf that is a quotient of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$, and thus must have non-negative degree by the nefness of $(f\circ b)_{*}\left(\omega_{\widetilde{S}/C}^{\otimes m}\otimes\mathcal{O}_{\widetilde{S}}\left(\sum a_iC'_i\right)\right)$.
+This completes the proof.
+\end{proof}
+
+Compare with~\cite[Theorem 4.9]{ko90}.
+
+\begin{lemma}
+\label{kollar-theorem-4.9}
+Let $k$ be a field.
+Let $C$ be a proper connected smooth $k$-scheme of dimension $1$.
+Let $S$ be a semismooth surface.
+Let $f:S\to C$ be a surjective map whose general fiber is a stable curve.
+Let $D$ be a double curve on $S$.
+Assume $D$ consists of section of $f:S\to C$.
+Let $g:S'\to S$ be the normalization of $S$.
+Let $D'=g^{-1}(D)$.
+Assume each component of $D'$ is a section.
+Let $m\geq 2$ any integer.
+Then $f_*(\omega_{S/C}^{\otimes m})$ is nef.
+\end{lemma}
+\begin{proof}
+By \ref{kollar_prop_4.7}\todo{This appears to be the wrong reference?}
+we know that $(f\circ g)_*(\omega_{S'/C}^{\otimes m})$ is nef.
+Observe that $g^*\omega_{S/C}\cong \omega_{S'/C}(D')$.
+Now we consider the short exact sequence;
+$$
+0 \to \mathcal{O}_{S}(-D) \to \mathcal{O}_S \to \mathcal{O}_D \to 0.
+$$
+Tensoring the sequence with $\omega_{S/C}$ gives
+$$
+0 \to g_*(\omega_{S'/C}) \to \omega_{S/C} \to \omega_{S/C}\rvert_D \cong \mathcal{O}_D \to 0.
+$$
+Now we tensor the sequence with $\omega_{S/C}^{\otimes (m-1)}$ and apply the
+projection formula, obtaining:
+$$
+0 \to g_*\omega_{S'/C}^{\otimes m}((m-1)D') \to \omega_{S/C}^{\otimes m}\to \mathcal{O}_D\to 0.
+$$
+Now we apply the functor $f_*$ to the sequence and use that
+$R^1(f\circ g)_*\omega_{S'/C}^{\otimes m}((m-1)D')=0$ for $m\geq 2$,
+obtaining the following sequence:
+$$
+  0 \to
+  (f\circ g)_*\omega_{S'/C}^{\otimes m}((m-1)D') \to
+  f_*\omega_{S/C}^{\otimes m} \to
+  f_*\mathcal{O}_D \to
+  0.
+$$
+The sheaf $f_*\mathcal{O}_D$ is isomorphic to the sum of copies of
+$\mathcal{O}_C$, therefore $f_*\omega_{S/C}^{\otimes m}$ is nef for
+all $k\geq 2$.
+\end{proof}
+
+\section{Projectivity of $\overline{\mathcal{M}_g}$}
+In this section, we show that the moduli stack $\overline{\mathcal{M}}_g$ of
+stable curves of genus $g \geq 2$ is projective over $\Spec(\mathbf{Z})$ in the
+sense that it admits a coarse moduli space which is projective over
+$\Spec(\mathbf{Z})$.
+This is done by, first, specializing the ampleness criterion
+of~\cite[Theorem 2.6]{ko90} to the case at hand in
+Lemma~\ref{lemma-mgbar-proj-field} to show that $\overline{M}_g$ is projective
+over any field $k$.
+This is then used to show $\overline{M}_g$ is projective over $\mathbf{Z}$
+in Theorem~\ref{theorem-mgbar-proj}.
+
+\begin{lemma}
+\label{lemma-coarse-mgbar}
+The stacks $\overline{\mathcal{M}}$ and $\overline{\mathcal{M}}_g$
+defined in~\citeSP{0E77} admit uniform categorical moduli spaces
+$f : \overline{\mathcal{M}} \to \overline{M}$ and
+$f_g : \overline{\mathcal{M}}_g \to \overline{M}_g$ such that $f$ and $f_g$
+are separated, quasi-compact, and universal homeomorphisms.
+\end{lemma}
+
+\begin{proof}
+The stacks of stable curves have finite inertia by~\citeSP{0E7A}
+and~\citeSP{0DSW}.
+The existence of $f$ and $f_g$ now follows from by~\citeSP{0DUT}.
+\end{proof}
+
+\begin{definition}
+\label{definition-deligne-mumford-coarse}
+The algebraic space $\overline{M}$ from Lemma~\ref{lemma-coarse-mgbar} is
+called the \emph{coarse moduli space of curves}.
+Similarly, for $g \geq 2$, the algebraic space $\overline{M}_g$ is called the
+\emph{coarse moduli space of curves of genus $g$}.
+\end{definition}
+
+\begin{lemma}
+\label{lemma-mgbar-hodge-bundle}
+Let $\overline{\mathcal{M}}_g$ be the stack of stable curves of genus $g \geq
+2$ over $\Spec(\mathbf{Z})$.
+Then for each $m \geq 2$, there exists an invertible sheaf $\lambda_m$ on
+$\overline{\mathcal{M}}_g$ such that for every family of curves $f : X \to S$
+with classifying map $g : S \to \overline{\mathcal{M}_g}$,
+$g^*\lambda_m = \det(f_*\omega_{X/S})$.
+\end{lemma}
+
+\begin{proof}
+...\todo{Prove this at some point. Perhaps~\cite[\S13.2]{acmg} will be useful.
+  Note that I really need for this to be integral.}
+\end{proof}
+
+\begin{lemma}
+\label{lemma-family-with-all-curves}
+Let $k$ be a field.
+Let $g \geq 2$ and let $\overline{M}_g$ be the coarse moduli space of stable
+curves of genus $g$.
+Then there exists a family of stable curves $f : X \to S$ such that
+$S$ a finite type scheme over $k$ equipped with a finite surjective map
+$p : S \to \overline{M}_g$ such that for every
+$s \in S(\overline k)$, the point $p(s) \in \overline{M}_g(\overline k)$ is
+the moduli point corresponding to the stable curve
+$f_s : X \times_S \Spec(\overline k) \to \Spec(\kappa(s))$.\todo{State this
+better.}
+\end{lemma}
+
+\begin{proof}
+  ...\todo{Prove this. Compare with~\cite[Proposition 2.7]{ko90}.}
+\end{proof}
+
+\begin{lemma}
+\label{lemma-ample-determinant-of-rel-canonical}
+Let $k$ be a field.
+Let $g \geq 2$ and let $f : X \to S$ be a family of stable curves of genus $g$
+such that the classifying map $S \to \overline{\mathcal{M}}_g$ is finite.
+Then $\det(f_*\omega_{X/S})$ is ample on $S$.
+\end{lemma}
+
+\begin{proof}
+We will apply Lemma~\ref{lemma-ampleness-of-semipos-quotients} to the
+multiplication map
+$$
+\mu : \mathrm{Sym}^d(f_*(\omega_{X/S}^{\otimes m})) \to f_*(\omega_{X/S}^{\otimes md}),
+$$
+for some choice of $m$ and $d$.
+Specifically, choose positive integers $m$ and $d$ such that the following
+hold:
+\begin{enumerate}
+\item $\omega_{X/S}^{\otimes m}$ is $f$-very ample,
+\item $R^if_*(\omega_{X/S}^{\otimes m}) = 0$ for all $i > 0$ and the
+  map $f_*(\omega_{X/S}^{\otimes m})_s \to H^0(X_s,\omega_{X/\kappa(s)})$ is
+  an isomorphism for every $s \in S$,
+\item the multiplication map
+  $\mathrm{Sym}^d(f_*\omega_{X/S}^{\otimes m}) \to f_*\omega_{X/S}^{\otimes md}$
+  is surjective, and
+\item for every $s \in S$, the fibre $X_s = X \times_S \Spec(\kappa(s))$
+  embedded via $\omega_{X_s/\kappa(s)}^{\otimes m}$ is defined by equations
+  of degree at most $d$\todo{Make this hypothesis cleaner.}.
+\end{enumerate}
+Item (1) can be arranged for by the fact~\cite[Corollary of (1.2)]{dm} that
+$\omega_{X/S}$ is $f$-ample together with~\citeSP{01VU};
+(2) can be arranged, by~\citeSP{0D2M} and quasi-compactness of $S$, after
+possibly taking a larger $m$;
+(3) can be arranged by the arguments in the proof of~\citeSP{0C6T}; and
+(4) can be arranged since pluricanonically embedded curves are defined
+by quadratic equations\todo{Check this and find a reference}.
+
+Now we set up our application of Lemma~\ref{lemma-ampleness-of-semipos-quotients}
+to the map $\mu$.
+Note that, by (3), $\mu$ is a quotient map.
+Moreover, by Lemma~\ref{theorem-rel-dualizing-nef},
+$f_*\omega_{X/S}^{\otimes md}$ is nef.
+It remains to check that the classifying map
+$$
+u : S \to [\mathbf{G}(q,N)/\mathrm{PGL}_n]
+$$
+is quasi-finite\todo{I want the fibres of this map to be finite; is this really
+  the same as demanding that this is quasi-finite as a morphism of stacks?},
+where $n = 2m(g-1)$, $N = \binom{2m(g - 1) + d}{d}$ and $q = 2md(g - 1)$.
+It suffices to check that the fibre $S_x$ of $u$ is a finite set for every
+geometric point
+$x : \Spec(\overline k) \to [\mathbf{G}(q,N)/\mathrm{PGL}_n]$.
+By~\citeSP{04UV}, $x$ corresponds to a diagram
+$$
+\xymatrix{
+  P \ar[d] \ar[r]_\varphi & \mathbf{G}(q,N) \ar[d] \\
+  \Spec(\overline k) \ar[r] & \Spec(k)
+}
+$$
+where $P \to \Spec(\overline k)$ is a $\mathrm{PGL}_n$-torsor,
+$\varphi : P \to \mathbf{G}(q,N)$ is a $\mathrm{PGL}_n$-equivariant morphism of
+$\Spec(k)$-schemes.
+The morphism $\varphi$ to the Grassmannian\todo{Grassmannians in the Stacks project
+parameterize subs, so need to change $q$ to $N-q$ is most places...},
+by construction~\citeSP{089U}, corresponds to an isomorphism class of
+surjections
+$$
+\mu_x : \mathcal{O}_P^{\oplus N} \to \mathcal{Q}
+$$
+where $\mathcal{Q}$ is a locally free $\mathcal{O}_P$-module of rank $q$.
+Thus, by construction of the classifying map from
+Lemma~\ref{lemma-grassman-quotient-stack-map},
+the points $s : \Spec(\overline k) \to S$ in the fibre $S_x$ are those
+where the multiplication map
+$$
+\mu_s :
+  \mathrm{Sym}^d(f_*(\omega_{X/S}^{\otimes m}))_s \to
+  f_*(\omega_{X/S}^{\otimes md})_s
+$$
+is isomorphic to $\mu_x$.
+By assumption (2), $\mu_s$ can be identified as the multiplication map
+$$
+\mu_s :
+  \mathrm{Sym}^d(H^0(X_s,\omega_{X_s/\overline{k}}^{\otimes m})) \to
+  H^0(X_s,\omega_{X_s/\overline{k}}^{\otimes md}).
+$$
+Now, up to the action of $\mathrm{PGL}_n$, we may identify
+$$
+\mathrm{Sym}^d(H^0(X_s,\omega_{X_s/\overline k}^{\otimes m}))
+  = \mathrm{Sym}^d(H^0(\mathbf{P}_{\overline k}^{n - 1},
+      \mathcal{O}_{\mathrm{P}^{n-1}_{\overline{k}}}(1)))
+$$
+via the embedding of $X_s$ by $\omega_{X_s/\overline k}^{\otimes m}$.
+Thus the isomorphism class of $\mu_s$ is determined by the subspace of
+degree $d$ equations defining $X_s$ in $\mathbf{P}_{\overline k}$.
+By assumption (4), each fibre $X_s$ is determined up to isomorphism
+by such equations.
+Thus all members of the family $X \times_S S_x \to S_x$ are isomorphic.
+It remains to remark that $S \to \overline{\mathcal{M}}_g$ is finite and
+hence, for every stable curve $C$, there are at most finitely many $s \in S$
+such that $X_s$ is isomorphic to $C$.
+Thus $S_x$ is finite, completing the proof that $u$ is quasi-finite.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-mgbar-proj-field}
+Let $k$ be a field.
+Let $\overline{\mathcal{M}}_g$ be the stack of stable curves of genus $g \geq 2$
+over $k$ and let $\overline{M}_g$ be its coarse moduli space.
+Then $\overline{M}_g$ is projective over $k$.
+\end{lemma}
+
+\begin{proof}
+We show that the invertible sheaf $\lambda_m$ on $\overline{\mathcal{M}}_g$
+obtained by base change of the invertible sheaf from
+Lemma~\ref{lemma-mgbar-hodge-bundle} descends to an ample
+invertible sheaf $\lambda_m^{\otimes N}$ on $\overline{M}_g$ for $N$
+sufficiently divisible\todo{Make sense of this at some point and find a
+  reference for what this means.}.
+By Lemma~\ref{lemma-family-with-all-curves}, there exists a family of stable
+curves $f : X \to S$ such that $S$ is a finite type $k$-scheme together with
+a finite surjective map $p : S \to \overline{M}_g$ such that for every
+$s \in S(\overline k)$, $p(s) \in \overline{M}_g(\overline k)$ is
+the moduli point corresponding to the stable curve
+$f_s : X \times_S \Spec(\overline k) \to \Spec(\kappa(s))$.
+Now by Lemma~\ref{lemma-surjective-finite-morphism-ample},
+$\lambda_m^{\otimes N}$ is ample on $\overline{M}_g$ if and only if
+$p^*(\lambda_m^{\otimes N})$ is ample on $S$.
+Let $\lambda_m(f)$ denote the pullback under the classifying map
+$S \to \overline{\mathcal{M}}_g$ of the invertible sheaf $\lambda_m$ on the
+stack $\overline{\mathcal{M}}_g$.
+Then $p^*(\lambda_m^{\otimes N}) = \lambda_m(f)^{\otimes N}$.
+Hence by~\citeSP{01PT}, it suffices to show $\lambda_m(f)$ is ample on $S$.
+But recall from Lemma~\ref{lemma-mgbar-hodge-bundle} that
+$\lambda_m(f) = \det(f_*\omega_{X/S})$.
+Ampleness of $\lambda_m(f)$ on $S$ now follows from
+Lemma~\ref{lemma-ample-determinant-of-rel-canonical}.
+\end{proof}
+
+
+\begin{theorem}
+\label{theorem-mgbar-proj}
+Let $\overline{\mathcal{M}_g}$ be the moduli space of stable curves of genus
+$g \geq 2$ over $\mathbb{Z}$ and let $\overline{M}_g$ be its coarse moduli
+space.
+Then $\overline{M}_g$ is projective over $\mathbb{Z}$.
+\end{theorem}
+
+\begin{proof}
+We show that the invertible sheaf $\lambda_m$, with $m \geq 3$ on
+$\overline{M}_g$ constructed in Lemma~\ref{lemma-mgbar-hodge-bundle} is
+relatively ample on $\overline{M}_g/\Spec(\mathbf{Z})$.
+We already know from Lemma~\ref{lemma-mgbar-proj-field} that the base
+change of $\lambda_m$ to $\overline{M}_g/\Spec(k)$ is relatively ample therein.
+In particular, this means that $\lambda_m$ restricted to each fibre of
+$\overline{M}_g \to \Spec(\mathbf{Z})$ is relatively ample.
+Since $\overline{\mathcal{M}}_g \to \Spec(\mathbf{Z})$ is proper
+by~\citeSP{0E9C},~\citeSP{0DUZ} shows $\overline{M}_g \to \Spec(\mathbf{Z})$ is
+proper.
+Hence~\citeSP{0D2N} applies to show $\lambda_m$ is ampld on all of
+$\overline{M}_g/\Spec(\mathbf{Z})$, as desired.
+\end{proof}
+
+
+\section{Introduction}
+Text comes here.
+
+\section{Interesting mathematics}
+More text comes here
+
+
+% just before the bibliography
+\paragraph{Acknowledgements}
+
+% bibliography comes here; either use a BibTeX file or \bibitem's
+% please use MathSciNet identifiers whenever available; Pieter will ensure consistency
+% for citing the Stacks project you can use the key stacks-project
+
+\bibliographystyle{amsplain}
+\bibliography{references}

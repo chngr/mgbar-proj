@@ -1,0 +1,85 @@
+\documentclass[conferencestyle]{cambridge7B}
+
+\usepackage[numbers]{natbib}
+
+\usepackage[figuresright]{rotating}
+\usepackage{floatpag}
+\rotfloatpagestyle{empty}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{colonequals}
+\usepackage{tikz-cd}
+\usepackage{xypic}
+
+\usepackage{newtxtext,newtxmath}
+\usepackage[scaled=0.9]{couriers}
+
+\usepackage{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{conjecture*}{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{notation}[theorem]{Notation}
+
+\newtheorem*{definition*}{Definition}
+\newtheorem*{example*}{Example}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{notation*}{Notation}
+
+% \hyphenation{docu-ment baseline-skip polar}
+
+\setcounter{tocdepth}{1}
+
+\def\makeRRlabeldot#1{\hss\llap{#1}}
+\renewcommand\theenumi{{\rm (\roman{enumi})}}
+\renewcommand\theenumii{{\rm (\alph{enumii})}}
+\renewcommand\theenumiii{{\rm (\arabic{enumiii})}}
+\renewcommand\theenumiv{{\rm (\Alph{enumiv})}}
+
+% you can put your macros here
+% only include macros which are actually used
+% go easy on the one-letter macros
+
+\theoremstyle{definition}
+\newtheorem{situation}[theorem]{Situation}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spec}{Spec}
+
+\newcommand{\citeSP}[1]{\cite[\href{http://stacks.math.columbia.edu/tag/#1}{Tag #1}]{stacks-project}}
+\newcommand{\todo}[1]{\footnote{\textbf{TODO.} #1}}
+
+\begin{document}
+
+\title{Stacks Project Expository Collection}
+\author{Pieter Belmans, Aise Johan de Jong, Wei Ho}
+
+\frontmatter
+
+\setcounter{page}{3}
+\maketitle
+\tableofcontents
+\cleardoublepage
+\listofcontributors
+\cleardoublepage
+
+\mainmatter
+\setcounter{page}{1}
+\include{mgbar-chapter}
+
+\end{document}
